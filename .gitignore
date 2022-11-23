@@ -1,0 +1,10 @@
+# folders
+/node_modules
+/.next
+/.vscode
+/db/*
+
+# files
+.DS_Store
+.env
+yarn-error.log*

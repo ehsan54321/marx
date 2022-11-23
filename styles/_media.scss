@@ -1,0 +1,87 @@
+@media (min-width: 1199px) {
+  .container-xl {
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 1163px) {
+  .coinPage_chartContent,
+  .coinPage_chartContent svg {
+    width: 800px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .d-md-table-cell {
+    display: table-cell !important;
+  }
+}
+
+@media (min-width: 600px) {
+  .auth_login {
+    width: 550px;
+  }
+}
+
+@media (min-width: 576px) {
+  .d-sm-table-cell {
+    display: table-cell !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .uiCoin_star {
+    margin: 12.8px 0 0 0;
+  }
+  .uiCoin_th_id_star {
+    margin-right: -13px;
+  }
+  .uiCoin_nameEN {
+    color: #5a5d60;
+    line-height: 2.9;
+    font-size: 12.5px !important;
+  }
+  .uiCoin_numbers {
+    transform: translateY(55%);
+    font-size: 14.5px !important;
+  }
+  .uiCoin_th {
+    margin-right: -13.5px;
+  }
+  .star_home {
+    width: 150px;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 500px) {
+  .uiCoin_nameEN {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 450px) {
+  .container-xl {
+    padding-left: calc(var(--bs-gutter-x) * 0.2);
+    padding-right: calc(var(--bs-gutter-x) * 0.2);
+  }
+  .tr th {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 399px) {
+  .coinPage_icon button {
+    padding: 0;
+  }
+}
+
+@media (max-width: 350px) {
+  .notFond_content {
+    width: 260px;
+    height: auto;
+    margin-bottom: 15px;
+  }
+  .uiCoin_th {
+    margin-right: 12px;
+  }
+}

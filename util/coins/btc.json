@@ -1,0 +1,16 @@
+{
+  "id": 1,
+  "key": "btc",
+  "name": "بیت کوین",
+  "all_name": "Bitcoin",
+  "poster_path": "bitcoin-btc-logo.svg",
+  "usd": "20767",
+  "dayGrith": "2008-10-30",
+  "aboutCoin": {
+    "now": 90.88,
+    "arz": 19086525,
+    "maxArz": 21000000,
+    "body": "بیت کوین یک ارز دیجیتال است که در سال 2008 توسط شخص یا گروهی ناشناس با استفاده از نام ساتوشی ناکاموتو اختراع شد. این ارز در سال 2009 و زمانی که پیاده سازی آن به عنوان نرم افزار منبع باز منتشر شد، شروع به استفاده از آن کرد. بیت کوین یک ارز دیجیتال غیرمتمرکز است، بدون بانک مرکزی یا مدیر تک، که می تواند از کاربر به کاربر در شبکه بیت کوین نظیر به نظیر بدون نیاز به واسطه ارسال شود. تراکنش ها توسط گره های شبکه از طریق رمزنگاری تأیید می شوند و در یک دفتر کل توزیع شده عمومی به نام بلاک چین ثبت می شوند. آنها را می توان با ارزها، محصولات و خدمات دیگر مبادله کرد، اما ارزش واقعی سکه ها بسیار متغیر است.",
+    "ENbody": "Bitcoin is a cryptocurrency invented in 2008 by an unknown person or group of people using the name Satoshi Nakamoto.The currency began use in 2009 when its implementation was released as opensource software.Bitcoin is a decentralized digital currency, without a central bank or single administrator, that can be sent from user to user on the peertopeer bitcoin network without the need for intermediaries. Transactions are verified by network nodes through cryptography and recorded in a public distributed ledger called a blockchain.Bitcoins are created as a reward for a process known as mining. They can be exchanged for other currencies, products, and services,but the realworld value of the coins is extremely volatile."
+  }
+}

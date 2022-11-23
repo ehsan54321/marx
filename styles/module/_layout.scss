@@ -1,0 +1,33 @@
+.layout_ {
+  &divider {
+    background: #ccc !important;
+    height: 20px !important;
+  }
+  &head {
+    isolation: isolate;
+    z-index: 50;
+  }
+  &profile {
+    margin-left: 6px;
+    margin-right: -3.3px;
+  }
+  &text {
+    font-size: 12.6px;
+    color: $secondary !important;
+  }
+  &content {
+    height: 64px;
+  }
+  &border {
+    border: 1.5px #ddd solid;
+  }
+  &icon {
+    font-size: 30px;
+    color: $secondary;
+    transition: color 0.45s ease-out;
+
+    &:hover {
+      color: black;
+    }
+  }
+}

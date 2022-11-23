@@ -1,0 +1,16 @@
+.my_btn {
+  line-height: 1.5715;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  height: 32px;
+  padding: 4px 15px;
+  border-radius: 2px;
+  border: 1px solid #1890ff;
+  background: #1890ff;
+  text-shadow: 0 -1px 0 rgb(0 0 0 / 12%);
+  box-shadow: 0 2px 0 rgb(0 0 0 / 5%);
+
+  &:hover {
+    border-color: #40a9ff;
+    background: #40a9ff;
+  }
+}

@@ -1,0 +1,21 @@
+@import './fonts';
+@import './restCssDefaultBrowser';
+@import './variables';
+@import './customClass';
+
+// components
+@import './components/divider';
+@import './components/btn';
+@import './components/loader';
+// components
+
+// module
+@import './module/ads';
+@import './module/auth';
+@import './module/uiCoin';
+@import './module/star';
+@import './module/layout';
+@import './module/coinPage';
+// module
+
+@import './media';

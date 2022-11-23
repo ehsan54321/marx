@@ -1,0 +1,98 @@
+.font- {
+  &18 {
+    font-size: 18px !important;
+  }
+  &17 {
+    font-size: 17px !important;
+  }
+  &15-5 {
+    font-size: 15.5px !important;
+  }
+  &15 {
+    font-size: 15px !important;
+  }
+  &13 {
+    font-size: 13px !important;
+  }
+}
+
+.text- {
+  &gold {
+    color: #fde047;
+  }
+  &good {
+    color: $good !important;
+  }
+  &red {
+    color: red !important;
+  }
+  &green {
+    color: green !important;
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+.background-color {
+  background-color: #fff;
+  overflow: auto;
+  border-radius: 8px;
+  padding: 18px 7px;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+.accordion_list {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgb(66, 82, 110);
+}
+
+.nav_page {
+  --bs-breadcrumb-divider: '~';
+}
+
+.transition {
+  transition: color 0.4s ease-in-out !important;
+}
+
+.hover > tbody > tr:hover > * {
+  --bs-table-accent-bg: #f8fafc;
+}
+
+.h1_page {
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+// tables
+.table {
+  width: 100%;
+  & > :not(caption) > tr > td {
+    padding: 0.6rem 0.25rem;
+  }
+  & > :not(caption) > * > * {
+    border-bottom-width: 0px;
+  }
+}
+
+.tr {
+  transition: background 0.1s linear;
+  border-bottom: 1px solid #f0f0f0 !important;
+  display: table-row;
+
+  th {
+    text-align: center;
+    font-size: 12px;
+    color: $pro !important;
+    line-height: 1.8 !important;
+    display: table-cell;
+  }
+  td {
+    display: table-cell;
+    text-align: center;
+    font-size: 15px !important;
+  }
+}
