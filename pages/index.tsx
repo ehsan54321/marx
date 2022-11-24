@@ -6,7 +6,7 @@ import SEO from '@components/Seo'
 import { useTranslation } from 'react-i18next'
 import type { GetStaticProps } from 'next'
 
-export const getStaticProps:GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   return http.get('api/coins').then((res) => {
     return {
       props: { data: res.data },

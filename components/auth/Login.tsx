@@ -265,6 +265,19 @@ const Login = () => {
           className="w-100 mt-4 auth_btn"
           disabled={loader}
         >
+          {loader && (
+            <span className="loader text-dark me-1" role="progressbar">
+              <svg viewBox="22 22 44 44" width="20">
+                <circle
+                  cx="44"
+                  cy="44"
+                  r="20.2"
+                  fill="none"
+                  strokeWidth="3.6"
+                ></circle>
+              </svg>
+            </span>
+          )}
           {loader ? t('loading') : t('login')}
         </Button>
       </div>

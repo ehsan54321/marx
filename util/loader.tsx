@@ -1,7 +1,4 @@
-import { useTranslation } from 'react-i18next'
-
 const Loader: React.FC = () => {
-  const { t } = useTranslation()
   return (
     <div className="d-flex justify-content-center loader_container">
       <span className="loader" role="progressbar">

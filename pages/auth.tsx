@@ -57,8 +57,8 @@ const AuthPage = () => {
                 src="/static/images/favicon.ico"
                 alt="لوگو"
                 className={img ? '' : 'opacity-0'}
-                width={120}
-                height={120}
+                width={110}
+                height={110}
               />
             </div>
             <div className="background-color text-center m-auto ps-3 pe-3 auth_login">
