@@ -1,22 +1,21 @@
-import { withIronSessionApiRoute } from 'iron-session/next'
+import jwt from 'jsonwebtoken'
+import { getCookie } from 'cookies-next'
+import type { NextApiRequest, NextApiResponse } from 'next'
 
-export default withIronSessionApiRoute(
-  async (req: any, res) => {
-    const data: any = req.session.user
-
-    if (data) {
-      res.status(200).json({ data, status: 'SUCCESS' })
-    } else {
-      res.status(200).json({ message: 'on login', status: 'ERROR' })
-    }
-  },
-  {
-    password: process.env.IRON_SESSION,
-    cookieName: 'token',
-    cookieOptions: {
-      httpOnly: !!(process.env.NODE_ENV === 'production'),
-      secure: !!(process.env.NODE_ENV === 'production'),
-      maxAge: 3500000,
-    },
+const User = (req: NextApiRequest, res: NextApiResponse) => {
+  const data = getCookie('token', { res, req })
+  const deCodeToken = (token) => {
+    return jwt.decode(token, {
+      complete: true,
+      algorithm: 'HS256',
+      expiresIn: '7d',
+    })
   }
-)
+  if (data) {
+    res.status(201).json({ data: deCodeToken(data).payload, status: 'SUCCESS' })
+  } else {
+    res.status(200).json({ message: 'on login', status: 'ERROR' })
+  }
+}
+
+export default User

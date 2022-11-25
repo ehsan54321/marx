@@ -3,11 +3,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import LoginForm from '@components/auth/Login'
 import RegisterForm from '@components/auth/Register'
+import Select from 'react-select'
 import SEO from '@components/Seo'
 import { AuthContext } from '@store/auth'
 import { Button, Tab, Tabs } from 'react-bootstrap'
 import { useContext, useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
 import type { GetStaticProps } from 'next'
 
@@ -35,6 +35,14 @@ const AuthPage = () => {
       localStorage.setItem('lang', 'fa')
     }
   }
+  const optionsLang = [
+    { value: 'fa', label: 'فارسی' },
+    { value: 'en', label: 'English' },
+  ]
+  const optionsImg = [
+    { value: 'img', label: t('img') },
+    { value: 'no_img', label: t('no.img') },
+  ]
   const text: string = t('lang')
     ? `صفحه ${status === 'register' ? 'ثبت نام' : 'ورود'}`
     : `Page ${status === 'register' ? 'Register' : 'Login'}`
@@ -72,24 +80,32 @@ const AuthPage = () => {
                 <Tab eventKey="register" title={t('register')}>
                   <RegisterForm />
                 </Tab>
-                <Tab eventKey="settings" title={t('settings')}>
+                <Tab
+                  eventKey="settings"
+                  title={t('settings')}
+                  style={{ height: 200 }}
+                >
                   <div className="d-flex">
-                    <select
-                      className="form-select form-select-sm mb-3 me-3"
+                    <Select
+                      className="w-100"
                       onChange={ChangeLang}
-                      value={t('lang') ? 'fa' : 'en'}
-                    >
-                      <option value="fa">فارسی</option>
-                      <option value="en">English</option>
-                    </select>
-                    <select
-                      className="form-select form-select-sm mb-3 ms-3"
-                      onChange={(e) => setImg(e.target.value === 'img')}
-                      value={img ? 'img' : 'no_img'}
-                    >
-                      <option value="img">{t('img')}</option>
-                      <option value="no_img">{t('no.img')}</option>
-                    </select>
+                      defaultValue={[
+                        t('lang')
+                          ? { value: 'fa', label: 'فارسی' }
+                          : { value: 'en', label: 'English' },
+                      ]}
+                      options={optionsLang}
+                    />
+                    <Select
+                      className="w-100 ms-3"
+                      onChange={(e) => setImg(e.value === 'img')}
+                      defaultValue={[
+                        img
+                          ? { value: 'img', label: t('img') }
+                          : { value: 'no_img', label: t('no.img') },
+                      ]}
+                      options={optionsImg}
+                    />
                   </div>
                 </Tab>
               </Tabs>

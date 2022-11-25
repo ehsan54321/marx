@@ -60,6 +60,9 @@
 }
 
 @media (max-width: 450px) {
+  .uiCoin_select {
+    flex-direction: column;
+  }
   .container-xl {
     padding-left: calc(var(--bs-gutter-x) * 0.2);
     padding-right: calc(var(--bs-gutter-x) * 0.2);

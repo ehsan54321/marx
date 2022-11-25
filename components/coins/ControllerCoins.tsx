@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import Image from 'next/image'
 import MapCoin from './MapCoin'
+import Select from 'react-select'
 import { SpasTo0, toPersian } from '@lib/helper'
 import { startTransition, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -40,14 +41,19 @@ const ControllerCoins = ({ dataServer }: dataServerType | any) => {
       )
     )
   }
-  const HandlerId = () => {
+  const HandlerId = (e) => {
     setSortId(!sortId)
-    if (sortId) setDataCoin((prevStat) => prevStat.sort((a, b) => a.id - b.id))
+    if (e.value === 'small')
+      setDataCoin((prevStat) => prevStat.sort((a, b) => a.id - b.id))
     else setDataCoin((prevStat) => prevStat.sort((a, b) => b.id - a.id))
   }
+  const options = [
+    { value: 'small', label: 'کم به زیاد' },
+    { value: 'large', label: 'زیاد به کم' },
+  ]
   return (
     <>
-      <div className="mx-4 mb-4 d-flex justify-content-between flex-column flex-sm-row">
+      <div className="mx-4 mb-4 d-flex justify-content-between uiCoin_select">
         <div className="d-flex mb-2 mb-sm-0 mt-2">
           <button type="submit" className="uiCoin_searchButton text-white">
             <i className="bi bi-search d-flex justify-content-center"></i>
@@ -74,14 +80,11 @@ const ControllerCoins = ({ dataServer }: dataServerType | any) => {
         </div>
         <div>
           <p className="mb-1">مرتب بر اساس ایدی :</p>
-          <select
-            className="form-select form-select-sm me-3"
+          <Select
             onChange={HandlerId}
-            value={sortId ? 'o21' : 'o12'}
-          >
-            <option value="o12">کم به زیاد</option>
-            <option value="o21">زیاد به کم</option>
-          </select>
+            defaultValue={[{ value: 'small', label: 'کم به زیاد' }]}
+            options={options}
+          />
         </div>
       </div>
 

@@ -18,7 +18,6 @@ type authObj = {
   poster_path: string
   is_admin: boolean
 }
-type resType = { data: { status: string; data: authObj; message: string } }
 const Login = () => {
   const [loader, setLoader] = useState<boolean>(false)
   const [passLook, setPassLook] = useState<boolean>(true)
@@ -48,21 +47,19 @@ const Login = () => {
 
         http
           .post('api/auth/login', token)
-          .then((res: resType) => {
+          .then((res) => {
             if (res.data.status === 'SUCCESS') {
-              http.get('api/user').then((r) => {
-                setAuthState(r.data.data)
-                router.push('/account')
-                toast.fire({
-                  icon: 'success',
-                  toast: true,
-                  position: 'top-end',
-                  timer: 6500,
-                  title: t('login.success'),
-                  showConfirmButton: false,
-                  showCloseButton: true,
-                  timerProgressBar: true,
-                })
+              setAuthState(res.data.data)
+              router.push('/account')
+              toast.fire({
+                icon: 'success',
+                toast: true,
+                position: 'top-end',
+                timer: 6500,
+                title: t('login.success'),
+                showConfirmButton: false,
+                showCloseButton: true,
+                timerProgressBar: true,
               })
             } else {
               toast.fire({
@@ -79,48 +76,22 @@ const Login = () => {
           })
           .catch(() => resErr(t))
       }
-      if (value.password.length >= 6 && value.email.length >= 14) {
-        if (
-          dbUser[value.email] &&
-          dbUser[value.email].password == value.password
-        ) {
-          authNext()
-        } else {
-          toast.fire({
-            icon: 'error',
-            toast: true,
-            position: 'top-end',
-            timer: 6500,
-            title: t('login.warning'),
-            showConfirmButton: false,
-            showCloseButton: true,
-            timerProgressBar: true,
-          })
-        }
+      if (
+        dbUser[value.email] &&
+        dbUser[value.email].password == value.password
+      ) {
+        authNext()
       } else {
-        if (value.email.length <= 14) {
-          toast.fire({
-            icon: 'error',
-            toast: true,
-            position: 'top-end',
-            timer: 6500,
-            title: 'ایمیل شما می بایست بیش از ۱۴ حرف باشد!',
-            showConfirmButton: false,
-            showCloseButton: true,
-            timerProgressBar: true,
-          })
-        } else {
-          toast.fire({
-            icon: 'error',
-            toast: true,
-            position: 'top-end',
-            timer: 6500,
-            title: 'رمز عبور شما می بایست بیش از ۶ حرف باشد!',
-            showConfirmButton: false,
-            showCloseButton: true,
-            timerProgressBar: true,
-          })
-        }
+        toast.fire({
+          icon: 'error',
+          toast: true,
+          position: 'top-end',
+          timer: 6500,
+          title: t('login.warning'),
+          showConfirmButton: false,
+          showCloseButton: true,
+          timerProgressBar: true,
+        })
       }
     } catch {
       resErr(t)

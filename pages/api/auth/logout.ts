@@ -1,16 +1,9 @@
-import { withIronSessionApiRoute } from 'iron-session/next'
+import { removeCookies } from 'cookies-next'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-export default withIronSessionApiRoute(
-  function logoutRoute(req: NextApiRequest, res: NextApiResponse) {
-    req.session.destroy()
-    res.status(200).json('Logged out')
-  },
-  {
-    password: process.env.IRON_SESSION,
-    cookieName: 'token',
-    cookieOptions: {
-      secure: process.env.NODE_ENV === 'production',
-    },
-  }
-)
+const Logout = (req: NextApiRequest, res: NextApiResponse) => {
+  removeCookies('token', { res, req })
+  res.status(200).json('logout successfully')
+}
+
+export default Logout

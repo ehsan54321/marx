@@ -53,6 +53,7 @@
   "username": "نام کاربری",
   "login.success": "ورود با موفقیت انجام شد!",
   "login.warning": "ایمیل یا رمز عبور درستی نیست!",
+  "register.success": "ثبت نام با موفقیت انجام شد!",
   "register": "ثبت نام",
   "settings": "تنظیمات",
   "go.to.the.login.page": "رفتن به صفحه ورود",

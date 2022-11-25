@@ -22,7 +22,6 @@ type authObj = {
   poster_path: string
   is_admin: boolean
 }
-type resType = { data: { status: string; data: authObj; message: string } }
 const Register = () => {
   const router = useRouter()
   const { t } = useTranslation()
@@ -49,21 +48,19 @@ const Register = () => {
   const onFinish = (value: onFinishType) => {
     http
       .post('api/auth/register', value)
-      .then((res: resType) => {
+      .then((res) => {
         if (res.data.status === 'SUCCESS') {
-          http.post('api/user', { data: res.data.data }).then((r) => {
-            setAuthState(r)
-            router.push('/account')
-            toast.fire({
-              icon: 'success',
-              toast: true,
-              position: 'top-end',
-              timer: 6500,
-              title: t('register.success'),
-              showConfirmButton: false,
-              showCloseButton: true,
-              timerProgressBar: true,
-            })
+          setAuthState(res.data.data)
+          router.push('/account')
+          toast.fire({
+            icon: 'success',
+            toast: true,
+            position: 'top-end',
+            timer: 6500,
+            title: t('register.success'),
+            showConfirmButton: false,
+            showCloseButton: true,
+            timerProgressBar: true,
           })
         } else {
           toast.fire({
@@ -78,8 +75,10 @@ const Register = () => {
           })
         }
       })
-      .catch(() => resErr(t))
-    setLoader(false)
+      .catch(() => {
+        resErr(t)
+        setLoader(false)
+      })
   }
   const onSubmit = (e) => {
     const username: string = SpasTo0(e.target['0'].value.toLowerCase())
