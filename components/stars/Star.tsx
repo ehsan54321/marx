@@ -10,7 +10,7 @@ type starObj = {
   faName: string
   poster_path: string
 }
-const Star: React.FC<starObj> = ({ name, faName, id, poster_path }) => {
+const Star = ({ name, faName, id, poster_path }: starObj) => {
   const { t } = useTranslation()
   const { isAuth } = useContext(AuthContext)
   const [loaderStatus, setLoaderStatus] = useState<boolean>(false)
@@ -19,7 +19,7 @@ const Star: React.FC<starObj> = ({ name, faName, id, poster_path }) => {
 
   useEffect(() => {
     const data: starObj[] = JSON.parse(localStorage.getItem('star'))
-    if (data !== null) {
+    if (data) {
       data.map((coin: starObj) => {
         if (coin.name === name) setStatus(true)
       })

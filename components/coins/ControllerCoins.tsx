@@ -26,6 +26,7 @@ type dataServerType = {
 }
 const ControllerCoins = ({ dataServer }: dataServerType | any) => {
   const [dataCoin, setDataCoin] = useState<coinType[]>(dataServer.coins)
+  const [sortId, setSortId] = useState<boolean>(false)
   const [dir, setDir] = useState<boolean>(true)
   const { t } = useTranslation()
   const searchHandler = (searchValue: string) => {
@@ -39,10 +40,15 @@ const ControllerCoins = ({ dataServer }: dataServerType | any) => {
       )
     )
   }
+  const HandlerId = () => {
+    setSortId(!sortId)
+    if (sortId) setDataCoin((prevStat) => prevStat.sort((a, b) => a.id - b.id))
+    else setDataCoin((prevStat) => prevStat.sort((a, b) => b.id - a.id))
+  }
   return (
     <>
-      <div className="mt-2 mx-4 mb-4">
-        <div className="d-flex">
+      <div className="mx-4 mb-4 d-flex justify-content-between flex-column flex-sm-row">
+        <div className="d-flex mb-2 mb-sm-0 mt-2">
           <button type="submit" className="uiCoin_searchButton text-white">
             <i className="bi bi-search d-flex justify-content-center"></i>
           </button>
@@ -65,6 +71,17 @@ const ControllerCoins = ({ dataServer }: dataServerType | any) => {
               e.preventDefault()
             }}
           />
+        </div>
+        <div>
+          <p className="mb-1">مرتب بر اساس ایدی :</p>
+          <select
+            className="form-select form-select-sm me-3"
+            onChange={HandlerId}
+            value={sortId ? 'o21' : 'o12'}
+          >
+            <option value="o12">کم به زیاد</option>
+            <option value="o21">زیاد به کم</option>
+          </select>
         </div>
       </div>
 

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-const AdsComponents: React.FC = () => {
+const AdsComponents = () => {
   const [show, setShow] = useState<boolean>(true)
   const { t } = useTranslation()
   const deShowHandler = () => {

@@ -10,7 +10,7 @@ import { Router, useRouter } from 'next/router'
 import { useContext, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-const Header: React.FC = () => {
+const Header = () => {
   const [mobile, setMobile] = useState<boolean>(false)
   const { t } = useTranslation()
   Router.events.on('routeChangeStart', () => setMobile(false))
@@ -83,7 +83,7 @@ const Header: React.FC = () => {
   )
 }
 
-const Items: React.FC = () => {
+const Items = () => {
   const router = useRouter()
   const { t } = useTranslation()
   const activePathName = router.pathname.split('/')[1]

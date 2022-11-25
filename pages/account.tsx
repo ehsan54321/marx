@@ -12,11 +12,7 @@ export const getStaticProps: GetStaticProps = () => {
   return { props: { NoFooter: true } }
 }
 
-type Props = {
-  user_name: string
-}
-
-const Account: React.FC<Props> = () => {
+const Account = () => {
   const { authState, isAuth } = useContext(AuthContext)
   const { t } = useTranslation()
   if (isAuth) {

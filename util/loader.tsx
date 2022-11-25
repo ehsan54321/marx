@@ -1,4 +1,4 @@
-const Loader: React.FC = () => {
+const Loader = () => {
   return (
     <div className="d-flex justify-content-center loader_container">
       <span className="loader" role="progressbar">

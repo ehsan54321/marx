@@ -79,6 +79,7 @@ const Register = () => {
         }
       })
       .catch(() => resErr(t))
+    setLoader(false)
   }
   const onSubmit = (e) => {
     const username: string = SpasTo0(e.target['0'].value.toLowerCase())
@@ -215,8 +216,10 @@ const Register = () => {
         mas: 'تکرار رمز عبور را وارد کنید',
       })
     }
-    if (isEmail && isUsername && isPassword && isRePassword)
+    if (isEmail && isUsername && isPassword && isRePassword) {
+      setLoader(true)
       onFinish({ email, password, re_password: rePassword, username })
+    }
     e.preventDefault()
   }
   return (

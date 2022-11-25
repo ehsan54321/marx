@@ -12,8 +12,8 @@ const NotFound = () => {
   const ResultRef = useRef(null)
   const { t } = useTranslation()
   useEffect(() => {
-    if (!isFind()) router.reload()
-  }, [])
+    if (!isFind()) location.reload()
+  }, [router])
   useEffect(() => {
     ResultRef.current.innerText = t('lang')
       ? `این (url: ${router.asPath}) وجد ندارد`

@@ -6,7 +6,7 @@ type MetaProps = {
   description?: string
   noText?: boolean
 }
-const SEO: React.FC<MetaProps> = (props) => {
+const SEO = (props: MetaProps) => {
   const { title: titleText, keywords, description, noText } = props
   const title = noText ? titleText : `${titleText} - MyApp`
   return (

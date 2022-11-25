@@ -19,10 +19,9 @@ const AuthPage = () => {
   const [status, setStatus] = useState<string>('login')
   const [img, setImg] = useState<boolean>(true)
   const { isAuth } = useContext(AuthContext)
-  const router = useRouter()
   const { t, i18n } = useTranslation()
   useEffect(() => {
-    if (router.asPath.split('#')[1] === 'register') setStatus('register')
+    if (location.href.split('#')[1] === 'register') setStatus('register')
   }, [])
   useEffect(() => {
     location.replace('#' + status)

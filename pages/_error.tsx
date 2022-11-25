@@ -1,4 +1,4 @@
 import ErrorComponent from '@components/error/ErrorComponent'
 
-const Error: React.FC = () => <ErrorComponent />
+const Error = () => <ErrorComponent />
 export default Error

@@ -6,7 +6,7 @@ import Star from '@components/stars/Star'
 import { SortBySetaSeta, toPersian, usdInRials } from '@lib/helper'
 import { useTranslation } from 'react-i18next'
 
-type UiCoinProps = {
+type Props = {
   my_key: string
   name: string
   poster_path: string
@@ -22,7 +22,7 @@ type UiCoinProps = {
   usd: number
   rialsOne: number
 }
-const UiCoin: React.FC<UiCoinProps> = (props) => {
+const UiCoin = (props: Props) => {
   const {
     my_key,
     name,
@@ -32,7 +32,7 @@ const UiCoin: React.FC<UiCoinProps> = (props) => {
     dayAll,
     usd,
     rialsOne,
-  }: UiCoinProps = props
+  }: Props = props
   const [hover, setHover] = useState<boolean>(false)
   const { t } = useTranslation()
   return (

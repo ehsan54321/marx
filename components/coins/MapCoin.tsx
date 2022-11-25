@@ -67,4 +67,4 @@ const MapCoin = (props: Props) => {
   )
 }
 
-export default React.memo(MapCoin)
+export default MapCoin

@@ -1,12 +1,12 @@
 import Footer from './Footer'
 import Header from './Header'
 
-type LayoutProps = {
+type Props = {
   children: JSX.Element
   NoLayout: boolean
   NoFooter: boolean
 }
-const Layout: React.FC<LayoutProps> = ({ children, NoLayout, NoFooter }) => {
+const Layout = ({ children, NoLayout, NoFooter }: Props) => {
   if (!NoLayout)
     return (
       <>
