@@ -1,4 +1,4 @@
-import ErrorComponent from '@components/error/ErrorComponent'
+import { ErrorSite } from '@components/error'
 
-const Error = () => <ErrorComponent />
-export default Error
+const ErrorPage = () => <ErrorSite />
+export default ErrorPage

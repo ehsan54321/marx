@@ -3,7 +3,7 @@ import Link from 'next/link'
 import SEO from '@components/Seo'
 import { useTranslation } from 'react-i18next'
 
-const ErrorComponent = () => {
+const ErrorSite = () => {
   const { t } = useTranslation()
   return (
     <>
@@ -32,4 +32,4 @@ const ErrorComponent = () => {
   )
 }
 
-export default ErrorComponent
+export default ErrorSite

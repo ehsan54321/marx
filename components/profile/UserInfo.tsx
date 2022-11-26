@@ -101,7 +101,7 @@ const UserInfo = () => {
       } else if (!!!emailRegExp.exec(email)) {
         setErrorEmail({
           stt: true,
-          mas: 'یک ایمیل واقعی از شرکت گوگل وارد کنید!',
+          mas: 'یک ایمیل معتبر وارد کنید!',
         })
       }
     }

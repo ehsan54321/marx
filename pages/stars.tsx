@@ -1,4 +1,4 @@
-import Err401 from '@components/error/401'
+import { Error401 } from '@components/error'
 import Image from 'next/image'
 import SEO from '@components/Seo'
 import StarPage from '@components/stars/StarPage'
@@ -67,7 +67,7 @@ const PageStars = () => {
       </>
     )
   } else {
-    return <Err401 btn>{t('error.no.login')}</Err401>
+    return <Error401 btn>{t('error.no.login')}</Error401>
   }
 }
 

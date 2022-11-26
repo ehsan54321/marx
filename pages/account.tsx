@@ -1,17 +1,15 @@
-import Err401 from '@components/error/401'
 import SEO from '@components/Seo'
-import UserCard from '@components/profile/UserCard'
-import UserInfo from '@components/profile/UserInfo'
 import { AuthContext } from '@store/auth'
 import { Col } from 'react-bootstrap'
+import { Error401 } from '@components/error'
 import { GetStaticProps } from 'next'
 import { useContext } from 'react'
+import { UserCard, UserInfo } from '@components/profile'
 import { useTranslation } from 'react-i18next'
 
 export const getStaticProps: GetStaticProps = () => {
   return { props: { NoFooter: true } }
 }
-
 const Account = () => {
   const { authState, isAuth } = useContext(AuthContext)
   const { t } = useTranslation()
@@ -29,7 +27,7 @@ const Account = () => {
         </div>
       </>
     )
-  } else return <Err401 btn>{t('error.no.login')}</Err401>
+  } else return <Error401 btn>{t('error.no.login')}</Error401>
 }
 
 export default Account

@@ -8,7 +8,7 @@ type Props = {
   children: string
   btn?: boolean
 }
-const Err401 = ({ children, btn = false }: Props) => {
+const Error401 = ({ children, btn = false }: Props) => {
   const { t } = useTranslation()
   return (
     <div className="background-color">
@@ -37,4 +37,4 @@ const Err401 = ({ children, btn = false }: Props) => {
   )
 }
 
-export default Err401
+export default Error401
