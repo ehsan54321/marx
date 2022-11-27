@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import Star from '@components/stars/Star'
+import { BsFillCaretDownFill, BsFillCaretUpFill } from 'react-icons/bs'
 import { SortBySetaSeta, toPersian, usdInRials } from '@lib/helper'
 import { useTranslation } from 'react-i18next'
 
@@ -112,11 +113,11 @@ const UiCoin = (props: Props) => {
           )}
           title={t('change-24h')}
         >
-          <i
-            className={`bi me-1 d-none d-sm-inline-block bi-caret-${
-              dayAll.color_day_in === 'red' ? 'down' : ''
-            }${dayAll.color_day_in === 'green' ? 'up' : ''}-fill`}
-          ></i>
+          {dayAll.color_day_in === 'red' ? (
+            <BsFillCaretDownFill className="me-1" />
+          ) : (
+            <BsFillCaretUpFill className="me-1" />
+          )}
           <span>
             {toPersian(dayAll.day_in, t('lang')) +
               '٪' +
@@ -161,11 +162,11 @@ const UiCoin = (props: Props) => {
           )}
           title={t('change-7d')}
         >
-          <i
-            className={`bi me-1 bi-caret-${
-              dayAll.color_day7 === 'red' ? 'down' : ''
-            }${dayAll.color_day7 === 'green' ? 'up' : ''}-fill`}
-          ></i>
+          {dayAll.color_day7 === 'red' ? (
+            <BsFillCaretDownFill className="me-1" />
+          ) : (
+            <BsFillCaretUpFill className="me-1" />
+          )}
           <span>
             {toPersian(dayAll.day7, t('lang')) +
               '٪' +

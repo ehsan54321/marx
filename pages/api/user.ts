@@ -12,7 +12,7 @@ const User = (req: NextApiRequest, res: NextApiResponse) => {
     })
   }
   if (data) {
-    res.status(201).json({ data: deCodeToken(data).payload, status: 'SUCCESS' })
+    res.status(200).json({ data: deCodeToken(data).payload, status: 'SUCCESS' })
   } else {
     res.status(200).json({ message: 'on login', status: 'ERROR' })
   }

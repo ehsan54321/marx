@@ -19,11 +19,24 @@
   }
   &dar {
     border-radius: 90px;
-    font-size: 16px !important;
-    font-weight: bold;
+    padding: 20px 0;
+    & span {
+      font-weight: bold;
+    }
   }
   &icon {
     top: 4px !important;
     z-index: 10 !important;
+  }
+  &chart {
+    overflow: hidden;
+    transition: all 0.8s ease;
+    -webkit-transition: all 0.8s ease;
+    -moz-transition: all 0.8s ease;
+    -ms-transition: all 0.8s ease;
+    -o-transition: all 0.8s ease;
+  }
+  &star svg {
+    margin: auto !important;
   }
 }

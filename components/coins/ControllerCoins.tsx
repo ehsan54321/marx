@@ -2,6 +2,7 @@ import classNames from 'classnames'
 import Image from 'next/image'
 import MapCoin from './MapCoin'
 import Select from 'react-select'
+import { BsSearch } from 'react-icons/bs'
 import { SpasTo0, toPersian } from '@lib/helper'
 import { startTransition, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -54,9 +55,9 @@ const ControllerCoins = ({ dataServer }: dataServerType | any) => {
   return (
     <>
       <div className="mx-4 mb-4 d-flex justify-content-between uiCoin_select">
-        <div className="d-flex mb-2 mb-sm-0 mt-2">
+        <div className="d-flex mb-3 mb-sm-0 mt-2">
           <button type="submit" className="uiCoin_searchButton text-white">
-            <i className="bi bi-search d-flex justify-content-center"></i>
+            <BsSearch />
           </button>
           <input
             type="search"
@@ -79,7 +80,7 @@ const ControllerCoins = ({ dataServer }: dataServerType | any) => {
           />
         </div>
         <div>
-          <p className="mb-1">مرتب بر اساس ایدی :</p>
+          <p className="mb-1">مرتب بر اساس رتبه :</p>
           <Select
             onChange={HandlerId}
             defaultValue={[{ value: 'small', label: 'کم به زیاد' }]}

@@ -2,8 +2,15 @@ import classNames from 'classnames'
 import http from '@services/httpServices'
 import toast from 'sweetalert2'
 import { AuthContext } from '@store/auth'
+import {
+  BsEnvelopeFill,
+  BsEye,
+  BsEyeSlash,
+  BsFillPersonFill,
+} from 'react-icons/bs'
 import { Button } from 'react-bootstrap'
 import { resErr, SpasTo0 } from '@lib/helper'
+import { RiLockPasswordFill } from 'react-icons/ri'
 import { useContext, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
@@ -228,7 +235,9 @@ const Register = () => {
           <label htmlFor="register_username">{t('username')}</label>
         </div>
         <div className="input-group">
-          <i className="bi bi-person-fill input-group-text bg-white auth_input"></i>
+          <div className="input-group-text bg-white auth_input">
+            <BsFillPersonFill />
+          </div>
           <input
             id="register_username"
             className={classNames(
@@ -247,7 +256,9 @@ const Register = () => {
           <label htmlFor="register_email">{t('email')}</label>
         </div>
         <div className="input-group">
-          <i className="bi bi-envelope-fill input-group-text bg-white auth_input"></i>
+          <div className="input-group-text auth_input bg-white">
+            <BsEnvelopeFill />
+          </div>
           <input
             id="register_email"
             className={classNames(
@@ -266,7 +277,9 @@ const Register = () => {
           <label htmlFor="register_password">{t('password')}</label>
         </div>
         <div className="input-group">
-          <i className="bi bi-unlock-fill input-group-text bg-white"></i>
+          <div className="input-group-text auth_input bg-white">
+            <RiLockPasswordFill />
+          </div>
           <input
             id="register_password"
             className={classNames(
@@ -275,13 +288,12 @@ const Register = () => {
             )}
             type={passLook ? 'password' : 'text'}
           />
-          <i
+          <div
+            className="input-group-text bg-white"
             onClick={() => setPassLook(!passLook)}
-            className={classNames(
-              'bi input-group-text bg-white',
-              passLook ? 'bi-eye-slash' : 'bi-eye'
-            )}
-          ></i>
+          >
+            {!passLook ? <BsEye /> : <BsEyeSlash />}
+          </div>
         </div>
         <div className="mt-1">
           <span className="text-danger">{errorPass.mas}</span>
@@ -292,7 +304,9 @@ const Register = () => {
           <label htmlFor="register_password">{t('re.password')}</label>
         </div>
         <div className="input-group">
-          <i className="bi bi-unlock-fill input-group-text bg-white"></i>
+          <div className="input-group-text auth_input bg-white">
+            <RiLockPasswordFill />
+          </div>
           <input
             id="register_password"
             className={classNames(
@@ -301,13 +315,12 @@ const Register = () => {
             )}
             type={rePassLook ? 'password' : 'text'}
           />
-          <i
+          <div
+            className="input-group-text bg-white"
             onClick={() => setRePassLook(!rePassLook)}
-            className={classNames(
-              'bi input-group-text bg-white',
-              rePassLook ? 'bi-eye-slash' : 'bi-eye'
-            )}
-          ></i>
+          >
+            {!rePassLook ? <BsEye /> : <BsEyeSlash />}
+          </div>
         </div>
         <div className="mt-1">
           <span className="text-danger">{errorRePass.mas}</span>

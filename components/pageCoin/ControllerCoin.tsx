@@ -7,6 +7,12 @@ import { baseURL } from '@baseUrl'
 import { Col, Dropdown } from 'react-bootstrap'
 import { SortBySetaSeta, toPersian, usdInRials } from '@lib/helper'
 import { useTranslation } from 'react-i18next'
+import { HiOutlineShare } from 'react-icons/hi'
+import { AiOutlineMail, AiOutlineWhatsApp } from 'react-icons/ai'
+import { TbBrandTelegram } from 'react-icons/tb'
+import { RiFileCopyLine } from 'react-icons/ri'
+import { BsFillCaretDownFill, BsFillCaretUpFill } from 'react-icons/bs'
+import classNames from 'classnames'
 
 type Props = {
   coin: any
@@ -61,7 +67,7 @@ const ControllerPageCoin = (props: Props) => {
                 </div>
               </div>
             </div>
-            <div className="d-flex align-items-center ms-2 font-17">
+            <div className="d-flex align-items-center ms-2 font-17 coinPage_star">
               <Star
                 name={nameCoin}
                 faName={props.coin.name}
@@ -84,7 +90,9 @@ const ControllerPageCoin = (props: Props) => {
             <Dropdown className="coinPage_icon ms-1">
               <Dropdown.Toggle variant="width" className="border-0">
                 <div className="d-flex text-secondary">
-                  <i className="bi bi-link-45deg bg-white font-18 px-1 d-flex align-items-center"></i>
+                  <div className="px-1 d-flex align-items-center">
+                    <HiOutlineShare size={18} />
+                  </div>
                   <span className="font-13 d-none d-sm-flex">اشتراک گزاری</span>
                 </div>
               </Dropdown.Toggle>
@@ -97,7 +105,7 @@ const ControllerPageCoin = (props: Props) => {
                   }&body=Open this link:%0D%0A${baseURL}coins/${nameCoin}`}
                   rel="nofollow"
                 >
-                  <i className="bi bi-envelope"></i>
+                  <AiOutlineMail />
                   <span className="ms-1">{t('email')}</span>
                 </Dropdown.Item>
                 <Dropdown.Item
@@ -105,7 +113,7 @@ const ControllerPageCoin = (props: Props) => {
                   rel="nofollow"
                   href={`https://t.me/share/url?url=${baseURL}coins/${nameCoin}`}
                 >
-                  <i className="bi bi-telegram"></i>
+                  <TbBrandTelegram />
                   <span className="ms-1">{t('telegram')}</span>
                 </Dropdown.Item>
                 <Dropdown.Item
@@ -113,11 +121,11 @@ const ControllerPageCoin = (props: Props) => {
                   rel="nofollow"
                   href={`whatsapp://send?text=${baseURL}coins/${nameCoin}`}
                 >
-                  <i className="bi bi-whatsapp"></i>
+                  <AiOutlineWhatsApp />
                   <span className="ms-1">{t('whatsapp')}</span>
                 </Dropdown.Item>
                 <Dropdown.Item onClick={copyHandler}>
-                  <i className="bi bi-journals"></i>
+                  <RiFileCopyLine />
                   <span className="ms-1">{t('copy.link')}</span>
                 </Dropdown.Item>
               </Dropdown.Menu>
@@ -131,14 +139,19 @@ const ControllerPageCoin = (props: Props) => {
         <Col>
           <div
             title={t('change-24h')}
-            className={`bg-${props.coin.day.colorDayIn} coinPage_dar text-white justify-content-around mt-3 pb-3 pt-3 d-flex text-center`}
+            className={classNames(
+              `bg-${props.coin.day.colorDayIn}`,
+              'coinPage_dar text-white justify-content-center mt-3 d-flex h6'
+            )}
           >
+            <div className="me-1">
+              {props.coin.day.colorDayIn !== 'danger' ? (
+                <BsFillCaretUpFill className="me-1" />
+              ) : (
+                <BsFillCaretDownFill className="me-1" />
+              )}
+            </div>
             <span>
-              <i
-                className={`bi me-1 bi-caret-${
-                  props.coin.day.colorDayIn === 'danger' ? 'down' : 'up'
-                }-fill`}
-              ></i>
               {toPersian(props.coin.day.dayIn, t('lang')) +
                 '٪' +
                 (props.coin.day.colorDayIn === 'danger' ? '-' : '+')}

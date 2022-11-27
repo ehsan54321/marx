@@ -1,4 +1,5 @@
 import toast from 'sweetalert2'
+import { AiOutlineStar, AiTwotoneStar } from 'react-icons/ai'
 import { AuthContext } from '@store/auth'
 import { memo, useContext, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
@@ -85,13 +86,18 @@ const Star = ({ name, faName, id, poster_path }: starObj) => {
       </div>
     )
   } else {
-    return (
-      <i
+    return isAuth && status ? (
+      <AiTwotoneStar
         onClick={starHandler}
-        className={`bi star_star cursor-pointer bi-star${
-          isAuth && status ? '-fill text-gold' : ''
-        }`}
-      ></i>
+        className="star_star text-gold m-auto mt-0"
+        size={17}
+      />
+    ) : (
+      <AiOutlineStar
+        onClick={starHandler}
+        className="star_star m-auto mt-0"
+        size={17}
+      />
     )
   }
 }

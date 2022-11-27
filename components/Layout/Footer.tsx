@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { BsGithub } from 'react-icons/bs'
 import { useTranslation } from 'react-i18next'
 
 const Footer = ({ NoFooter }: { NoFooter: boolean }) => {
@@ -23,7 +24,7 @@ const Footer = ({ NoFooter }: { NoFooter: boolean }) => {
             </div>
             <div>
               <a href="https://github.com/ehsan54321/my-app" rel="nofollow">
-                <i className="bi bi-github d-flex layout_icon"></i>
+                <BsGithub className="layout_icon" />
               </a>
             </div>
           </div>

@@ -3,25 +3,34 @@ import http from '@services/httpServices'
 import Image from 'next/image'
 import Link from 'next/link'
 import toast from 'sweetalert2'
+import { AiFillHome, AiFillStar } from 'react-icons/ai'
 import { AuthContext } from '@store/auth'
-import { Dropdown, Nav, Navbar } from 'react-bootstrap'
+import { BsFillPersonFill, BsTranslate } from 'react-icons/bs'
+import { Dropdown } from 'react-bootstrap'
+import { FaBars, FaTimes } from 'react-icons/fa'
+import { HiLogout } from 'react-icons/hi'
 import { resErr } from '@lib/helper'
 import { Router, useRouter } from 'next/router'
 import { useContext, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 const Header = () => {
-  const [mobile, setMobile] = useState<boolean>(false)
+  const [modal, setModal] = useState<boolean>(false)
+  const router = useRouter()
   const { t } = useTranslation()
-  Router.events.on('routeChangeStart', () => setMobile(false))
+  const activePathName = router.pathname.split('/')[1]
+  Router.events.on('routeChangeStart', () => setModal(false))
   return (
-    <header className="shadow-sm bg-white position-fixed top-0 end-0 vw-100 layout_head">
-      <Navbar
-        bg="light"
-        variant="light"
-        className="ps-3 pe-3 bg-white container-xxl"
-      >
-        <Navbar.Brand className="p-0 m-0 me-1">
+    <nav className="bg-white container-xxl position-fixed top-0 end-0 vw-100 layout_head d-flex justify-content-between">
+      <div className="d-flex">
+        <div className="layout_logo">
+          <button
+            className="layout_toggle d-block d-sm-none me-2"
+            style={{ marginTop: 3 }}
+            onClick={() => setModal(!modal)}
+          >
+            {modal ? <FaTimes /> : <FaBars />}
+          </button>
           <Link href="/">
             <Image
               src="/static/images/favicon.ico"
@@ -30,93 +39,57 @@ const Header = () => {
               height={33}
             />
           </Link>
-        </Navbar.Brand>
-
+          <div
+            className="divider divider-vertical d-none d-sm-flex layout_divider"
+            role="separator"
+          ></div>
+        </div>
         <div
-          className="divider divider-vertical d-none d-sm-flex layout_divider"
-          role="separator"
-        ></div>
-
-        <Nav className="ml-auto flex-column flex-sm-row mb-sm-0 mb-3 d-none d-sm-flex">
-          <Items />
-        </Nav>
-        <Navbar.Collapse className="justify-content-end">
-          <div className="d-none d-sm-flex">
-            <Auth mobile={undefined} />
-          </div>
-          <div className="d-flex d-sm-none">
-            <button
-              type="button"
-              className="btn p-1"
-              onClick={() => setMobile(true)}
-            >
-              <i className="bi bi-list h1 m-0 d-flex"></i>
-            </button>
-          </div>
-        </Navbar.Collapse>
-      </Navbar>
-
-      <div
-        className={classNames(
-          'offcanvas offcanvas-end d-sm-none',
-          mobile ? 'show' : 'hiding'
-        )}
-      >
-        <div className="offcanvas-header">
-          <h5 className="offcanvas-title">{t('list-facilities-site')}</h5>
-          <button
-            type="button"
-            className="btn-close btn"
-            onClick={() => setMobile(false)}
-          ></button>
-        </div>
-        <div className="offcanvas-body">
-          <Nav className="ml-auto flex-column flex-sm-row mb-sm-0 mb-3 d-flex">
-            <Items />
-          </Nav>
-          <div className="d-flex justify-content-center mt-2">
-            <Auth mobile />
-          </div>
-        </div>
-      </div>
-    </header>
-  )
-}
-
-const Items = () => {
-  const router = useRouter()
-  const { t } = useTranslation()
-  const activePathName = router.pathname.split('/')[1]
-  return (
-    <>
-      <div className="d-flex font-15-5">
-        <Link
-          href="/"
           className={classNames(
-            'nav-link',
-            activePathName === '' ? 'text-dark' : 'text-secondary transition'
+            modal && 'layout_active',
+            'layout_links align-items-center d-flex'
           )}
         >
-          <i className="me-1 bi bi-house-fill"></i>
-          <span>{t('home')}</span>
-        </Link>
-      </div>
+          <ul className="list m-sm-auto mt-3">
+            <li className="ms-sm-1">
+              <Link
+                href="/"
+                className={classNames(
+                  'layout_link',
+                  activePathName !== '' && 'text-secondary transition'
+                )}
+              >
+                <AiFillHome className="me-1" />
+                <span>{t('home')}</span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/stars"
+                className={classNames(
+                  'layout_link',
+                  activePathName !== 'stars' && 'text-secondary transition'
+                )}
+              >
+                <AiFillStar className="me-1" />
+                <span>{t('stars')}</span>
+              </Link>
+            </li>
 
-      <div className="d-flex align-items-center font-15-5">
-        <Link
-          href="/stars"
-          className={classNames(
-            'nav-link',
-            activePathName === 'stars'
-              ? 'text-dark'
-              : 'text-secondary transition'
-          )}
-        >
-          <i className="me-1 bi bi-star-fill"></i>
-          <span>{t('stars')}</span>
-        </Link>
+            {modal && (
+              <div className="vw-100 text-center">
+                <div className="d-flex justify-content-center pt-0">
+                  <Auth mobile />
+                </div>
+              </div>
+            )}
+          </ul>
+        </div>
       </div>
-    </>
+      <div className="d-none d-sm-flex">
+        <Auth mobile={undefined} />
+      </div>
+    </nav>
   )
 }
 
@@ -155,11 +128,12 @@ const Auth = ({ mobile }) => {
   }
   return (
     <>
-      <div className="d-flex align-items-center me-1">
-        <i
-          className="me-1 bi bi-translate cursor-pointer"
+      <div className="d-flex align-items-center me-2">
+        <BsTranslate
+          size={15}
+          className="cursor-pointer"
           onClick={ChangeLang}
-        ></i>
+        />
       </div>
       {isFind() ? (
         <span className="loader" role="progressbar">
@@ -201,14 +175,14 @@ const Auth = ({ mobile }) => {
                   'active text-white'
               )}
             >
-              <i className="bi bi-person font-18 d-flex layout_profile"></i>
+              <BsFillPersonFill />
               <span className="ms-1">{t('profile')}</span>
             </Link>
             <Dropdown.Item
               onClick={Logout}
               className="d-flex align-items-center"
             >
-              <i className="bi bi-box-arrow-in-right font-18 d-flex"></i>
+              <HiLogout />
               <span className="ms-2">{t('logout')}</span>
             </Dropdown.Item>
           </Dropdown.Menu>

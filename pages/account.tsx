@@ -1,6 +1,5 @@
 import SEO from '@components/Seo'
 import { AuthContext } from '@store/auth'
-import { Col } from 'react-bootstrap'
 import { Error401 } from '@components/error'
 import { GetStaticProps } from 'next'
 import { useContext } from 'react'
@@ -18,12 +17,12 @@ const Account = () => {
       <>
         <SEO title={`${t('profile')} ${authState.username}`} />
         <div className="w-100 text-right p-2 ms-0 row">
-          <Col xl={3} lg={3} md={6} sm={12} xs={12}>
+          <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
             <UserCard user_name={authState.username} />
-          </Col>
-          <Col xl={9} lg={9} md={6} sm={12} xs={12}>
+          </div>
+          <div className="col-xl-9 col-lg-9 col-md-6 col-sm-12 col-12">
             <UserInfo />
-          </Col>
+          </div>
         </div>
       </>
     )

@@ -1,16 +1,32 @@
 import ChartComponents from './ChartComponents'
+import classNames from 'classnames'
+import { BsFillCaretDownFill, BsFillCaretUpFill } from 'react-icons/bs'
 import { Button, ListGroup } from 'react-bootstrap'
 import { toPersian } from '@lib/helper'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 
 const Chart = ({ props, nameCoin }) => {
   const [show, setShow] = useState<boolean>(true)
+  const [height, setHeight] = useState<number>()
+  const chartContent = useRef(null)
   const { t } = useTranslation()
+  useEffect(() => {
+    const heightSize = chartContent.current.getBoundingClientRect().height
+    setHeight(heightSize)
+    chartContent.current.style.height = `${height}px`
+  }, [])
+  useEffect(() => {
+    if (show) chartContent.current.style.height = `${height}px`
+    else chartContent.current.style.height = `0`
+  }, [show])
   return (
     <>
       {/* flex-column flex-sm-row */}
-      <div className={show ? 'd-flex justify-content-between' : 'd-none'}>
+      <div
+        className="d-flex justify-content-between coinPage_chart"
+        ref={chartContent}
+      >
         <ChartComponents props={props} />
         <div style={{ width: 220 }} className="mt-5 pt-4 text-center">
           <h2 className="h6 m-0 mb-2">
@@ -91,13 +107,13 @@ const Chart = ({ props, nameCoin }) => {
         <Button variant="success" onClick={() => setShow(!show)}>
           {show ? (
             <div>
-              <i className="bi bi-caret-up-fill"></i>
+              <BsFillCaretUpFill />
               <span>{' ' + t('close') + ' ' + t('chart')}</span>
             </div>
           ) : (
             <div>
               <span>{t('open') + ' ' + t('chart') + ' '}</span>
-              <i className="bi bi-caret-down-fill"></i>
+              <BsFillCaretDownFill />
             </div>
           )}
         </Button>

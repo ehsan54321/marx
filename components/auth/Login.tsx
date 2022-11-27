@@ -3,8 +3,10 @@ import classNames from 'classnames'
 import http from '@services/httpServices'
 import toast from 'sweetalert2'
 import { AuthContext } from '@store/auth'
+import { BsEnvelopeFill, BsEye, BsEyeSlash } from 'react-icons/bs'
 import { Button } from 'react-bootstrap'
 import { resErr, SpasTo0 } from '@lib/helper'
+import { RiLockPasswordFill } from 'react-icons/ri'
 import { useContext, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
@@ -188,7 +190,9 @@ const Login = () => {
           <label htmlFor="login_email">{t('email')}</label>
         </div>
         <div className="input-group">
-          <i className="bi bi-envelope-fill input-group-text bg-white auth_input"></i>
+          <div className="input-group-text auth_input bg-white">
+            <BsEnvelopeFill />
+          </div>
           <input
             id="login_email"
             className={classNames(
@@ -207,7 +211,9 @@ const Login = () => {
           <label htmlFor="login_password">{t('password')}</label>
         </div>
         <div className="input-group">
-          <i className="bi bi-unlock-fill input-group-text bg-white"></i>
+          <div className="input-group-text auth_input bg-white">
+            <RiLockPasswordFill />
+          </div>
           <input
             id="login_password"
             className={classNames(
@@ -216,13 +222,12 @@ const Login = () => {
             )}
             type={passLook ? 'password' : 'text'}
           />
-          <i
+          <div
+            className="input-group-text bg-white"
             onClick={() => setPassLook(!passLook)}
-            className={classNames(
-              'bi input-group-text bg-white',
-              passLook ? 'bi-eye-slash' : 'bi-eye'
-            )}
-          ></i>
+          >
+            {!passLook ? <BsEye /> : <BsEyeSlash />}
+          </div>
         </div>
         <div className="mt-1">
           <span className="text-danger">{errorPass.mas}</span>

@@ -2,7 +2,9 @@ import classNames from 'classnames'
 import http from '@services/httpServices'
 import toast from 'sweetalert2'
 import { AuthContext } from '@store/auth'
+import { BsEnvelopeFill, BsEye, BsEyeSlash } from 'react-icons/bs'
 import { Button, Card } from 'react-bootstrap'
+import { RiLockPasswordFill } from 'react-icons/ri'
 import { SpasTo0 } from '@lib/helper'
 import { useContext, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -151,7 +153,9 @@ const UserInfo = () => {
                 <label htmlFor="login_email">{t('email')}</label>
               </div>
               <div className="input-group">
-                <i className="bi bi-envelope-fill text-dark input-group-text bg-white auth_input"></i>
+                <div className="input-group-text auth_input bg-white">
+                  <BsEnvelopeFill />
+                </div>
                 <input
                   id="login_email"
                   disabled={disabled}
@@ -172,7 +176,9 @@ const UserInfo = () => {
                 <label htmlFor="login_password">{t('password')}</label>
               </div>
               <div className="input-group">
-                <i className="bi bi-unlock-fill text-dark input-group-text bg-white"></i>
+                <div className="input-group-text auth_input bg-white">
+                  <RiLockPasswordFill />
+                </div>
                 <input
                   id="login_password"
                   disabled={disabled}
@@ -183,13 +189,12 @@ const UserInfo = () => {
                   )}
                   type={passLook ? 'password' : 'text'}
                 />
-                <i
+                <div
+                  className="input-group-text bg-white"
                   onClick={() => setPassLook(!passLook)}
-                  className={classNames(
-                    'bi text-dark input-group-text bg-white',
-                    passLook ? 'bi-eye-slash' : 'bi-eye'
-                  )}
-                ></i>
+                >
+                  {!passLook ? <BsEye /> : <BsEyeSlash />}
+                </div>
               </div>
               <div className="mt-1 text-center">
                 <span className="text-danger">{errorPass.mas}</span>
