@@ -48,18 +48,13 @@
   .star_home {
     width: 150px;
   }
-  .layout_logo {
-    width: 100%;
-  }
   .layout_links {
-    border: #ddd 1px solid;
     position: absolute;
     right: 0;
     left: 0;
     top: 65px;
     height: 0;
     background: rgb(255, 255, 255);
-    border-top: 1px solid rgb(245, 245, 245);
     overflow: hidden;
     & .list {
       display: block;
@@ -69,7 +64,8 @@
     }
   }
   .layout_active {
-    height: 11.5rem;
+    height: 12rem;
+    border-bottom: 1px solid #eee;
   }
 }
 

@@ -6,7 +6,7 @@ const AdsComponents = () => {
   const { t } = useTranslation()
   const deShowHandler = () => {
     setShow(false)
-    setTimeout(() => setShow(true), 10000)
+    setTimeout(() => setShow(true), 14000)
   }
   return (
     <div className={!show ? 'd-none' : ''}>

@@ -1,9 +1,8 @@
 import ChartComponents from './ChartComponents'
-import classNames from 'classnames'
 import { BsFillCaretDownFill, BsFillCaretUpFill } from 'react-icons/bs'
 import { Button, ListGroup } from 'react-bootstrap'
 import { toPersian } from '@lib/helper'
-import { useState, useRef, useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 const Chart = ({ props, nameCoin }) => {
@@ -12,20 +11,18 @@ const Chart = ({ props, nameCoin }) => {
   const chartContent = useRef(null)
   const { t } = useTranslation()
   useEffect(() => {
-    const heightSize = chartContent.current.getBoundingClientRect().height
-    setHeight(heightSize)
-    chartContent.current.style.height = `${height}px`
-  }, [])
-  useEffect(() => {
-    if (show) chartContent.current.style.height = `${height}px`
-    else chartContent.current.style.height = `0`
-  }, [show])
+    if (height === 0) {
+      const heightSize = chartContent.current.getBoundingClientRect().height
+      setHeight(heightSize)
+    }
+  }, [show, height])
   return (
     <>
-      {/* flex-column flex-sm-row */}
       <div
         className="d-flex justify-content-between coinPage_chart"
+        // flex-column flex-sm-row
         ref={chartContent}
+        style={{ height: show ? `${height}px` : 0 }}
       >
         <ChartComponents props={props} />
         <div style={{ width: 220 }} className="mt-5 pt-4 text-center">
@@ -67,7 +64,7 @@ const Chart = ({ props, nameCoin }) => {
               <span className="text-secondary">
                 {toPersian('90 ', t('lang')) + t('day')}
               </span>
-              <span className={`text-${props.day.colorDay90}`}>
+              <span className={'text-' + props.day.colorDay90}>
                 {toPersian(props.day.day90 + '٪', t('lang')) +
                   (props.day.colorDay90.colorDay90 === 'danger' ? '-' : '+')}
               </span>
