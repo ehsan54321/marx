@@ -1,29 +1,29 @@
 .divider {
   box-sizing: border-box;
-  color: rgba(0, 0, 0, 0.85);
+  color: $dark;
   font-size: 14px;
   font-variant: tabular-nums;
   line-height: 1.5715;
   list-style: none;
   font-feature-settings: 'tnum';
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-top: 1px solid #0000000f;
 
   &-vertical {
     position: relative;
     top: -0.06em;
     height: 0.9em;
     margin: 0 8px;
-    border-left: 1px solid rgba(0, 0, 0, 0.06);
+    border-left: 1px solid #0000000f;
   }
   &-horizontal {
     display: flex;
-    color: rgba(0, 0, 0, 0.85);
+    color: $dark;
     font-weight: 500;
     font-size: 16px;
     white-space: nowrap;
     text-align: center;
     border-top: 0;
-    border-top-color: rgba(0, 0, 0, 0.06);
+    border-top-color: #0000000f;
     clear: both;
     width: 100%;
     min-width: 100%;

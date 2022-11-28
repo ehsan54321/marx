@@ -1,18 +1,18 @@
-import classNames from 'classnames'
-import http from '@services/httpServices'
-import Image from 'next/image'
-import Link from 'next/link'
-import toast from 'sweetalert2'
-import { AiFillHome, AiFillStar } from 'react-icons/ai'
-import { AuthContext } from '@store/auth'
-import { BsFillPersonFill, BsTranslate } from 'react-icons/bs'
-import { Dropdown } from 'react-bootstrap'
-import { FaBars, FaTimes } from 'react-icons/fa'
-import { HiLogout } from 'react-icons/hi'
-import { resErr } from '@lib/helper'
-import { Router, useRouter } from 'next/router'
-import { useContext, useState } from 'react'
-import { useTranslation } from 'react-i18next'
+import classNames from 'classnames';
+import http from '@services/httpServices';
+import Image from 'next/image';
+import Link from 'next/link';
+import toast from 'sweetalert2';
+import { AiFillHome, AiFillStar } from 'react-icons/ai';
+import { AuthContext } from '@store/auth';
+import { BsFillPersonFill, BsTranslate } from 'react-icons/bs';
+import { Dropdown } from 'react-bootstrap';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import { HiLogout } from 'react-icons/hi';
+import { resErr } from '@lib/helper';
+import { Router, useRouter } from 'next/router';
+import { useContext, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
   const [modal, setModal] = useState<boolean>(false)
@@ -21,75 +21,75 @@ const Header = () => {
   const activePathName = router.pathname.split('/')[1]
   Router.events.on('routeChangeStart', () => setModal(false))
   return (
-    <nav className="bg-white container-xxl position-fixed top-0 end-0 vw-100 layout_head d-flex justify-content-between">
-      <div className="d-flex">
-        <div className="layout_logo">
-          <button
-            className="layout_toggle d-block d-sm-none me-2"
-            style={{ marginTop: 3 }}
-            onClick={() => setModal(!modal)}
-          >
-            {modal ? <FaTimes /> : <FaBars />}
-          </button>
-          <Link href="/">
-            <Image
-              src="/static/images/favicon.ico"
-              alt="لوگو"
-              width={33}
-              height={33}
-            />
-          </Link>
+      <nav className="bg-white container-xxl position-sticky layout_head d-flex justify-content-between mb-3">
+        <div className="d-flex">
+          <div className="layout_logo">
+            <button
+              className="layout_toggle d-block d-sm-none me-2"
+              style={{ marginTop: 3 }}
+              onClick={() => setModal(!modal)}
+            >
+              {modal ? <FaTimes /> : <FaBars />}
+            </button>
+            <Link href="/">
+              <Image
+                src="/static/images/favicon.ico"
+                alt="لوگو"
+                width={33}
+                height={33}
+              />
+            </Link>
+            <div
+              className="divider divider-vertical d-none d-sm-flex layout_divider"
+              role="separator"
+            ></div>
+          </div>
           <div
-            className="divider divider-vertical d-none d-sm-flex layout_divider"
-            role="separator"
-          ></div>
-        </div>
-        <div
-          className={classNames(
-            modal && 'layout_active',
-            'layout_links align-items-center d-flex'
-          )}
-        >
-          <ul className="list m-sm-auto mt-3">
-            <li className="ms-sm-1">
-              <Link
-                href="/"
-                className={classNames(
-                  'layout_link',
-                  activePathName !== '' && 'text-secondary transition'
-                )}
-              >
-                <AiFillHome className="me-1" />
-                <span>{t('home')}</span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/stars"
-                className={classNames(
-                  'layout_link',
-                  activePathName !== 'stars' && 'text-secondary transition'
-                )}
-              >
-                <AiFillStar className="me-1" />
-                <span>{t('stars')}</span>
-              </Link>
-            </li>
-
-            {modal && (
-              <div className="vw-100 text-center">
-                <div className="d-flex justify-content-center pt-0">
-                  <Auth mobile />
-                </div>
-              </div>
+            className={classNames(
+              modal && 'layout_active',
+              'layout_links align-items-center d-flex'
             )}
-          </ul>
+          >
+            <ul className="d-block d-sm-flex m-sm-auto mt-3 align-items-center">
+              <li className="ms-sm-1">
+                <Link
+                  href="/"
+                  className={classNames(
+                    'layout_link',
+                    activePathName !== '' && 'text-secondary transition'
+                  )}
+                >
+                  <AiFillHome className="me-1" />
+                  <span>{t('home')}</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/stars"
+                  className={classNames(
+                    'layout_link',
+                    activePathName !== 'stars' && 'text-secondary transition'
+                  )}
+                >
+                  <AiFillStar className="me-1" />
+                  <span>{t('stars')}</span>
+                </Link>
+              </li>
+
+              {modal && (
+                <div className="vw-100 text-center">
+                  <div className="d-flex justify-content-center pt-0">
+                    <Auth mobile />
+                  </div>
+                </div>
+              )}
+            </ul>
+          </div>
         </div>
-      </div>
-      <div className="d-none d-sm-flex">
-        <Auth mobile={undefined} />
-      </div>
-    </nav>
+        <div className="d-none d-sm-flex">
+          <Auth mobile={undefined} />
+        </div>
+      </nav>
   )
 }
 

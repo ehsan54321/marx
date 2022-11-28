@@ -30,42 +30,42 @@
 }
 
 @media (max-width: 576px) {
-  .uiCoin_th_id_star {
-    margin-right: -13px;
+  .uiCoin_ {
+    &th_id_star {
+      margin-right: -13px;
+    }
+    &nameEN {
+      color: #5a5d60;
+      line-height: 2.9;
+      font-size: 12.5px !important;
+    }
+    &numbers {
+      transform: translateY(55%);
+      font-size: 14.5px !important;
+    }
+    &th {
+      margin-right: -13.5px;
+    }
   }
-  .uiCoin_nameEN {
-    color: #5a5d60;
-    line-height: 2.9;
-    font-size: 12.5px !important;
-  }
-  .uiCoin_numbers {
-    transform: translateY(55%);
-    font-size: 14.5px !important;
-  }
-  .uiCoin_th {
-    margin-right: -13.5px;
-  }
-  .star_home {
-    width: 150px;
-  }
-  .layout_links {
-    position: absolute;
-    right: 0;
-    left: 0;
-    top: 65px;
-    height: 0;
-    background: rgb(255, 255, 255);
-    overflow: hidden;
-    & .list {
-      display: block;
-      & li {
+  .layout_ {
+    &links {
+      position: absolute;
+      top: 65px;
+      right: 0;
+      height: 0;
+      background: #fff;
+      overflow: hidden;
+      & ul li {
         padding: 15px 20px;
       }
     }
-  }
-  .layout_active {
-    height: 12rem;
-    border-bottom: 1px solid #eee;
+    &active {
+      height: 12rem;
+      border-bottom: 1px solid #eee;
+    }
+    .star_home {
+      width: 150px;
+    }
   }
 }
 

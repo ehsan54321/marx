@@ -18,6 +18,15 @@
     box-sizing: border-box;
   }
 }
+
+body {
+  color: $dark;
+  font-size: 14.5px;
+  font-variant: tabular-nums;
+  line-height: 1.5715;
+  background-color: #fafbfc;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -37,14 +46,6 @@ a {
   &:hover {
     outline: 0;
   }
-}
-
-body {
-  color: rgba(0, 0, 0, 0.85);
-  font-size: 14px;
-  font-variant: tabular-nums;
-  line-height: 1.5715;
-  background-color: rgb(250, 251, 252);
 }
 
 hr {

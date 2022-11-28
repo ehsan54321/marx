@@ -28,14 +28,6 @@
     top: 4px !important;
     z-index: 10 !important;
   }
-  &chart {
-    overflow: hidden;
-    transition: all 0.5s ease;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -ms-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-  }
   &star svg {
     margin: auto !important;
   }

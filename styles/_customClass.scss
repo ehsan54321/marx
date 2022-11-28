@@ -40,14 +40,14 @@
   overflow: auto;
   border-radius: 8px;
   padding: 18px 7px;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+  box-shadow: 0 0.125rem 0.25rem #00000013 !important;
 }
 
 .accordion_list {
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.75;
-  color: rgb(66, 82, 110);
+  color: #42526e;
 }
 
 .nav_page {
@@ -65,6 +65,24 @@
 .h1_page {
   font-weight: 700;
   line-height: 1.8;
+}
+
+.wrapper {
+  z-index: 50;
+  background-color: white;
+}
+
+.progress {
+  &Bar {
+    height: 6px;
+  }
+
+  &Main {
+    height: 6px;
+    width: 0;
+    background: #fbbf24;
+    // background: linear-gradient(110deg, #fdcd3b 60%, #dc2626 60%);
+  }
 }
 
 // tables

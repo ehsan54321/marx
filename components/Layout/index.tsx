@@ -1,5 +1,6 @@
-import Footer from './Footer'
-import Header from './Header'
+import Footer from './Footer';
+import Header from './Header';
+import Progress from './Progress';
 
 type Props = {
   children: JSX.Element
@@ -11,8 +12,8 @@ const Layout = ({ children, NoLayout, NoFooter }: Props) => {
     return (
       <>
         <div>
+          <Progress />
           <Header />
-          <div className="mt-3 pt-5"></div>
           {children}
         </div>
         <Footer NoFooter={NoFooter} />
