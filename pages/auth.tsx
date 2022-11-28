@@ -45,7 +45,7 @@ const AuthPage = () => {
             height={110}
           />
         </div>
-        <div className="background-color text-center m-auto ps-3 pe-3 auth_login">
+        <div className="background-color bg-white text-center m-auto ps-3 pe-3 auth_login">
           <Tabs
             activeKey={status}
             onSelect={(item) => setStatus(item)}

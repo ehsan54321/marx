@@ -11,7 +11,7 @@ type Props = {
 const Error401 = ({ children, btn = false }: Props) => {
   const { t } = useTranslation()
   return (
-    <div className="background-color">
+    <div className="background-color bg-white">
       <SEO title={t('error') + ' 401'} noText />
       <div className="d-flex flex-column align-items-center">
         <Image

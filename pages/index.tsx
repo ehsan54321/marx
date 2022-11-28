@@ -25,7 +25,7 @@ const HomePage = ({ data }) => {
       />
       <AdsComponents />
       <h1 className="h5 mt-4 mb-4 h1_page">{t('list-coins')}</h1>
-      <div className="background-color pt-4 pb-4 ps-1 pe-1">
+      <div className="background-color bg-white pt-4 pb-4 ps-1 pe-1">
         <ControllerCoin dataServer={data} />
       </div>
       <AboutHome />

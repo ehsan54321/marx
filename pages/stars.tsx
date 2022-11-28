@@ -37,7 +37,7 @@ const PageStars = () => {
       <>
         <SEO title={t('title.selected')} />
         <h1 className="h5 mt-4 mb-4 h1_page">{t('selected.list')}</h1>
-        <div className="background-color">
+        <div className="background-color bg-white">
           <div className="d-flex flex-wrap" style={{ gap: 9 }}>
             {dataStar &&
               dataStar.map((star: starType) => (

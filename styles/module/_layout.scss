@@ -1,16 +1,9 @@
 .layout_ {
   &head {
-    top: 6px;
-    align-items: center;
     border-bottom: 1px solid #0000001f;
     height: 65px;
     padding: 0 20px;
     z-index: 50;
-  }
-  &logo {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
   }
 
   &toggle {
@@ -57,6 +50,19 @@
 
     &:hover {
       color: black;
+    }
+  }
+  &wrapper {
+    z-index: 50;
+    top: 65px;
+  }
+  &progress {
+    &Bar {
+      height: 5px;
+    }
+    &Main {
+      width: 0;
+      background: #4b5563;
     }
   }
 }

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 const AboutHome = () => {
   const { t } = useTranslation()
   return (
-    <div className="background-color pt-4 pb-4 ps-1 pe-1 mt-3">
+    <div className="background-color bg-white pt-4 pb-4 ps-1 pe-1 mt-3">
       <h2 className="h5 mx-3 mb-3">{t('common.questions')}</h2>
       <Accordion alwaysOpen>
         <Accordion.Item eventKey="1">

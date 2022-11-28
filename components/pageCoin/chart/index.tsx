@@ -1,7 +1,7 @@
-import ChartComponents from './ChartComponents';
-import { ListGroup } from 'react-bootstrap';
-import { toPersian } from '@lib/helper';
-import { useTranslation } from 'react-i18next';
+import ChartComponents from './ChartComponents'
+import { ListGroup } from 'react-bootstrap'
+import { toPersian } from '@lib/helper'
+import { useTranslation } from 'react-i18next'
 
 const Chart = ({ props, nameCoin }) => {
   const { t } = useTranslation()

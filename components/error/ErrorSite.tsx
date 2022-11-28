@@ -8,7 +8,7 @@ const ErrorSite = () => {
   return (
     <>
       <SEO title={t('error.server')} noText />
-      <div className="background-color">
+      <div className="background-color bg-white">
         <div className="d-flex flex-column align-items-center">
           <Image
             src="/static/images/server-down.svg"

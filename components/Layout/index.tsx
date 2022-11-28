@@ -1,6 +1,6 @@
-import Footer from './Footer';
-import Header from './Header';
-import Progress from './Progress';
+import Footer from './Footer'
+import Header from './Header'
+import Progress from './Progress'
 
 type Props = {
   children: JSX.Element
@@ -12,8 +12,8 @@ const Layout = ({ children, NoLayout, NoFooter }: Props) => {
     return (
       <>
         <div>
-          <Progress />
           <Header />
+          <Progress />
           {children}
         </div>
         <Footer NoFooter={NoFooter} />

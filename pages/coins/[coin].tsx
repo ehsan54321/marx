@@ -1,10 +1,10 @@
-import AdsComponents from '@components/Ads'
-import ControllerPageCoin from '@components/pageCoin/ControllerCoin'
-import http from '@services/httpServices'
-import Link from 'next/link'
-import SEO from '@components/Seo'
-import { Accordion } from 'react-bootstrap'
-import { useTranslation } from 'react-i18next'
+import AdsComponents from '@components/Ads';
+import ControllerPageCoin from '@components/pageCoin/ControllerCoin';
+import http from '@services/httpServices';
+import Link from 'next/link';
+import SEO from '@components/Seo';
+import { Accordion } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 import type { GetServerSideProps } from 'next'
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
@@ -42,10 +42,10 @@ const Coin = ({ props, nameCoin }) => {
         </ol>
       </nav>
 
-      <div className="background-color">
+      <div className="background-color bg-white">
         <ControllerPageCoin {...props} nameCoin={nameCoin} />
       </div>
-      <div className="background-color mt-3" style={{ color: '#27282c' }}>
+      <div className="background-color bg-white mt-3">
         <h2 className="h1_page h5 ms-3 mb-3">
           {t('lang') ? 'معرفی کوین' : 'Introducing Coin'}
         </h2>
