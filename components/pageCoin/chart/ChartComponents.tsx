@@ -2,15 +2,6 @@ import { Button, ButtonGroup } from 'react-bootstrap'
 import { toPersian } from '@lib/helper'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import 'react-vis/dist/style.css'
-import {
-  HorizontalGridLines,
-  VerticalGridLines,
-  LineSeries,
-  XYPlot,
-  XAxis,
-  YAxis,
-} from 'react-vis'
 
 const ChartComponents = ({ props }) => {
   const [date, setDate] = useState<string>('24h')
@@ -79,15 +70,7 @@ const ChartComponents = ({ props }) => {
           {t('all')}
         </Button>
       </ButtonGroup>
-      <div className="bg-white mt-3 d-none d-md-flex">
-        <XYPlot height={400} width={900} className="coinPage_chartContent">
-          <VerticalGridLines />
-          <HorizontalGridLines />
-          <XAxis />
-          <YAxis />
-          <LineSeries data={props.chart[date]} />
-        </XYPlot>
-      </div>
+      <div className="bg-white mt-3 d-none d-md-flex"></div>
     </div>
   )
 }

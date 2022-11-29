@@ -27,8 +27,8 @@ const ControllerPageCoin = (props: Props) => {
     toast.fire({
       icon: 'success',
       toast: true,
-      position: 'top-end',
-      timer: 3000,
+      position: 'bottom-end',
+      timer: 4000,
       title: t('copy.ok'),
       showConfirmButton: false,
       showCloseButton: true,
@@ -87,8 +87,8 @@ const ControllerPageCoin = (props: Props) => {
             >
               {'#' + toPersian(props.coin.id, t('lang'))}
             </span>
-            <Dropdown className="coinPage_icon ms-1">
-              <Dropdown.Toggle variant="width" className="border-0">
+            <Dropdown className="ms-1" style={{ top: 4, zIndex: 10 }}>
+              <Dropdown.Toggle variant="width" className="border-0 p-0 py-sm-2 px-sm-3">
                 <div className="d-flex text-secondary">
                   <div className="px-1 d-flex align-items-center">
                     <HiOutlineShare size={18} />

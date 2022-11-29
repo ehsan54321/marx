@@ -113,11 +113,13 @@ const UiCoin = (props: Props) => {
           )}
           title={t('change-24h')}
         >
-          {dayAll.color_day_in === 'red' ? (
-            <BsFillCaretDownFill className="me-1" />
-          ) : (
-            <BsFillCaretUpFill className="me-1" />
-          )}
+          <div className="d-none d-sm-inline">
+            {dayAll.color_day_in === 'red' ? (
+              <BsFillCaretDownFill className="me-1" />
+            ) : (
+              <BsFillCaretUpFill className="me-1" />
+            )}
+          </div>
           <span>
             {toPersian(dayAll.day_in, t('lang')) +
               '٪' +
@@ -162,11 +164,13 @@ const UiCoin = (props: Props) => {
           )}
           title={t('change-7d')}
         >
-          {dayAll.color_day7 === 'red' ? (
-            <BsFillCaretDownFill className="me-1" />
-          ) : (
-            <BsFillCaretUpFill className="me-1" />
-          )}
+          <div className='d-inline'>
+            {dayAll.color_day7 === 'red' ? (
+              <BsFillCaretDownFill className="me-1" />
+            ) : (
+              <BsFillCaretUpFill className="me-1" />
+            )}
+          </div>
           <span>
             {toPersian(dayAll.day7, t('lang')) +
               '٪' +

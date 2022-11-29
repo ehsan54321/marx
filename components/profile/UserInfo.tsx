@@ -5,7 +5,7 @@ import { AuthContext } from '@store/auth'
 import { BsEnvelopeFill, BsEye, BsEyeSlash } from 'react-icons/bs'
 import { Button, Card } from 'react-bootstrap'
 import { RiLockPasswordFill } from 'react-icons/ri'
-import { SpasTo0 } from '@lib/helper'
+import { resErr, SpasTo0 } from '@lib/helper'
 import { useContext, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -48,18 +48,7 @@ const UserInfo = () => {
               })
               setDisabled(true)
             })
-            .catch(() => {
-              toast.fire({
-                icon: 'error',
-                toast: true,
-                position: 'top-end',
-                timer: 6500,
-                title: 'مشکلی در شبکه وجود دارد.',
-                showConfirmButton: false,
-                showCloseButton: true,
-                timerProgressBar: true,
-              })
-            })
+            .catch(() => resErr(t))
         }
       })
   }
@@ -70,6 +59,7 @@ const UserInfo = () => {
     const passwordRegExp = new RegExp(
       /^[a-zA-Z0-9_$*@+#!%&{}\.()-\s]{1,999999}$/
     )
+    const noFild = 'لطفا این فیلد را پر کنید.'
     let isEmail: boolean = false
     let isPassword: boolean = false
     setErrorEmail({ stt: false, mas: '' })
@@ -83,12 +73,8 @@ const UserInfo = () => {
       setErrorEmail({ stt: false, mas: '' })
       isEmail = true
     } else {
-      if (!email) {
-        setErrorEmail({
-          stt: true,
-          mas: 'یک ایمیل وارد کنید!',
-        })
-      } else if (!(email.length >= 14 && email.length <= 52)) {
+      if (!email) setErrorPass({ stt: true, mas: noFild })
+      else if (!(email.length >= 14 && email.length <= 52)) {
         if (email.length <= 14) {
           setErrorEmail({
             stt: true,
@@ -116,12 +102,8 @@ const UserInfo = () => {
       setErrorPass({ stt: false, mas: '' })
       isPassword = true
     } else {
-      if (!password) {
-        setErrorPass({
-          stt: true,
-          mas: 'یک رمز عبور درستی وارد کنید',
-        })
-      } else if (!(password.length >= 6 && password.length <= 32)) {
+      if (!password) setErrorPass({ stt: true, mas: noFild })
+      else if (!(password.length >= 6 && password.length <= 32)) {
         if (password.length <= 6) {
           setErrorPass({
             stt: true,

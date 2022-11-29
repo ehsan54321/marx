@@ -7,7 +7,7 @@ const Register = async (req: NextApiRequest, res: NextApiResponse) => {
   const createToken = (token) => {
     return jwt.sign(token, process.env.JWT_SECRET_KEY, {
       algorithm: 'HS256',
-      expiresIn: '60d',
+      expiresIn: '90d',
     })
   }
   const dataOBJ: any = {
@@ -26,7 +26,7 @@ const Register = async (req: NextApiRequest, res: NextApiResponse) => {
       setCookie('token', createToken(dataOBJ), {
         res,
         req,
-        maxAge: 60 * 24 * 60,
+        maxAge: 90 * 24 * 60,
         httpOnly: true,
         secure: true,
       })

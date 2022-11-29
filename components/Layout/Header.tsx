@@ -107,8 +107,8 @@ const Auth = ({ mobile }) => {
         toast.fire({
           icon: 'error',
           toast: true,
-          position: 'top-end',
-          timer: 6500,
+          position: 'bottom-end',
+          timer: 7000,
           title: t('logout-text'),
           showConfirmButton: false,
           showCloseButton: true,

@@ -22,13 +22,6 @@ type onFinishType = {
   password: string
   re_password: string
 }
-type authObj = {
-  email: string
-  username: string
-  password: string
-  poster_path: string
-  is_admin: boolean
-}
 const Register = () => {
   const router = useRouter()
   const { t } = useTranslation()
@@ -62,8 +55,8 @@ const Register = () => {
           toast.fire({
             icon: 'success',
             toast: true,
-            position: 'top-end',
-            timer: 6500,
+            position: 'bottom-end',
+            timer: 7000,
             title: t('register.success'),
             showConfirmButton: false,
             showCloseButton: true,
@@ -73,8 +66,8 @@ const Register = () => {
           toast.fire({
             icon: 'error',
             toast: true,
-            position: 'top-end',
-            timer: 6500,
+            position: 'bottom-end',
+            timer: 7000,
             title: res.data.message,
             showConfirmButton: false,
             showCloseButton: true,
@@ -99,6 +92,7 @@ const Register = () => {
     const passwordRegExp = new RegExp(
       /^[a-zA-Z0-9_$*@+#!%&{}\.()-\s]{1,999999}$/
     )
+    const noFild = 'لطفا این فیلد را پر کنید.'
     let isEmail: boolean = false
     let isPassword: boolean = false
     let isRePassword: boolean = false
@@ -116,12 +110,8 @@ const Register = () => {
       setErrorUsername({ stt: false, mas: '' })
       isUsername = true
     } else {
-      if (!username) {
-        setErrorUsername({
-          stt: true,
-          mas: 'نام کاربری را وارد کنید!',
-        })
-      } else if (!(username.length >= 4 && username.length <= 14)) {
+      if (!username) setErrorPass({ stt: true, mas: noFild })
+      else if (!(username.length >= 4 && username.length <= 14)) {
         if (username.length <= 4) {
           setErrorUsername({
             stt: true,
@@ -149,12 +139,8 @@ const Register = () => {
       setErrorEmail({ stt: false, mas: '' })
       isEmail = true
     } else {
-      if (!email) {
-        setErrorEmail({
-          stt: true,
-          mas: 'یک ایمیل وارد کنید!',
-        })
-      } else if (!(email.length >= 14 && email.length <= 52)) {
+      if (!email) setErrorPass({ stt: true, mas: noFild })
+      else if (!(email.length >= 14 && email.length <= 52)) {
         if (email.length <= 14) {
           setErrorEmail({
             stt: true,
@@ -182,12 +168,8 @@ const Register = () => {
       setErrorPass({ stt: false, mas: '' })
       isPassword = true
     } else {
-      if (!password) {
-        setErrorPass({
-          stt: true,
-          mas: 'یک رمز عبور درستی وارد کنید',
-        })
-      } else if (!(password.length >= 6 && password.length <= 32)) {
+      if (!password) setErrorPass({ stt: true, mas: noFild })
+      else if (!(password.length >= 6 && password.length <= 32)) {
         if (password.length <= 6) {
           setErrorPass({
             stt: true,
@@ -216,12 +198,7 @@ const Register = () => {
           mas: 'تکرار رمز عبور اشتباه است!',
         })
       }
-    } else {
-      setErrorRePass({
-        stt: true,
-        mas: 'تکرار رمز عبور را وارد کنید',
-      })
-    }
+    } else setErrorPass({ stt: true, mas: noFild })
     if (isEmail && isUsername && isPassword && isRePassword) {
       setLoader(true)
       onFinish({ email, password, re_password: rePassword, username })

@@ -8,7 +8,7 @@ const User = (req: NextApiRequest, res: NextApiResponse) => {
     return jwt.decode(token, {
       complete: true,
       algorithm: 'HS256',
-      expiresIn: '7d',
+      expiresIn: '90d',
     })
   }
   if (data) {

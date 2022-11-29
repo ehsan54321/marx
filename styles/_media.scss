@@ -4,13 +4,6 @@
   }
 }
 
-@media (max-width: 1163px) {
-  .coinPage_chartContent,
-  .coinPage_chartContent svg {
-    width: 800px !important;
-  }
-}
-
 @media (min-width: 768px) {
   .d-md-table-cell {
     display: table-cell !important;
@@ -86,12 +79,6 @@
   }
   .tr th {
     font-size: 10px;
-  }
-}
-
-@media (max-width: 399px) {
-  .coinPage_icon button {
-    padding: 0;
   }
 }
 

@@ -1,28 +1,41 @@
-import AdsComponents from '@components/Ads';
-import ControllerPageCoin from '@components/pageCoin/ControllerCoin';
-import http from '@services/httpServices';
-import Link from 'next/link';
-import SEO from '@components/Seo';
-import { Accordion } from 'react-bootstrap';
-import { useTranslation } from 'react-i18next';
+import AdsComponents from '@components/Ads'
+import ControllerPageCoin from '@components/pageCoin/ControllerCoin'
+import http from '@services/httpServices'
+import jwt from 'jsonwebtoken'
+import Link from 'next/link'
+import SEO from '@components/Seo'
+import { Accordion } from 'react-bootstrap'
+import { AuthContext } from '@store/auth'
+import { useContext } from 'react'
+import { useTranslation } from 'react-i18next'
 import type { GetServerSideProps } from 'next'
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  ctx.res.setHeader(
-    'Cache-Control',
-    'public, s-maxage=31536000, stale-while-revalidate'
-  )
+  const token = ctx.req.cookies.token
+  const deCodeToken = (data) => {
+    return jwt.decode(data, {
+      complete: true,
+      algorithm: 'HS256',
+      expiresIn: '90d',
+    }).payload
+  }
+  // ctx.res.setHeader(
+  //   'Cache-Control',
+  //   'public, s-maxage=31536000, stale-while-revalidate'
+  // )
   const nameCoin: string | string[] = ctx.params.coin
   const props = (await http.get(`api/coins/${nameCoin}`)).data
 
   return {
     notFound: !!(props === 'NotFound'),
-    props: { props, nameCoin },
+    props: { props, nameCoin, token: token ? deCodeToken(token) : null },
   }
 }
 
-const Coin = ({ props, nameCoin }) => {
+const Coin = ({ props, nameCoin, token }) => {
   const { t } = useTranslation()
+  const { setAuthState } = useContext(AuthContext)
+  setAuthState(token)
   return (
     <>
       <SEO

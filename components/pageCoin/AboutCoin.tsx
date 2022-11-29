@@ -8,19 +8,21 @@ const AboutCoin = ({ aboutCoin, dayGrith }) => {
     <div className="d-sm-flex">
       <div className="d-flex">
         <div className="me-3">
-          {t('lang') ? (
-            <span className="text-good">
-              {'ارزش معاملات ۲۴'}
-              <br />
-              {'ساعته (USD):'}
-            </span>
-          ) : (
-            <span className="text-good">
-              {'Trading volume (24h)'}
-              <br />
-              {'Hourly (USD):'}
-            </span>
-          )}
+          <span className="text-good">
+            {t('lang') ? (
+              <>
+                {'ارزش معاملات ۲۴'}
+                <br />
+                {'ساعته (USD):'}
+              </>
+            ) : (
+              <>
+                {'Trading volume (24h)'}
+                <br />
+                {'Hourly (USD):'}
+              </>
+            )}
+          </span>
           <br />
           <span className="font-13 mt-1">
             {toPersian(SortBySetaSeta('756345'), t('lang'))}

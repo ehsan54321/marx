@@ -34,6 +34,7 @@ const Login = () => {
   const router = useRouter()
   const { t } = useTranslation()
   const { setAuthState } = useContext(AuthContext)
+  const noFild = 'لطفا این فیلد را پر کنید.'
   const onFinish = async (value: onFinishType) => {
     try {
       const dbUser = (await axios.get('http://localhost:8000/user')).data
@@ -56,8 +57,8 @@ const Login = () => {
               toast.fire({
                 icon: 'success',
                 toast: true,
-                position: 'top-end',
-                timer: 6500,
+                position: 'bottom-end',
+                timer: 7000,
                 title: t('login.success'),
                 showConfirmButton: false,
                 showCloseButton: true,
@@ -67,8 +68,8 @@ const Login = () => {
               toast.fire({
                 icon: 'error',
                 toast: true,
-                position: 'top-end',
-                timer: 6500,
+                position: 'bottom-end',
+                timer: 7000,
                 title: res.data.message,
                 showConfirmButton: false,
                 showCloseButton: true,
@@ -87,8 +88,8 @@ const Login = () => {
         toast.fire({
           icon: 'error',
           toast: true,
-          position: 'top-end',
-          timer: 6500,
+          position: 'bottom-end',
+          timer: 7000,
           title: t('login.warning'),
           showConfirmButton: false,
           showCloseButton: true,
@@ -120,12 +121,8 @@ const Login = () => {
       setErrorEmail({ stt: false, mas: '' })
       isEmail = true
     } else {
-      if (!email) {
-        setErrorEmail({
-          stt: true,
-          mas: 'یک ایمیل وارد کنید!',
-        })
-      } else if (!(email.length >= 14 && email.length <= 52)) {
+      if (!email) setErrorPass({ stt: true, mas: noFild })
+      else if (!(email.length >= 14 && email.length <= 52)) {
         if (email.length <= 14) {
           setErrorEmail({
             stt: true,
@@ -153,12 +150,8 @@ const Login = () => {
       setErrorPass({ stt: false, mas: '' })
       isPassword = true
     } else {
-      if (!password) {
-        setErrorPass({
-          stt: true,
-          mas: 'یک رمز عبور درستی وارد کنید',
-        })
-      } else if (!(password.length >= 6 && password.length <= 32)) {
+      if (!password) setErrorPass({ stt: true, mas: noFild })
+      else if (!(password.length >= 6 && password.length <= 32)) {
         if (password.length <= 6) {
           setErrorPass({
             stt: true,
