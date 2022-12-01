@@ -21,27 +21,29 @@ const Settings = ({ setImg, img }) => {
     { value: 'no_img', label: t('no.img') },
   ]
   return (
-    <div className="d-flex">
-      <Select
-        className="w-100"
-        onChange={ChangeLang}
-        defaultValue={[
-          t('lang')
-            ? { value: 'fa', label: 'فارسی' }
-            : { value: 'en', label: 'English' },
-        ]}
-        options={optionsLang}
-      />
-      <Select
-        className="w-100 ms-3"
-        onChange={(e) => setImg(e.value === 'img')}
-        defaultValue={[
-          img
-            ? { value: 'img', label: t('img') }
-            : { value: 'no_img', label: t('no.img') },
-        ]}
-        options={optionsImg}
-      />
+    <div style={{ height: 125 }}>
+      <div className="d-flex">
+        <Select
+          className="w-100"
+          onChange={ChangeLang}
+          defaultValue={[
+            t('lang')
+              ? { value: 'fa', label: 'فارسی' }
+              : { value: 'en', label: 'English' },
+          ]}
+          options={optionsLang}
+        />
+        <Select
+          className="w-100 ms-3"
+          onChange={(e) => setImg(e.value === 'img')}
+          defaultValue={[
+            img
+              ? { value: 'img', label: t('img') }
+              : { value: 'no_img', label: t('no.img') },
+          ]}
+          options={optionsImg}
+        />
+      </div>
     </div>
   )
 }

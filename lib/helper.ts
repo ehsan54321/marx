@@ -9,7 +9,7 @@ export const resErr = (t?: any) => {
   toast.fire({
     icon: 'error',
     toast: true,
-    position: 'bottom-end',
+    position: 'top-end',
     timer: 7000,
     title: t ? t('error.res') : 'مشکلی در شبکه به وجود آمد.',
     showConfirmButton: false,

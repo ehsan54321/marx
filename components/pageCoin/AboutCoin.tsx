@@ -1,4 +1,3 @@
-import { ProgressBar } from 'react-bootstrap'
 import { SortBySetaSeta, toPersian } from '@lib/helper'
 import { useTranslation } from 'react-i18next'
 
@@ -48,12 +47,18 @@ const AboutCoin = ({ aboutCoin, dayGrith }) => {
         <div className="ms-3">
           <span className="text-good">{t('coin.date') + ':'}</span>
           <br />
-          <div className="d-flex justify-content-between mt-1">
-            <span>{toPersian(aboutCoin.now, t('lang')) + '٪'}</span>
+          <div className="text-center">
             <span>{toPersian(aboutCoin.arz, t('lang'))}</span>
           </div>
-          <div>
-            <ProgressBar striped variant="success" now={aboutCoin.now} />
+          <div className="progress h-auto">
+            <div
+              className="progress-bar bg-success progress-bar-striped justify-content-start"
+              style={{ width: aboutCoin.now + '%' }}
+            >
+              <span style={{ marginTop: '.15rem' }}>
+                {toPersian(aboutCoin.now, t('lang')) + '٪'}
+              </span>
+            </div>
           </div>
           <div className="font-13 d-flex justify-content-between">
             <span className="text-good">{t('coin.display.size') + ':'}</span>

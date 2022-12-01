@@ -4,7 +4,6 @@ import http from '@services/httpServices'
 import toast from 'sweetalert2'
 import { AuthContext } from '@store/auth'
 import { BsEnvelopeFill, BsEye, BsEyeSlash } from 'react-icons/bs'
-import { Button } from 'react-bootstrap'
 import { resErr, SpasTo0 } from '@lib/helper'
 import { RiLockPasswordFill } from 'react-icons/ri'
 import { useContext, useState } from 'react'
@@ -57,7 +56,7 @@ const Login = () => {
               toast.fire({
                 icon: 'success',
                 toast: true,
-                position: 'bottom-end',
+                position: 'top-end',
                 timer: 7000,
                 title: t('login.success'),
                 showConfirmButton: false,
@@ -68,7 +67,7 @@ const Login = () => {
               toast.fire({
                 icon: 'error',
                 toast: true,
-                position: 'bottom-end',
+                position: 'top-end',
                 timer: 7000,
                 title: res.data.message,
                 showConfirmButton: false,
@@ -88,7 +87,7 @@ const Login = () => {
         toast.fire({
           icon: 'error',
           toast: true,
-          position: 'bottom-end',
+          position: 'top-end',
           timer: 7000,
           title: t('login.warning'),
           showConfirmButton: false,
@@ -121,7 +120,7 @@ const Login = () => {
       setErrorEmail({ stt: false, mas: '' })
       isEmail = true
     } else {
-      if (!email) setErrorPass({ stt: true, mas: noFild })
+      if (!email) setErrorEmail({ stt: true, mas: noFild })
       else if (!(email.length >= 14 && email.length <= 52)) {
         if (email.length <= 14) {
           setErrorEmail({
@@ -227,11 +226,9 @@ const Login = () => {
         </div>
       </div>
       <div>
-        <Button
+        <button
           type="submit"
-          value="Submit"
-          variant="outline-primary"
-          className="w-100 mt-4 auth_btn"
+          className="w-100 mt-4 auth_btn btn btn-outline-primary"
           disabled={loader}
         >
           {loader && (
@@ -247,8 +244,8 @@ const Login = () => {
               </svg>
             </span>
           )}
-          {loader ? t('loading') : t('login')}
-        </Button>
+          <span>{loader ? t('loading') : t('login')}</span>
+        </button>
       </div>
     </form>
   )

@@ -37,8 +37,8 @@ const UiCoin = (props: Props) => {
   const [hover, setHover] = useState<boolean>(false)
   const { t } = useTranslation()
   return (
-    <tr className="tr">
-      <td role="cell" className="uiCoin_width65">
+    <>
+      <td className="uiCoin_width65">
         <div className="d-flex justify-content-start">
           <div className="ms-3 d-flex align-items-center uiCoin_star">
             <Star
@@ -53,7 +53,7 @@ const UiCoin = (props: Props) => {
           </div>
         </div>
       </td>
-      <td role="cell">
+      <td>
         <div className="d-flex">
           <Link
             href={{
@@ -89,7 +89,7 @@ const UiCoin = (props: Props) => {
           </Link>
         </div>
       </td>
-      <td role="cell">
+      <td>
         <div
           className={classNames(
             !t('lang') && 'uiCoin_numEnMode',
@@ -105,7 +105,7 @@ const UiCoin = (props: Props) => {
           </span>
         </div>
       </td>
-      <td role="cell">
+      <td>
         <div
           className={classNames(
             !t('lang') && 'uiCoin_numEnMode',
@@ -128,7 +128,7 @@ const UiCoin = (props: Props) => {
         </div>
       </td>
 
-      <td role="cell">
+      <td>
         <div
           className={classNames(
             !t('lang') && 'uiCoin_numEnMode',
@@ -139,10 +139,7 @@ const UiCoin = (props: Props) => {
           <span>{'$' + toPersian(SortBySetaSeta(usd), t('lang'))}</span>
         </div>
       </td>
-      <td
-        role="cell"
-        className="d-md-table-cell border-0 justify-content-center d-none"
-      >
+      <td className="d-md-table-cell border-0 justify-content-center d-none">
         <div
           className={classNames(
             'justify-content-center uiCoin_numbers',
@@ -153,10 +150,7 @@ const UiCoin = (props: Props) => {
           <span>{toPersian(SortBySetaSeta(dayAll.value_24h), t('lang'))}</span>
         </div>
       </td>
-      <td
-        role="cell"
-        className="border-0 justify-content-center d-none d-sm-table-cell"
-      >
+      <td className="border-0 justify-content-center d-none d-sm-table-cell">
         <div
           className={classNames(
             !t('lang') && 'uiCoin_numEnMode',
@@ -164,7 +158,7 @@ const UiCoin = (props: Props) => {
           )}
           title={t('change-7d')}
         >
-          <div className='d-inline'>
+          <div className="d-inline">
             {dayAll.color_day7 === 'red' ? (
               <BsFillCaretDownFill className="me-1" />
             ) : (
@@ -178,7 +172,7 @@ const UiCoin = (props: Props) => {
           </span>
         </div>
       </td>
-    </tr>
+    </>
   )
 }
 

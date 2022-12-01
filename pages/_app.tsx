@@ -3,7 +3,6 @@ import classNames from 'classnames'
 import Layout from '@components/Layout'
 import Loader from '@util/Loader'
 import Router from 'next/router'
-import { SSRProvider, ThemeProvider } from 'react-bootstrap'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import '@styles/globals.scss'
@@ -25,27 +24,23 @@ const App = ({ Component, pageProps }: AppProps<AppCustomProps>) => {
   Router.events.on('routeChangeStart', () => setLoaderStatus(true))
   Router.events.on('routeChangeComplete', () => setLoaderStatus(false))
   return (
-    <SSRProvider>
-      <ThemeProvider dir="rtl">
-        <AuthProvider>
-          <div className="d-flex flex-column vh-100 justify-content-between">
-            <Layout NoLayout={pageProps.NoLayout} NoFooter={pageProps.NoFooter}>
-              <>
-                {loaderStatus && <Loader />}
-                <div
-                  className={classNames(
-                    loaderStatus && 'd-none',
-                    !pageProps.NoContainer && 'container-xl'
-                  )}
-                >
-                  <Component {...pageProps} />
-                </div>
-              </>
-            </Layout>
-          </div>
-        </AuthProvider>
-      </ThemeProvider>
-    </SSRProvider>
+    <AuthProvider>
+      <div className="d-flex flex-column vh-100 justify-content-between">
+        <Layout NoLayout={pageProps.NoLayout} NoFooter={pageProps.NoFooter}>
+          <>
+            {loaderStatus && <Loader />}
+            <div
+              className={classNames(
+                loaderStatus && 'd-none',
+                !pageProps.NoContainer && 'container-xl'
+              )}
+            >
+              <Component {...pageProps} />
+            </div>
+          </>
+        </Layout>
+      </div>
+    </AuthProvider>
   )
 }
 

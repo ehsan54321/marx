@@ -6,7 +6,6 @@ import toast from 'sweetalert2'
 import { AiFillHome, AiFillStar } from 'react-icons/ai'
 import { AuthContext } from '@store/auth'
 import { BsFillPersonFill, BsTranslate } from 'react-icons/bs'
-import { Dropdown } from 'react-bootstrap'
 import { FaBars, FaTimes } from 'react-icons/fa'
 import { HiLogout } from 'react-icons/hi'
 import { resErr } from '@lib/helper'
@@ -95,6 +94,7 @@ const Header = () => {
 
 const Auth = ({ mobile }) => {
   const { isFind, setAuthState, authState, isAuth } = useContext(AuthContext)
+  const [open, setOpen] = useState(false)
   const { t, i18n } = useTranslation()
   const router = useRouter()
   const Logout = () => {
@@ -107,7 +107,7 @@ const Auth = ({ mobile }) => {
         toast.fire({
           icon: 'error',
           toast: true,
-          position: 'bottom-end',
+          position: 'top-end',
           timer: 7000,
           title: t('logout-text'),
           showConfirmButton: false,
@@ -154,8 +154,8 @@ const Auth = ({ mobile }) => {
           </button>
         </Link>
       ) : (
-        <Dropdown drop={mobile ? 'down' : 'start'}>
-          <Dropdown.Toggle variant="width" className="border-0 p-sm-0">
+        <div className="dropdoen">
+          <div className="dropdown-toggle" onClick={() => setOpen(!open)}>
             <img
               // src="https://www.gravatar.com/avatar/24e96aef-6a72-4400-9a95-a926bad3fc69?s=185&d=identicon&r;=PG"
               // src="https://www.gravatar.com/avatar/4e7f0e6f71df72220e4ce37c92c377e3?s=185&d=identicon&r;=PG"
@@ -164,29 +164,34 @@ const Auth = ({ mobile }) => {
               style={{ width: 40 }}
               alt={`${t('profile')} ${authState.username}`}
             />
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu>
-            <Link
-              href="/account"
-              className={classNames(
-                'dropdown-item text-dark d-flex align-items-center',
-                router.pathname.split('/')[1] === 'account' &&
-                  'active text-white'
-              )}
+          </div>
+          <div>
+            <ul
+              className={open ? 'dropdown-menu d-block' : 'dropdown-menu'}
+              style={{ inset: '70px auto auto 12px' }}
             >
-              <BsFillPersonFill />
-              <span className="ms-1">{t('profile')}</span>
-            </Link>
-            <Dropdown.Item
-              onClick={Logout}
-              className="d-flex align-items-center"
-            >
-              <HiLogout />
-              <span className="ms-2">{t('logout')}</span>
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
+              <li>
+                <Link
+                  href="/account"
+                  className={classNames(
+                    'text-dark d-flex align-items-center dropdown-item',
+                    router.pathname.split('/')[1] === 'account' &&
+                      'active text-white'
+                  )}
+                >
+                  <BsFillPersonFill />
+                  <span className="ms-1">{t('profile')}</span>
+                </Link>
+              </li>
+              <li onClick={Logout}>
+                <div className="dropdown-item">
+                  <HiLogout />
+                  <span className="ms-2">{t('logout')}</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
       )}
     </>
   )

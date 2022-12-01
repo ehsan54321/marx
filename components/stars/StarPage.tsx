@@ -2,7 +2,6 @@ import classNames from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
-import { Button } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
 
 type Props = {
@@ -12,7 +11,6 @@ type Props = {
   deleteStar: Function
 }
 const StarPage = (props: Props) => {
-  const [tam, setTam] = useState<boolean>(false)
   const [hover, setHover] = useState<boolean>(false)
   const { t } = useTranslation()
   return (
@@ -56,15 +54,9 @@ const StarPage = (props: Props) => {
         </Link>
       </div>
       <div className="text-center">
-        <Button
-          variant="outline-danger"
-          className={tam ? 'text-white' : ''}
-          onClick={() => props.deleteStar(props.nameEN)}
-          onMouseEnter={() => setTam(true)}
-          onMouseLeave={() => setTam(false)}
-        >
-          {t('delete')}
-        </Button>
+        <button type="button" className="btn btn-outline-danger">
+          <span>{t('delete')}</span>
+        </button>
       </div>
     </div>
   )

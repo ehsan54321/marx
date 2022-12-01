@@ -23,19 +23,16 @@ const AuthProvider = ({ children }): JSX.Element => {
   const { t } = useTranslation()
   const [authState, setAuthState] = useState<authObj | null | boolean>(false)
   useEffect(() => {
-    const url = location.pathname.split('/')[1]
-    if (url !== 'coins' && url !== '') {
-      http
-        .get('api/user')
-        .then((res: { data: { status: string; data: authObj } }) => {
-          if (res.data.status === 'SUCCESS') setAuthState(res.data.data)
-          else setAuthState(null)
-        })
-        .catch(() => {
-          setAuthState(null)
-          resErr(t)
-        })
-    }
+    http
+      .get('api/user')
+      .then((res: { data: { status: string; data: authObj } }) => {
+        if (res.data.status === 'SUCCESS') setAuthState(res.data.data)
+        else setAuthState(null)
+      })
+      .catch(() => {
+        setAuthState(null)
+        resErr(t)
+      })
   }, [])
 
   const isFind = () => {

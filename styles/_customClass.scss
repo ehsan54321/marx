@@ -31,6 +31,18 @@
   }
 }
 
+.hover\: {
+  &green:hover {
+    color: green !important;
+  }
+  &red:hover {
+    color: red !important;
+  }
+  &secondary:hover {
+    color: $secondary !important;
+  }
+}
+
 .cursor-pointer {
   cursor: pointer !important;
 }
@@ -43,11 +55,18 @@
   box-shadow: 0 0.125rem 0.25rem #00000013 !important;
 }
 
-.accordion_list {
-  font-size: 0.875rem;
-  font-weight: 400;
-  line-height: 1.75;
-  color: #42526e;
+.accordion_ {
+  &transition {
+    height: 0px;
+    transition: height 0.35s ease;
+    overflow: hidden;
+  }
+  &list {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.75;
+    color: #42526e;
+  }
 }
 
 .nav_page {

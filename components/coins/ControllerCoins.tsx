@@ -22,11 +22,7 @@ type coinType = {
     color_day7: string
   }
 }
-type dataServerType = {
-  coins: coinType[]
-  rials: number
-}
-const ControllerCoins = ({ dataServer }: dataServerType | any) => {
+const ControllerCoins = ({ dataServer }) => {
   const [dataCoin, setDataCoin] = useState<coinType[]>(dataServer.coins)
   const [sortId, setSortId] = useState<boolean>(false)
   const [dir, setDir] = useState<boolean>(true)

@@ -12,10 +12,10 @@ const AdsComponents = () => {
     <div className={!show ? 'd-none' : ''}>
       <span
         className="ads_hiding position-fixed mb-2 font-15 cursor-pointer p-2"
-        title={t('hiding')}
+        title={t('hiding') + ' ads'}
         onClick={deShowHandler}
       >
-        {t('hiding')}
+        {t('hiding') + ' ads'}
       </span>
       <a
         rel="nofollow"

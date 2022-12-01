@@ -2,7 +2,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import SEO from '@components/Seo'
 import { AuthContext } from '@store/auth'
-import { Button, Tab, Tabs } from 'react-bootstrap'
 import { Error401 } from '@components/error'
 import { LoginForm, RegisterForm, SettingsFrom } from '@components/auth'
 import { useContext, useEffect, useState } from 'react'
@@ -21,9 +20,6 @@ const AuthPage = () => {
   useEffect(() => {
     if (location.href.split('#')[1] === 'register') setStatus('register')
   }, [])
-  useEffect(() => {
-    location.replace('#' + status)
-  }, [status])
   const text: string = t('lang')
     ? `صفحه ${status === 'register' ? 'ثبت نام' : 'ورود'}`
     : `Page ${status === 'register' ? 'Register' : 'Login'}`
@@ -32,7 +28,9 @@ const AuthPage = () => {
       <SEO title={text} />
       <div className="mt-3 ms-2">
         <Link href="/">
-          <Button variant="outline-secondary">{t('go.to.home.page')}</Button>
+          <button className="btn btn-outline-secondary">
+            {t('go.to.home.page')}
+          </button>
         </Link>
       </div>
       <div>
@@ -46,7 +44,47 @@ const AuthPage = () => {
           />
         </div>
         <div className="background-color bg-white text-center m-auto ps-3 pe-3 auth_login">
-          <Tabs
+          <div className="mb-3">
+            <ul className="nav nav-tabs">
+              <li className="nav-item">
+                <a
+                  className={
+                    status === 'login' ? 'nav-link active' : 'nav-link'
+                  }
+                  href="#login"
+                  onClick={() => setStatus('login')}
+                >
+                  {t('login')}
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className={
+                    status === 'register' ? 'nav-link active' : 'nav-link'
+                  }
+                  href="#register"
+                  onClick={() => setStatus('register')}
+                >
+                  {t('register')}
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className={
+                    status === 'settings' ? 'nav-link active' : 'nav-link'
+                  }
+                  href="#settings"
+                  onClick={() => setStatus('settings')}
+                >
+                  {t('settings')}
+                </a>
+              </li>
+            </ul>
+          </div>
+          {status === 'login' && <LoginForm />}
+          {status === 'register' && <RegisterForm />}
+          {status === 'settings' && <SettingsFrom setImg={setImg} img={img} />}
+          {/* <Tabs
             activeKey={status}
             onSelect={(item) => setStatus(item)}
             className="mb-3"
@@ -64,7 +102,7 @@ const AuthPage = () => {
             >
               <SettingsFrom setImg={setImg} img={img} />
             </Tab>
-          </Tabs>
+          </Tabs> */}
         </div>
       </div>
     </>

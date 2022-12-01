@@ -8,7 +8,6 @@ import {
   BsEyeSlash,
   BsFillPersonFill,
 } from 'react-icons/bs'
-import { Button } from 'react-bootstrap'
 import { resErr, SpasTo0 } from '@lib/helper'
 import { RiLockPasswordFill } from 'react-icons/ri'
 import { useContext, useState } from 'react'
@@ -55,7 +54,7 @@ const Register = () => {
           toast.fire({
             icon: 'success',
             toast: true,
-            position: 'bottom-end',
+            position: 'top-end',
             timer: 7000,
             title: t('register.success'),
             showConfirmButton: false,
@@ -66,7 +65,7 @@ const Register = () => {
           toast.fire({
             icon: 'error',
             toast: true,
-            position: 'bottom-end',
+            position: 'top-end',
             timer: 7000,
             title: res.data.message,
             showConfirmButton: false,
@@ -110,7 +109,7 @@ const Register = () => {
       setErrorUsername({ stt: false, mas: '' })
       isUsername = true
     } else {
-      if (!username) setErrorPass({ stt: true, mas: noFild })
+      if (!username) setErrorUsername({ stt: true, mas: noFild })
       else if (!(username.length >= 4 && username.length <= 14)) {
         if (username.length <= 4) {
           setErrorUsername({
@@ -139,7 +138,7 @@ const Register = () => {
       setErrorEmail({ stt: false, mas: '' })
       isEmail = true
     } else {
-      if (!email) setErrorPass({ stt: true, mas: noFild })
+      if (!email) setErrorEmail({ stt: true, mas: noFild })
       else if (!(email.length >= 14 && email.length <= 52)) {
         if (email.length <= 14) {
           setErrorEmail({
@@ -198,7 +197,7 @@ const Register = () => {
           mas: 'تکرار رمز عبور اشتباه است!',
         })
       }
-    } else setErrorPass({ stt: true, mas: noFild })
+    } else setErrorRePass({ stt: true, mas: noFild })
     if (isEmail && isUsername && isPassword && isRePassword) {
       setLoader(true)
       onFinish({ email, password, re_password: rePassword, username })
@@ -304,11 +303,9 @@ const Register = () => {
         </div>
       </div>
       <div>
-        <Button
+        <button
           type="submit"
-          value="Submit"
-          variant="outline-primary"
-          className="w-100 mt-4 auth_btn"
+          className="w-100 mt-4 auth_btn btn btn-outline-primary"
           disabled={loader}
         >
           {loader && (
@@ -324,8 +321,8 @@ const Register = () => {
               </svg>
             </span>
           )}
-          {loader ? t('loading') : t('register')}
-        </Button>
+          <span>{loader ? t('loading') : t('register')}</span>
+        </button>
       </div>
     </form>
   )

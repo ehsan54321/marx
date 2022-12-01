@@ -3,9 +3,8 @@ import http from '@services/httpServices'
 import toast from 'sweetalert2'
 import { AuthContext } from '@store/auth'
 import { BsEnvelopeFill, BsEye, BsEyeSlash } from 'react-icons/bs'
-import { Button, Card } from 'react-bootstrap'
-import { RiLockPasswordFill } from 'react-icons/ri'
 import { resErr, SpasTo0 } from '@lib/helper'
+import { RiLockPasswordFill } from 'react-icons/ri'
 import { useContext, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -73,7 +72,7 @@ const UserInfo = () => {
       setErrorEmail({ stt: false, mas: '' })
       isEmail = true
     } else {
-      if (!email) setErrorPass({ stt: true, mas: noFild })
+      if (!email) setErrorEmail({ stt: true, mas: noFild })
       else if (!(email.length >= 14 && email.length <= 52)) {
         if (email.length <= 14) {
           setErrorEmail({
@@ -126,83 +125,81 @@ const UserInfo = () => {
     e.preventDefault()
   }
   return (
-    <div>
-      <Card className="p-3 mt-2 mt-md-0">
-        <Card.Body>
-          <form className="form-floating" onSubmit={onSubmit}>
-            <div className="mb-3">
-              <div className="text-start mb-2">
-                <label htmlFor="login_email">{t('email')}</label>
-              </div>
-              <div className="input-group">
-                <div className="input-group-text auth_input bg-white">
-                  <BsEnvelopeFill />
-                </div>
-                <input
-                  id="login_email"
-                  disabled={disabled}
-                  defaultValue={authState.email}
-                  className={classNames(
-                    'form-control',
-                    errorEmail.stt && 'is-invalid'
-                  )}
-                  type="text"
-                />
-              </div>
-              <div className="mt-1 text-center">
-                <span className="text-danger">{errorEmail.mas}</span>
-              </div>
+    <div className="p-3 mt-2 mt-md-0 card">
+      <div className="card-body">
+        <form className="form-floating" onSubmit={onSubmit}>
+          <div className="mb-3">
+            <div className="text-start mb-2">
+              <label htmlFor="login_email">{t('email')}</label>
             </div>
-            <div>
-              <div className="text-start mb-2">
-                <label htmlFor="login_password">{t('password')}</label>
+            <div className="input-group">
+              <div className="input-group-text auth_input bg-white">
+                <BsEnvelopeFill />
               </div>
-              <div className="input-group">
-                <div className="input-group-text auth_input bg-white">
-                  <RiLockPasswordFill />
-                </div>
-                <input
-                  id="login_password"
-                  disabled={disabled}
-                  defaultValue={authState.password}
-                  className={classNames(
-                    'form-control',
-                    errorPass.stt ? 'is-invalid' : 'auth_icon_pass'
-                  )}
-                  type={passLook ? 'password' : 'text'}
-                />
-                <div
-                  className="input-group-text bg-white"
-                  onClick={() => setPassLook(!passLook)}
-                >
-                  {!passLook ? <BsEye /> : <BsEyeSlash />}
-                </div>
-              </div>
-              <div className="mt-1 text-center">
-                <span className="text-danger">{errorPass.mas}</span>
-              </div>
+              <input
+                id="login_email"
+                disabled={disabled}
+                defaultValue={authState.email}
+                className={classNames(
+                  'form-control',
+                  errorEmail.stt && 'is-invalid'
+                )}
+                type="text"
+              />
             </div>
-            {!disabled && (
-              <div className="text-center mt-4">
-                <Button type="submit" variant="outline-primary">
-                  تایید تغییر اطلاعات کاربری
-                </Button>
+            <div className="mt-1 text-center">
+              <span className="text-danger">{errorEmail.mas}</span>
+            </div>
+          </div>
+          <div>
+            <div className="text-start mb-2">
+              <label htmlFor="login_password">{t('password')}</label>
+            </div>
+            <div className="input-group">
+              <div className="input-group-text auth_input bg-white">
+                <RiLockPasswordFill />
               </div>
-            )}
-          </form>
-          {disabled && (
-            <div className="text-center mt-4">
-              <Button
-                onClick={() => setDisabled(false)}
-                type="submit"
-                variant="outline-primary"
+              <input
+                id="login_password"
+                disabled={disabled}
+                defaultValue={authState.password}
+                className={classNames(
+                  'form-control',
+                  errorPass.stt ? 'is-invalid' : 'auth_icon_pass'
+                )}
+                type={passLook ? 'password' : 'text'}
+              />
+              <div
+                className="input-group-text bg-white"
+                onClick={() => setPassLook(!passLook)}
               >
-                تغییر اطلاعات کاربری
-              </Button>
+                {!passLook ? <BsEye /> : <BsEyeSlash />}
+              </div>
+            </div>
+            <div className="mt-1 text-center">
+              <span className="text-danger">{errorPass.mas}</span>
+            </div>
+          </div>
+          {!disabled && (
+            <div className="text-center mt-4">
+              <button type="submit" className="btn btn-primary">
+                <span>تایید تغییر اطلاعات کاربری</span>
+              </button>
             </div>
           )}
-        </Card.Body>
-      </Card>
+        </form>
+        {disabled && (
+          <div className="text-center mt-4">
+            <button
+              type="submit"
+              className="btn btn-outline-primary"
+              onClick={() => setDisabled(false)}
+            >
+              <span>تغییر اطلاعات کاربری</span>
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   )
 }

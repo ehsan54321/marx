@@ -24,42 +24,31 @@ type Props = {
 const MapCoin = (props: Props) => {
   const { t } = useTranslation()
   return (
-    <div className="ms-sm-auto">
-      <table className="table table-sm table-responsive-sm hover">
+    <div className="table-responsive">
+      <table className="table table-sm hover">
         <thead>
           <tr className="tr">
-            <th role="row" scope="col">
+            <th>
               <span className="uiCoin_th">#</span>
             </th>
-            <th role="row" scope="col" className="text-start">
-              <span>{t('name-coin')}</span>
-            </th>
-            <th role="row" scope="col">
-              <span>{t('mane-rials')}</span>
-            </th>
-            <th role="row" scope="col">
-              <span>{t('change-24h')}</span>
-            </th>
-            <th role="row" scope="col">
-              <span>{t('mane-usd')}</span>
-            </th>
-            <th role="row" scope="col" className="d-md-block d-none">
-              <span>{t('size-change-mane-24h')}</span>
-            </th>
-            <th role="row" scope="col" className="d-none d-sm-table-cell">
-              <span>{t('change-7d')}</span>
-            </th>
+            <th className="text-start">{t('name-coin')}</th>
+            <th>{t('mane-rials')}</th>
+            <th>{t('change-24h')}</th>
+            <th>{t('mane-usd')}</th>
+            <th className="d-md-block d-none">{t('size-change-mane-24h')}</th>
+            <th className="d-none d-sm-table-cell">{t('change-7d')}</th>
           </tr>
         </thead>
         <tbody>
           {props.data.map((coin) => (
-            <UiCoin
-              key={coin.id}
-              my_key={coin.key}
-              {...coin}
-              dayAll={coin.day}
-              rialsOne={props.rials}
-            />
+            <tr className="tr" key={coin.id}>
+              <UiCoin
+                my_key={coin.key}
+                {...coin}
+                dayAll={coin.day}
+                rialsOne={props.rials}
+              />
+            </tr>
           ))}
         </tbody>
       </table>

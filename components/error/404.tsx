@@ -1,19 +1,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import SEO from '@components/Seo'
-import { AuthContext } from '@store/auth'
-import { useContext, useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
 
 const NotFound = () => {
   const router = useRouter()
-  const { isFind } = useContext(AuthContext)
   const ResultRef = useRef(null)
   const { t } = useTranslation()
-  useEffect(() => {
-    if (!isFind()) location.reload()
-  }, [router])
   useEffect(() => {
     ResultRef.current.innerText = t('lang')
       ? `این (url: ${router.asPath}) وجد ندارد`

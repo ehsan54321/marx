@@ -2,33 +2,33 @@ import AboutHome from '@components/AboutHome'
 import AdsComponents from '../components/Ads'
 import ControllerCoin from '@components/coins/ControllerCoins'
 import http from '@services/httpServices'
-import jwt from 'jsonwebtoken'
 import SEO from '@components/Seo'
-import { AuthContext } from '@store/auth'
-import { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import type { GetServerSideProps } from 'next'
 
 export const getServerSideProps: GetServerSideProps = (ctx) => {
-  const token = ctx.req.cookies.token
-  const deCodeToken = (data) => {
-    return jwt.decode(data, {
-      complete: true,
-      algorithm: 'HS256',
-      expiresIn: '90d',
-    }).payload
-  }
+  // const token = ctx.req.cookies.token
+  // const deCodeToken = (data) => {
+  //   return jwt.decode(data, {
+  //     complete: true,
+  //     algorithm: 'HS256',
+  //     expiresIn: '90d',
+  //   }).payload
+  // }
+  // return {
+  //   props: { token: token ? deCodeToken(token) : null },
+  // }
   return http.get('api/coins').then((res) => {
     return {
-      props: { data: res.data, token: token ? deCodeToken(token) : null },
+      props: { data: res.data },
     }
   })
 }
-const HomePage = ({ data, token }) => {
+const HomePage = ({ data }) => {
   const { t } = useTranslation()
-  const { setAuthState } = useContext(AuthContext)
-  setAuthState(token)
-  // TODO api socket update value coins
+  // const { setAuthState } = useContext(AuthContext)
+  // setAuthState(token)
+  // TODO api web socket update value coins
   return (
     <>
       <SEO

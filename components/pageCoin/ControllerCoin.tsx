@@ -1,18 +1,11 @@
 import AboutCoin from '@components/pageCoin/AboutCoin'
 import Chart from '@components/pageCoin/chart'
+import classNames from 'classnames'
 import Image from 'next/image'
 import Star from '@components/stars/Star'
-import toast from 'sweetalert2'
-import { baseURL } from '@baseUrl'
-import { Col, Dropdown } from 'react-bootstrap'
+import { BsFillCaretDownFill, BsFillCaretUpFill } from 'react-icons/bs'
 import { SortBySetaSeta, toPersian, usdInRials } from '@lib/helper'
 import { useTranslation } from 'react-i18next'
-import { HiOutlineShare } from 'react-icons/hi'
-import { AiOutlineMail, AiOutlineWhatsApp } from 'react-icons/ai'
-import { TbBrandTelegram } from 'react-icons/tb'
-import { RiFileCopyLine } from 'react-icons/ri'
-import { BsFillCaretDownFill, BsFillCaretUpFill } from 'react-icons/bs'
-import classNames from 'classnames'
 
 type Props = {
   coin: any
@@ -22,23 +15,10 @@ type Props = {
 const ControllerPageCoin = (props: Props) => {
   const { nameCoin } = props
   const { t } = useTranslation()
-  const copyHandler = () => {
-    navigator.clipboard.writeText(`${baseURL}coins/${nameCoin}`)
-    toast.fire({
-      icon: 'success',
-      toast: true,
-      position: 'bottom-end',
-      timer: 4000,
-      title: t('copy.ok'),
-      showConfirmButton: false,
-      showCloseButton: true,
-      timerProgressBar: true,
-    })
-  }
   return (
     <>
       <div className="row w-100 ms-0">
-        <Col className="d-flex mb-3 justify-content-between">
+        <div className="d-flex mb-3 justify-content-between col">
           <div className="d-flex">
             <div className="ms-2 d-flex">
               <div className="d-flex align-items-center coinPage_imgCoin">
@@ -87,56 +67,13 @@ const ControllerPageCoin = (props: Props) => {
             >
               {'#' + toPersian(props.coin.id, t('lang'))}
             </span>
-            <Dropdown className="ms-1" style={{ top: 4, zIndex: 10 }}>
-              <Dropdown.Toggle variant="width" className="border-0 p-0 py-sm-2 px-sm-3">
-                <div className="d-flex text-secondary">
-                  <div className="px-1 d-flex align-items-center">
-                    <HiOutlineShare size={18} />
-                  </div>
-                  <span className="font-13 d-none d-sm-flex">اشتراک گزاری</span>
-                </div>
-              </Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                <Dropdown.Item
-                  target="_blank"
-                  href={`mailto:?subject=${
-                    'صفحه کوین ' + props.coin.name
-                  }&body=Open this link:%0D%0A${baseURL}coins/${nameCoin}`}
-                  rel="nofollow"
-                >
-                  <AiOutlineMail />
-                  <span className="ms-1">{t('email')}</span>
-                </Dropdown.Item>
-                <Dropdown.Item
-                  target="_blank"
-                  rel="nofollow"
-                  href={`https://t.me/share/url?url=${baseURL}coins/${nameCoin}`}
-                >
-                  <TbBrandTelegram />
-                  <span className="ms-1">{t('telegram')}</span>
-                </Dropdown.Item>
-                <Dropdown.Item
-                  target="_blank"
-                  rel="nofollow"
-                  href={`whatsapp://send?text=${baseURL}coins/${nameCoin}`}
-                >
-                  <AiOutlineWhatsApp />
-                  <span className="ms-1">{t('whatsapp')}</span>
-                </Dropdown.Item>
-                <Dropdown.Item onClick={copyHandler}>
-                  <RiFileCopyLine />
-                  <span className="ms-1">{t('copy.link')}</span>
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
           </div>
-        </Col>
+        </div>
         <AboutCoin
           dayGrith={props.coin.dayGrith}
           aboutCoin={props.coin.aboutCoin}
         />
-        <Col>
+        <div className="col">
           <div
             title={t('change-24h')}
             className={classNames(
@@ -157,10 +94,10 @@ const ControllerPageCoin = (props: Props) => {
                 (props.coin.day.colorDayIn === 'danger' ? '-' : '+')}
             </span>
           </div>
-        </Col>
+        </div>
         <div></div>
-        <Col
-          className="mt-3 mb-3"
+        <div
+          className="mt-3 mb-3 col"
           style={{ paddingLeft: 'calc(var(--bs-gutter-x) * .0)' }}
         >
           <div className="d-flex flex-column" title={t('mane-usd')}>
@@ -169,8 +106,8 @@ const ControllerPageCoin = (props: Props) => {
               {'$' + toPersian(SortBySetaSeta(props.coin.usd), t('lang'))}
             </span>
           </div>
-        </Col>
-        <Col className="d-flex mt-3 align-items-center mb-3">
+        </div>
+        <div className="d-flex mt-3 align-items-center mb-3 col">
           <div className="d-flex flex-column" title={t('mane-rials')}>
             <span className="text-good">{t('mane-rials')}:</span>
             <span className="font-18 mt-1">
@@ -189,7 +126,7 @@ const ControllerPageCoin = (props: Props) => {
               </span>
             </span>
           </div>
-        </Col>
+        </div>
       </div>
       <Chart props={props.coin} nameCoin={nameCoin} />
     </>
