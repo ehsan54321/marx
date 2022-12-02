@@ -3,7 +3,6 @@ import Chart from '@components/pageCoin/chart'
 import classNames from 'classnames'
 import Image from 'next/image'
 import Star from '@components/stars/Star'
-import { BsFillCaretDownFill, BsFillCaretUpFill } from 'react-icons/bs'
 import { SortBySetaSeta, toPersian, usdInRials } from '@lib/helper'
 import { useTranslation } from 'react-i18next'
 
@@ -81,13 +80,13 @@ const ControllerPageCoin = (props: Props) => {
               'coinPage_dar text-white justify-content-center mt-3 d-flex h6'
             )}
           >
-            <div className="me-1">
-              {props.coin.day.colorDayIn !== 'danger' ? (
-                <BsFillCaretUpFill className="me-1" />
-              ) : (
-                <BsFillCaretDownFill className="me-1" />
-              )}
-            </div>
+            <i
+              className={
+                props.coin.day.colorDayIn === 'danger'
+                  ? 'd-inline uiCoin_arrow'
+                  : 'd-inline uiCoin_arrow uiCoin_day'
+              }
+            ></i>
             <span>
               {toPersian(props.coin.day.dayIn, t('lang')) +
                 '٪' +

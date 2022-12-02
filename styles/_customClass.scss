@@ -32,8 +32,12 @@
 }
 
 .hover\: {
+  & > * {
+    transition: color 0.4s ease-in-out;
+  }
+  transition: color 0.4s ease-in-out;
   &green:hover {
-    color: green !important;
+    color: #008000b8 !important;
   }
   &red:hover {
     color: red !important;
@@ -43,30 +47,19 @@
   }
 }
 
+.d-contents {
+  display: contents !important;
+}
+
 .cursor-pointer {
   cursor: pointer !important;
 }
 
 .background-color {
-  background-color: #fff;
   overflow: auto;
   border-radius: 8px;
   padding: 18px 7px;
   box-shadow: 0 0.125rem 0.25rem #00000013 !important;
-}
-
-.accordion_ {
-  &transition {
-    height: 0px;
-    transition: height 0.35s ease;
-    overflow: hidden;
-  }
-  &list {
-    font-size: 0.875rem;
-    font-weight: 400;
-    line-height: 1.75;
-    color: #42526e;
-  }
 }
 
 .nav_page {
@@ -100,7 +93,6 @@
 .tr {
   transition: background 0.1s linear;
   border-bottom: 1px solid #f0f0f0 !important;
-  display: table-row;
 
   th {
     text-align: center;

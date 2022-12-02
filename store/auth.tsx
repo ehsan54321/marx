@@ -12,8 +12,8 @@ type authObj = {
 }
 type context = {
   isAuth: boolean
-  isFind: Function
-  setAuthState: Function
+  isFind: any
+  setAuthState: any
   authState: any
 }
 export const AuthContext = createContext<context | null>(null)
@@ -39,12 +39,8 @@ const AuthProvider = ({ children }): JSX.Element => {
     if (authState === false) return true
     else return false
   }
-
-  return (
-    <Provider value={{ isAuth: !!authState, authState, isFind, setAuthState }}>
-      {children}
-    </Provider>
-  )
+  const value = { isAuth: !!authState, authState, isFind, setAuthState }
+  return <Provider value={value}>{children}</Provider>
 }
 
 export default AuthProvider

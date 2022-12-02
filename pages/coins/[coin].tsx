@@ -32,7 +32,9 @@ const Coin = ({ props, nameCoin }) => {
       <nav className="mt-4 mb-4 nav_page">
         <ul className="breadcrumb">
           <li className="breadcrumb-item">
-            <Link href="/">{t('list-coins')}</Link>
+            <Link className="hover:secondary" href="/">
+              {t('list-coins')}
+            </Link>
           </li>
           <li className="breadcrumb-item active">
             {t('lang') ? props.coin.name : props.coin.all_name}
@@ -61,13 +63,13 @@ const AboutCoin = (props) => {
   const div1 = useRef(null)
   const div2 = useRef(null)
   useEffect(() => {
-    const oneAccordionY = oneAccordion.current.clientHeight
-    const towAccordionY = towAccordion.current.clientHeight
+    const oneAccordionY = oneAccordion.current.getBoundingClientRect().height
+    const towAccordionY = towAccordion.current.getBoundingClientRect().height
     if (showItem === 1) {
-      div1.current.style.height = `calc(${oneAccordionY}px + 2rem)`
+      div1.current.style.height = `calc(${oneAccordionY}px - 1rem)`
       div2.current.style.height = 0
     } else if (showItem === 2) {
-      div2.current.style.height = `calc(${towAccordionY}px + 2rem)`
+      div2.current.style.height = `calc(${towAccordionY}px - 1rem)`
       div1.current.style.height = 0
     } else {
       div1.current.style.height = 0
@@ -76,9 +78,7 @@ const AboutCoin = (props) => {
   }, [showItem])
   return (
     <div className="background-color bg-white mt-3">
-      <h2 className="h1_page h5 ms-3 mb-3">
-        {t('lang') ? 'معرفی کوین' : 'Introducing Coin'}
-      </h2>
+      <h2 className="h1_page h5 ms-3 mb-3">{t('introducing.coin')}</h2>
       <div className="accordion accordion-flush">
         <div className="accordion-item">
           <h2 className="accordion-header">
@@ -97,8 +97,8 @@ const AboutCoin = (props) => {
             </button>
           </h2>
           <div className="accordion-collapse accordion_transition" ref={div1}>
-            <div className="accordion-body">
-              <p className="accordion_list" ref={oneAccordion} dir="auto">
+            <div className="accordion-body" ref={oneAccordion}>
+              <p className="accordion_list" dir="auto">
                 {props.coin.aboutCoin.body}
               </p>
             </div>
@@ -121,8 +121,8 @@ const AboutCoin = (props) => {
             </button>
           </h2>
           <div className="accordion-collapse accordion_transition" ref={div2}>
-            <div className="accordion-body">
-              <p className="accordion_list" ref={towAccordion} dir="auto">
+            <div className="accordion-body" ref={towAccordion}>
+              <p className="accordion_list" dir="auto">
                 {props.coin.aboutCoin.ENbody}
               </p>
             </div>

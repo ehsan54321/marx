@@ -210,7 +210,7 @@ const Login = () => {
             id="login_password"
             className={classNames(
               'form-control',
-              errorPass.stt ? 'is-invalid' : 'auth_icon_pass'
+              errorPass.stt ? 'is-invalid' : 'border-start-0'
             )}
             type={passLook ? 'password' : 'text'}
           />

@@ -1,9 +1,9 @@
 ::-moz-selection {
-  color: #fff;
+  color: white;
   background: #f43f5e;
 }
 ::selection {
-  color: #fff;
+  color: white;
   background: #f43f5e;
 }
 
@@ -12,11 +12,7 @@
   border: 0;
   box-shadow: none;
   font-family: 'Vazir', sans-serif;
-  &,
-  &:after,
-  &:before {
-    box-sizing: border-box;
-  }
+  box-sizing: border-box;
 }
 
 body {
@@ -24,27 +20,18 @@ body {
   font-size: 14.5px;
   font-variant: tabular-nums;
   line-height: 1.5715;
-  background-color: #fafbfc;
+  background: #fafbfc;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-  background-color: transparent;
-  outline: none;
+  background: transparent;
   cursor: pointer;
   transition: color 0.3s;
-  -webkit-text-decoration-skip: objects;
-  &:hover {
-    color: #40a9ff;
-  }
+  &:hover,
   &:active {
-    color: #096dd9;
-  }
-  &:active,
-  &:focus,
-  &:hover {
-    outline: 0;
+    color: #096dd9d0;
   }
 }
 

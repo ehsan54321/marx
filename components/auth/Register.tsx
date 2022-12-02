@@ -260,7 +260,7 @@ const Register = () => {
             id="register_password"
             className={classNames(
               'form-control',
-              errorPass.stt ? 'is-invalid' : 'auth_icon_pass'
+              errorPass.stt ? 'is-invalid' : 'border-start-0'
             )}
             type={passLook ? 'password' : 'text'}
           />
@@ -287,7 +287,7 @@ const Register = () => {
             id="register_password"
             className={classNames(
               'form-control',
-              errorRePass.stt ? 'is-invalid' : 'auth_icon_pass'
+              errorRePass.stt ? 'is-invalid' : 'border-start-0'
             )}
             type={rePassLook ? 'password' : 'text'}
           />

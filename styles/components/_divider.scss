@@ -1,42 +1,13 @@
 .divider {
-  box-sizing: border-box;
-  color: $dark;
-  font-size: 14px;
-  font-variant: tabular-nums;
-  line-height: 1.5715;
-  list-style: none;
-  font-feature-settings: 'tnum';
-  border-top: 1px solid #0000000f;
+  white-space: nowrap;
+  border-top-color: rgba(0, 0, 0, 0.0588235294);
+  margin: 24px 0;
 
-  &-vertical {
-    position: relative;
-    top: -0.06em;
-    height: 0.9em;
-    margin: 0 8px;
-    border-left: 1px solid #0000000f;
-  }
-  &-horizontal {
-    display: flex;
-    color: $dark;
-    font-weight: 500;
-    font-size: 16px;
-    white-space: nowrap;
-    text-align: center;
-    border-top: 0;
-    border-top-color: #0000000f;
-    clear: both;
-    width: 100%;
-    min-width: 100%;
-    margin: 24px 0;
-  }
-  &-horizontal:before,
-  &-horizontal::after {
-    position: relative;
-    top: 50%;
+  &:before,
+  &::after {
     width: 50%;
     border-top: 1px solid transparent;
     border-top-color: inherit;
-    border-bottom: 0;
     transform: translateY(50%);
     content: '';
   }

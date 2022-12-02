@@ -1,10 +1,10 @@
 {
   "name": "my-app",
-  "version": "2.2.0",
+  "version": "2.2.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "format": "prettier --write \"components\" \"pages\" \"lib\" \"services\" \"styles\" \"store\" \"util\" \"config\" \"server.js\"",
+    "format": "prettier --write \"components\" \"pages\" \"lib\" \"services\" \"styles\" \"util\"",
     "lint": "next lint",
     "build": "next build",
     "package-update": "yarn upgrade --latest",

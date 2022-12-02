@@ -15,12 +15,12 @@ const Progress = () => {
       document.documentElement.scrollHeight -
       document.documentElement.clientHeight
     const scroll = (winScroll / height) * 100
-    if (height == 0) setShow(false)
+    if (height === 0) setShow(false)
     else setShow(true)
     setWidth(scroll)
   }
   useEffect(() => {
-    addEventListener('scroll', () => onScroll())
+    addEventListener('scroll', onScroll)
   }, [])
   if (show) {
     return (

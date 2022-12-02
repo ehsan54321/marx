@@ -29,7 +29,7 @@ const Share = ({ nameCoin, name }) => {
         </div>
         <span className="font-14">اشتراک گزاری</span>
       </div>
-      <div className="d-flex ms-2">
+      <div className="d-flex ms-2 justify-content-center">
         <a
           target="_blank"
           rel="nofollow noreferrer"

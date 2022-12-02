@@ -1,5 +1,5 @@
 .loader {
-  animation: 1.4s ease-in-out 0s infinite normal none running animation-1p2h4ri;
+  animation: 1.4s ease-in-out 0s infinite normal none running a1;
   width: 40px;
   height: 40px;
 
@@ -7,11 +7,9 @@
     stroke: currentcolor;
     stroke-dasharray: 80px, 200px;
     stroke-dashoffset: 0;
-    animation: 1.4s linear 0s infinite normal none running animation-61bdi0;
+    animation: 1.4s linear 0s infinite normal none running a2;
   }
   &_container {
-    position: absolute;
-    left: 50%;
     top: 47%;
     transform: translateX(-50%) translateY(-50%);
     width: 40px;
@@ -19,7 +17,7 @@
   }
 }
 
-@keyframes animation-1p2h4ri {
+@keyframes a1 {
   0% {
     transform: rotate(0deg);
   }
@@ -27,7 +25,7 @@
     transform: rotate(360deg);
   }
 }
-@keyframes animation-61bdi0 {
+@keyframes a2 {
   0% {
     stroke-dasharray: 1px, 200px;
     stroke-dashoffset: 0;

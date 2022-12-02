@@ -15,6 +15,7 @@ export const getStaticProps: GetStaticProps = () => {
 const AuthPage = () => {
   const [status, setStatus] = useState<string>('login')
   const [img, setImg] = useState<boolean>(true)
+  const [tem, setTem] = useState<boolean>(true)
   const { isAuth } = useContext(AuthContext)
   const { t } = useTranslation()
   useEffect(() => {
@@ -45,7 +46,7 @@ const AuthPage = () => {
         </div>
         <div className="background-color bg-white text-center m-auto ps-3 pe-3 auth_login">
           <div className="mb-3">
-            <ul className="nav nav-tabs">
+            <ul className={tem ? 'nav nav-tabs' : 'nav nav-pills'}>
               <li className="nav-item">
                 <a
                   className={
@@ -83,26 +84,9 @@ const AuthPage = () => {
           </div>
           {status === 'login' && <LoginForm />}
           {status === 'register' && <RegisterForm />}
-          {status === 'settings' && <SettingsFrom setImg={setImg} img={img} />}
-          {/* <Tabs
-            activeKey={status}
-            onSelect={(item) => setStatus(item)}
-            className="mb-3"
-          >
-            <Tab eventKey="login" title={t('login')}>
-              <LoginForm />
-            </Tab>
-            <Tab eventKey="register" title={t('register')}>
-              <RegisterForm />
-            </Tab>
-            <Tab
-              eventKey="settings"
-              title={t('settings')}
-              style={{ height: 200 }}
-            >
-              <SettingsFrom setImg={setImg} img={img} />
-            </Tab>
-          </Tabs> */}
+          {status === 'settings' && (
+            <SettingsFrom setImg={setImg} img={img} tem={tem} setTem={setTem} />
+          )}
         </div>
       </div>
     </>

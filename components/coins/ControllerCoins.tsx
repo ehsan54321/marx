@@ -45,8 +45,8 @@ const ControllerCoins = ({ dataServer }) => {
     else setDataCoin((prevStat) => prevStat.sort((a, b) => b.id - a.id))
   }
   const options = [
-    { value: 'small', label: 'کم به زیاد' },
-    { value: 'large', label: 'زیاد به کم' },
+    { value: 'small', label: t('little.to.much') },
+    { value: 'large', label: t('more.to.less') },
   ]
   return (
     <>
@@ -57,7 +57,10 @@ const ControllerCoins = ({ dataServer }) => {
           </button>
           <input
             type="search"
-            className={classNames('uiCoin_search', dir && 'text-start')}
+            className={classNames(
+              'uiCoin_search border-start-0',
+              dir && 'text-start'
+            )}
             maxLength={20}
             dir="auto"
             placeholder={
@@ -76,10 +79,11 @@ const ControllerCoins = ({ dataServer }) => {
           />
         </div>
         <div>
-          <p className="mb-1">مرتب بر اساس رتبه :</p>
+          <p className="mb-1">{t('sort.by.id')}</p>
           <Select
+            className="uiCoin_select"
             onChange={HandlerId}
-            defaultValue={[{ value: 'small', label: 'کم به زیاد' }]}
+            defaultValue={[options[0]]}
             options={options}
           />
         </div>

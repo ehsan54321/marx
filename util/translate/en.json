@@ -36,6 +36,10 @@
   "coin.date": "Release date",
   "coin.display.size": "Display Size",
   "coin.total.market": "Total market",
+  "sort.by.id": ": Sort by id",
+  "little.to.much": "little to much",
+  "more.to.less": "more to less",
+  "introducing.coin": "Introducing Coin",
 
   "telegram": "Telegram",
   "whatsapp": "Whatsapp",
@@ -59,6 +63,7 @@
   "go.to.the.login.page": "Go to the login page",
   "img": "image",
   "no.img": "know image",
+  "tem": "Them",
 
   "text.no.login": ".You must log in first",
   "text.no.login.button": "Come in",

@@ -10,13 +10,13 @@ const AboutHome = () => {
   const div1 = useRef(null)
   const div2 = useRef(null)
   useEffect(() => {
-    const oneAccordionY = oneAccordion.current.clientHeight
-    const towAccordionY = towAccordion.current.clientHeight
+    const oneAccordionY = oneAccordion.current.getBoundingClientRect().height
+    const towAccordionY = towAccordion.current.getBoundingClientRect().height
     if (showItem === 1) {
-      div1.current.style.height = `calc(${oneAccordionY}px + 2rem)`
+      div1.current.style.height = `calc(${oneAccordionY}px - 1rem)`
       div2.current.style.height = 0
     } else if (showItem === 2) {
-      div2.current.style.height = `calc(${towAccordionY}px + 2rem)`
+      div2.current.style.height = `calc(${towAccordionY}px - 1rem)`
       div1.current.style.height = 0
     } else {
       div1.current.style.height = 0
@@ -44,8 +44,8 @@ const AboutHome = () => {
             </button>
           </h2>
           <div className="accordion-collapse accordion_transition" ref={div1}>
-            <div className="accordion-body">
-              <p className="accordion_list" ref={oneAccordion}>
+            <div className="accordion-body" ref={oneAccordion}>
+              <p className="accordion_list">
                 ارزهای دیجیتال نیز مانند سهام، کالاها، اوراق بهادار و غیره یک
                 دارایی قابل معامله هستند. قیمت هر ارز با توجه به میزان
                 علاقه‌مندی در بازار برای خرید آنها تعیین می‌شود که به آن تقاضا
@@ -79,8 +79,8 @@ const AboutHome = () => {
             </button>
           </h2>
           <div className="accordion-collapse accordion_transition" ref={div2}>
-            <div className="accordion-body">
-              <p className="accordion_list" ref={towAccordion}>
+            <div className="accordion-body" ref={towAccordion}>
+              <p className="accordion_list">
                 نوسانات معیاری است که نشان می‌دهد قیمت هر دارایی خاص در طول زمان
                 چقدر بالا یا پایین رفته است. به طور کلی، هر چه دارایی نوسان
                 بیشتری داشته باشد، ریسک بیشتری به عنوان سرمایه گذاری در نظر

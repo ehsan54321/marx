@@ -40,7 +40,7 @@ const UserCard = ({ user_name }) => {
           alt={`${t('profile')} ${authState.username}`}
         />
       </div>
-      <div className="divider divider-horizontal mt-1 mb-2" role="separator">
+      <div className="divider d-flex mt-1 mb-2">
         <span className="px-3">{t('info.user')}</span>
       </div>
       <div className="text-center card-body">

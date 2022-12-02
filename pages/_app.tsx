@@ -1,19 +1,14 @@
 import AuthProvider from '@store/auth'
-import classNames from 'classnames'
 import Layout from '@components/Layout'
 import Loader from '@util/Loader'
-import Router from 'next/router'
+import { Router } from 'next/router'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import '@styles/globals.scss'
 import '@store/i18n'
 import type { AppProps } from 'next/app'
 
-type AppCustomProps = {
-  NoFooter: boolean
-  NoLayout: boolean
-  NoContainer: boolean
-}
+type AppCustomProps = { NoFooter: boolean; NoLayout: boolean }
 const App = ({ Component, pageProps }: AppProps<AppCustomProps>) => {
   const [loaderStatus, setLoaderStatus] = useState<boolean>(false)
   const { i18n } = useTranslation()
@@ -27,17 +22,9 @@ const App = ({ Component, pageProps }: AppProps<AppCustomProps>) => {
     <AuthProvider>
       <div className="d-flex flex-column vh-100 justify-content-between">
         <Layout NoLayout={pageProps.NoLayout} NoFooter={pageProps.NoFooter}>
-          <>
-            {loaderStatus && <Loader />}
-            <div
-              className={classNames(
-                loaderStatus && 'd-none',
-                !pageProps.NoContainer && 'container-xl'
-              )}
-            >
-              <Component {...pageProps} />
-            </div>
-          </>
+          <div className="container-xl">
+            {loaderStatus ? <Loader /> : <Component {...pageProps} />}
+          </div>
         </Layout>
       </div>
     </AuthProvider>

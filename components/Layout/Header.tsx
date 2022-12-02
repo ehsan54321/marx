@@ -23,25 +23,30 @@ const Header = () => {
     <nav className="bg-white container-xxl position-sticky layout_head align-items-center d-flex justify-content-between top-0">
       <div className="d-flex">
         <div className="d-flex align-items-center justify-content-between">
-          <button
-            className="layout_toggle d-block d-sm-none me-2"
-            style={{ marginTop: 3 }}
-            onClick={() => setModal(!modal)}
-          >
-            {modal ? <FaTimes /> : <FaBars />}
-          </button>
-          <Link href="/">
-            <Image
-              src="/static/images/favicon.ico"
-              alt="لوگو"
-              width={33}
-              height={33}
-            />
-          </Link>
-          <div
-            className="divider divider-vertical d-none d-sm-flex layout_divider"
-            role="separator"
-          ></div>
+          <ul className="d-contents">
+            <li className="nav-item">
+              <button
+                className="layout_toggle d-block d-sm-none me-2"
+                style={{ marginTop: 3 }}
+                onClick={() => setModal(!modal)}
+              >
+                {modal ? <FaTimes /> : <FaBars />}
+              </button>
+            </li>
+            <li className="nav-item">
+              <Link href="/">
+                <Image
+                  src="/static/images/favicon.ico"
+                  alt="لوگو"
+                  width={33}
+                  height={33}
+                />
+              </Link>
+            </li>
+            <li className="nav-item d-none d-sm-flex layout_divider">
+              <div className="vr h-100 mx-lg-2"></div>
+            </li>
+          </ul>
         </div>
         <div
           className={classNames(
@@ -78,7 +83,7 @@ const Header = () => {
             {modal && (
               <div className="vw-100 text-center">
                 <div className="d-flex justify-content-center pt-0">
-                  <Auth mobile />
+                  <Auth />
                 </div>
               </div>
             )}
@@ -86,17 +91,18 @@ const Header = () => {
         </div>
       </div>
       <div className="d-none d-sm-flex">
-        <Auth mobile={undefined} />
+        <Auth />
       </div>
     </nav>
   )
 }
 
-const Auth = ({ mobile }) => {
+const Auth = () => {
   const { isFind, setAuthState, authState, isAuth } = useContext(AuthContext)
   const [open, setOpen] = useState(false)
   const { t, i18n } = useTranslation()
   const router = useRouter()
+  Router.events.on('routeChangeStart', () => setOpen(false))
   const Logout = () => {
     http
       .get('api/auth/logout')
@@ -167,8 +173,9 @@ const Auth = ({ mobile }) => {
           </div>
           <div>
             <ul
-              className={open ? 'dropdown-menu d-block' : 'dropdown-menu'}
-              style={{ inset: '70px auto auto 12px' }}
+              className={
+                open ? 'dropdown-menu d-block layout_drop' : 'dropdown-menu'
+              }
             >
               <li>
                 <Link

@@ -1,6 +1,24 @@
 .uiCoin_ {
+  &arrow::before {
+    content: '';
+    display: inline-block;
+    vertical-align: 1px;
+    margin-left: 3px;
+    border-top: 6px solid;
+    border-left: 6px solid transparent;
+    border-bottom: 0;
+    border-right: 6px solid transparent;
+    border-radius: 1px;
+  }
+  &day::before {
+    transform: rotate(0.5turn);
+    vertical-align: 2.4px;
+  }
   &th {
     margin-right: 25px;
+  }
+  &select {
+    min-width: 150px;
   }
   &nameEN {
     color: $good;
@@ -45,7 +63,6 @@
   }
   &search {
     border: 1px solid #d9d9d9;
-    border-right: none !important;
     padding: 5px;
     height: 36px;
     border-radius: 5px 0 0 5px;
@@ -53,7 +70,7 @@
     color: $good;
 
     &:focus {
-      color: #000;
+      color: black;
       border: 1px solid $secondary;
     }
   }

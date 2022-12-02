@@ -1,7 +1,7 @@
 const Loader = () => {
   return (
-    <div className="d-flex justify-content-center loader_container">
-      <span className="loader" role="progressbar">
+    <div className="d-flex justify-content-center loader_container position-absolute end-50">
+      <span className="loader">
         <svg viewBox="22 22 44 44">
           <circle
             cx="44"
