@@ -21,9 +21,7 @@ const Star = ({ name, faName, id, poster_path }: starObj) => {
   useEffect(() => {
     const data: starObj[] = JSON.parse(localStorage.getItem('star'))
     if (data) {
-      data.map((coin: starObj) => {
-        if (coin.name === name) setStatus(true)
-      })
+      data.findIndex((item) => item.name === name) !== -1 && setStatus(true)
     }
   }, [name])
 

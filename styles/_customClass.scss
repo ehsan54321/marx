@@ -24,10 +24,10 @@
     color: $good !important;
   }
   &red {
-    color: red !important;
+    color: rgb(235, 71, 99) !important;
   }
   &green {
-    color: green !important;
+    color: rgb(52, 178, 136);
   }
 }
 
@@ -37,10 +37,10 @@
   }
   transition: color 0.4s ease-in-out;
   &green:hover {
-    color: #008000b8 !important;
+    color: rgb(52, 178, 136);
   }
   &red:hover {
-    color: red !important;
+    color: rgb(235, 71, 99) !important;
   }
   &secondary:hover {
     color: $secondary !important;
@@ -59,7 +59,8 @@
   overflow: auto;
   border-radius: 8px;
   padding: 18px 7px;
-  box-shadow: 0 0.125rem 0.25rem #00000013 !important;
+  box-shadow: 0 0 7px 0 #eaeff4;
+  border: 1px solid #ecf0f4;
 }
 
 .nav_page {

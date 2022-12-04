@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React from 'react'
 import Star from '@components/stars/Star'
 import { SortBySetaSeta, toPersian, usdInRials } from '@lib/helper'
 import { useTranslation } from 'react-i18next'
@@ -33,7 +33,7 @@ const UiCoin = (props: Props) => {
     usd,
     rialsOne,
   }: Props = props
-  const [hover, setHover] = useState<boolean>(false)
+  const [hover, setHover] = React.useState<boolean>(false)
   const { t } = useTranslation()
   return (
     <>
@@ -70,6 +70,8 @@ const UiCoin = (props: Props) => {
                 alt={t('lang') ? name : all_name}
                 width={26.5}
                 height={26.5}
+                layout="fixed"
+                objectFit="cover"
               />
             </div>
             <div className="d-flex flex-column justify-content-center">
@@ -108,16 +110,18 @@ const UiCoin = (props: Props) => {
         <div
           className={classNames(
             !t('lang') && 'uiCoin_numEnMode',
-            `uiCoin_numbers text-${dayAll.color_day_in}`
+            'uiCoin_numbers',
+            `text-${dayAll.color_day_in === 'info' ? '' : dayAll.color_day_in}`
           )}
           title={t('change-24h')}
         >
           <i
-            className={
-              dayAll.color_day_in === 'red'
-                ? 'd-inline uiCoin_arrow d-none d-sm-inline'
-                : 'd-inline uiCoin_arrow uiCoin_day d-none d-sm-inline'
-            }
+            className={classNames(
+              dayAll.color_day_in === 'red' &&
+                'd-inline uiCoin_arrow d-none d-sm-inline',
+              dayAll.color_day_in === 'green' &&
+                'd-inline uiCoin_arrow uiCoin_day d-none d-sm-inline'
+            )}
           ></i>
           <span>
             {toPersian(dayAll.day_in, t('lang')) +
@@ -153,7 +157,8 @@ const UiCoin = (props: Props) => {
         <div
           className={classNames(
             !t('lang') && 'uiCoin_numEnMode',
-            `uiCoin_numbers text-${dayAll.color_day7}`
+            'uiCoin_numbers',
+            `text-${dayAll.color_day7 === 'info' ? '' : dayAll.color_day7}`
           )}
           title={t('change-7d')}
         >

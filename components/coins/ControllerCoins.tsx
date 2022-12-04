@@ -100,10 +100,12 @@ const ControllerCoins = ({ dataServer }) => {
       >
         <Image
           src="/static/images/no-data.svg"
-          alt="لوگو"
           className="mb-2 ms-3"
+          alt="لوگو"
           width={100}
           height={100}
+          layout="fixed"
+          objectFit="cover"
         />
         <p>{t('no.coin')}</p>
       </div>

@@ -19,11 +19,12 @@ const AuthPage = () => {
   const { isAuth } = useContext(AuthContext)
   const { t } = useTranslation()
   useEffect(() => {
-    if (location.href.split('#')[1] === 'register') setStatus('register')
+    if (location.href === '#register') setStatus('register')
+    if (location.hash === '#settings') setStatus('settings')
   }, [])
   const text: string = t('lang')
-    ? `صفحه ${status === 'register' ? 'ثبت نام' : 'ورود'}`
-    : `Page ${status === 'register' ? 'Register' : 'Login'}`
+    ? `صفحه ${status && 'ورود و ثبت نام'}`
+    : `Page ${status && 'Login & Register'}`
   return !isAuth ? (
     <>
       <SEO title={text} />
@@ -42,6 +43,8 @@ const AuthPage = () => {
             className={img ? '' : 'opacity-0'}
             width={110}
             height={110}
+            layout="fixed"
+            objectFit="cover"
           />
         </div>
         <div className="background-color bg-white text-center m-auto ps-3 pe-3 auth_login">

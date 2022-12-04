@@ -24,7 +24,7 @@ const Progress = () => {
   }, [])
   if (show) {
     return (
-      <div className="layout_wrapper bg-white position-sticky start-0 mb-3">
+      <div className="layout_wrapper bg-white position-sticky start-0 mb-4">
         <div className="layout_progressBar w-100">
           <div
             className="layout_progressMain h-100"
@@ -34,7 +34,7 @@ const Progress = () => {
       </div>
     )
   } else {
-    return <div className="mb-3"></div>
+    return <div className="mb-4 pb-1"></div>
   }
 }
 

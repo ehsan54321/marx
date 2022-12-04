@@ -31,6 +31,8 @@ const StarPage = (props: Props) => {
               alt={props.name}
               width={26.5}
               height={26.5}
+              layout="fixed"
+              objectFit="cover"
             />
           </div>
           <div className="ms-1">

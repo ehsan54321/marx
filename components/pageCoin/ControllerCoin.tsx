@@ -26,6 +26,8 @@ const ControllerPageCoin = (props: Props) => {
                   alt={props.coin.name}
                   width={40}
                   height={40}
+                  layout="fixed"
+                  objectFit="cover"
                 />
               </div>
               <div className="d-flex pt-3">

@@ -1,6 +1,5 @@
 import NextDocument, { Head, Html, Main, NextScript } from 'next/document'
 import type { DocumentInitialProps, DocumentContext } from 'next/document'
-import { baseURL } from '@baseUrl'
 
 class Document extends NextDocument {
   static async getInitialProps(
@@ -15,15 +14,6 @@ class Document extends NextDocument {
           <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.rtl.min.css"
-          />
-          <link
-            rel="shortcut icon"
-            href={baseURL + 'static/images/favicon.ico'}
-          />
-          <link rel="icon" href={baseURL + 'static/images/favicon.ico'} />
-          <meta
-            property="og:image"
-            content={baseURL + 'static/images/favicon.ico'}
           />
         </Head>
         <body>

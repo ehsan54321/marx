@@ -31,7 +31,7 @@ const UserCard = ({ user_name }) => {
       .catch(() => resErr(t))
   }
   return (
-    <div className="p-3 card">
+    <div className="p-3 background-color card">
       <div className="text-center p-2">
         <img
           src={authState.poster_path}

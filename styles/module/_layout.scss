@@ -1,9 +1,10 @@
 .layout_ {
   &head {
-    border-bottom: 1px solid #0000001f;
     height: 65px;
     padding: 0 20px;
     z-index: 50;
+    border-bottom: 1px solid #0000001f;
+    box-shadow: 0 0 7px 0 #0000001f;
   }
   &drop {
     inset: 70px auto auto 12px;

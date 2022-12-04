@@ -186,7 +186,6 @@ const Login = () => {
             <BsEnvelopeFill />
           </div>
           <input
-            id="login_email"
             className={classNames(
               'form-control',
               errorEmail.stt && 'is-invalid'
@@ -207,10 +206,9 @@ const Login = () => {
             <RiLockPasswordFill />
           </div>
           <input
-            id="login_password"
             className={classNames(
               'form-control',
-              errorPass.stt ? 'is-invalid' : 'border-start-0'
+              errorPass.stt ? 'is-invalid' : 'border-end-0'
             )}
             type={passLook ? 'password' : 'text'}
           />

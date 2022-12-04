@@ -20,6 +20,8 @@ const Error401 = ({ children, btn = false }: Props) => {
           className="notFond_content"
           width={330}
           height={330}
+          layout="fixed"
+          objectFit="cover"
         />
         <h1 className="h4">{t('error') + ' 401'}</h1>
         <div className="text-good mb-4" style={{ overflow: 'auto' }}>

@@ -40,6 +40,8 @@ const Header = () => {
                   alt="لوگو"
                   width={33}
                   height={33}
+                  layout="fixed"
+                  objectFit="cover"
                 />
               </Link>
             </li>

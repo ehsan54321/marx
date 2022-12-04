@@ -17,11 +17,7 @@ type coin = {
     color_day7: string
   }
 }
-type Props = {
-  data: coin[]
-  rials: number
-}
-const MapCoin = (props: Props) => {
+const MapCoin = (props: { data: coin[]; rials: number }) => {
   const { t } = useTranslation()
   return (
     <div className="table-responsive">

@@ -125,7 +125,7 @@ const UserInfo = () => {
     e.preventDefault()
   }
   return (
-    <div className="p-3 mt-2 mt-md-0 card">
+    <div className="p-3 mt-2 mt-md-0 background-color card">
       <div className="card-body">
         <form className="form-floating" onSubmit={onSubmit}>
           <div className="mb-3">

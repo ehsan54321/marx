@@ -215,7 +215,6 @@ const Register = () => {
             <BsFillPersonFill />
           </div>
           <input
-            id="register_username"
             className={classNames(
               'form-control',
               errorUsername.stt && 'is-invalid'
@@ -236,7 +235,6 @@ const Register = () => {
             <BsEnvelopeFill />
           </div>
           <input
-            id="register_email"
             className={classNames(
               'form-control',
               errorEmail.stt && 'is-invalid'
@@ -257,10 +255,9 @@ const Register = () => {
             <RiLockPasswordFill />
           </div>
           <input
-            id="register_password"
             className={classNames(
               'form-control',
-              errorPass.stt ? 'is-invalid' : 'border-start-0'
+              errorPass.stt ? 'is-invalid' : 'border-end-0'
             )}
             type={passLook ? 'password' : 'text'}
           />
@@ -284,10 +281,9 @@ const Register = () => {
             <RiLockPasswordFill />
           </div>
           <input
-            id="register_password"
             className={classNames(
               'form-control',
-              errorRePass.stt ? 'is-invalid' : 'border-start-0'
+              errorRePass.stt ? 'is-invalid' : 'border-end-0'
             )}
             type={rePassLook ? 'password' : 'text'}
           />
