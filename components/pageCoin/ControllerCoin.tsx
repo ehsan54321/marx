@@ -26,8 +26,6 @@ const ControllerPageCoin = (props: Props) => {
                   alt={props.coin.name}
                   width={40}
                   height={40}
-                  layout="fixed"
-                  objectFit="cover"
                 />
               </div>
               <div className="d-flex pt-3">
@@ -85,8 +83,8 @@ const ControllerPageCoin = (props: Props) => {
             <i
               className={
                 props.coin.day.colorDayIn === 'danger'
-                  ? 'd-inline uiCoin_arrow'
-                  : 'd-inline uiCoin_arrow uiCoin_day'
+                  ? 'd-inline coinPage_arrow'
+                  : 'd-inline coinPage_arrow coinPage_day'
               }
             ></i>
             <span>

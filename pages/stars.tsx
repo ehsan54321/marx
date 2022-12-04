@@ -59,8 +59,6 @@ const PageStars = () => {
                 className="ms-3"
                 width={100}
                 height={100}
-                layout="fixed"
-                objectFit="cover"
               />
               <p className="text-good mt-2">منتخبی یافت نشد.</p>
             </div>

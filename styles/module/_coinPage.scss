@@ -1,4 +1,19 @@
 .coinPage_ {
+  &arrow::before {
+    content: '';
+    display: inline-block;
+    vertical-align: 1px;
+    margin-left: 3px;
+    border-top: 6px solid;
+    border-left: 6px solid transparent;
+    border-bottom: 0;
+    border-right: 6px solid transparent;
+    border-radius: 1px;
+  }
+  &day::before {
+    transform: rotate(0.5turn);
+    vertical-align: 2.4px;
+  }
   &btn {
     border: 1px solid #eee;
     button {

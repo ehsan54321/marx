@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import Image from 'next/image'
 import MapCoin from './MapCoin'
 import Select from 'react-select'
 import { BsSearch } from 'react-icons/bs'
@@ -89,26 +88,11 @@ const ControllerCoins = ({ dataServer }) => {
         </div>
       </div>
 
-      {!(dataCoin.length <= 0) && (
-        <MapCoin rials={dataServer.rials} data={dataCoin} />
-      )}
-      <div
-        className={classNames(
-          'm-5 p-5 text-center text-good',
-          !(dataCoin.length <= 0) && 'd-none'
-        )}
-      >
-        <Image
-          src="/static/images/no-data.svg"
-          className="mb-2 ms-3"
-          alt="لوگو"
-          width={100}
-          height={100}
-          layout="fixed"
-          objectFit="cover"
-        />
-        <p>{t('no.coin')}</p>
-      </div>
+      <MapCoin
+        rials={dataServer.rials}
+        data={dataCoin}
+        lanData={dataCoin.length <= 0}
+      />
     </>
   )
 }

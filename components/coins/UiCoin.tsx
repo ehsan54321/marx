@@ -23,16 +23,7 @@ type Props = {
   rialsOne: number
 }
 const UiCoin = (props: Props) => {
-  const {
-    my_key,
-    name,
-    poster_path,
-    id,
-    all_name,
-    dayAll,
-    usd,
-    rialsOne,
-  }: Props = props
+  const { my_key, name, poster_path, id, all_name, dayAll, usd }: Props = props
   const [hover, setHover] = React.useState<boolean>(false)
   const { t } = useTranslation()
   return (
@@ -54,57 +45,56 @@ const UiCoin = (props: Props) => {
       </td>
       <td>
         <div className="d-flex">
+          <div className="d-flex align-items-center">
+            <Image
+              src={`/static/images/coins/${poster_path}`}
+              alt={t('lang') ? name : all_name}
+              width={26.5}
+              height={26.5}
+            />
+          </div>
           <Link
             href={{
               pathname: '/coins/[coin]',
               query: { coin: my_key },
             }}
-            className="d-flex mt-sm-0 mt-1 pb-sm-0 pb-1"
+            className="d-flex flex-column mt-sm-0 mt-1 pb-sm-0 pb-1 ms-1"
             title={t('name-coin')}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
           >
-            <div className="d-flex me-1 align-items-center">
-              <Image
-                src={`/static/images/coins/${poster_path}`}
-                alt={t('lang') ? name : all_name}
-                width={26.5}
-                height={26.5}
-                layout="fixed"
-                objectFit="cover"
-              />
-            </div>
-            <div className="d-flex flex-column justify-content-center">
-              <span
-                className={classNames(
-                  'd-flex d-none d-sm-flex uiCoin_nameCoin transition',
-                  hover && 'text-secondary'
-                )}
-              >
-                {t('lang') ? name : all_name}
-              </span>
-              <span className="text-uppercase font-13 d-flex mb-0 uiCoin_nameEN">
-                {'(' + my_key + ')'}
-              </span>
-            </div>
+            <span
+              className={classNames(
+                'd-none d-sm-inline uiCoin_nameCoin text-start transition',
+                hover && 'text-secondary'
+              )}
+            >
+              {t('lang') ? name : all_name}
+            </span>
+            <span className="text-uppercase font-13 d-flex mb-0 uiCoin_nameEN mt-1">
+              {'(' + my_key + ')'}
+            </span>
           </Link>
         </div>
       </td>
       <td>
-        <div
+        <p
           className={classNames(
             !t('lang') && 'uiCoin_numEnMode',
-            'uiCoin_numbers'
+            'uiCoin_numbers mb-0'
           )}
           title={t('mane-rials')}
         >
           <span>
-            {toPersian(SortBySetaSeta(usdInRials(usd, rialsOne)), t('lang'))}
+            {toPersian(
+              SortBySetaSeta(usdInRials(usd, props.rialsOne)),
+              t('lang')
+            )}
           </span>
-          <span className="d-none d-sm-inline-block uiCoin_toman">
+          <span className="d-none d-sm-inline-block uiCoin_toman ms-1">
             {t('toman')}
           </span>
-        </div>
+        </p>
       </td>
       <td>
         <div
@@ -115,18 +105,10 @@ const UiCoin = (props: Props) => {
           )}
           title={t('change-24h')}
         >
-          <i
-            className={classNames(
-              dayAll.color_day_in === 'red' &&
-                'd-inline uiCoin_arrow d-none d-sm-inline',
-              dayAll.color_day_in === 'green' &&
-                'd-inline uiCoin_arrow uiCoin_day d-none d-sm-inline'
-            )}
-          ></i>
           <span>
-            {toPersian(dayAll.day_in, t('lang')) +
-              '٪' +
-              (dayAll.color_day_in === 'red' ? '-' : '+')}
+            {toPersian(dayAll.day_in, t('lang')) + '٪'}
+            {(dayAll.color_day_in === 'red' && '-') ||
+              (dayAll.color_day_in === 'green' && '+')}
           </span>
         </div>
       </td>
@@ -139,7 +121,7 @@ const UiCoin = (props: Props) => {
           )}
           title={t('mane-usd')}
         >
-          <span>{'$' + toPersian(SortBySetaSeta(usd), t('lang'))}</span>
+          <span>{toPersian(SortBySetaSeta(usd), t('lang'))}</span>
         </div>
       </td>
       <td className="d-md-table-cell border-0 justify-content-center d-none">
@@ -162,17 +144,10 @@ const UiCoin = (props: Props) => {
           )}
           title={t('change-7d')}
         >
-          <i
-            className={
-              dayAll.color_day7 === 'red'
-                ? 'd-inline uiCoin_arrow'
-                : 'd-inline uiCoin_arrow uiCoin_day'
-            }
-          ></i>
           <span>
-            {toPersian(dayAll.day7, t('lang')) +
-              '٪' +
-              (dayAll.color_day7 === 'red' ? '-' : '+')}
+            {toPersian(dayAll.day7, t('lang')) + '٪'}
+            {(dayAll.color_day7 === 'red' && '-') ||
+              (dayAll.color_day7 === 'green' && '+')}
           </span>
         </div>
       </td>

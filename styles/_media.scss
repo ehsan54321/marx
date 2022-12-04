@@ -4,6 +4,12 @@
   }
 }
 
+@media (min-width: 950px) {
+  .uiCoin_coin {
+    width: calc(19vw + 40px) !important;
+  }
+}
+
 @media (min-width: 768px) {
   .d-md-table-cell {
     display: table-cell !important;
@@ -24,16 +30,13 @@
 
 @media (max-width: 575px) {
   .uiCoin_ {
-    &th_id_star {
-      margin-right: -13px;
-    }
     &nameEN {
       color: #5a5d60;
       line-height: 2.9;
       font-size: 12.5px !important;
     }
     &numbers {
-      transform: translateY(55%);
+      transform: translateY(8px);
       font-size: 14.5px !important;
     }
     &th {
@@ -60,12 +63,6 @@
   }
   .star_home {
     width: 150px;
-  }
-}
-
-@media (min-width: 400px) and (max-width: 500px) {
-  .uiCoin_nameEN {
-    margin-top: 0;
   }
 }
 

@@ -1,19 +1,4 @@
 .uiCoin_ {
-  &arrow::before {
-    content: '';
-    display: inline-block;
-    vertical-align: 1px;
-    margin-left: 3px;
-    border-top: 6px solid;
-    border-left: 6px solid transparent;
-    border-bottom: 0;
-    border-right: 6px solid transparent;
-    border-radius: 1px;
-  }
-  &day::before {
-    transform: rotate(0.5turn);
-    vertical-align: 2.4px;
-  }
   &th {
     margin-right: 25px;
   }
@@ -24,7 +9,6 @@
     color: $good;
     margin-right: 2.4px;
     line-height: 1.5;
-    margin-top: 1px;
   }
   &toman {
     font-size: 0.625rem;
@@ -33,11 +17,13 @@
     letter-spacing: normal;
   }
   &numbers {
+    transform: translateY(7.5px);
     font-size: 16px !important;
-    transform: translateY(40.1%);
     letter-spacing: -0.9px;
+    text-align: start;
     span {
-      font-weight: 600 !important;
+      font-weight: 500;
+      line-height: 2;
     }
   }
   &numEnMode {
@@ -59,7 +45,6 @@
     margin: 0 6px 0 0;
     line-height: 1.6;
     font-size: 15.2px;
-    margin-bottom: 2px;
   }
   &search {
     border: 1px solid #d9d9d9;

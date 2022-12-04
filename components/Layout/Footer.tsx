@@ -15,8 +15,6 @@ const Footer = ({ NoFooter }: { NoFooter: boolean }) => {
                 alt="لوگو"
                 width={33}
                 height={33}
-                layout="fixed"
-                objectFit="cover"
               />
               <small className="layout_text mx-2 d-none d-sm-flex">
                 {t('lang')
