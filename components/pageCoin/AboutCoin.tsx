@@ -1,12 +1,18 @@
 import { SortBySetaSeta, toPersian } from '@lib/helper'
+import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 const AboutCoin = ({ aboutCoin, dayGrith }) => {
   const { t } = useTranslation()
+  const [width, setWidth] = useState<string>()
+  const tradingVolume = useRef(null)
+  useEffect(() => {
+    setWidth(tradingVolume.current.getBoundingClientRect().width - 16 + 'px')
+  }, [])
   return (
     <div className="d-sm-flex">
       <div className="d-flex">
-        <div className="me-3">
+        <div className="me-3 mb-3 mb-sm-0" ref={tradingVolume}>
           <span className="text-good">
             {t('lang') ? (
               <>
@@ -23,7 +29,7 @@ const AboutCoin = ({ aboutCoin, dayGrith }) => {
             )}
           </span>
           <br />
-          <span className="font-13 mt-1">
+          <span className="font-13 mt-1 mb-3 mb-sm-0">
             {toPersian(SortBySetaSeta('756345'), t('lang'))}
           </span>
         </div>
@@ -33,10 +39,18 @@ const AboutCoin = ({ aboutCoin, dayGrith }) => {
           <span className="font-13 mt-1">{toPersian(dayGrith, t('lang'))}</span>
         </div>
       </div>
-      <hr className="mb-sm-0 mb-2 mt-sm-0 mt-2 d-sm-none" />
+
+      <div
+        style={{ borderTop: '1px solid currentcolor', opacity: 0.25 }}
+        className="d-sm-none"
+      ></div>
+
       <div className="vr d-none d-sm-flex"></div>
       <div className="d-flex">
-        <div className="ms-3 me-sm-3 d-flex flex-column me-3">
+        <div
+          className="ms-3 me-sm-3 d-flex flex-column me-3 mt-3 mt-sm-0"
+          style={{ width }}
+        >
           <span className="text-good">{t('coin.total.market') + ':'}</span>
           <span className="font-13 mt-1">
             {toPersian('448.127M', t('lang'))}
@@ -44,7 +58,7 @@ const AboutCoin = ({ aboutCoin, dayGrith }) => {
         </div>
 
         <div className="vr"></div>
-        <div className="ms-3">
+        <div className="ms-3 mt-3 mt-sm-0">
           <span className="text-good">{t('coin.date') + ':'}</span>
           <br />
           <div className="text-center">
@@ -61,7 +75,9 @@ const AboutCoin = ({ aboutCoin, dayGrith }) => {
             </div>
           </div>
           <div className="font-13 d-flex justify-content-between">
-            <span className="text-good">{t('coin.display.size') + ':'}</span>
+            <span className="text-good me-1">
+              {t('coin.display.size') + ':'}
+            </span>
             <span>{toPersian(aboutCoin.maxArz, t('lang'))}</span>
           </div>
         </div>

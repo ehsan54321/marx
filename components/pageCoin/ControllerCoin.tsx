@@ -102,7 +102,8 @@ const ControllerPageCoin = (props: Props) => {
           <div className="d-flex flex-column" title={t('mane-usd')}>
             <span className="text-good">{t('mane-usd')}:</span>
             <span className="font-18 mt-1">
-              {'$' + toPersian(SortBySetaSeta(props.coin.usd), t('lang'))}
+              {toPersian(SortBySetaSeta(props.coin.usd), t('lang'))}
+              <span className="uiCoin_toman ms-1">{t('usd')}</span>
             </span>
           </div>
         </div>
@@ -114,15 +115,7 @@ const ControllerPageCoin = (props: Props) => {
                 SortBySetaSeta(usdInRials(props.coin.usd, props.rials)),
                 t('lang')
               )}
-              <span
-                style={{
-                  fontSize: '0.625rem',
-                  fontWeight: 400,
-                  color: 'rgb(151, 160, 175)',
-                }}
-              >
-                {' ' + t('toman')}
-              </span>
+              <span className="uiCoin_toman ms-1">{t('toman')}</span>
             </span>
           </div>
         </div>

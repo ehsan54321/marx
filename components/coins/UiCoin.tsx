@@ -91,9 +91,7 @@ const UiCoin = (props: Props) => {
               t('lang')
             )}
           </span>
-          <span className="d-none d-sm-inline-block uiCoin_toman ms-1">
-            {t('toman')}
-          </span>
+          <span className="uiCoin_toman uiCoin_none ms-1">{t('toman')}</span>
         </p>
       </td>
       <td>
@@ -112,7 +110,6 @@ const UiCoin = (props: Props) => {
           </span>
         </div>
       </td>
-
       <td>
         <div
           className={classNames(
@@ -122,20 +119,21 @@ const UiCoin = (props: Props) => {
           title={t('mane-usd')}
         >
           <span>{toPersian(SortBySetaSeta(usd), t('lang'))}</span>
+          <span className="uiCoin_none uiCoin_toman ms-1">{t('usd')}</span>
         </div>
       </td>
-      <td className="d-md-table-cell border-0 justify-content-center d-none">
+      <td className="d-lg-table-cell border-0 justify-content-center d-none">
         <div
           className={classNames(
             'justify-content-center uiCoin_numbers',
             !t('lang') && 'uiCoin_numEnMode'
           )}
-          title={t('size-change-mane-24h')}
+          title={t('change-mane-24h')}
         >
           <span>{toPersian(SortBySetaSeta(dayAll.value_24h), t('lang'))}</span>
         </div>
       </td>
-      <td className="border-0 justify-content-center d-none d-sm-table-cell">
+      <td className="border-0 justify-content-center d-none d-md-table-cell">
         <div
           className={classNames(
             !t('lang') && 'uiCoin_numEnMode',

@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import Image from 'next/image'
 import React from 'react'
 import UiCoin from './UiCoin'
@@ -21,25 +22,51 @@ type coin = {
 }
 const MapCoin = (props: { data: coin[]; rials: number; lanData: boolean }) => {
   const { t } = useTranslation()
+  const table = useRef(null)
   const idTh = useRef(null)
   const coinTh = useRef(null)
   const rialsTh = useRef(null)
   const change24Th = useRef(null)
   const usdTh = useRef(null)
+  const changeTh = useRef(null)
   const change7dTh = useRef(null)
-  const ArrUseRef = [idTh, coinTh, rialsTh, change24Th, usdTh, change7dTh]
+  const ArrUseRef = [rialsTh, change24Th, usdTh, changeTh, change7dTh]
   useEffect(() => {
-    for (let i = 0; i < ArrUseRef.length; i++) {
-      ArrUseRef[i].current.style.width =
-        ArrUseRef[i].current.getBoundingClientRect().width + 'px'
+    const idWid = idTh.current.getBoundingClientRect().width
+    const coinWid = coinTh.current.getBoundingClientRect().width
+    idTh.current.style.width = idWid + 'px'
+    coinTh.current.style.width = coinWid + 'px'
+    const tableWid =
+      table.current.getBoundingClientRect().width - (idWid + coinWid)
+    const displayWid = document.body.clientWidth
+    if (displayWid >= 992) {
+      for (let i = 0; i < ArrUseRef.length; i++) {
+        ArrUseRef[i].current.style.width = tableWid / 5 + 'px'
+      }
+    } else if (displayWid >= 768) {
+      ArrUseRef.filter((item) => item !== changeTh)
+      for (let i = 0; i < ArrUseRef.length; i++) {
+        ArrUseRef[i].current.style.width = tableWid / 4 + 'px'
+      }
+    } else {
+      ArrUseRef.filter((item) => item !== change7dTh)
+      ArrUseRef.filter((item) => item !== changeTh)
+      for (let i = 0; i < ArrUseRef.length; i++) {
+        ArrUseRef[i].current.style.width = tableWid / 3 + 'px'
+      }
     }
   }, [])
   return (
     <>
       <div className="table-responsive">
-        <table className="table table-sm hover">
+        <table
+          className={classNames(
+            'table table-sm hover',
+            props.lanData && 'd-none'
+          )}
+        >
           <thead>
-            <tr className="tr">
+            <tr className="tr" ref={table}>
               <th className="text-center" ref={idTh}>
                 <span className="uiCoin_th">#</span>
               </th>
@@ -49,13 +76,15 @@ const MapCoin = (props: { data: coin[]; rials: number; lanData: boolean }) => {
               <th ref={rialsTh}>{t('mane-rials')}</th>
               <th ref={change24Th}>{t('change-24h')}</th>
               <th ref={usdTh}>{t('mane-usd')}</th>
-              <th className="d-md-block d-none">{t('size-change-mane-24h')}</th>
-              <th ref={change7dTh} className="d-none d-sm-table-cell">
+              <th ref={changeTh} className="d-lg-block d-none">
+                {t('change-mane-24h')}
+              </th>
+              <th ref={change7dTh} className="d-none d-md-table-cell">
                 {t('change-7d')}
               </th>
             </tr>
           </thead>
-          <tbody className={props.lanData ? 'd-none' : ''}>
+          <tbody>
             {props.data.map((coin) => (
               <tr className="tr" key={coin.id}>
                 <UiCoin

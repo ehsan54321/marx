@@ -96,13 +96,12 @@
   border-bottom: 1px solid #f0f0f0 !important;
 
   th {
+    padding: 4px 4px;
     font-size: 12px;
     color: $pro !important;
     line-height: 1.8 !important;
-    display: table-cell;
   }
   td {
-    display: table-cell;
     text-align: center;
     font-size: 15px !important;
   }

@@ -2,6 +2,7 @@ import axios from 'axios'
 import jwt from 'jsonwebtoken'
 import { setCookie } from 'cookies-next'
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { config } from '@services/httpServices'
 
 const Register = async (req: NextApiRequest, res: NextApiResponse) => {
   const createToken = (token) => {
@@ -16,12 +17,16 @@ const Register = async (req: NextApiRequest, res: NextApiResponse) => {
       'https://www.gravatar.com/avatar/4e7f0e6f71df72220e4ce37c92c377e3?s=185&d=identicon&r;=PG',
     is_admin: false,
   }
-  const prevData = (await axios.get('http://localhost:8000/user')).data
+  const prevData = (await axios.get('http://localhost:8000/user', config)).data
   axios
-    .post('http://localhost:8000/user', {
-      ...prevData,
-      [dataOBJ.email]: dataOBJ,
-    })
+    .post(
+      'http://localhost:8000/user',
+      {
+        ...prevData,
+        [dataOBJ.email]: dataOBJ,
+      },
+      config
+    )
     .then((r) => {
       setCookie('token', createToken(dataOBJ), {
         res,

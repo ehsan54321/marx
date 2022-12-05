@@ -1,6 +1,6 @@
 import axios from 'axios'
 import classNames from 'classnames'
-import http from '@services/httpServices'
+import http, { config } from '@services/httpServices'
 import toast from 'sweetalert2'
 import { AuthContext } from '@store/auth'
 import { BsEnvelopeFill, BsEye, BsEyeSlash } from 'react-icons/bs'
@@ -36,15 +36,14 @@ const Login = () => {
   const noFild = 'لطفا این فیلد را پر کنید.'
   const onFinish = async (value: onFinishType) => {
     try {
-      const dbUser = (await axios.get('http://localhost:8000/user')).data
-
-      const authNext = () => {
+      const users = (await axios.get('http://localhost:8000/user', config)).data
+      if (users[value.email] && users[value.email].password == value.password) {
         const token: authObj = {
           email: value.email,
-          username: dbUser[value.email].username,
+          username: users[value.email].username,
           password: value.password,
-          poster_path: dbUser[value.email].poster_path,
-          is_admin: dbUser[value.email].is_admin,
+          poster_path: users[value.email].poster_path,
+          is_admin: users[value.email].is_admin,
         }
 
         http
@@ -77,12 +76,6 @@ const Login = () => {
             }
           })
           .catch(() => resErr(t))
-      }
-      if (
-        dbUser[value.email] &&
-        dbUser[value.email].password == value.password
-      ) {
-        authNext()
       } else {
         toast.fire({
           icon: 'error',
@@ -104,9 +97,6 @@ const Login = () => {
     const email: string = SpasTo0(e.target['0'].value.toLowerCase())
     const password: string = SpasTo0(e.target['1'].value.toLowerCase())
     const emailRegExp = new RegExp(/^[a-zA-Z\s][a-zA-Z0-9_\.-\s]*@gmail.com$/)
-    const passwordRegExp = new RegExp(
-      /^[a-zA-Z0-9_$*@+#!%&{}\.()-\s]{1,999999}$/
-    )
     let isEmail: boolean = false
     let isPassword: boolean = false
     setErrorEmail({ stt: false, mas: '' })
@@ -140,12 +130,7 @@ const Login = () => {
         })
       }
     }
-    if (
-      password &&
-      password.length >= 6 &&
-      password.length <= 32 &&
-      passwordRegExp.exec(password)
-    ) {
+    if (password && password.length >= 6 && password.length <= 32) {
       setErrorPass({ stt: false, mas: '' })
       isPassword = true
     } else {
@@ -162,11 +147,6 @@ const Login = () => {
             mas: 'رمز عبور شما می بایست کمتر از ۳۲ حرف باشد!',
           })
         }
-      } else if (!!!passwordRegExp.exec(password)) {
-        setErrorPass({
-          stt: true,
-          mas: 'رمز عبور از حروف انگلیسی تشگیل شد باشد!',
-        })
       }
     }
     if (isEmail && isPassword) {

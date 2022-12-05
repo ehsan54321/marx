@@ -10,8 +10,8 @@
   }
 }
 
-@media (min-width: 768px) {
-  .d-md-table-cell {
+@media (min-width: 992px) {
+  .d-lg-table-cell {
     display: table-cell !important;
   }
 }
@@ -22,9 +22,15 @@
   }
 }
 
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   .d-sm-table-cell {
     display: table-cell !important;
+  }
+}
+
+@media (max-width: 655px) {
+  .uiCoin_none {
+    display: none;
   }
 }
 
@@ -36,7 +42,7 @@
       font-size: 12.5px !important;
     }
     &numbers {
-      transform: translateY(8px);
+      transform: translateY(10px);
       font-size: 14.5px !important;
     }
     &th {
