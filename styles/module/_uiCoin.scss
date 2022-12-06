@@ -9,6 +9,7 @@
     color: $good;
     margin-right: 2.4px;
     line-height: 1.5;
+    margin-top: 6px;
   }
   &toman {
     font-size: 0.625rem;
@@ -17,7 +18,7 @@
     letter-spacing: normal;
   }
   &numbers {
-    transform: translateY(7.5px);
+    transform: translateY(7.6px);
     font-size: 16px !important;
     letter-spacing: -1px;
     text-align: start;
@@ -31,9 +32,6 @@
   }
   &star {
     margin-top: 15px;
-  }
-  &width65 {
-    width: 65px;
   }
   &id {
     font-size: 12px;

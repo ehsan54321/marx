@@ -5,22 +5,22 @@ import { useTranslation } from 'react-i18next'
 const AboutHome = () => {
   const { t } = useTranslation()
   const [showItem, setShowItem] = useState<null | number>(null)
+  const [heightItemOen, setHeightItemOen] = useState<number | string>(0)
+  const [heightItemTow, setHeightItemTow] = useState<number | string>(0)
   const oneAccordion = useRef(null)
   const towAccordion = useRef(null)
-  const div1 = useRef(null)
-  const div2 = useRef(null)
   useEffect(() => {
     const oneAccordionY = oneAccordion.current.getBoundingClientRect().height
     const towAccordionY = towAccordion.current.getBoundingClientRect().height
     if (showItem === 1) {
-      div1.current.style.height = `calc(${oneAccordionY}px - 1rem)`
-      div2.current.style.height = 0
+      setHeightItemOen(`calc(${oneAccordionY}px - 1rem)`)
+      setHeightItemTow(0)
     } else if (showItem === 2) {
-      div2.current.style.height = `calc(${towAccordionY}px - 1rem)`
-      div1.current.style.height = 0
+      setHeightItemOen(0)
+      setHeightItemTow(`calc(${towAccordionY}px - 1rem)`)
     } else {
-      div1.current.style.height = 0
-      div2.current.style.height = 0
+      setHeightItemOen(0)
+      setHeightItemTow(0)
     }
   }, [showItem])
   return (
@@ -43,7 +43,10 @@ const AboutHome = () => {
               قیمت‌ ارزهای دیجیتال چگونه تعیین می‌شوند؟
             </button>
           </h2>
-          <div className="accordion-collapse accordion_transition" ref={div1}>
+          <div
+            className="accordion-collapse accordion_transition"
+            style={{ height: heightItemOen }}
+          >
             <div className="accordion-body" ref={oneAccordion}>
               <p className="accordion_list">
                 ارزهای دیجیتال نیز مانند سهام، کالاها، اوراق بهادار و غیره یک
@@ -78,7 +81,10 @@ const AboutHome = () => {
               نوسانات ارزهای دیجیتال
             </button>
           </h2>
-          <div className="accordion-collapse accordion_transition" ref={div2}>
+          <div
+            className="accordion-collapse accordion_transition"
+            style={{ height: heightItemTow }}
+          >
             <div className="accordion-body" ref={towAccordion}>
               <p className="accordion_list">
                 نوسانات معیاری است که نشان می‌دهد قیمت هر دارایی خاص در طول زمان

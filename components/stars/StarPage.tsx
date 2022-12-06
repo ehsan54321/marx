@@ -27,7 +27,7 @@ const StarPage = (props: Props) => {
         >
           <div className="d-flex align-items-center">
             <Image
-              src={`/static/images/coins/${props.poster_path}`}
+              src={`/static/images/coins/${props.poster_path}.svg`}
               alt={props.name}
               width={26.5}
               height={26.5}

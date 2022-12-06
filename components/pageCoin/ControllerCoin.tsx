@@ -22,7 +22,7 @@ const ControllerPageCoin = (props: Props) => {
             <div className="ms-2 d-flex">
               <div className="d-flex align-items-center coinPage_imgCoin">
                 <Image
-                  src={`/static/images/coins/${props.coin.poster_path}`}
+                  src={`/static/images/coins/${props.coin.poster_path}.svg`}
                   alt={props.coin.name}
                   width={40}
                   height={40}

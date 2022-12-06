@@ -28,33 +28,27 @@ const MapCoin = (props: { data: coin[]; rials: number; lanData: boolean }) => {
   const rialsTh = useRef(null)
   const change24Th = useRef(null)
   const usdTh = useRef(null)
-  const changeTh = useRef(null)
   const change7dTh = useRef(null)
-  const ArrUseRef = [rialsTh, change24Th, usdTh, changeTh, change7dTh]
+  const ArrUseRef = [rialsTh, change24Th, usdTh, change7dTh]
+  const ArrUseRef2 = [rialsTh, change24Th, usdTh]
   useEffect(() => {
-    const idWid = idTh.current.getBoundingClientRect().width
+    const displayWid = document.body.clientWidth
+    let idWid = idTh.current.getBoundingClientRect().width
     const coinWid = coinTh.current.getBoundingClientRect().width
-    idTh.current.style.width = idWid + 'px'
+    if (displayWid <= 576) idTh.current.style.width = idWid + 'px'
+    else {
+      idTh.current.style.width = '73px'
+      idWid = 73
+    }
     coinTh.current.style.width = coinWid + 'px'
     const tableWid =
       table.current.getBoundingClientRect().width - (idWid + coinWid)
-    const displayWid = document.body.clientWidth
-    if (displayWid >= 992) {
-      for (let i = 0; i < ArrUseRef.length; i++) {
-        ArrUseRef[i].current.style.width = tableWid / 5 + 'px'
-      }
-    } else if (displayWid >= 768) {
-      ArrUseRef.filter((item) => item !== changeTh)
-      for (let i = 0; i < ArrUseRef.length; i++) {
-        ArrUseRef[i].current.style.width = tableWid / 4 + 'px'
-      }
-    } else {
-      ArrUseRef.filter((item) => item !== change7dTh)
-      ArrUseRef.filter((item) => item !== changeTh)
-      for (let i = 0; i < ArrUseRef.length; i++) {
-        ArrUseRef[i].current.style.width = tableWid / 3 + 'px'
-      }
-    }
+    if (displayWid >= 768)
+      for (const item of ArrUseRef)
+        item.current.style.width = tableWid / 4 + 'px'
+    else
+      for (const item of ArrUseRef2)
+        item.current.style.width = tableWid / 3 + 'px'
   }, [])
   return (
     <>
@@ -74,11 +68,11 @@ const MapCoin = (props: { data: coin[]; rials: number; lanData: boolean }) => {
                 {t('name-coin')}
               </th>
               <th ref={rialsTh}>{t('mane-rials')}</th>
-              <th ref={change24Th}>{t('change-24h')}</th>
-              <th ref={usdTh}>{t('mane-usd')}</th>
-              <th ref={changeTh} className="d-lg-block d-none">
-                {t('change-mane-24h')}
+              <th ref={change24Th}>
+                <span className="d-none d-sm-flex">{t('change-24h')}</span>
+                <span className="d-sm-none">(24)</span>
               </th>
+              <th ref={usdTh}>{t('mane-usd')}</th>
               <th ref={change7dTh} className="d-none d-md-table-cell">
                 {t('change-7d')}
               </th>
