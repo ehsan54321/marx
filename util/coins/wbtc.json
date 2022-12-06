@@ -3,8 +3,8 @@
   "key": "wbtc",
   "name": "پیچیده شده",
   "all_name": "Wrapped Bitcoin",
-  "poster_path": "wrapped-bitcoin-wbtc-logo",
-  "usd": "258",
+  "poster_path": "wbtc",
+  "usd": 258,
   "dayGrith": "2008-10-30",
   "aboutCoin": {
     "now": 90.88,

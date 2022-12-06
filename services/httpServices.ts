@@ -3,7 +3,7 @@ import { baseURL } from '@baseUrl'
 
 // axios config :
 axios.defaults.baseURL = baseURL
-axios.defaults.headers.common['Accept-Encoding'] = 'application/json'
+// axios.defaults.headers.common['Accept-Encoding'] = 'application/json'
 
 const http: any = {
   get: axios.get,
@@ -14,8 +14,8 @@ const http: any = {
 }
 
 export default http
-export const config = {
-  headers: {
-    'Accept-Encoding': 'application/json',
-  },
-}
+// export const config = {
+//   headers: {
+//     'Accept-Encoding': 'application/json',
+//   },
+// }

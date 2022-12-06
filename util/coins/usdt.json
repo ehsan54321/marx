@@ -3,8 +3,8 @@
   "key": "usdt",
   "name": "تتر",
   "all_name": "Tether",
-  "poster_path": "tether-usdt-logo",
-  "usd": "1",
+  "poster_path": "usdt",
+  "usd": 1,
   "dayGrith": "2008-10-30",
   "aboutCoin": {
     "now": 100,

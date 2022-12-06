@@ -3,8 +3,8 @@
   "key": "uni",
   "name": "فلوکس",
   "all_name": "Uniswap",
-  "poster_path": "uniswap-uni-logo",
-  "usd": "0.787",
+  "poster_path": "uni",
+  "usd": 0.787,
   "dayGrith": "2008-10-30",
   "aboutCoin": {
     "now": 90.88,

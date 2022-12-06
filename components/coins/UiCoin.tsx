@@ -71,7 +71,7 @@ const UiCoin = (props: Props) => {
             >
               {t('lang') ? name : all_name}
             </span>
-            <span className="text-uppercase font-13 d-flex lmb-0 uiCoin_nameEN">
+            <span className="text-uppercase font-13 d-flex uiCoin_nameEN">
               {'(' + my_key + ')'}
             </span>
           </Link>

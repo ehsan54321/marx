@@ -17,7 +17,7 @@ const Error401 = ({ children, btn = false }: Props) => {
         <Image
           src={safeIcon}
           alt="یافت نشد"
-          className="notFond_content"
+          className="notFond_content h-auto"
           width={330}
           height={330}
         />

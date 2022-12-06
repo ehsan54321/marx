@@ -20,8 +20,8 @@ const Header = () => {
   const activePathName = router.pathname.split('/')[1]
   Router.events.on('routeChangeStart', () => setModal(false))
   return (
-    <nav className="bg-white container-xxl position-sticky layout_head align-items-center d-flex justify-content-between top-0">
-      <div className="d-flex">
+    <nav className="bg-white position-sticky layout_head align-items-center d-flex justify-content-between top-0">
+      <div className="d-flex container-xxl">
         <div className="d-flex align-items-center justify-content-between">
           <ul className="d-contents">
             <li className="nav-item">
@@ -40,6 +40,7 @@ const Header = () => {
                   alt="لوگو"
                   width={33}
                   height={33}
+                  priority
                 />
               </Link>
             </li>

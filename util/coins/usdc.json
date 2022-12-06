@@ -3,8 +3,8 @@
   "key": "usdc",
   "name": "یو اس دی",
   "all_name": "USD Coin",
-  "poster_path": "usd-coin-usdc-logo",
-  "usd": "6557",
+  "poster_path": "usdc",
+  "usd": 0.957,
   "dayGrith": "2008-10-30",
   "aboutCoin": {
     "now": 90.88,

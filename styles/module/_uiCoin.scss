@@ -23,7 +23,7 @@
     letter-spacing: -1px;
     text-align: start;
     span {
-      font-weight: 500;
+      font-weight: 600;
       line-height: 2;
     }
   }
@@ -58,8 +58,8 @@
       border: 1px solid $secondary;
     }
   }
-  &searchButton {
-    width: 40px;
+  &searchBtn {
+    width: 43px;
     height: 36px;
     border: 1px solid #d9d9d9;
     background: #d9d9d9;

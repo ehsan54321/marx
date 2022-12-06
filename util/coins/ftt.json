@@ -3,8 +3,8 @@
   "key": "ftt",
   "name": "توکن FTX",
   "all_name": "FTX Token",
-  "poster_path": "ftx-token-ftt-logo",
-  "usd": "0.158",
+  "poster_path": "ftx",
+  "usd": 0.158,
   "dayGrith": "2008-10-30",
   "aboutCoin": {
     "now": 100,

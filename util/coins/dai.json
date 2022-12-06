@@ -3,8 +3,8 @@
   "key": "dai",
   "name": "دای",
   "all_name": "Dai",
-  "poster_path": "multi-collateral-dai-dai-logo",
-  "usd": "0.997",
+  "poster_path": "dai",
+  "usd": 0.997,
   "dayGrith": "2008-10-30",
   "aboutCoin": {
     "now": 90.88,

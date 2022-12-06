@@ -3,8 +3,8 @@
   "key": "ltc",
   "name": "لایت کوین",
   "all_name": "Litecoin",
-  "poster_path": "ltc-logo",
-  "usd": "3978",
+  "poster_path": "litecoin",
+  "usd": 3978,
   "dayGrith": "2008-10-30",
   "aboutCoin": {
     "now": 90.88,

@@ -68,10 +68,7 @@ const MapCoin = (props: { data: coin[]; rials: number; lanData: boolean }) => {
                 {t('name-coin')}
               </th>
               <th ref={rialsTh}>{t('mane-rials')}</th>
-              <th ref={change24Th}>
-                <span className="d-none d-sm-flex">{t('change-24h')}</span>
-                <span className="d-sm-none">(24)</span>
-              </th>
+              <th ref={change24Th}>{t('change-24h')}</th>
               <th ref={usdTh}>{t('mane-usd')}</th>
               <th ref={change7dTh} className="d-none d-md-table-cell">
                 {t('change-7d')}

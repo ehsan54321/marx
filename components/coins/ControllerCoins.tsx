@@ -37,7 +37,7 @@ const ControllerCoins = ({ dataServer }) => {
       )
     )
   }
-  const HandlerId = (e) => {
+  const handlerId = (e) => {
     setSortId(!sortId)
     if (e.value === 'small')
       setDataCoin((prevStat) => prevStat.sort((a, b) => a.id - b.id))
@@ -49,15 +49,15 @@ const ControllerCoins = ({ dataServer }) => {
   ]
   return (
     <>
-      <div className="mx-4 mb-4 d-flex justify-content-between uiCoin_select">
+      <div className="mx-4 mb-4 d-flex justify-content-between uiCoin_select flex-column flex-sm-row">
         <div className="d-flex mb-3 mb-sm-0 mt-2">
-          <button type="submit" className="uiCoin_searchButton text-white">
+          <button type="submit" className="uiCoin_searchBtn text-white">
             <BsSearch />
           </button>
           <input
             type="search"
             className={classNames(
-              'uiCoin_search border-start-0',
+              'uiCoin_search border-start-0 w-100',
               dir && 'text-start'
             )}
             maxLength={20}
@@ -81,7 +81,7 @@ const ControllerCoins = ({ dataServer }) => {
           <p className="mb-1">{t('sort.by.id')}</p>
           <Select
             className="uiCoin_select"
-            onChange={HandlerId}
+            onChange={handlerId}
             defaultValue={[options[0]]}
             options={options}
           />

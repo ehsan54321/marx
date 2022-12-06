@@ -1,6 +1,6 @@
 import axios from 'axios'
 import classNames from 'classnames'
-import http, { config } from '@services/httpServices'
+import http from '@services/httpServices'
 import toast from 'sweetalert2'
 import { AuthContext } from '@store/auth'
 import { BsEnvelopeFill, BsEye, BsEyeSlash } from 'react-icons/bs'
@@ -36,7 +36,7 @@ const Login = () => {
   const noFild = 'لطفا این فیلد را پر کنید.'
   const onFinish = async (value: onFinishType) => {
     try {
-      const users = (await axios.get('http://localhost:8000/user', config)).data
+      const users = (await axios.get('http://localhost:8000/user')).data
       if (users[value.email] && users[value.email].password == value.password) {
         const token: authObj = {
           email: value.email,
