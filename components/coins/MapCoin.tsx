@@ -31,14 +31,16 @@ const MapCoin = (props: { data: coin[]; rials: number; lanData: boolean }) => {
   const change7dTh = useRef(null)
   const ArrUseRef = [rialsTh, change24Th, usdTh, change7dTh]
   const ArrUseRef2 = [rialsTh, change24Th, usdTh]
+  const ArrUseRef3 = [rialsTh, change24Th]
   useEffect(() => {
     const displayWid = document.body.clientWidth
     let idWid = idTh.current.getBoundingClientRect().width
     const coinWid = coinTh.current.getBoundingClientRect().width
-    if (displayWid <= 576) idTh.current.style.width = idWid + 'px'
-    else {
+    if (displayWid <= 576) {
+      idTh.current.style.width = 0
+      idWid = 0
+    } else {
       idTh.current.style.width = '73px'
-      idWid = 73
     }
     coinTh.current.style.width = coinWid + 'px'
     const tableWid =
@@ -46,9 +48,12 @@ const MapCoin = (props: { data: coin[]; rials: number; lanData: boolean }) => {
     if (displayWid >= 768)
       for (const item of ArrUseRef)
         item.current.style.width = tableWid / 4 + 'px'
-    else
+    else if (displayWid >= 576)
       for (const item of ArrUseRef2)
         item.current.style.width = tableWid / 3 + 'px'
+    else
+      for (const item of ArrUseRef3)
+        item.current.style.width = tableWid / 2 + 'px'
   }, [])
   return (
     <>
@@ -60,16 +65,21 @@ const MapCoin = (props: { data: coin[]; rials: number; lanData: boolean }) => {
           )}
         >
           <thead>
-            <tr className="tr" ref={table}>
-              <th className="text-center" ref={idTh}>
-                <span className="uiCoin_th">#</span>
+            <tr className="tr h-auto" ref={table}>
+              <th className="text-center uiCoin_none" ref={idTh}>
+                #
               </th>
               <th ref={coinTh} className="text-start uiCoin_coin">
                 {t('name-coin')}
               </th>
-              <th ref={rialsTh}>{t('mane-rials')}</th>
+              <th ref={rialsTh}>
+                <span className="uiCoin_none">{t('mane-rials')}</span>
+                <span className="d-sm-none">{t('price')}</span>
+              </th>
               <th ref={change24Th}>{t('change-24h')}</th>
-              <th ref={usdTh}>{t('mane-usd')}</th>
+              <th ref={usdTh} className="uiCoin_none">
+                {t('mane-usd')}
+              </th>
               <th ref={change7dTh} className="d-none d-md-table-cell">
                 {t('change-7d')}
               </th>
@@ -77,14 +87,13 @@ const MapCoin = (props: { data: coin[]; rials: number; lanData: boolean }) => {
           </thead>
           <tbody>
             {props.data.map((coin) => (
-              <tr className="tr" key={coin.id}>
-                <UiCoin
-                  my_key={coin.key}
-                  {...coin}
-                  dayAll={coin.day}
-                  rialsOne={props.rials}
-                />
-              </tr>
+              <UiCoin
+                key={coin.id}
+                my_key={coin.key}
+                {...coin}
+                dayAll={coin.day}
+                rialsOne={props.rials}
+              />
             ))}
           </tbody>
         </table>

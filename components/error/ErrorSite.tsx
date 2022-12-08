@@ -13,7 +13,7 @@ const ErrorSite = () => {
           <Image
             src="/static/images/server-down.svg"
             alt="یافت نشد"
-            className="notFond_content h-auto"
+            className="notFond_content"
             width={330}
             height={330}
           />

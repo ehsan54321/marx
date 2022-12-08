@@ -22,7 +22,7 @@ const NotFound = () => {
           <Image
             src="/static/images/page-not-found.svg"
             alt="یافت نشد"
-            className="notFond_content h-auto"
+            className="notFond_content"
             width={330}
             height={330}
           />

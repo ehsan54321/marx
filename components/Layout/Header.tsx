@@ -20,79 +20,81 @@ const Header = () => {
   const activePathName = router.pathname.split('/')[1]
   Router.events.on('routeChangeStart', () => setModal(false))
   return (
-    <nav className="bg-white position-sticky layout_head align-items-center d-flex justify-content-between top-0">
-      <div className="d-flex container-xxl">
-        <div className="d-flex align-items-center justify-content-between">
-          <ul className="d-contents">
-            <li className="nav-item">
-              <button
-                className="layout_toggle d-block d-sm-none me-2"
-                style={{ marginTop: 3 }}
-                onClick={() => setModal(!modal)}
-              >
-                {modal ? <FaTimes /> : <FaBars />}
-              </button>
-            </li>
-            <li className="nav-item">
-              <Link href="/">
-                <Image
-                  src="/static/images/favicon.ico"
-                  alt="لوگو"
-                  width={33}
-                  height={33}
-                  priority
-                />
-              </Link>
-            </li>
-            <li className="nav-item d-none d-sm-flex layout_divider">
-              <div className="vr h-100 mx-lg-2"></div>
-            </li>
-          </ul>
-        </div>
-        <div
-          className={classNames(
-            modal && 'layout_active',
-            'layout_links align-items-center d-flex'
-          )}
-        >
-          <ul className="d-block d-sm-flex m-sm-auto mt-3 align-items-center">
-            <li className="ms-sm-1">
-              <Link
-                href="/"
-                className={classNames(
-                  'layout_link',
-                  activePathName !== '' && 'text-secondary transition'
-                )}
-              >
-                <AiFillHome className="me-1" />
-                <span>{t('home')}</span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/stars"
-                className={classNames(
-                  'layout_link',
-                  activePathName !== 'stars' && 'text-secondary transition'
-                )}
-              >
-                <AiFillStar className="me-1" />
-                <span>{t('stars')}</span>
-              </Link>
-            </li>
-
-            {modal && (
-              <div className="vw-100 text-center">
-                <div className="d-flex justify-content-center pt-0">
-                  <Auth />
-                </div>
-              </div>
+    <nav className="bg-white position-sticky layout_head top-0">
+      <div className="container-xxl justify-content-between align-items-center d-flex h-100">
+        <div className="d-flex">
+          <div className="d-flex align-items-center justify-content-between">
+            <ul className="d-contents">
+              <li className="nav-item">
+                <button
+                  className="layout_toggle d-block d-sm-none me-2"
+                  style={{ marginTop: 3 }}
+                  onClick={() => setModal(!modal)}
+                >
+                  {modal ? <FaTimes /> : <FaBars />}
+                </button>
+              </li>
+              <li className="nav-item">
+                <Link href="/">
+                  <Image
+                    src="/static/images/favicon.ico"
+                    alt="لوگو"
+                    width={33}
+                    height={33}
+                    priority
+                  />
+                </Link>
+              </li>
+              <li className="nav-item d-none d-sm-flex layout_divider">
+                <div className="vr h-100 mx-lg-2"></div>
+              </li>
+            </ul>
+          </div>
+          <div
+            className={classNames(
+              modal && 'layout_active',
+              'layout_links align-items-center d-flex'
             )}
-          </ul>
+          >
+            <ul className="d-block d-sm-flex m-sm-auto mt-3 align-items-center">
+              <li className="ms-sm-1">
+                <Link
+                  href="/"
+                  className={classNames(
+                    'layout_link',
+                    activePathName !== '' && 'text-secondary transition'
+                  )}
+                >
+                  <AiFillHome className="me-1" />
+                  <span>{t('home')}</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/stars"
+                  className={classNames(
+                    'layout_link',
+                    activePathName !== 'stars' && 'text-secondary transition'
+                  )}
+                >
+                  <AiFillStar className="me-1" />
+                  <span>{t('stars')}</span>
+                </Link>
+              </li>
+
+              {modal && (
+                <div className="vw-100 text-center">
+                  <div className="d-flex justify-content-center pt-0">
+                    <Auth />
+                  </div>
+                </div>
+              )}
+            </ul>
+          </div>
         </div>
-      </div>
-      <div className="d-none d-sm-flex">
-        <Auth />
+        <div className="d-none d-sm-flex">
+          <Auth />
+        </div>
       </div>
     </nav>
   )

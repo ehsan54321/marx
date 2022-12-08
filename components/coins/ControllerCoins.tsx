@@ -22,12 +22,12 @@ type coinType = {
   }
 }
 const ControllerCoins = ({ dataServer }) => {
-  const [dataCoin, setDataCoin] = useState<coinType[]>(dataServer.coins)
+  const [data, setData] = useState<coinType[]>(dataServer.coins)
   const [sortId, setSortId] = useState<boolean>(false)
   const [dir, setDir] = useState<boolean>(true)
   const { t } = useTranslation()
   const searchHandler = (searchValue: string) => {
-    setDataCoin(
+    setData(
       dataServer.coins.filter(
         (coin: coinType) =>
           SpasTo0(coin.key).includes(searchValue) ||
@@ -36,12 +36,17 @@ const ControllerCoins = ({ dataServer }) => {
           toPersian(coin.id.toString(), 'fa') === toPersian(searchValue, 'fa')
       )
     )
+    sortById()
   }
-  const handlerId = (e) => {
+  const sortById = () => {
+    if (!sortId) setData((prevStat) => prevStat.sort((a, b) => a.id - b.id))
+    else setData((prevStat) => prevStat.sort((a, b) => b.id - a.id))
+  }
+  const handlerId = (e: { value: string }) => {
     setSortId(!sortId)
     if (e.value === 'small')
-      setDataCoin((prevStat) => prevStat.sort((a, b) => a.id - b.id))
-    else setDataCoin((prevStat) => prevStat.sort((a, b) => b.id - a.id))
+      setData((prevStat) => prevStat.sort((a, b) => a.id - b.id))
+    else setData((prevStat) => prevStat.sort((a, b) => b.id - a.id))
   }
   const options = [
     { value: 'small', label: t('little.to.much') },
@@ -90,8 +95,8 @@ const ControllerCoins = ({ dataServer }) => {
 
       <MapCoin
         rials={dataServer.rials}
-        data={dataCoin}
-        lanData={dataCoin.length <= 0}
+        data={data}
+        lanData={data.length <= 0}
       />
     </>
   )

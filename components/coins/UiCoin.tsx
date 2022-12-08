@@ -27,61 +27,64 @@ const UiCoin = (props: Props) => {
   const [hover, setHover] = React.useState<boolean>(false)
   const { t } = useTranslation()
   return (
-    <>
+    <tr className="tr">
+      <td className="uiCoin_none">
+        <div>
+          <Star name={my_key} faName={name} id={id} poster_path={poster_path} />
+          <span className="text-good d-none d-sm-inline-block uiCoin_id">
+            {toPersian(id, t('lang'))}
+          </span>
+        </div>
+      </td>
       <td>
-        <div className="d-flex justify-content-start">
-          <div className="ms-3 d-flex align-items-center uiCoin_star">
+        <div className="d-flex">
+          <div className="me-2 d-sm-none uiCoin_star">
             <Star
               name={my_key}
               faName={name}
               id={id}
               poster_path={poster_path}
             />
-            <span className="text-good d-none d-sm-inline-block uiCoin_id">
-              {toPersian(id, t('lang'))}
-            </span>
           </div>
-        </div>
-      </td>
-      <td>
-        <div className="d-flex">
-          <div className="d-flex align-items-center">
-            <Image
-              src={`/static/images/coins/${poster_path}.svg`}
-              alt={t('lang') ? name : all_name}
-              width={26.5}
-              height={26.5}
-            />
-          </div>
-          <Link
-            href={{
-              pathname: '/coins/[coin]',
-              query: { coin: my_key },
-            }}
-            className="d-flex flex-column mt-sm-0 mt-1 pb-sm-0 pb-1 ms-1"
-            title={t('name-coin')}
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-          >
-            <span
-              className={classNames(
-                'd-none d-sm-inline uiCoin_nameCoin text-start transition',
-                hover && 'text-secondary'
-              )}
+          <div className="d-flex">
+            <div className="d-flex align-items-center">
+              <Image
+                src={`/static/images/coins/${poster_path}.svg`}
+                alt={t('lang') ? name : all_name}
+                width={26.5}
+                height={26.5}
+              />
+            </div>
+            <Link
+              href={{
+                pathname: '/coins/[coin]',
+                query: { coin: my_key },
+              }}
+              className="d-flex flex-column mt-sm-0 mt-1 pb-sm-0 pb-1 ms-1"
+              title={t('name-coin')}
+              onMouseEnter={() => setHover(true)}
+              onMouseLeave={() => setHover(false)}
             >
-              {t('lang') ? name : all_name}
-            </span>
-            <span className="text-uppercase font-13 d-flex uiCoin_nameEN">
-              {'(' + my_key + ')'}
-            </span>
-          </Link>
+              <span
+                className={classNames(
+                  'd-none d-sm-inline uiCoin_nameCoin text-start transition',
+                  hover && 'text-secondary'
+                )}
+              >
+                {t('lang') ? name : all_name}
+              </span>
+              <span className="text-uppercase d-flex uiCoin_nameEN">
+                {'(' + my_key + ')'}
+              </span>
+            </Link>
+          </div>
         </div>
       </td>
       <td>
         <p
           className={classNames(
             !t('lang') && 'uiCoin_numEnMode',
-            'uiCoin_numbers mb-0'
+            'uiCoin_numbers mb-0 uiCoin_mane'
           )}
           title={t('mane-rials')}
         >
@@ -92,12 +95,23 @@ const UiCoin = (props: Props) => {
             )}
           </span>
           <span
-            className={classNames(
-              'uiCoin_toman uiCoin_none',
-              t('lang') ? 'ms-1' : 'me-1'
-            )}
+            className={classNames('uiCoin_toman', t('lang') ? 'ms-1' : 'me-1')}
           >
             {t('toman')}
+          </span>
+        </p>
+        <p
+          className={classNames(
+            !t('lang') && 'uiCoin_numEnMode',
+            'uiCoin_numbers uiCoin_mane mb-0 d-sm-none uiCoin_numbersSm'
+          )}
+          title={t('mane-usd')}
+        >
+          <span>{toPersian(SortBySetaSeta(usd), t('lang'))}</span>
+          <span
+            className={classNames('uiCoin_toman', t('lang') ? 'ms-1' : 'me-1')}
+          >
+            {t('usd')}
           </span>
         </p>
       </td>
@@ -117,24 +131,21 @@ const UiCoin = (props: Props) => {
           </span>
         </div>
       </td>
-      <td>
-        <div
+      <td className="uiCoin_none">
+        <p
           className={classNames(
             !t('lang') && 'uiCoin_numEnMode',
-            'uiCoin_numbers'
+            'uiCoin_numbers mb-0'
           )}
           title={t('mane-usd')}
         >
           <span>{toPersian(SortBySetaSeta(usd), t('lang'))}</span>
           <span
-            className={classNames(
-              'uiCoin_toman uiCoin_none',
-              t('lang') ? 'ms-1' : 'me-1'
-            )}
+            className={classNames('uiCoin_toman', t('lang') ? 'ms-1' : 'me-1')}
           >
             {t('usd')}
           </span>
-        </div>
+        </p>
       </td>
       <td className="border-0 justify-content-center d-none d-md-table-cell">
         <div
@@ -152,7 +163,7 @@ const UiCoin = (props: Props) => {
           </span>
         </div>
       </td>
-    </>
+    </tr>
   )
 }
 

@@ -72,7 +72,9 @@
 }
 
 .hover > tbody > tr:hover > * {
-  --bs-table-accent-bg: #f8fafc;
+  --bs-table-accent-bg: #f4f6fd;
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition-duration: 0.5s;
 }
 
 .h1_page {
@@ -89,8 +91,12 @@
 }
 
 .tr {
-  transition: background 0.1s linear;
   border-bottom: 1px solid #ecf1f9;
+  color: inherit;
+  display: table-row;
+  vertical-align: middle;
+  outline: 0;
+  height: 80px;
 
   th {
     padding: 4px 4px;
@@ -99,7 +105,7 @@
     line-height: 1.8 !important;
   }
   td {
-    padding: 13px 0.25rem;
+    padding: 0 4px;
     text-align: center;
     font-size: 15px !important;
   }

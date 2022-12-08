@@ -1,10 +1,10 @@
 {
-  "id": 22,
-  "key": "yfi",
-  "name": "یرن فایننس",
-  "all_name": "Yearn Finance",
-  "poster_path": "yfi",
-  "usd": 7216.18,
+  "id": 23,
+  "key": "xlm",
+  "name": "استلار",
+  "all_name": "stellar",
+  "poster_path": "stellar",
+  "usd": 0.9,
   "dayGrith": "2008-10-30",
   "aboutCoin": {
     "now": 90.88,

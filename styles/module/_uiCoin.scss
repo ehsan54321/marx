@@ -7,18 +7,18 @@
   }
   &nameEN {
     color: $good;
-    margin-right: 2.4px;
+    margin-right: 3px;
     line-height: 1.5;
     margin-top: 6px;
+    font-size: 12px;
   }
   &toman {
-    font-size: 0.625rem;
+    font-size: 9.6px;
     font-weight: 400;
     color: #97a0af;
     letter-spacing: normal;
   }
   &numbers {
-    transform: translateY(7.6px);
     font-size: 16px !important;
     letter-spacing: -1px;
     text-align: start;
@@ -27,11 +27,11 @@
       line-height: 2;
     }
   }
+  &star {
+    margin-top: 10px;
+  }
   &numEnMode {
     letter-spacing: normal;
-  }
-  &star {
-    margin-top: 15px;
   }
   &id {
     font-size: 12px;
@@ -42,7 +42,7 @@
     color: #1e2f38;
     margin: 0 6px 0 0;
     line-height: 1.6;
-    font-size: 15.2px;
+    font-size: 14.5px;
   }
   &search {
     border: 1px solid #d9d9d9;
