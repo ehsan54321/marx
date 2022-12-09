@@ -56,7 +56,7 @@ const ControllerCoins = ({ dataServer }) => {
     <>
       <div className="mx-4 mb-4 d-flex justify-content-between uiCoin_select flex-column flex-sm-row">
         <div className="d-flex mb-3 mb-sm-0 mt-2">
-          <button type="submit" className="uiCoin_searchBtn text-white">
+          <button type="submit" className="uiCoin_searchBtn h5 text-white">
             <BsSearch />
           </button>
           <input

@@ -2,7 +2,6 @@ import classNames from 'classnames'
 import Image from 'next/image'
 import React from 'react'
 import UiCoin from './UiCoin'
-import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 
 type coin = {
@@ -22,39 +21,6 @@ type coin = {
 }
 const MapCoin = (props: { data: coin[]; rials: number; lanData: boolean }) => {
   const { t } = useTranslation()
-  const table = useRef(null)
-  const idTh = useRef(null)
-  const coinTh = useRef(null)
-  const rialsTh = useRef(null)
-  const change24Th = useRef(null)
-  const usdTh = useRef(null)
-  const change7dTh = useRef(null)
-  const ArrUseRef = [rialsTh, change24Th, usdTh, change7dTh]
-  const ArrUseRef2 = [rialsTh, change24Th, usdTh]
-  const ArrUseRef3 = [rialsTh, change24Th]
-  useEffect(() => {
-    const displayWid = document.body.clientWidth
-    let idWid = idTh.current.getBoundingClientRect().width
-    const coinWid = coinTh.current.getBoundingClientRect().width
-    if (displayWid <= 576) {
-      idTh.current.style.width = 0
-      idWid = 0
-    } else {
-      idTh.current.style.width = '73px'
-    }
-    coinTh.current.style.width = coinWid + 'px'
-    const tableWid =
-      table.current.getBoundingClientRect().width - (idWid + coinWid)
-    if (displayWid >= 768)
-      for (const item of ArrUseRef)
-        item.current.style.width = tableWid / 4 + 'px'
-    else if (displayWid >= 576)
-      for (const item of ArrUseRef2)
-        item.current.style.width = tableWid / 3 + 'px'
-    else
-      for (const item of ArrUseRef3)
-        item.current.style.width = tableWid / 2 + 'px'
-  }, [])
   return (
     <>
       <div className="table-responsive">
@@ -65,22 +31,16 @@ const MapCoin = (props: { data: coin[]; rials: number; lanData: boolean }) => {
           )}
         >
           <thead>
-            <tr className="tr h-auto" ref={table}>
-              <th className="text-center uiCoin_none" ref={idTh}>
-                #
-              </th>
-              <th ref={coinTh} className="text-start uiCoin_coin">
-                {t('name-coin')}
-              </th>
-              <th ref={rialsTh}>
+            <tr className="tr h-auto">
+              <th className="text-center uiCoin_none uiCoin_idTh">#</th>
+              <th className="text-start uiCoin_coin">{t('name-coin')}</th>
+              <th className="uiCoin_price">
                 <span className="uiCoin_none">{t('mane-rials')}</span>
                 <span className="d-sm-none">{t('price')}</span>
               </th>
-              <th ref={change24Th}>{t('change-24h')}</th>
-              <th ref={usdTh} className="uiCoin_none">
-                {t('mane-usd')}
-              </th>
-              <th ref={change7dTh} className="d-none d-md-table-cell">
+              <th className="uiCoin_change">{t('change-24h')}</th>
+              <th className="uiCoin_none uiCoin_usd">{t('mane-usd')}</th>
+              <th className="d-none d-md-table-cell uiCoin_change7">
                 {t('change-7d')}
               </th>
             </tr>

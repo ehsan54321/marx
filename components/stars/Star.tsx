@@ -87,7 +87,7 @@ const Star = ({ name, faName, id, poster_path }: starObj) => {
     return isAuth && status ? (
       <AiTwotoneStar
         onClick={starHandler}
-        className="star_star cursor-pointer text-gold m-auto mt-0"
+        className="star_star cursor-pointer star_gold m-auto mt-0"
         size={17}
       />
     ) : (

@@ -46,16 +46,11 @@ a {
   text-decoration: none;
   background: transparent;
   cursor: pointer;
-  transition: color 0.3s;
+  transition: color 0.4s ease-in-out;
   &:hover,
   &:active {
     color: #096dd9d0;
   }
-}
-
-hr {
-  overflow: hidden !important;
-  border-style: inset !important;
 }
 
 ul,

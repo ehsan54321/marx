@@ -4,13 +4,6 @@
   }
 }
 
-@media (min-width: 950px) {
-  .uiCoin_coin {
-    width: calc(19vw + 40px) !important;
-    max-width: 350px;
-  }
-}
-
 @media (min-width: 600px) {
   .auth_login {
     width: 550px;
@@ -19,7 +12,7 @@
 
 @media (max-width: 575px) {
   .tr th {
-    letter-spacing: -0.3px;
+    letter-spacing: -0.2px;
     font-size: 10px;
   }
   .uiCoin_ {
@@ -56,6 +49,72 @@
   }
   .star_home {
     width: 150px;
+  }
+}
+
+@media (min-width: 576px) {
+  .uiCoin_ {
+    &idTh {
+      width: 11%;
+    }
+    &coin {
+      width: 25%;
+    }
+    &price {
+      width: 24%;
+    }
+    &change {
+      width: 20%;
+    }
+    &usd {
+      width: 20%;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .uiCoin_ {
+    &idTh {
+      width: 7.5%;
+    }
+    &coin {
+      width: 19.3%;
+    }
+    &price {
+      width: 18.3%;
+    }
+    &change {
+      width: 18.3%;
+    }
+    &usd {
+      width: 18.3%;
+    }
+    &change7 {
+      width: 18.3%;
+    }
+  }
+}
+
+@media (min-width: 930px) {
+  .uiCoin_ {
+    &idTh {
+      width: 5%;
+    }
+    &coin {
+      width: 19.2%;
+    }
+    &price {
+      width: 18.3%;
+    }
+    &change {
+      width: 18.3%;
+    }
+    &usd {
+      width: 18.3%;
+    }
+    &change7 {
+      width: 18.3%;
+    }
   }
 }
 
