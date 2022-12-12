@@ -7,8 +7,9 @@ import { useTranslation } from 'react-i18next'
 type Props = {
   children: string
   btn?: boolean
+  btnHome?: boolean
 }
-const Error401 = ({ children, btn = false }: Props) => {
+const Error401 = ({ children, btn = false, btnHome = false }: Props) => {
   const { t } = useTranslation()
   return (
     <div className="background-color bg-white">
@@ -29,6 +30,13 @@ const Error401 = ({ children, btn = false }: Props) => {
           <Link href="/auth#login">
             <button className="my_btn text-white font-14" type="button">
               <span>{t('go.to.the.login.page')}</span>
+            </button>
+          </Link>
+        )}
+        {btnHome && (
+          <Link href="/auth#login">
+            <button className="my_btn text-white font-14" type="button">
+              <span>{t('go.to.the.main.page')}</span>
             </button>
           </Link>
         )}

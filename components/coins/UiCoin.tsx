@@ -24,7 +24,6 @@ type Props = {
 }
 const UiCoin = (props: Props) => {
   const { my_key, name, poster_path, id, all_name, dayAll, usd }: Props = props
-  const [hover, setHover] = React.useState<boolean>(false)
   const { t } = useTranslation()
   return (
     <tr className="tr">
@@ -60,17 +59,10 @@ const UiCoin = (props: Props) => {
                 pathname: '/coins/[coin]',
                 query: { coin: my_key },
               }}
-              className="d-flex flex-column mt-sm-0 mt-1 pb-sm-0 pb-1 ms-1"
+              className="d-flex flex-column mt-sm-0 mt-1 pb-sm-0 pb-1 ms-1 uiCoin_nameCoin"
               title={t('name-coin')}
-              onMouseEnter={() => setHover(true)}
-              onMouseLeave={() => setHover(false)}
             >
-              <span
-                className={classNames(
-                  'd-none d-sm-inline uiCoin_nameCoin text-start transition',
-                  hover && 'text-secondary'
-                )}
-              >
+              <span className="d-none d-sm-inline text-start transition name">
                 {t('lang') ? name : all_name}
               </span>
               <span className="text-uppercase d-flex uiCoin_nameEN">
@@ -147,7 +139,7 @@ const UiCoin = (props: Props) => {
           </span>
         </p>
       </td>
-      <td className="border-0 justify-content-center d-none d-md-table-cell">
+      <td className="border-0 justify-content-center d-none d-lg-table-cell">
         <div
           className={classNames(
             !t('lang') && 'uiCoin_numEnMode',

@@ -20,13 +20,11 @@ const App = ({ Component, pageProps }: AppProps<AppCustomProps>) => {
   Router.events.on('routeChangeComplete', () => setLoaderStatus(false))
   return (
     <AuthProvider>
-      <div className="d-flex flex-column vh-100 justify-content-between">
-        <Layout NoLayout={pageProps.NoLayout} NoFooter={pageProps.NoFooter}>
-          <div className="container-xl">
-            {loaderStatus ? <Loader /> : <Component {...pageProps} />}
-          </div>
-        </Layout>
-      </div>
+      <Layout NoLayout={pageProps.NoLayout} NoFooter={pageProps.NoFooter}>
+        <div className="container-xl">
+          {loaderStatus ? <Loader /> : <Component {...pageProps} />}
+        </div>
+      </Layout>
     </AuthProvider>
   )
 }

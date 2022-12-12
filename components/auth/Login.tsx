@@ -48,9 +48,9 @@ const Login = () => {
 
         http
           .post('api/auth/login', token)
-          .then((res) => {
-            if (res.data.status === 'SUCCESS') {
-              setAuthState(res.data.data)
+          .then(({ data }) => {
+            if (data.status === 'SUCCESS') {
+              setAuthState(data.data)
               router.push('/account')
               toast.fire({
                 icon: 'success',
@@ -68,7 +68,7 @@ const Login = () => {
                 toast: true,
                 position: 'top-end',
                 timer: 7000,
-                title: res.data.message,
+                title: data.message,
                 showConfirmButton: false,
                 showCloseButton: true,
                 timerProgressBar: true,

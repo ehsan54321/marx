@@ -11,11 +11,8 @@ const User = (req: NextApiRequest, res: NextApiResponse) => {
       expiresIn: '90d',
     })
   }
-  if (data) {
-    res.status(200).json({ data: deCodeToken(data).payload, status: 'SUCCESS' })
-  } else {
-    res.status(200).json({ message: 'on login', status: 'ERROR' })
-  }
+  if (data) res.status(200).json(deCodeToken(data).payload)
+  else res.status(200).json('شما وارد نشدید')
 }
 
 export default User

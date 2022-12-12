@@ -75,33 +75,30 @@
 @media (min-width: 768px) {
   .uiCoin_ {
     &idTh {
-      width: 7.5%;
+      width: 7%;
     }
     &coin {
-      width: 19.3%;
+      width: 26%;
     }
     &price {
-      width: 18.3%;
+      width: 24%;
     }
     &change {
-      width: 18.3%;
+      width: 22%;
     }
     &usd {
-      width: 18.3%;
-    }
-    &change7 {
-      width: 18.3%;
+      width: 21%;
     }
   }
 }
 
-@media (min-width: 930px) {
+@media (min-width: 992px) {
   .uiCoin_ {
     &idTh {
-      width: 5%;
+      width: 6%;
     }
     &coin {
-      width: 19.2%;
+      width: 21.1%;
     }
     &price {
       width: 18.3%;
@@ -113,7 +110,7 @@
       width: 18.3%;
     }
     &change7 {
-      width: 18.3%;
+      width: 18%;
     }
   }
 }

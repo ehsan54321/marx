@@ -25,9 +25,9 @@ const AuthProvider = ({ children }): JSX.Element => {
   useEffect(() => {
     http
       .get('api/user')
-      .then((res: { data: { status: string; data: authObj } }) => {
-        if (res.data.status === 'SUCCESS') setAuthState(res.data.data)
-        else setAuthState(null)
+      .then(({ data }) => {
+        if (data === 'شما وارد نشدید') setAuthState(null)
+        else setAuthState(data)
       })
       .catch(() => {
         setAuthState(null)
@@ -40,7 +40,11 @@ const AuthProvider = ({ children }): JSX.Element => {
     else return false
   }
   const value = { isAuth: !!authState, authState, isFind, setAuthState }
-  return <Provider value={value}>{children}</Provider>
+  return (
+    <div className="d-flex flex-column vh-100 justify-content-between">
+      <Provider value={value}>{children}</Provider>
+    </div>
+  )
 }
 
 export default AuthProvider

@@ -21,19 +21,19 @@
     color: $good !important;
   }
   &red {
-    color: rgb(235, 71, 99) !important;
+    color: $red !important;
   }
   &green {
-    color: rgb(52, 178, 136) !important;
+    color: $green !important;
   }
 }
 
 .hover\: {
   &green:hover {
-    color: rgb(52, 178, 136);
+    color: $green;
   }
   &red:hover {
-    color: rgb(235, 71, 99);
+    color: $red;
   }
   &secondary:hover {
     color: $secondary;

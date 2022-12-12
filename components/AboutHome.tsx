@@ -1,28 +1,22 @@
 import classNames from 'classnames'
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 const AboutHome = () => {
   const { t } = useTranslation()
   const [showItem, setShowItem] = useState<null | number>(null)
-  const [heightItemOen, setHeightItemOen] = useState<number | string>(0)
-  const [heightItemTow, setHeightItemTow] = useState<number | string>(0)
   const oneAccordion = useRef(null)
   const towAccordion = useRef(null)
-  useEffect(() => {
-    const oneAccordionY = oneAccordion.current.getBoundingClientRect().height
-    const towAccordionY = towAccordion.current.getBoundingClientRect().height
-    if (showItem === 1) {
-      setHeightItemOen(`calc(${oneAccordionY}px - 1rem)`)
-      setHeightItemTow(0)
-    } else if (showItem === 2) {
-      setHeightItemOen(0)
-      setHeightItemTow(`calc(${towAccordionY}px - 1rem)`)
-    } else {
-      setHeightItemOen(0)
-      setHeightItemTow(0)
-    }
-  }, [showItem])
+  const hItemOne = () => {
+    if (showItem === 1)
+      return oneAccordion.current.getBoundingClientRect().height
+    return 0
+  }
+  const hItemTow = () => {
+    if (showItem === 2)
+      return towAccordion.current.getBoundingClientRect().height
+    return 0
+  }
   return (
     <div className="background-color bg-white pt-4 pb-4 ps-1 pe-1 mt-3">
       <h2 className="h5 mx-3 mb-3">{t('common.questions')}</h2>
@@ -45,7 +39,7 @@ const AboutHome = () => {
           </h2>
           <div
             className="accordion-collapse accordion_transition"
-            style={{ height: heightItemOen }}
+            style={{ height: `calc(${hItemOne()}px - 1rem)` }}
           >
             <div className="accordion-body" ref={oneAccordion}>
               <p className="accordion_list">
@@ -83,7 +77,7 @@ const AboutHome = () => {
           </h2>
           <div
             className="accordion-collapse accordion_transition"
-            style={{ height: heightItemTow }}
+            style={{ height: `calc(${hItemTow()}px - 1rem)` }}
           >
             <div className="accordion-body" ref={towAccordion}>
               <p className="accordion_list">

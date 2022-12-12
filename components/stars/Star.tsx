@@ -17,14 +17,12 @@ const Star = ({ name, faName, id, poster_path }: starObj) => {
   const [loaderStatus, setLoaderStatus] = useState<boolean>(false)
   const [status, setStatus] = useState<boolean>(false)
   const router = useRouter()
-
   useEffect(() => {
     const data: starObj[] = JSON.parse(localStorage.getItem('star'))
     if (data) {
       data.findIndex((item) => item.name === name) !== -1 && setStatus(true)
     }
   }, [name])
-
   const starHandler = () => {
     const setFalse = (status: boolean) => {
       setStatus(status)
@@ -79,7 +77,7 @@ const Star = ({ name, faName, id, poster_path }: starObj) => {
 
   if (loaderStatus) {
     return (
-      <div className="spinner-grow text-primary star_wh" role="status">
+      <div className="spinner-grow text-primary star_wh">
         <span className="visually-hidden">{t('loading') + '...'}</span>
       </div>
     )

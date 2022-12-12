@@ -4,10 +4,11 @@ import { useTranslation } from 'react-i18next'
 
 const AboutCoin = ({ aboutCoin, dayGrith }) => {
   const { t } = useTranslation()
-  const [width, setWidth] = useState<string>()
+  const [width, setWidth] = useState<string>('auto')
   const tradingVolume = useRef(null)
   useEffect(() => {
-    setWidth(tradingVolume.current.getBoundingClientRect().width - 16 + 'px')
+    if (document.body.clientWidth <= 576)
+      setWidth(tradingVolume.current.getBoundingClientRect().width - 16 + 'px')
   }, [])
   return (
     <div className="d-sm-flex">

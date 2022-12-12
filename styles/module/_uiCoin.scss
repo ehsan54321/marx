@@ -38,11 +38,16 @@
     margin-right: 10px;
   }
   &nameCoin {
-    transform: translateY(3%);
-    color: #1e2f38;
-    margin: 0 6px 0 0;
-    line-height: 1.6;
-    font-size: 14.5px;
+    .name {
+      color: #1e2f38;
+      margin: 0 6px 0 0;
+      line-height: 1.6;
+      font-size: 14.5px;
+    }
+
+    &:hover .name {
+      color: $secondary;
+    }
   }
   &search {
     border: 1px solid #d9d9d9;

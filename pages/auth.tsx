@@ -3,6 +3,7 @@ import Link from 'next/link'
 import SEO from '@components/Seo'
 import { AuthContext } from '@store/auth'
 import { Error401 } from '@components/error'
+import { FaGithub } from 'react-icons/fa'
 import { LoginForm, RegisterForm, SettingsFrom } from '@components/auth'
 import { useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -23,8 +24,8 @@ const AuthPage = () => {
     if (location.hash === '#settings') setStatus('settings')
   }, [])
   const text: string = t('lang')
-    ? `صفحه ${status && 'ورود و ثبت نام'}`
-    : `Page ${status && 'Login & Register'}`
+    ? 'صفحه ورود و ثبت نام'
+    : 'Page Login & Register'
   return !isAuth ? (
     <>
       <SEO title={text} />
@@ -88,12 +89,28 @@ const AuthPage = () => {
           {status === 'settings' && (
             <SettingsFrom setImg={setImg} img={img} tem={tem} setTem={setTem} />
           )}
+          {status !== 'settings' && (
+            <div className="mt-3">
+              <button className="btn btn-dark w-100">
+                <FaGithub
+                  className="me-1"
+                  size={20}
+                  style={{ marginTop: 3.5 }}
+                />
+                ورود از طریق گیت هاب
+              </button>
+              {/* <button className="btn btn-danger mt-1 w-100">
+              <FaGoogle className="me-1" size={20} style={{ marginTop: 3.5 }} />
+              ورود از طریق گوگل
+            </button> */}
+            </div>
+          )}
         </div>
       </div>
     </>
   ) : (
     <div className="mt-4">
-      <Error401>{t('error.401')}</Error401>
+      <Error401 btnHome>{t('error.401')}</Error401>
     </div>
   )
 }

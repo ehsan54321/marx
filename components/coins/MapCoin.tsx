@@ -1,6 +1,5 @@
 import classNames from 'classnames'
 import Image from 'next/image'
-import React from 'react'
 import UiCoin from './UiCoin'
 import { useTranslation } from 'react-i18next'
 
@@ -40,7 +39,7 @@ const MapCoin = (props: { data: coin[]; rials: number; lanData: boolean }) => {
               </th>
               <th className="uiCoin_change">{t('change-24h')}</th>
               <th className="uiCoin_none uiCoin_usd">{t('mane-usd')}</th>
-              <th className="d-none d-md-table-cell uiCoin_change7">
+              <th className="d-none d-lg-table-cell uiCoin_change7">
                 {t('change-7d')}
               </th>
             </tr>

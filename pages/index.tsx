@@ -18,9 +18,9 @@ export const getServerSideProps: GetServerSideProps = (ctx) => {
   // return {
   //   props: { token: token ? deCodeToken(token) : null },
   // }
-  return http.get('api/coins').then((res) => {
+  return http.get('api/coins').then(({ data }) => {
     return {
-      props: { data: res.data },
+      props: { data },
     }
   })
 }
@@ -38,7 +38,7 @@ const HomePage = ({ data }) => {
       />
       <AdsComponents />
       <h1 className="h5 mt-4 mb-4 h1_page">{t('list-coins')}</h1>
-      <div className="background-color bg-white pt-4 pb-4 ps-1 pe-1">
+      <div className="background-color bg-white py-4 px-0">
         <ControllerCoin dataServer={data} />
       </div>
       <AboutHome />

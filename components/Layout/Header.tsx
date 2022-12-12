@@ -5,6 +5,7 @@ import Link from 'next/link'
 import toast from 'sweetalert2'
 import { AiFillHome, AiFillStar } from 'react-icons/ai'
 import { AuthContext } from '@store/auth'
+import { BsFillCaretDownFill } from 'react-icons/bs'
 import { BsFillPersonFill, BsTranslate } from 'react-icons/bs'
 import { FaBars, FaTimes } from 'react-icons/fa'
 import { HiLogout } from 'react-icons/hi'
@@ -102,10 +103,8 @@ const Header = () => {
 
 const Auth = () => {
   const { isFind, setAuthState, authState, isAuth } = useContext(AuthContext)
-  const [open, setOpen] = useState(false)
   const { t, i18n } = useTranslation()
   const router = useRouter()
-  Router.events.on('routeChangeStart', () => setOpen(false))
   const Logout = () => {
     http
       .get('api/auth/logout')
@@ -137,7 +136,7 @@ const Auth = () => {
   }
   return (
     <>
-      <div className="d-flex align-items-center me-2">
+      <div className="d-flex align-items-center">
         <BsTranslate
           size={15}
           className="cursor-pointer"
@@ -145,7 +144,7 @@ const Auth = () => {
         />
       </div>
       {isFind() ? (
-        <span className="loader" role="progressbar">
+        <span className="loader ms-3" role="progressbar">
           <svg viewBox="22 22 44 44">
             <circle
               cx="44"
@@ -157,48 +156,37 @@ const Auth = () => {
           </svg>
         </span>
       ) : !isAuth ? (
-        <Link href="/auth#login">
+        <Link href="/auth#login" className="ms-2">
           <button type="button" className="btn btn-outline-dark">
             <span>{t('btn-login')}</span>
           </button>
         </Link>
       ) : (
-        <div className="dropdoen">
-          <div className="dropdown-toggle" onClick={() => setOpen(!open)}>
-            <img
-              // src="https://www.gravatar.com/avatar/24e96aef-6a72-4400-9a95-a926bad3fc69?s=185&d=identicon&r;=PG"
-              // src="https://www.gravatar.com/avatar/4e7f0e6f71df72220e4ce37c92c377e3?s=185&d=identicon&r;=PG"
-              src={authState.poster_path}
-              className="rounded-circle"
-              style={{ width: 40 }}
-              alt={`${t('profile')} ${authState.username}`}
-            />
-          </div>
-          <div>
-            <ul
-              className={
-                open ? 'dropdown-menu d-block layout_drop' : 'dropdown-menu'
-              }
-            >
-              <li>
-                <Link
-                  href="/account"
-                  className={classNames(
-                    'text-dark d-flex align-items-center dropdown-item',
-                    router.pathname.split('/')[1] === 'account' &&
-                      'active text-white'
-                  )}
-                >
+        <div>
+          <div className="align-items-center d-flex position-relative mui-8mdyrd">
+            <button className="mui-1qmkd8i pe-0 bg-white" type="button">
+              <img
+                // src="https://www.gravatar.com/avatar/24e96aef-6a72-4400-9a95-a926bad3fc69?s=185&d=identicon&r;=PG"
+                // src="https://www.gravatar.com/avatar/4e7f0e6f71df72220e4ce37c92c377e3?s=185&d=identicon&r;=PG"
+                src={authState.poster_path}
+                className="rounded-circle me-1 h-auto"
+                alt={`${t('profile')} ${authState.username}`}
+              />
+              <BsFillCaretDownFill className="uiCoin_none" />
+            </button>
+            <ul className="menu mui-16g0ei6 position-absolute d-none bg-white">
+              <Link href="/account" className="text-dark">
+                <li className="mui-pu6x1m">
                   <BsFillPersonFill />
                   <span className="ms-1">{t('profile')}</span>
-                </Link>
-              </li>
-              <li onClick={Logout}>
-                <div className="dropdown-item">
+                </li>
+              </Link>
+              <div onClick={Logout}>
+                <li className="mui-pu6x1m cursor-pointer">
                   <HiLogout />
                   <span className="ms-2">{t('logout')}</span>
-                </div>
-              </li>
+                </li>
+              </div>
             </ul>
           </div>
         </div>
