@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import Image from 'next/image'
 import Star from '@components/stars/Star'
 import { BsFillCaretDownFill, BsFillCaretUpFill } from 'react-icons/bs'
-import { SortBySetaSeta, toPersian, usdInRials } from '@lib/helper'
+import { formatCurrency, numberToPersian } from '@lib/helper'
 import { useTranslation } from 'react-i18next'
 
 type Props = {
@@ -65,7 +65,7 @@ const ControllerPageCoin = (props: Props) => {
                 padding: '6px 8.5px',
               }}
             >
-              {'#' + toPersian(props.coin.id, t('lang'))}
+              {'#' + numberToPersian(props.coin.id, t('lang'))}
             </span>
           </div>
         </div>
@@ -89,7 +89,7 @@ const ControllerPageCoin = (props: Props) => {
               )}
             </div>
             <span>
-              {toPersian(props.coin.day.dayIn, t('lang')) +
+              {numberToPersian(props.coin.day.dayIn, t('lang')) +
                 '٪' +
                 (props.coin.day.colorDayIn === 'danger' ? '-' : '+')}
             </span>
@@ -103,8 +103,15 @@ const ControllerPageCoin = (props: Props) => {
           <div className="d-flex flex-column" title={t('mane-usd')}>
             <span className="text-good">{t('mane-usd')}:</span>
             <span className="font-18 mt-1">
-              {toPersian(SortBySetaSeta(props.coin.usd), t('lang'))}
-              <span className="uiCoin_toman ms-1">{t('usd')}</span>
+              {numberToPersian(formatCurrency(props.coin.usd), t('lang'))}
+              <span
+                className={classNames(
+                  'uiCoin_toman',
+                  t('lang') ? 'ms-1' : 'me-1'
+                )}
+              >
+                {t('usd')}
+              </span>
             </span>
           </div>
         </div>
@@ -112,11 +119,18 @@ const ControllerPageCoin = (props: Props) => {
           <div className="d-flex flex-column" title={t('mane-rials')}>
             <span className="text-good">{t('mane-rials')}:</span>
             <span className="font-18 mt-1">
-              {toPersian(
-                SortBySetaSeta(usdInRials(props.coin.usd, props.rials)),
+              {numberToPersian(
+                formatCurrency(~~(props.coin.usd * props.rials)),
                 t('lang')
               )}
-              <span className="uiCoin_toman ms-1">{t('toman')}</span>
+              <span
+                className={classNames(
+                  'uiCoin_toman',
+                  t('lang') ? 'ms-1' : 'me-1'
+                )}
+              >
+                {t('toman')}
+              </span>
             </span>
           </div>
         </div>

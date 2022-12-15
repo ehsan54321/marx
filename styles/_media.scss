@@ -25,9 +25,9 @@
     &numbers {
       font-size: 14.5px !important;
     }
-    &none {
-      display: none !important;
-    }
+  }
+  .d-xm-none {
+    display: none !important;
   }
   .layout_ {
     &links {
@@ -98,19 +98,19 @@
       width: 6%;
     }
     &coin {
-      width: 21.1%;
+      width: 22%;
     }
     &price {
       width: 18.3%;
     }
     &change {
-      width: 18.3%;
+      width: 18.2%;
     }
     &usd {
-      width: 18.3%;
+      width: 18%;
     }
     &change7 {
-      width: 18%;
+      width: 17.5%;
     }
   }
 }

@@ -16,7 +16,7 @@ const Footer = ({ NoFooter }: { NoFooter: boolean }) => {
                 width={33}
                 height={33}
               />
-              <small className="layout_text mx-2 d-none d-sm-flex">
+              <small className="layout_text mx-2 d-xm-none">
                 {t('lang')
                   ? '۱۴۰۱ © طبق ماده 12 فصل سوم قانون جرائم رایانه‌ای هرگونه کپی برداری از طرح قالب، مطالب و فایل‌های تارنمای MyApp به هر نحو، پیگرد قانونی دارد.'
                   : '1401 © According to article 12 of the third chapter of the Computer Crimes Law, any copying of the MyApp website template design, contents and files in any way is prosecuted.'}

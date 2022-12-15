@@ -3,7 +3,7 @@ import http from '@services/httpServices'
 import toast from 'sweetalert2'
 import { AuthContext } from '@store/auth'
 import { BsEnvelopeFill, BsEye, BsEyeSlash } from 'react-icons/bs'
-import { resErr, SpasTo0 } from '@lib/helper'
+import { resErr, removeSpas } from '@lib/helper'
 import { RiLockPasswordFill } from 'react-icons/ri'
 import { useContext, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -23,8 +23,8 @@ const UserInfo = () => {
   const { authState } = useContext(AuthContext)
   const { t } = useTranslation()
   const finish = (value: { email: string; password: string }) => {
-    value.email = SpasTo0(value.email.toLowerCase())
-    value.password = SpasTo0(value.password.toLowerCase())
+    value.email = removeSpas(value.email.toLowerCase())
+    value.password = removeSpas(value.password.toLowerCase())
     toast
       .fire({
         icon: 'warning',
@@ -52,8 +52,8 @@ const UserInfo = () => {
       })
   }
   const onSubmit = (e) => {
-    const email: string = SpasTo0(e.target['0'].value.toLowerCase())
-    const password: string = SpasTo0(e.target['1'].value.toLowerCase())
+    const email: string = removeSpas(e.target['0'].value.toLowerCase())
+    const password: string = removeSpas(e.target['1'].value.toLowerCase())
     const emailRegExp = new RegExp(/^[a-zA-Z\s][a-zA-Z0-9_\.-\s]*@gmail.com$/)
     const passwordRegExp = new RegExp(
       /^[a-zA-Z0-9_$*@+#!%&{}\.()-\s]{1,999999}$/

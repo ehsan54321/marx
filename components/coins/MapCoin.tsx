@@ -31,14 +31,14 @@ const MapCoin = (props: { data: coin[]; rials: number; lanData: boolean }) => {
         >
           <thead>
             <tr className="tr h-auto">
-              <th className="text-center uiCoin_none uiCoin_idTh">#</th>
+              <th className="text-center d-xm-none uiCoin_idTh">#</th>
               <th className="text-start uiCoin_coin">{t('name-coin')}</th>
               <th className="uiCoin_price">
-                <span className="uiCoin_none">{t('mane-rials')}</span>
+                <span className="d-xm-none">{t('mane-rials')}</span>
                 <span className="d-sm-none">{t('price')}</span>
               </th>
               <th className="uiCoin_change">{t('change-24h')}</th>
-              <th className="uiCoin_none uiCoin_usd">{t('mane-usd')}</th>
+              <th className="d-xm-none uiCoin_usd">{t('mane-usd')}</th>
               <th className="d-none d-lg-table-cell uiCoin_change7">
                 {t('change-7d')}
               </th>

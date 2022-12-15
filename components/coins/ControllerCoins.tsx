@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import MapCoin from './MapCoin'
 import Select from 'react-select'
-import { BsSearch } from 'react-icons/bs'
-import { SpasTo0, toPersian } from '@lib/helper'
+import { BsSearch, BsX } from 'react-icons/bs'
+import { removeSpas, numberToPersian } from '@lib/helper'
 import { startTransition, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -24,29 +24,31 @@ type coinType = {
 const ControllerCoins = ({ dataServer }) => {
   const [data, setData] = useState<coinType[]>(dataServer.coins)
   const [sortId, setSortId] = useState<boolean>(false)
-  const [dir, setDir] = useState<boolean>(true)
+  const [searchValue, setSearchValue] = useState<string>('')
   const { t } = useTranslation()
-  const searchHandler = (searchValue: string) => {
+  const searchHandler = (searchValue) => {
     setData(
       dataServer.coins.filter(
         (coin: coinType) =>
-          SpasTo0(coin.key).includes(searchValue) ||
-          SpasTo0(coin.name).includes(searchValue) ||
-          SpasTo0(coin.all_name).toLocaleLowerCase().includes(searchValue) ||
-          toPersian(coin.id.toString(), 'fa') === toPersian(searchValue, 'fa')
+          removeSpas(coin.key).includes(searchValue) ||
+          removeSpas(coin.name).includes(searchValue) ||
+          removeSpas(coin.all_name).toLocaleLowerCase().includes(searchValue) ||
+          numberToPersian(coin.id.toString(), 'fa') ===
+            numberToPersian(searchValue, 'fa')
       )
     )
     sortById()
   }
   const sortById = () => {
-    if (!sortId) setData((prevStat) => prevStat.sort((a, b) => a.id - b.id))
-    else setData((prevStat) => prevStat.sort((a, b) => b.id - a.id))
+    if (!sortId)
+      setData((prevStat) => prevStat.sort((a, b) => (a.id > b.id ? 1 : -1)))
+    else setData((prevStat) => prevStat.sort((a, b) => (a.id < b.id ? 1 : -1)))
   }
-  const handlerId = (e: { value: string }) => {
+  const handlerId = ({ value }) => {
     setSortId(!sortId)
-    if (e.value === 'small')
-      setData((prevStat) => prevStat.sort((a, b) => a.id - b.id))
-    else setData((prevStat) => prevStat.sort((a, b) => b.id - a.id))
+    if (value === 'small')
+      setData((prevStat) => prevStat.sort((a, b) => (a.id > b.id ? 1 : -1)))
+    else setData((prevStat) => prevStat.sort((a, b) => (a.id < b.id ? 1 : -1)))
   }
   const options = [
     { value: 'small', label: t('little.to.much') },
@@ -59,25 +61,38 @@ const ControllerCoins = ({ dataServer }) => {
           <button type="submit" className="uiCoin_searchBtn h5 text-white">
             <BsSearch />
           </button>
+          <button
+            type="submit"
+            className="h5 bg-white uiCoin_btnX"
+            onClick={() => {
+              setSearchValue('')
+              searchHandler('')
+            }}
+          >
+            {searchValue && <BsX className="position-absolute" />}
+          </button>
           <input
-            type="search"
+            type="text"
             className={classNames(
               'uiCoin_search border-start-0 w-100',
-              dir && 'text-start'
+              !searchValue && 'text-start'
             )}
             maxLength={20}
             dir="auto"
+            value={searchValue}
             placeholder={
               t('lang')
-                ? `جستجو بین ${toPersian(dataServer.coins.length, '1')} کوین`
+                ? `جستجو بین ${numberToPersian(
+                    dataServer.coins.length,
+                    '1'
+                  )} کوین`
                 : `search ${dataServer.coins.length} coin`
             }
             onChange={(e) => {
-              startTransition(() =>
-                searchHandler(SpasTo0(e.target.value.toLocaleLowerCase()))
-              )
-              if (!e.target.value) setDir(true)
-              else setDir(false)
+              startTransition(() => {
+                searchHandler(removeSpas(e.target.value.toLocaleLowerCase()))
+              })
+              setSearchValue(e.target.value)
               e.preventDefault()
             }}
           />

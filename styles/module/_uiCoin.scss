@@ -56,11 +56,18 @@
     border-radius: 5px 0 0 5px;
     outline: none;
     color: $good;
+    padding-right: 22px;
 
     &:focus {
       color: black;
       box-shadow: 0 0 3px 0 $secondary;
       border: 1px solid $secondary;
+    }
+  }
+  &btnX {
+    height: 0;
+    svg {
+      height: 37px;
     }
   }
   &searchBtn {

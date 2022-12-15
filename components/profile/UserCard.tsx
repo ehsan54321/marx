@@ -1,7 +1,7 @@
 import http from '@services/httpServices'
 import toast from 'sweetalert2'
 import { AuthContext } from '@store/auth'
-import { resErr, toPersian } from '@lib/helper'
+import { resErr, numberToPersian } from '@lib/helper'
 import { useContext } from 'react'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
@@ -51,7 +51,7 @@ const UserCard = ({ user_name }) => {
           </p>
           <p>
             <span className="text-good h6">{t('info.create.account')}</span>
-            {toPersian('1401/8/29', t('lang'))}
+            {numberToPersian('1401/8/29', t('lang'))}
           </p>
         </div>
         <button

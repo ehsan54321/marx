@@ -4,7 +4,7 @@ import http from '@services/httpServices'
 import toast from 'sweetalert2'
 import { AuthContext } from '@store/auth'
 import { BsEnvelopeFill, BsEye, BsEyeSlash } from 'react-icons/bs'
-import { resErr, SpasTo0 } from '@lib/helper'
+import { resErr, removeSpas } from '@lib/helper'
 import { RiLockPasswordFill } from 'react-icons/ri'
 import { useContext, useState } from 'react'
 import { useRouter } from 'next/router'
@@ -94,8 +94,8 @@ const Login = () => {
     setLoader(false)
   }
   const onSubmit = (e) => {
-    const email: string = SpasTo0(e.target['0'].value.toLowerCase())
-    const password: string = SpasTo0(e.target['1'].value.toLowerCase())
+    const email: string = removeSpas(e.target['0'].value.toLowerCase())
+    const password: string = removeSpas(e.target['1'].value.toLowerCase())
     const emailRegExp = new RegExp(/^[a-zA-Z\s][a-zA-Z0-9_\.-\s]*@gmail.com$/)
     let isEmail: boolean = false
     let isPassword: boolean = false

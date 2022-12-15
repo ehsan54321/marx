@@ -7,8 +7,9 @@ import { AiFillHome, AiFillStar } from 'react-icons/ai'
 import { AuthContext } from '@store/auth'
 import { BsFillCaretDownFill } from 'react-icons/bs'
 import { BsFillPersonFill, BsTranslate } from 'react-icons/bs'
-import { FaBars, FaTimes } from 'react-icons/fa'
+import { FaBars, FaSun, FaTimes } from 'react-icons/fa'
 import { HiLogout } from 'react-icons/hi'
+import { MdNightlight } from 'react-icons/md'
 import { resErr } from '@lib/helper'
 import { Router, useRouter } from 'next/router'
 import { useContext, useState } from 'react'
@@ -46,7 +47,7 @@ const Header = () => {
                   />
                 </Link>
               </li>
-              <li className="nav-item d-none d-sm-flex layout_divider">
+              <li className="nav-item d-xm-none layout_divider">
                 <div className="vr h-100 mx-lg-2"></div>
               </li>
             </ul>
@@ -103,6 +104,7 @@ const Header = () => {
 
 const Auth = () => {
   const { isFind, setAuthState, authState, isAuth } = useContext(AuthContext)
+  const [mod, setMod] = useState<boolean>(false)
   const { t, i18n } = useTranslation()
   const router = useRouter()
   const Logout = () => {
@@ -137,6 +139,18 @@ const Auth = () => {
   return (
     <>
       <div className="d-flex align-items-center">
+        <div className="d-flex me-2" onClick={() => setMod(!mod)}>
+          <span className={classNames('switch d-flex', mod && 'switch_active')}>
+            <FaSun
+              size={15}
+              className={classNames('cursor-pointer', mod && 'switch_icon')}
+            />
+            <MdNightlight
+              size={15}
+              className={classNames('cursor-pointer', !mod && 'switch_icon')}
+            />
+          </span>
+        </div>
         <BsTranslate
           size={15}
           className="cursor-pointer"
@@ -162,33 +176,31 @@ const Auth = () => {
           </button>
         </Link>
       ) : (
-        <div>
-          <div className="align-items-center d-flex position-relative mui-8mdyrd">
-            <button className="mui-1qmkd8i pe-0 bg-white" type="button">
-              <img
-                // src="https://www.gravatar.com/avatar/24e96aef-6a72-4400-9a95-a926bad3fc69?s=185&d=identicon&r;=PG"
-                // src="https://www.gravatar.com/avatar/4e7f0e6f71df72220e4ce37c92c377e3?s=185&d=identicon&r;=PG"
-                src={authState.poster_path}
-                className="rounded-circle me-1 h-auto"
-                alt={`${t('profile')} ${authState.username}`}
-              />
-              <BsFillCaretDownFill className="uiCoin_none" />
-            </button>
-            <ul className="menu mui-16g0ei6 position-absolute d-none bg-white">
-              <Link href="/account" className="text-dark">
-                <li className="mui-pu6x1m">
-                  <BsFillPersonFill />
-                  <span className="ms-1">{t('profile')}</span>
-                </li>
-              </Link>
-              <div onClick={Logout}>
-                <li className="mui-pu6x1m cursor-pointer">
-                  <HiLogout />
-                  <span className="ms-2">{t('logout')}</span>
-                </li>
-              </div>
-            </ul>
-          </div>
+        <div className="align-items-center d-flex position-relative mui-8mdyrd">
+          <button className="mui-1qmkd8i pe-0 bg-white" type="button">
+            <img
+              // src="https://www.gravatar.com/avatar/24e96aef-6a72-4400-9a95-a926bad3fc69?s=185&d=identicon&r;=PG"
+              // src="https://www.gravatar.com/avatar/4e7f0e6f71df72220e4ce37c92c377e3?s=185&d=identicon&r;=PG"
+              src={authState.poster_path}
+              className="rounded-circle me-1 h-auto"
+              alt={`${t('profile')} ${authState.username}`}
+            />
+            <BsFillCaretDownFill className="d-xm-none" />
+          </button>
+          <ul className="menu mui-16g0ei6 position-absolute d-none bg-white">
+            <Link href="/account" className="text-dark">
+              <li className="mui-pu6x1m">
+                <BsFillPersonFill />
+                <span className="ms-1">{t('profile')}</span>
+              </li>
+            </Link>
+            <div onClick={Logout}>
+              <li className="mui-pu6x1m cursor-pointer">
+                <HiLogout />
+                <span className="ms-2">{t('logout')}</span>
+              </li>
+            </div>
+          </ul>
         </div>
       )}
     </>

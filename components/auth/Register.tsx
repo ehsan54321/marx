@@ -8,7 +8,7 @@ import {
   BsEyeSlash,
   BsFillPersonFill,
 } from 'react-icons/bs'
-import { resErr, SpasTo0 } from '@lib/helper'
+import { resErr, removeSpas } from '@lib/helper'
 import { RiLockPasswordFill } from 'react-icons/ri'
 import { useContext, useState } from 'react'
 import { useRouter } from 'next/router'
@@ -80,10 +80,10 @@ const Register = () => {
       })
   }
   const onSubmit = (e) => {
-    const username: string = SpasTo0(e.target['0'].value.toLowerCase())
-    const email: string = SpasTo0(e.target['1'].value.toLowerCase())
-    const password: string = SpasTo0(e.target['2'].value.toLowerCase())
-    const rePassword: string = SpasTo0(e.target['3'].value.toLowerCase())
+    const username: string = removeSpas(e.target['0'].value.toLowerCase())
+    const email: string = removeSpas(e.target['1'].value.toLowerCase())
+    const password: string = removeSpas(e.target['2'].value.toLowerCase())
+    const rePassword: string = removeSpas(e.target['3'].value.toLowerCase())
     const usernameRegExp = new RegExp(
       /^[A-Za-zآابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیئ\s][A-Za-z0-9آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیئ\s]*$/
     )

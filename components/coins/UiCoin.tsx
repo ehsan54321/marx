@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import Star from '@components/stars/Star'
-import { SortBySetaSeta, toPersian, usdInRials } from '@lib/helper'
+import { formatCurrency, numberToPersian } from '@lib/helper'
 import { useTranslation } from 'react-i18next'
 
 type Props = {
@@ -27,11 +27,11 @@ const UiCoin = (props: Props) => {
   const { t } = useTranslation()
   return (
     <tr className="tr">
-      <td className="uiCoin_none">
+      <td className="d-xm-none">
         <div>
           <Star name={my_key} faName={name} id={id} poster_path={poster_path} />
-          <span className="text-good d-none d-sm-inline-block uiCoin_id">
-            {toPersian(id, t('lang'))}
+          <span className="text-good d-xm-none uiCoin_id">
+            {numberToPersian(id, t('lang'))}
           </span>
         </div>
       </td>
@@ -81,8 +81,8 @@ const UiCoin = (props: Props) => {
           title={t('mane-rials')}
         >
           <span>
-            {toPersian(
-              SortBySetaSeta(usdInRials(usd, props.rialsOne)),
+            {numberToPersian(
+              formatCurrency(~~(usd * props.rialsOne)),
               t('lang')
             )}
           </span>
@@ -99,7 +99,7 @@ const UiCoin = (props: Props) => {
           )}
           title={t('mane-usd')}
         >
-          <span>{toPersian(SortBySetaSeta(usd), t('lang'))}</span>
+          <span>{numberToPersian(formatCurrency(usd), t('lang'))}</span>
           <span
             className={classNames('uiCoin_toman', t('lang') ? 'ms-1' : 'me-1')}
           >
@@ -117,13 +117,13 @@ const UiCoin = (props: Props) => {
           title={t('change-24h')}
         >
           <span>
-            {toPersian(dayAll.day_in, t('lang')) + '٪'}
+            {numberToPersian(dayAll.day_in, t('lang')) + '٪'}
             {(dayAll.color_day_in === 'red' && '-') ||
               (dayAll.color_day_in === 'green' && '+')}
           </span>
         </div>
       </td>
-      <td className="uiCoin_none">
+      <td className="d-xm-none">
         <p
           className={classNames(
             !t('lang') && 'uiCoin_numEnMode',
@@ -131,7 +131,7 @@ const UiCoin = (props: Props) => {
           )}
           title={t('mane-usd')}
         >
-          <span>{toPersian(SortBySetaSeta(usd), t('lang'))}</span>
+          <span>{numberToPersian(formatCurrency(usd), t('lang'))}</span>
           <span
             className={classNames('uiCoin_toman', t('lang') ? 'ms-1' : 'me-1')}
           >
@@ -149,7 +149,7 @@ const UiCoin = (props: Props) => {
           title={t('change-7d')}
         >
           <span>
-            {toPersian(dayAll.day7, t('lang')) + '٪'}
+            {numberToPersian(dayAll.day7, t('lang')) + '٪'}
             {(dayAll.color_day7 === 'red' && '-') ||
               (dayAll.color_day7 === 'green' && '+')}
           </span>

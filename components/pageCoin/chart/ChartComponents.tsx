@@ -8,7 +8,7 @@ const ChartComponents = () => {
         <h2 className="h6 m-0 px-3">{t('chart')}</h2>
       </div>
       {/* chart */}
-      <div className="bg-white mt-3 d-none d-md-flex"></div>
+      <div className="bg-white mt-3"></div>
     </div>
   )
 }

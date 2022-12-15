@@ -1,4 +1,4 @@
-import { SortBySetaSeta, toPersian } from '@lib/helper'
+import { formatCurrency, numberToPersian } from '@lib/helper'
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -31,13 +31,15 @@ const AboutCoin = ({ aboutCoin, dayGrith }) => {
           </span>
           <br />
           <span className="font-13 mt-1 mb-3 mb-sm-0">
-            {toPersian(SortBySetaSeta('756345'), t('lang'))}
+            {numberToPersian(formatCurrency('756345'), t('lang'))}
           </span>
         </div>
         <div className="vr"></div>
         <div className="ms-3 me-3 d-flex flex-column">
           <span className="text-good">{t('coin.display.size') + ':'}</span>
-          <span className="font-13 mt-1">{toPersian(dayGrith, t('lang'))}</span>
+          <span className="font-13 mt-1">
+            {numberToPersian(dayGrith, t('lang'))}
+          </span>
         </div>
       </div>
 
@@ -46,7 +48,7 @@ const AboutCoin = ({ aboutCoin, dayGrith }) => {
         className="d-sm-none"
       ></div>
 
-      <div className="vr d-none d-sm-flex"></div>
+      <div className="vr d-xm-none"></div>
       <div className="d-flex">
         <div
           className="ms-3 me-sm-3 d-flex flex-column me-3 mt-3 mt-sm-0"
@@ -54,7 +56,7 @@ const AboutCoin = ({ aboutCoin, dayGrith }) => {
         >
           <span className="text-good">{t('coin.total.market') + ':'}</span>
           <span className="font-13 mt-1">
-            {toPersian('448.127M', t('lang'))}
+            {numberToPersian('448.127M', t('lang'))}
           </span>
         </div>
 
@@ -63,7 +65,7 @@ const AboutCoin = ({ aboutCoin, dayGrith }) => {
           <span className="text-good">{t('coin.date') + ':'}</span>
           <br />
           <div className="text-center">
-            <span>{toPersian(aboutCoin.arz, t('lang'))}</span>
+            <span>{numberToPersian(aboutCoin.arz, t('lang'))}</span>
           </div>
           <div className="progress h-auto">
             <div
@@ -71,7 +73,7 @@ const AboutCoin = ({ aboutCoin, dayGrith }) => {
               style={{ width: aboutCoin.now + '%' }}
             >
               <span style={{ marginTop: '.15rem' }}>
-                {toPersian(aboutCoin.now, t('lang')) + '٪'}
+                {numberToPersian(aboutCoin.now, t('lang')) + '٪'}
               </span>
             </div>
           </div>
@@ -79,7 +81,7 @@ const AboutCoin = ({ aboutCoin, dayGrith }) => {
             <span className="text-good me-1">
               {t('coin.display.size') + ':'}
             </span>
-            <span>{toPersian(aboutCoin.maxArz, t('lang'))}</span>
+            <span>{numberToPersian(aboutCoin.maxArz, t('lang'))}</span>
           </div>
         </div>
       </div>
