@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import http from '@services/httpServices'
 import Image from 'next/image'
 import Link from 'next/link'
-import toast from 'sweetalert2'
+import sweetalert2 from 'sweetalert2'
 import { AiFillHome, AiFillStar } from 'react-icons/ai'
 import { AuthContext } from '@store/auth'
 import { BsFillCaretDownFill } from 'react-icons/bs'
@@ -114,7 +114,7 @@ const Auth = () => {
         setAuthState(null)
         localStorage.removeItem('star')
         router.push('/auth#login')
-        toast.fire({
+        sweetalert2.fire({
           icon: 'error',
           toast: true,
           position: 'top-end',

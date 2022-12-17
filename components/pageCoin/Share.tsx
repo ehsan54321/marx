@@ -1,4 +1,4 @@
-import toast from 'sweetalert2'
+import sweetalert2 from 'sweetalert2'
 import { AiOutlineMail, AiOutlineWhatsApp } from 'react-icons/ai'
 import { baseURL } from '@baseUrl'
 import { HiOutlineShare } from 'react-icons/hi'
@@ -10,7 +10,7 @@ const Share = ({ nameCoin, name }) => {
   const { t } = useTranslation()
   const copyHandler = () => {
     navigator.clipboard.writeText(`${baseURL}coins/${nameCoin}`)
-    toast.fire({
+    sweetalert2.fire({
       icon: 'success',
       toast: true,
       position: 'top-end',

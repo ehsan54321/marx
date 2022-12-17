@@ -9,7 +9,7 @@
   "btn-login": "login & register",
   "list-coins": "The price of digital currencies Home Page",
   "go.to.home.page": "Go to home page",
-  "title.home": "Bitcoin digital currency price display website",
+  "title.home": "The price of digital currencies",
   "title.selected": "Selected page",
   "selected.list": "Selected list",
   "go.to.the.main.page": "Let's go to the main page",
@@ -44,7 +44,7 @@
   "telegram": "Telegram",
   "whatsapp": "Whatsapp",
   "copy.link": "Copy Link",
-  "copy.ok": "Copy Ok",
+  "copy.ok": "Copied",
 
   "info.user": "User account information",
   "info.account": "account name : ",

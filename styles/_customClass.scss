@@ -79,10 +79,13 @@
   border-bottom: 1px solid #ecf1f9;
   display: table-row;
   vertical-align: middle;
-  outline: 0;
   height: 80px;
+  &:last-child {
+    border-bottom-color: #fff;
+  }
 
   th {
+    border-bottom: 1px solid #ecf1f9;
     padding: 4px 4px;
     font-size: 12px;
     color: $pro !important;

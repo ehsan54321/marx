@@ -13,8 +13,7 @@ const App = ({ Component, pageProps }: AppProps<AppCustomProps>) => {
   const [loaderStatus, setLoaderStatus] = useState<boolean>(false)
   const { i18n } = useTranslation()
   useEffect(() => {
-    const langValue = localStorage.getItem('lang')
-    if (langValue && langValue === 'en') i18n.changeLanguage(langValue)
+    if (localStorage.getItem('lang') === 'en') i18n.changeLanguage('en')
   }, [])
   Router.events.on('routeChangeStart', () => setLoaderStatus(true))
   Router.events.on('routeChangeComplete', () => setLoaderStatus(false))

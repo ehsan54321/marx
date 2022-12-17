@@ -1,4 +1,4 @@
-import toast from 'sweetalert2'
+import sweetalert2 from 'sweetalert2'
 import { AiOutlineStar, AiTwotoneStar } from 'react-icons/ai'
 import { AuthContext } from '@store/auth'
 import { memo, useContext, useEffect, useState } from 'react'
@@ -59,7 +59,7 @@ const Star = ({ name, faName, id, poster_path }: starObj) => {
       }
     } else {
       // زمانی که کاربر وارد نشد باشد
-      toast
+      sweetalert2
         .fire({
           icon: 'warning',
           title: t('text.no.login'),

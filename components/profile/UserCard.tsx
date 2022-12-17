@@ -1,5 +1,5 @@
 import http from '@services/httpServices'
-import toast from 'sweetalert2'
+import sweetalert2 from 'sweetalert2'
 import { AuthContext } from '@store/auth'
 import { resErr, numberToPersian } from '@lib/helper'
 import { useContext } from 'react'
@@ -17,7 +17,7 @@ const UserCard = ({ user_name }) => {
         setAuthState(null)
         localStorage.removeItem('star')
         router.push('/auth#login')
-        toast.fire({
+        sweetalert2.fire({
           icon: 'error',
           toast: true,
           position: 'top-end',

@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import http from '@services/httpServices'
-import toast from 'sweetalert2'
+import sweetalert2 from 'sweetalert2'
 import { AuthContext } from '@store/auth'
 import { BsEnvelopeFill, BsEye, BsEyeSlash } from 'react-icons/bs'
 import { resErr, removeSpas } from '@lib/helper'
@@ -25,7 +25,7 @@ const UserInfo = () => {
   const finish = (value: { email: string; password: string }) => {
     value.email = removeSpas(value.email.toLowerCase())
     value.password = removeSpas(value.password.toLowerCase())
-    toast
+    sweetalert2
       .fire({
         icon: 'warning',
         title:
@@ -39,7 +39,7 @@ const UserInfo = () => {
           http
             .post('api/auth/update', value.email, value.password)
             .then(() => {
-              toast.fire({
+              sweetalert2.fire({
                 icon: 'success',
                 title:
                   '<span class="h4">اطلاعات با موفقیت تغییر پیدا کرد!</span>',

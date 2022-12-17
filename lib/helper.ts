@@ -1,11 +1,11 @@
-import toast from 'sweetalert2'
+import sweetalert2 from 'sweetalert2'
 
-export const removeSpas = (str: string) => str.replace(/(\s)/g, '')
-export const formatCurrency = (str: string | number) =>
-  str.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+export const removeSpas = (str) => str.replace(/(\s)/g, '')
+export const formatCurrency = (num) =>
+  num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
-export const resErr = (t?: any) => {
-  toast.fire({
+export const resErr = (t) => {
+  sweetalert2.fire({
     icon: 'error',
     toast: true,
     position: 'top-end',
@@ -17,7 +17,7 @@ export const resErr = (t?: any) => {
   })
 }
 
-export const numberToPersian = (str: string | number, type?: string) => {
+export const numberToPersian = (str, type?: string) => {
   if (!type) return str.toString()
   const faLang: string[] = ['۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹', '۰']
   const enLang: string[] = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
