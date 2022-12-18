@@ -170,7 +170,7 @@ const Login = () => {
               'form-control',
               errorEmail.stt && 'is-invalid'
             )}
-            type="text"
+            type="email"
           />
         </div>
         <div className="mt-1">

@@ -23,12 +23,7 @@ const MapCoin = (props: { data: coin[]; rials: number; lanData: boolean }) => {
   return (
     <>
       <div className="table-responsive">
-        <table
-          className={classNames(
-            'table table-sm hover',
-            props.lanData && 'd-none'
-          )}
-        >
+        <table className={classNames('table hover w-100', props.lanData && 'd-none')}>
           <thead>
             <tr className="tr h-auto">
               <th className="text-center d-xm-none uiCoin_idTh">#</th>

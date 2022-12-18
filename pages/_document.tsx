@@ -10,12 +10,7 @@ class Document extends NextDocument {
   render(): React.ReactElement {
     return (
       <Html dir="rtl" lang="fa">
-        <Head>
-          <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.rtl.min.css"
-          />
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />

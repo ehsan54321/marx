@@ -239,7 +239,7 @@ const Register = () => {
               'form-control',
               errorEmail.stt && 'is-invalid'
             )}
-            type="text"
+            type="email"
           />
         </div>
         <div className="mt-1">

@@ -144,7 +144,7 @@ const UserInfo = () => {
                   'form-control',
                   errorEmail.stt && 'is-invalid'
                 )}
-                type="text"
+                type="email"
               />
             </div>
             <div className="mt-1 text-center">
@@ -165,7 +165,7 @@ const UserInfo = () => {
                 defaultValue={authState.password}
                 className={classNames(
                   'form-control',
-                  errorPass.stt ? 'is-invalid' : 'border-start-0'
+                  errorPass.stt ? 'is-invalid' : 'border-end-0'
                 )}
                 type={passLook ? 'password' : 'text'}
               />
