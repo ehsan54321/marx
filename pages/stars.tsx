@@ -23,13 +23,13 @@ const PageStars = () => {
     setDataStar(data)
   }, [])
 
-  const DeleteStarInLocalStorage = (id: string) => {
+  const DeleteStarInLocalStorage = (key) => {
     setDataStar((prevDataStar) =>
-      prevDataStar.filter((coin: starType) => coin.name !== id)
+      prevDataStar.filter((coin: starType) => coin.name !== key)
     )
 
     const funLocalStorage = () =>
-      dataStar.filter((coin: starType) => coin.name !== id)
+      dataStar.filter((coin: starType) => coin.name !== key)
     localStorage.setItem('star', JSON.stringify(funLocalStorage()))
   }
   if (isAuth) {
@@ -38,7 +38,10 @@ const PageStars = () => {
         <SEO title={t('title.selected')} />
         <h1 className="h5 mt-4 mb-4 h1_page">{t('selected.list')}</h1>
         <div className="background-color bg-white">
-          <div className="d-flex flex-wrap" style={{ gap: 9 }}>
+          <div
+            className="d-flex flex-wrap justify-content-center"
+            style={{ gap: 9 }}
+          >
             {dataStar &&
               dataStar.map((star: starType) => (
                 <StarPage

@@ -44,6 +44,7 @@ const AuthPage = () => {
             className={img ? '' : 'opacity-0'}
             width={110}
             height={110}
+            priority
           />
         </div>
         <div className="background-color bg-white text-center m-auto ps-3 pe-3 auth_login">

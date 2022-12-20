@@ -32,7 +32,11 @@ const StarPage = (props) => {
         </Link>
       </div>
       <div className="text-center">
-        <button type="button" className="btn btn-outline-danger">
+        <button
+          type="button"
+          className="btn btn-outline-danger"
+          onClick={() => props.deleteStar(props.nameEN)}
+        >
           <span>{t('delete')}</span>
         </button>
       </div>

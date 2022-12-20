@@ -8,4 +8,5 @@
 # files
 .DS_Store
 .env
+env.
 yarn-error.log*

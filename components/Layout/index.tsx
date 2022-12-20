@@ -43,7 +43,7 @@ const Progress = () => {
     else {
       const scroll = (winScroll / height) * 100
       setShow(true)
-      setWidth(scroll - 0.1)
+      setWidth(scroll)
     }
   }
   useEffect(() => {

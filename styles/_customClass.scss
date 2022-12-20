@@ -40,16 +40,12 @@
   }
 }
 
-.d-contents {
-  display: contents !important;
-}
-
 .cursor-pointer {
   cursor: pointer !important;
 }
 
 .background-color {
-  overflow: auto;
+  overflow-x: auto;
   border-radius: 8px;
   padding: 18px 7px;
   box-shadow: 0 0 7px 0 #eaeff4;

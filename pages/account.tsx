@@ -16,11 +16,11 @@ const Account = () => {
     return (
       <>
         <SEO title={`${t('profile')} ${authState.username}`} />
-        <div className="w-100 text-right p-2 ms-0 row">
-          <div className="col-lg-3 col-md-6 col-sm-12 col-12">
+        <div className="w-100 text-right p-2 pt-0 ms-0 row">
+          <div className="col-lg-3 col-md-5">
             <UserCard user_name={authState.username} />
           </div>
-          <div className="col-lg-9 col-md-6 col-sm-12 col-12">
+          <div className="col-lg-9 col-md-7">
             <UserInfo />
           </div>
         </div>

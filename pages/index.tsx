@@ -4,30 +4,9 @@ import ControllerCoin from '@components/coins/ControllerCoins'
 import http from '@services/httpServices'
 import SEO from '@components/Seo'
 import { useTranslation } from 'react-i18next'
-import type { GetServerSideProps } from 'next'
 
-export const getServerSideProps: GetServerSideProps = (ctx) => {
-  // const token = ctx.req.cookies.token
-  // const deCodeToken = (data) => {
-  //   return jwt.decode(data, {
-  //     complete: true,
-  //     algorithm: 'HS256',
-  //     expiresIn: '90d',
-  //   }).payload
-  // }
-  // return {
-  //   props: { token: token ? deCodeToken(token) : null },
-  // }
-  return http.get('api/coins').then(({ data }) => {
-    return {
-      props: { data },
-    }
-  })
-}
 const HomePage = ({ data }) => {
   const { t } = useTranslation()
-  // const { setAuthState } = useContext(AuthContext)
-  // setAuthState(token)
   // TODO api web socket update value coins
   return (
     <>
@@ -56,6 +35,12 @@ const HomePage = ({ data }) => {
       </div>
     </>
   )
+}
+
+HomePage.getInitialProps = async () => {
+  return {
+    data: (await http.get('api/coins')).data,
+  }
 }
 
 export default HomePage

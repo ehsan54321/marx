@@ -22,36 +22,36 @@ const MapCoin = (props: { data: coin[]; rials: number; lanData: boolean }) => {
   const { t } = useTranslation()
   return (
     <>
-      <div className="table-responsive">
-        <table className={classNames('table hover w-100', props.lanData && 'd-none')}>
-          <thead>
-            <tr className="tr h-auto">
-              <th className="text-center d-xm-none uiCoin_idTh">#</th>
-              <th className="text-start uiCoin_coin">{t('name-coin')}</th>
-              <th className="uiCoin_price">
-                <span className="d-xm-none">{t('mane-rials')}</span>
-                <span className="d-sm-none">{t('price')}</span>
-              </th>
-              <th className="uiCoin_change">{t('change-24h')}</th>
-              <th className="d-xm-none uiCoin_usd">{t('mane-usd')}</th>
-              <th className="d-none d-lg-table-cell uiCoin_change7">
-                {t('change-7d')}
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {props.data.map((coin) => (
-              <UiCoin
-                key={coin.id}
-                my_key={coin.key}
-                {...coin}
-                dayAll={coin.day}
-                rialsOne={props.rials}
-              />
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <table
+        className={classNames('table hover w-100', props.lanData && 'd-none')}
+      >
+        <thead>
+          <tr className="tr h-auto">
+            <th className="text-center d-xm-none uiCoin_idTh">#</th>
+            <th className="text-start uiCoin_coin">{t('name-coin')}</th>
+            <th className="uiCoin_price">
+              <span className="d-xm-none">{t('mane-rials')}</span>
+              <span className="d-sm-none">{t('price')}</span>
+            </th>
+            <th className="uiCoin_change">{t('change-24h')}</th>
+            <th className="d-xm-none uiCoin_usd">{t('mane-usd')}</th>
+            <th className="d-none d-lg-table-cell uiCoin_change7">
+              {t('change-7d')}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {props.data.map((coin) => (
+            <UiCoin
+              key={coin.id}
+              my_key={coin.key}
+              {...coin}
+              dayAll={coin.day}
+              rialsOne={props.rials}
+            />
+          ))}
+        </tbody>
+      </table>
       {props.lanData && (
         <div className="m-5 p-5 text-center text-good">
           <Image
