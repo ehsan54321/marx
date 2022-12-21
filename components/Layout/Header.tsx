@@ -139,7 +139,7 @@ const Auth = () => {
   return (
     <>
       <div className="d-flex align-items-center">
-        <div className="d-flex me-2" onClick={() => setMod(!mod)}>
+        {/* <div className="d-flex me-2" onClick={() => setMod(!mod)}>
           <span className={classNames('switch d-flex', mod && 'switch_active')}>
             <FaSun
               size={15}
@@ -150,7 +150,7 @@ const Auth = () => {
               className={classNames('cursor-pointer', !mod && 'switch_icon')}
             />
           </span>
-        </div>
+        </div> */}
         <BsTranslate
           size={15}
           className="cursor-pointer"

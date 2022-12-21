@@ -58,7 +58,7 @@ const UserInfo = () => {
     const passwordRegExp = new RegExp(
       /^[a-zA-Z0-9_$*@+#!%&{}\.()-\s]{1,999999}$/
     )
-    const noFild = 'لطفا این فیلد را پر کنید.'
+    const noFind = 'لطفا این فیلد را پر کنید.'
     let isEmail: boolean = false
     let isPassword: boolean = false
     setErrorEmail({ stt: false, mas: '' })
@@ -72,7 +72,7 @@ const UserInfo = () => {
       setErrorEmail({ stt: false, mas: '' })
       isEmail = true
     } else {
-      if (!email) setErrorEmail({ stt: true, mas: noFild })
+      if (!email) setErrorEmail({ stt: true, mas: noFind })
       else if (!(email.length >= 14 && email.length <= 52)) {
         if (email.length <= 14) {
           setErrorEmail({
@@ -101,7 +101,7 @@ const UserInfo = () => {
       setErrorPass({ stt: false, mas: '' })
       isPassword = true
     } else {
-      if (!password) setErrorPass({ stt: true, mas: noFild })
+      if (!password) setErrorPass({ stt: true, mas: noFind })
       else if (!(password.length >= 6 && password.length <= 32)) {
         if (password.length <= 6) {
           setErrorPass({

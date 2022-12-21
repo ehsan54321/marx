@@ -3,7 +3,4 @@ module.exports = {
   images: {
     minimumCacheTTL: 31536000,
   },
-  experimental: {
-    isrMemoryCacheSize: 0,
-  },
 }
