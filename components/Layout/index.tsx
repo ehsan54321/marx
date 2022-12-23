@@ -74,7 +74,7 @@ const ScrollTop = () => {
       } else setShow(false)
     })
   }, [])
-  const topPage = () => window.scroll({ top: 0, behavior: 'smooth' })
+  const topPage = () => window.scroll({ top: 0 })
   return (
     <button
       className={classNames(

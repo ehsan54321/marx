@@ -39,11 +39,12 @@
       width: 100vw;
       overflow: hidden;
       & ul li {
+        background: #fff !important;
         padding: 15px 20px;
       }
     }
     &active {
-      height: 12rem;
+      height: 15.2rem;
       border-bottom: 1px solid #eee;
     }
   }

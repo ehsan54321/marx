@@ -10,8 +10,6 @@ const handle = app.getRequestHandler()
 app.prepare().then(() => {
   createServer(async (req, res) => {
     try {
-      // console.log(req.url) // test srr server
-
       const parsedUrl = parse(req.url, true)
       const { pathname, query } = parsedUrl
       if (pathname === '/a') await app.render(req, res, '/a', query)

@@ -1,4 +1,3 @@
-import AdsComponents from '@components/Ads'
 import ControllerPageCoin from '@components/pageCoin/ControllerCoin'
 import http from '@services/httpServices'
 import Link from 'next/link'
@@ -27,7 +26,6 @@ const Coin = ({ props, nameCoin }) => {
         keywords={`${props.coin.name}, وب سایت نمایش قیمت ارز های دجیتال, دجیتال بیت کوین , بیت کوین ,ارز دجیتال`}
         description={props.coin.aboutCoin.body}
       />
-      <AdsComponents />
       <nav className="mt-4 mb-4 nav_page">
         <ul className="breadcrumb">
           <li className="breadcrumb-item">

@@ -1,5 +1,4 @@
 import Accordion from '@components/Accordion'
-import AdsComponents from '../components/Ads'
 import ControllerCoin from '@components/coins/ControllerCoins'
 import http from '@services/httpServices'
 import SEO from '@components/Seo'
@@ -15,12 +14,14 @@ const HomePage = ({ data }) => {
         keywords="bitcoin, وب سایت نمایش قیمت ارز های دجیتال, دجیتال بیت کوین, بیت کوین, ارز دجیتال"
         description="وب سایت MyApp یک سایت نمایش قیمت ارز های دجیتال است مانند بیت کوین اتریوم تتر دوج کوین و غیر"
       />
-      <AdsComponents />
       <h1 className="h5 mt-4 mb-4 h1_page">{t('list-coins')}</h1>
       <div className="background-color bg-white pt-4 px-0 pb-3">
         <ControllerCoin dataServer={data} />
       </div>
-      <div className="background-color bg-white pt-4 pb-4 ps-1 pe-1 mt-3">
+      <div
+        className="background-color bg-white pt-4 pb-4 ps-1 pe-1 mt-3"
+        id="faq"
+      >
         <h2 className="h5 mx-3 mb-3">{t('common.questions')}</h2>
         <Accordion
           title={{

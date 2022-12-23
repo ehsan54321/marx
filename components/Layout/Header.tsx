@@ -1,19 +1,17 @@
-import classNames from 'classnames'
-import http from '@services/httpServices'
-import Image from 'next/image'
-import Link from 'next/link'
-import sweetalert2 from 'sweetalert2'
-import { AiFillHome, AiFillStar } from 'react-icons/ai'
-import { AuthContext } from '@store/auth'
-import { BsFillCaretDownFill } from 'react-icons/bs'
-import { BsFillPersonFill, BsTranslate } from 'react-icons/bs'
-import { FaBars, FaSun, FaTimes } from 'react-icons/fa'
-import { HiLogout } from 'react-icons/hi'
-import { MdNightlight } from 'react-icons/md'
-import { resErr } from '@lib/helper'
-import { Router, useRouter } from 'next/router'
-import { useContext, useState } from 'react'
-import { useTranslation } from 'react-i18next'
+import classNames from 'classnames';
+import http from '@services/httpServices';
+import Image from 'next/image';
+import Link from 'next/link';
+import sweetalert2 from 'sweetalert2';
+import { AuthContext } from '@store/auth';
+import { BsFillCaretDownFill, BsFillPersonFill } from 'react-icons/bs';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import { FcFaq } from 'react-icons/fc';
+import { HiLogout } from 'react-icons/hi';
+import { resErr } from '@lib/helper';
+import { Router, useRouter } from 'next/router';
+import { useContext, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
   const [modal, setModal] = useState<boolean>(false)
@@ -22,14 +20,20 @@ const Header = () => {
   const activePathName = router.pathname.split('/')[1]
   Router.events.on('routeChangeStart', () => setModal(false))
   return (
-    <nav className="bg-white position-sticky layout_head top-0">
+    <nav
+      className="bg-white position-sticky layout_head top-0"
+      dir={t('lang') ? 'rtl' : 'ltr'}
+    >
       <div className="container-xxl justify-content-between align-items-center d-flex h-100">
         <div className="d-flex">
           <div className="d-flex align-items-center justify-content-between">
             <ul className="d-contents">
               <li className="nav-item">
                 <button
-                  className="layout_toggle d-block d-sm-none me-2"
+                  className={classNames(
+                    'layout_toggle d-block d-sm-none',
+                    t('lang') ? 'me-2' : 'ms-2'
+                  )}
                   style={{ marginTop: 3 }}
                   onClick={() => setModal(!modal)}
                 >
@@ -47,7 +51,13 @@ const Header = () => {
                   />
                 </Link>
               </li>
-              <li className="nav-item d-xm-none layout_divider">
+              <li
+                className={
+                  t('lang')
+                    ? 'nav-item d-xm-none layout_divider'
+                    : 'nav-item d-xm-none layout_dividerEn'
+                }
+              >
                 <div className="vr h-100 mx-lg-2"></div>
               </li>
             </ul>
@@ -62,26 +72,76 @@ const Header = () => {
               <li className="ms-sm-1">
                 <Link
                   href="/"
-                  className={classNames(
-                    'layout_link',
+                  className={
                     activePathName !== '' && 'text-secondary transition'
-                  )}
+                  }
                 >
-                  <AiFillHome className="me-1" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="15px"
+                    height="15px"
+                    viewBox="0 0 30 30"
+                    className={t('lang') ? 'me-1' : 'ms-1'}
+                  >
+                    <path
+                      fill="#dbf2ff"
+                      d="M2.5 28.5L2.5 11.279 14.998 3.587 27.5 11.279 27.5 28.5z"
+                    />
+                    <path
+                      fill="#7496c4"
+                      d="M14.998,4.174L27,11.559V28H3V11.559L14.998,4.174 M14.998,3L2,11v18h26V11L14.998,3L14.998,3z"
+                    />
+                    <path fill="#b5ddf5" d="M3 25H27V28H3z" />
+                    <path
+                      fill="#f78f8f"
+                      d="M14.998 4.644L1.5 12.951 1.5 9.895 14.998 1.587 28.5 9.895 28.5 12.952z"
+                    />
+                    <path
+                      fill="#c74343"
+                      d="M14.998,2.174l13.002,8v1.883L15.522,4.379l-0.524-0.322l-0.524,0.323L2,12.056v-1.882 L14.998,2.174 M14.998,1L1,9.615v4.231l13.998-8.615L29,13.846V9.615L14.998,1L14.998,1z"
+                    />
+                    <g>
+                      <path fill="#ffc49c" d="M11.5 16.5H18.5V28.5H11.5z" />
+                      <path
+                        fill="#a16a4a"
+                        d="M18,17v11h-6V17H18 M19,16h-8v13h8V16L19,16z"
+                      />
+                    </g>
+                    <path
+                      fill="#a16a4a"
+                      d="M16.5 22A0.5 0.5 0 1 0 16.5 23A0.5 0.5 0 1 0 16.5 22Z"
+                    />
+                  </svg>
                   <span>{t('home')}</span>
                 </Link>
               </li>
               <li>
                 <Link
                   href="/stars"
-                  className={classNames(
-                    'layout_link',
+                  className={
                     activePathName !== 'stars' && 'text-secondary transition'
-                  )}
+                  }
                 >
-                  <AiFillStar className="me-1" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 48 48"
+                    className={t('lang') ? 'me-1' : 'ms-1'}
+                  >
+                    <path
+                      fill="#FFCA28"
+                      d="M24 4.051L30.49 17.186 45 19.29 34.5 29.512 36.977 43.949 24 37.137 11.023 43.949 13.5 29.512 3 19.29 17.51 17.186z"
+                    />
+                  </svg>
                   <span>{t('stars')}</span>
                 </Link>
+              </li>
+              <li>
+                <a href="#faq" className="text-secondary transition">
+                  <FcFaq className={t('lang') ? 'me-1 mt-0' : 'ms-1 mt-0'} />
+                  <span>{t('faq')}</span>
+                </a>
               </li>
 
               {modal && (
@@ -104,7 +164,6 @@ const Header = () => {
 
 const Auth = () => {
   const { isFind, setAuthState, authState, isAuth } = useContext(AuthContext)
-  const [mod, setMod] = useState<boolean>(false)
   const { t, i18n } = useTranslation()
   const router = useRouter()
   const Logout = () => {
@@ -151,14 +210,40 @@ const Auth = () => {
             />
           </span>
         </div> */}
-        <BsTranslate
-          size={15}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 48 48"
+          width="20px"
+          height="20px"
           className="cursor-pointer"
           onClick={ChangeLang}
-        />
+        >
+          <path
+            fill="#CFD8DC"
+            d="M15,13h25c1.104,0,2,0.896,2,2v25c0,1.104-0.896,2-2,2H26L15,13z"
+          />
+          <path
+            fill="#546E7A"
+            d="M26.832,34.854l-0.916-1.776l0.889-0.459c0.061-0.031,6.101-3.208,9.043-9.104l0.446-0.895l1.79,0.893l-0.447,0.895c-3.241,6.496-9.645,9.85-9.916,9.989L26.832,34.854z"
+          />
+          <path
+            fill="#546E7A"
+            d="M38.019 34l-.87-.49c-.207-.116-5.092-2.901-8.496-7.667l1.627-1.162c3.139 4.394 7.805 7.061 7.851 7.087L39 32.26 38.019 34zM26 22H40V24H26z"
+          />
+          <path fill="#546E7A" d="M32 20H34V24H32z" />
+          <path
+            fill="#2196F3"
+            d="M33,35H8c-1.104,0-2-0.896-2-2V8c0-1.104,0.896-2,2-2h14L33,35z"
+          />
+          <path fill="#3F51B5" d="M26 42L23 35 33 35z" />
+          <path
+            fill="#FFF"
+            d="M19.172,24h-4.36l-1.008,3H11l4.764-13h2.444L23,27h-2.805L19.172,24z M15.444,22h3.101l-1.559-4.714L15.444,22z"
+          />
+        </svg>
       </div>
       {isFind() ? (
-        <span className="loader ms-3" role="progressbar">
+        <span className={classNames('loader', t('lang') ? 'ms-3' : 'me-3')}>
           <svg viewBox="22 22 44 44">
             <circle
               cx="44"
@@ -170,7 +255,7 @@ const Auth = () => {
           </svg>
         </span>
       ) : !isAuth ? (
-        <Link href="/auth#login" className="ms-2">
+        <Link href="/auth#login" className={t('lang') ? 'ms-2' : 'me-2'}>
           <button type="button" className="btn btn-outline-dark">
             <span>{t('btn-login')}</span>
           </button>
@@ -191,13 +276,17 @@ const Auth = () => {
             <Link href="/account" className="text-dark">
               <li className="mui-pu6x1m">
                 <BsFillPersonFill />
-                <span className="ms-1">{t('profile')}</span>
+                <span className={t('lang') ? 'ms-1' : 'me-1'}>
+                  {t('profile')}
+                </span>
               </li>
             </Link>
             <div onClick={Logout}>
               <li className="mui-pu6x1m cursor-pointer">
                 <HiLogout />
-                <span className="ms-2">{t('logout')}</span>
+                <span className={t('lang') ? 'ms-2' : 'me-2'}>
+                  {t('logout')}
+                </span>
               </li>
             </div>
           </ul>

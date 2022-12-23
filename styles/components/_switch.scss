@@ -1,28 +1,28 @@
-// .switch {
-//   position: relative;
-//   width: 30px;
-//   height: 20px;
-//   border-radius: 30px;
-//   border: 2px solid $secondary;
-//   &_icon {
-//     visibility: hidden;
-//   }
-//   svg {
-//     margin-top: 0.75px;
-//   }
+.switch {
+  position: relative;
+  width: 30px;
+  height: 20px;
+  border-radius: 30px;
+  border: 2px solid $secondary;
+  &_icon {
+    visibility: hidden;
+  }
+  svg {
+    margin-top: 0.75px;
+  }
 
-//   &:after {
-//     content: '';
-//     position: absolute;
-//     width: 10px;
-//     height: 12px;
-//     border-radius: 50%;
-//     background-color: $secondary;
-//     top: 2.5px;
-//     left: 2px;
-//     transition: all 0.5s;
-//   }
-//   &_active::after {
-//     left: 14.3px;
-//   }
-// }
+  &:after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: $secondary;
+    top: 2.5px;
+    left: 2px;
+    transition: all 0.5s;
+  }
+  &_active::after {
+    left: 14.3px;
+  }
+}

@@ -27,7 +27,10 @@ const NotFound = () => {
             height={330}
           />
           <h1 className="h4">{t('error') + ' 404'}</h1>
-          <div className="text-good mb-4">
+          <div
+            className="text-good mb-4"
+            style={{ overflow: 'auto', fontWeight: 500 }}
+          >
             <span>{t('error.404')}</span>
           </div>
           <Link href="/">

@@ -40,6 +40,7 @@
   "little.to.much": "little to much",
   "more.to.less": "more to less",
   "introducing.coin": "Introducing Coin",
+  "faq": "Faq",
 
   "telegram": "Telegram",
   "whatsapp": "Whatsapp",
@@ -62,13 +63,13 @@
   "settings": "Settings",
   "go.to.the.login.page": "Go to the login page",
   "img": "image",
-  "no.img": "know image",
+  "no.img": "no image",
   "tem": "Them",
 
   "text.no.login": ".You must log in first",
   "text.no.login.button": "Come in",
   "error": "Error",
-  "error.server": ".A problem occurred with the server",
+  "error.server": ".Unfortunately, there has been a temporary problem connecting to the service. Please try again in a few minutes",
   "error.res": "There was a problem with the network.",
   "error.404": ".The page you are looking for may have been deleted or the address You have not entered it correctly",
   "error.401": "!You are not allowed to access this page",
