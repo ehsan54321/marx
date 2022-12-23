@@ -1,17 +1,17 @@
-import classNames from 'classnames';
-import http from '@services/httpServices';
-import Image from 'next/image';
-import Link from 'next/link';
-import sweetalert2 from 'sweetalert2';
-import { AuthContext } from '@store/auth';
-import { BsFillCaretDownFill, BsFillPersonFill } from 'react-icons/bs';
-import { FaBars, FaTimes } from 'react-icons/fa';
-import { FcFaq } from 'react-icons/fc';
-import { HiLogout } from 'react-icons/hi';
-import { resErr } from '@lib/helper';
-import { Router, useRouter } from 'next/router';
-import { useContext, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import classNames from 'classnames'
+import http from '@services/httpServices'
+import Image from 'next/image'
+import Link from 'next/link'
+import sweetalert2 from 'sweetalert2'
+import { AuthContext } from '@store/auth'
+import { BsFillCaretDownFill, BsFillPersonFill } from 'react-icons/bs'
+import { FaBars, FaTimes } from 'react-icons/fa'
+import { FcFaq } from 'react-icons/fc'
+import { HiLogout } from 'react-icons/hi'
+import { resErr } from '@lib/helper'
+import { Router, useRouter } from 'next/router'
+import { useContext, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 const Header = () => {
   const [modal, setModal] = useState<boolean>(false)
@@ -19,6 +19,11 @@ const Header = () => {
   const { t } = useTranslation()
   const activePathName = router.pathname.split('/')[1]
   Router.events.on('routeChangeStart', () => setModal(false))
+  const height = () => {
+    if (!modal) return 0
+    if (activePathName) return 'calc(113.422px + 4rem)'
+    else return '242px'
+  }
   return (
     <nav
       className="bg-white position-sticky layout_head top-0"
@@ -52,11 +57,10 @@ const Header = () => {
                 </Link>
               </li>
               <li
-                className={
-                  t('lang')
-                    ? 'nav-item d-xm-none layout_divider'
-                    : 'nav-item d-xm-none layout_dividerEn'
-                }
+                className={classNames(
+                  'nav-item d-xm-none',
+                  t('lang') ? 'layout_divider' : 'layout_dividerEn'
+                )}
               >
                 <div className="vr h-100 mx-lg-2"></div>
               </li>
@@ -64,9 +68,12 @@ const Header = () => {
           </div>
           <div
             className={classNames(
-              modal && 'layout_active',
+              modal ? 'layout_active' : 'layout_col',
               'layout_links align-items-center d-flex'
             )}
+            style={{
+              height: height(),
+            }}
           >
             <ul className="d-block d-sm-flex m-sm-auto mt-3 align-items-center">
               <li className="ms-sm-1">
@@ -137,12 +144,14 @@ const Header = () => {
                   <span>{t('stars')}</span>
                 </Link>
               </li>
-              <li>
-                <a href="#faq" className="text-secondary transition">
-                  <FcFaq className={t('lang') ? 'me-1 mt-0' : 'ms-1 mt-0'} />
-                  <span>{t('faq')}</span>
-                </a>
-              </li>
+              {activePathName === '' && (
+                <li>
+                  <a href="#faq" className="text-secondary transition">
+                    <FcFaq className={t('lang') ? 'me-1 mt-0' : 'ms-1 mt-0'} />
+                    <span>{t('faq')}</span>
+                  </a>
+                </li>
+              )}
 
               {modal && (
                 <div className="vw-100 text-center">

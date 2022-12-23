@@ -57,7 +57,6 @@
   "username": "UserName",
   "login": "Login",
   "login.success": "!Login successfully",
-  "login.warning": "!Incorrect email or password",
   "register.success": "!Registered successfully",
   "register": "Registered",
   "settings": "Settings",

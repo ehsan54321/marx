@@ -1,4 +1,3 @@
-import axios from 'axios'
 import classNames from 'classnames'
 import http from '@services/httpServices'
 import sweetalert2 from 'sweetalert2'
@@ -36,58 +35,40 @@ const Login = () => {
   const noFind = 'لطفا این فیلد را پر کنید.'
   const onFinish = async (value: onFinishType) => {
     try {
-      const users = (await axios.get('http://localhost:8000/user')).data
-      if (users[value.email] && users[value.email].password == value.password) {
-        const token: authObj = {
-          email: value.email,
-          username: users[value.email].username,
+      http
+        .post('api/auth/login', {
           password: value.password,
-          poster_path: users[value.email].poster_path,
-          is_admin: users[value.email].is_admin,
-        }
-
-        http
-          .post('api/auth/login', token)
-          .then(({ data }) => {
-            if (data.status === 'SUCCESS') {
-              setAuthState(data.data)
-              router.push('/account')
-              sweetalert2.fire({
-                icon: 'success',
-                toast: true,
-                position: 'top-end',
-                timer: 7000,
-                title: t('login.success'),
-                showConfirmButton: false,
-                showCloseButton: true,
-                timerProgressBar: true,
-              })
-            } else {
-              sweetalert2.fire({
-                icon: 'error',
-                toast: true,
-                position: 'top-end',
-                timer: 7000,
-                title: data.message,
-                showConfirmButton: false,
-                showCloseButton: true,
-                timerProgressBar: true,
-              })
-            }
-          })
-          .catch(() => resErr(t))
-      } else {
-        sweetalert2.fire({
-          icon: 'error',
-          toast: true,
-          position: 'top-end',
-          timer: 7000,
-          title: t('login.warning'),
-          showConfirmButton: false,
-          showCloseButton: true,
-          timerProgressBar: true,
+          email: value.email,
+          lang: t('lang'),
         })
-      }
+        .then(({ data }) => {
+          if (data.status === 'SUCCESS') {
+            setAuthState(data.data)
+            router.push('/account')
+            sweetalert2.fire({
+              icon: 'success',
+              toast: true,
+              position: 'top-end',
+              timer: 7000,
+              title: t('login.success'),
+              showConfirmButton: false,
+              showCloseButton: true,
+              timerProgressBar: true,
+            })
+          } else {
+            sweetalert2.fire({
+              icon: 'error',
+              toast: true,
+              position: 'top-end',
+              timer: 7000,
+              title: data.message,
+              showConfirmButton: false,
+              showCloseButton: true,
+              timerProgressBar: true,
+            })
+          }
+        })
+        .catch(() => resErr(t))
     } catch {
       resErr(t)
     }

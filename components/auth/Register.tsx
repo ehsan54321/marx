@@ -76,11 +76,11 @@ const Register = () => {
       })
       .catch(() => {
         resErr(t)
-        setLoader(false)
       })
+    setLoader(false)
   }
   const onSubmit = (e) => {
-    const username: string = removeSpas(e.target['0'].value.toLowerCase())
+    const username: string = removeSpas(e.target['0'].value)
     const email: string = removeSpas(e.target['1'].value.toLowerCase())
     const password: string = removeSpas(e.target['2'].value.toLowerCase())
     const rePassword: string = removeSpas(e.target['3'].value.toLowerCase())

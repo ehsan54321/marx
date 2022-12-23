@@ -3,7 +3,7 @@
 /.next
 /.vscode
 /.idea
-/db/*
+#/util/db/*
 
 # files
 .DS_Store
