@@ -37,7 +37,7 @@ const UserInfo = () => {
       .then((result) => {
         if (result.isConfirmed) {
           http
-            .post('api/auth/update', value.email, value.password)
+            .post('api/v2/auth/update', value.email, value.password)
             .then(() => {
               sweetalert2.fire({
                 icon: 'success',

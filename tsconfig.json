@@ -22,7 +22,7 @@
       "@util/*": ["./util/*"],
       "@store/*": ["./store/*"],
       "@lib/*": ["./lib/*"],
-      "@baseUrl": ["./config"],
+      "@baseUrl": ["./config"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

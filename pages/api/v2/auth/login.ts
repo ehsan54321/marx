@@ -12,6 +12,7 @@ const Login = (req: NextApiRequest, res: NextApiResponse) => {
       username: users[email].username,
       password,
       poster_path: users[email].poster_path,
+      date: users[email].date,
       is_admin: users[email].is_admin,
     }
     const createToken = () => {

@@ -8,6 +8,7 @@ type authObj = {
   username: string
   password: string
   poster_path: string
+  date: string
   is_admin: boolean
 }
 type context = {
@@ -24,7 +25,7 @@ const AuthProvider = ({ children }): JSX.Element => {
   const [authState, setAuthState] = useState<authObj | null | boolean>(false)
   useEffect(() => {
     http
-      .get('api/user')
+      .get('api/v2/user')
       .then(({ data }) => {
         if (data === 'شما وارد نشدید') setAuthState(null)
         else setAuthState(data)

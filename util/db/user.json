@@ -4,24 +4,24 @@
       "username": "ehsan6",
       "email": "ehsan@gmail.com",
       "password": "sk4s58m2",
-      "re_password": "sk4s58m2",
       "poster_path": "https://www.gravatar.com/avatar/4e7f0e6f71df72220e4ce37c92c377e3?s=185&d=identicon&r;=PG",
+      "date": "1401/10/02",
       "is_admin": true
     },
     "user@gmail.com": {
       "username": "احسان",
       "email": "user@gmail.com",
       "password": "user-user",
-      "re_password": "user-user",
       "poster_path": "https://www.gravatar.com/avatar/4e7f0e6f71df72220e4ce37c92c377e3?s=185&d=identicon&r;=PG",
+      "date": "1401/10/02",
       "is_admin": false
     },
     "user-test@gmail.com": {
       "email": "user-test@gmail.com",
       "password": "user-test",
-      "re_password": "user-test",
       "username": "کاربرتستی",
       "poster_path": "https://www.gravatar.com/avatar/4e7f0e6f71df72220e4ce37c92c377e3?s=185&d=identicon&r;=PG",
+      "date": "1401/10/02",
       "is_admin": false
     }
   }

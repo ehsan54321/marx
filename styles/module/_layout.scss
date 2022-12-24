@@ -38,12 +38,14 @@
       }
     }
   }
-  &divider {
+  &divider,
+  &dividerEn {
     height: 1.5rem;
+  }
+  &divider {
     margin: 1px 12px 0 6.8px;
   }
   &dividerEn {
-    height: 1.5rem;
     margin: 1px 6.8px 0 12px;
   }
   &profile {
@@ -87,6 +89,9 @@
   inset: 12px auto auto -20px;
   display: block !important;
   width: 150px;
+}
+.mui-8mdyrdEN:hover .menu {
+  inset: 12px -20px auto auto !important;
 }
 .mui-1qmkd8i {
   padding: 6px 16px;

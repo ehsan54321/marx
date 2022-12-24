@@ -6,13 +6,13 @@ import { useContext } from 'react'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
 
-const UserCard = ({ user_name }) => {
+const UserCard = () => {
   const { setAuthState, authState } = useContext(AuthContext)
   const router = useRouter()
   const { t } = useTranslation()
   const Logout = () => {
     http
-      .get('api/auth/logout')
+      .get('api/v2/auth/logout')
       .then(() => {
         setAuthState(null)
         localStorage.removeItem('star')
@@ -47,11 +47,11 @@ const UserCard = ({ user_name }) => {
         <div className="mb-3">
           <p>
             <span className="text-good h6">{t('info.account')}</span>
-            {user_name}
+            {authState.username}
           </p>
           <p>
             <span className="text-good h6">{t('info.create.account')}</span>
-            {numberToPersian('1401/8/29', t('lang'))}
+            {numberToPersian(authState.date, t('lang'))}
           </p>
         </div>
         <button

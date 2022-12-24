@@ -18,7 +18,7 @@ const Account = () => {
         <SEO title={`${t('profile')} ${authState.username}`} />
         <div className="w-100 text-right p-2 pt-0 ms-0 row">
           <div className="col-lg-3 col-md-5">
-            <UserCard user_name={authState.username} />
+            <UserCard />
           </div>
           <div className="col-lg-9 col-md-7">
             <UserInfo />

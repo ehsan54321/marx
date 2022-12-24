@@ -40,7 +40,7 @@ const HomePage = ({ data }) => {
 
 HomePage.getInitialProps = async () => {
   return {
-    data: (await http.get('api/coins')).data,
+    data: (await http.get('api/v2/coins')).data,
   }
 }
 

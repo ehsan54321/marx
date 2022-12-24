@@ -3,8 +3,7 @@ import fs from 'fs'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 const NewUser = (req: NextApiRequest, res: NextApiResponse) => {
-  const user = req.body
-  const users = JSON.stringify({ user: { ...AllUser.user, ...user } })
+  const users = JSON.stringify({ user: { ...AllUser.user, ...req.body } })
 
   fs.writeFile('util/db/user.json', users, (err) => {
     if (err) {

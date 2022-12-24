@@ -36,7 +36,7 @@ const Login = () => {
   const onFinish = async (value: onFinishType) => {
     try {
       http
-        .post('api/auth/login', {
+        .post('api/v2/auth/login', {
           password: value.password,
           email: value.email,
           lang: t('lang'),

@@ -1,6 +1,6 @@
 {
   "name": "my-app",
-  "version": "2.3.8",
+  "version": "2.3.9",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -29,6 +29,7 @@
     "eslint-config-next": "13.1.0",
     "eslint-config-prettier": "8.5.0",
     "jsonwebtoken": "9.0.0",
+    "persian-date": "1.1.0",
     "prettier": "2.8.1",
     "react-icons": "4.7.1",
     "sass": "1.57.1",

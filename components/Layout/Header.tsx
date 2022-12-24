@@ -177,7 +177,7 @@ const Auth = () => {
   const router = useRouter()
   const Logout = () => {
     http
-      .get('api/auth/logout')
+      .get('v2/api/v2/auth/logout')
       .then(() => {
         setAuthState(null)
         localStorage.removeItem('star')
@@ -270,7 +270,12 @@ const Auth = () => {
           </button>
         </Link>
       ) : (
-        <div className="align-items-center d-flex position-relative mui-8mdyrd">
+        <div
+          className={classNames(
+            'align-items-center d-flex position-relative mui-8mdyrd',
+            t('lang') ? '' : 'mui-8mdyrdEN'
+          )}
+        >
           <button className="mui-1qmkd8i pe-0 bg-white" type="button">
             <img
               // src="https://www.gravatar.com/avatar/24e96aef-6a72-4400-9a95-a926bad3fc69?s=185&d=identicon&r;=PG"

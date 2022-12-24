@@ -19,7 +19,6 @@ type onFinishType = {
   username: string
   email: string
   password: string
-  re_password: string
 }
 const Register = () => {
   const router = useRouter()
@@ -46,7 +45,7 @@ const Register = () => {
   })
   const onFinish = (value: onFinishType) => {
     http
-      .post('api/auth/register', value)
+      .post('api/v2/auth/register', value)
       .then(({ data }) => {
         if (data.status === 'SUCCESS') {
           setAuthState(data.data)
@@ -102,7 +101,7 @@ const Register = () => {
     setErrorUsername({ stt: false, mas: '' })
     if (
       username &&
-      username.length >= 4 &&
+      username.length >= 3 &&
       username.length <= 14 &&
       usernameRegExp.exec(username)
     ) {
@@ -110,11 +109,11 @@ const Register = () => {
       isUsername = true
     } else {
       if (!username) setErrorUsername({ stt: true, mas: noFind })
-      else if (!(username.length >= 4 && username.length <= 14)) {
-        if (username.length <= 4) {
+      else if (!(username.length >= 3 && username.length <= 14)) {
+        if (username.length <= 3) {
           setErrorUsername({
             stt: true,
-            mas: 'نام کاربری شما می بایست بیش از ۴ حرف باشد!',
+            mas: 'نام کاربری شما می بایست بیش از ۳ حرف باشد!',
           })
         } else {
           setErrorUsername({
@@ -200,7 +199,7 @@ const Register = () => {
     } else setErrorRePass({ stt: true, mas: noFind })
     if (isEmail && isUsername && isPassword && isRePassword) {
       setLoader(true)
-      onFinish({ email, password, re_password: rePassword, username })
+      onFinish({ email, password, username })
     }
     e.preventDefault()
   }
