@@ -39,7 +39,7 @@
       width: 100vw;
       overflow: hidden;
       & ul li {
-        background: #fff !important;
+        background: white !important;
         padding: 15px 20px;
       }
     }
@@ -55,6 +55,15 @@
 @media (min-width: 576px) {
   .mui-8mdyrd {
     height: 70px;
+
+    &:hover .menu {
+      inset: 12px auto auto -20px;
+      display: block !important;
+      width: 150px;
+    }
+  }
+  .mui-8mdyrdEN:hover .menu {
+    inset: 12px -20px auto auto !important;
   }
   .layout_col {
     height: auto !important;

@@ -15,7 +15,6 @@ const UserCard = () => {
       .get('api/v2/auth/logout')
       .then(() => {
         setAuthState(null)
-        localStorage.removeItem('star')
         router.push('/auth#login')
         sweetalert2.fire({
           icon: 'error',
@@ -59,7 +58,7 @@ const UserCard = () => {
           className="mb-0 btn btn-outline-danger"
           onClick={Logout}
         >
-          <span>خروج حساب کاربری</span>
+          <span>{t('info.logout')}</span>
         </button>
       </div>
     </div>

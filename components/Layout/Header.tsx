@@ -177,10 +177,9 @@ const Auth = () => {
   const router = useRouter()
   const Logout = () => {
     http
-      .get('v2/api/v2/auth/logout')
+      .get('api/v2/auth/logout')
       .then(() => {
         setAuthState(null)
-        localStorage.removeItem('star')
         router.push('/auth#login')
         sweetalert2.fire({
           icon: 'error',
@@ -272,19 +271,26 @@ const Auth = () => {
       ) : (
         <div
           className={classNames(
-            'align-items-center d-flex position-relative mui-8mdyrd',
+            'align-items-center position-relative mui-8mdyrd d-flex',
             t('lang') ? '' : 'mui-8mdyrdEN'
           )}
         >
-          <button className="mui-1qmkd8i pe-0 bg-white" type="button">
+          <div className="d-sm-none">
+            <Link href="/account">
+              <img
+                src={authState.poster_path}
+                className="rounded-circle ms-2 h-auto"
+                alt={`${t('profile')} ${authState.username}`}
+              />
+            </Link>
+          </div>
+          <button className="mui-1qmkd8i pe-0 bg-white d-xm-none" type="button">
             <img
-              // src="https://www.gravatar.com/avatar/24e96aef-6a72-4400-9a95-a926bad3fc69?s=185&d=identicon&r;=PG"
-              // src="https://www.gravatar.com/avatar/4e7f0e6f71df72220e4ce37c92c377e3?s=185&d=identicon&r;=PG"
               src={authState.poster_path}
               className="rounded-circle me-1 h-auto"
               alt={`${t('profile')} ${authState.username}`}
             />
-            <BsFillCaretDownFill className="d-xm-none" />
+            <BsFillCaretDownFill />
           </button>
           <ul className="menu mui-16g0ei6 position-absolute d-none bg-white">
             <Link href="/account" className="text-dark">

@@ -3,7 +3,7 @@
     margin-right: 25px;
   }
   &select {
-    min-width: 150px;
+    max-width: 260px;
   }
   &nameEN {
     color: $good;
@@ -56,18 +56,20 @@
     border-radius: 5px 0 0 5px;
     outline: none;
     color: $good;
-    padding-right: 22px;
+    padding-right: 32px;
 
     &:focus {
       color: black;
-      box-shadow: 0 0 3px 0 $secondary;
+      box-shadow: 0 0 1px 0 $secondary;
       border: 1px solid $secondary;
     }
   }
   &btnX {
-    height: 0;
-    svg {
-      height: 37px;
+    position: relative;
+    span {
+      top: 6.3px;
+      border-radius: 68% !important;
+      width: 24px;
     }
   }
   &searchBtn {

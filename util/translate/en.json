@@ -36,9 +36,6 @@
   "coin.date": "Release date",
   "coin.display.size": "Display Size",
   "coin.total.market": "Total market",
-  "sort.by.id": ": Sort by id",
-  "little.to.much": "little to much",
-  "more.to.less": "more to less",
   "introducing.coin": "Introducing Coin",
   "faq": "Faq",
 
@@ -50,6 +47,9 @@
   "info.user": "User account information",
   "info.account": "account name : ",
   "info.create.account": "date create account : ",
+  "info.confirm": "Confirm the change of user information",
+  "info.logout": "User account exit",
+  "info.information": "Change user information",
 
   "email": "Email",
   "password": "Password",

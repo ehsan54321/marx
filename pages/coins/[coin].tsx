@@ -9,7 +9,7 @@ import Accordion from '@components/Accordion'
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const nameCoin: string | string[] = ctx.params.coin
-  const props = (await http.get(`api/coins/${nameCoin}`)).data
+  const props = (await http.get(`api/v2/coins/${nameCoin}`)).data
 
   return {
     notFound: !!(props === 'NotFound'),

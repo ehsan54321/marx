@@ -20,8 +20,8 @@ const AuthPage = () => {
   const { isAuth } = useContext(AuthContext)
   const { t } = useTranslation()
   useEffect(() => {
-    if (location.href === '#register') setStatus('register')
-    if (location.hash === '#settings') setStatus('settings')
+    if (location.hash === '#register') setStatus('register')
+    else if (location.hash === '#settings') setStatus('settings')
   }, [])
   const text: string = t('lang')
     ? 'صفحه ورود و ثبت نام'

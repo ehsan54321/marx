@@ -1,5 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
+const ApiPageHome = (req: NextApiRequest, res: NextApiResponse) => {
+  const { pageItem }: any = req.query
+  const pageSize = Math.ceil(coins.length / pageItem)
+  res.status(200).json({ coins, rials: 34856, pageSize })
+}
+
 const coins = [
   {
     id: 1,
@@ -365,10 +371,62 @@ const coins = [
       color_day7: 'red',
     },
   },
+  {
+    id: 27,
+    key: 'sand',
+    name: 'سندباکس',
+    all_name: 'The Sandbox SAND',
+    poster_path: 'sand',
+    usd: 0.6111,
+    day: {
+      day_in: 0.64,
+      color_day_in: 'green',
+      day7: 0.26,
+      color_day7: 'green',
+    },
+  },
+  {
+    id: 28,
+    key: 'rune',
+    name: 'تورچین',
+    all_name: 'THORChain RUNE',
+    poster_path: 'rune',
+    usd: 1.37,
+    day: {
+      day_in: 3.41,
+      color_day_in: 'green',
+      day7: 0,
+      color_day7: 'info',
+    },
+  },
+  {
+    id: 29,
+    key: 'bat',
+    name: 'بت',
+    all_name: 'Basic Attention Token',
+    poster_path: 'bat',
+    usd: 0.2317,
+    day: {
+      day_in: 0.36,
+      color_day_in: 'red',
+      day7: 0.26,
+      color_day7: 'red',
+    },
+  },
+  {
+    id: 30,
+    key: 'dydx',
+    name: 'دی وای دی ایکس',
+    all_name: 'dYdX DYDX',
+    poster_path: 'dydx',
+    usd: 1.73,
+    day: {
+      day_in: 0.19,
+      color_day_in: 'red',
+      day7: 0.57,
+      color_day7: 'red',
+    },
+  },
 ]
-
-const ApiPageHome = (req: NextApiRequest, res: NextApiResponse) => {
-  res.status(200).json({ coins, rials: 34856 })
-}
 
 export default ApiPageHome

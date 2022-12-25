@@ -36,9 +36,6 @@
   "coin.date": "حجم نقدشوندگی",
   "coin.display.size": "حجم عرضه",
   "coin.total.market": "ارزش کل بازار",
-  "sort.by.id": "مرتب بر اساس رتبه :",
-  "little.to.much": "کم به زیاد",
-  "more.to.less": "زیاد به کم",
   "introducing.coin": "معرفی کوین",
   "faq": "سوالات",
 
@@ -50,6 +47,9 @@
   "info.user": "اطلاعات حساب کاربری",
   "info.account": "نام اکانت : ",
   "info.create.account": "تاریخ ساخت حساب : ",
+  "info.confirm": "تایید تغییر اطلاعات کاربری",
+  "info.logout": "خروج حساب کاربری",
+  "info.information": "تغییر اطلاعات کاربری",
 
   "email": "ایمیل",
   "password": "رمز عبور",

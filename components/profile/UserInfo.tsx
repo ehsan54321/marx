@@ -183,7 +183,7 @@ const UserInfo = () => {
           {!disabled && (
             <div className="text-center mt-4">
               <button type="submit" className="btn btn-primary">
-                <span>تایید تغییر اطلاعات کاربری</span>
+                <span>{t('info.confirm')}</span>
               </button>
             </div>
           )}
@@ -192,10 +192,11 @@ const UserInfo = () => {
           <div className="text-center mt-4">
             <button
               type="submit"
-              className="btn btn-outline-primary"
+              className="btn btn-outline-primary disabled"
               onClick={() => setDisabled(false)}
+              disabled
             >
-              <span>تغییر اطلاعات کاربری</span>
+              <span>{t('info.information')}</span>
             </button>
           </div>
         )}

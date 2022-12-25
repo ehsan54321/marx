@@ -15,7 +15,7 @@ const HomePage = ({ data }) => {
         description="وب سایت MyApp یک سایت نمایش قیمت ارز های دجیتال است مانند بیت کوین اتریوم تتر دوج کوین و غیر"
       />
       <h1 className="h5 mt-4 mb-4 h1_page">{t('list-coins')}</h1>
-      <div className="background-color bg-white pt-4 px-0 pb-3">
+      <div className="background-color bg-white pt-4 px-0 pb-2">
         <ControllerCoin dataServer={data} />
       </div>
       <div
@@ -40,7 +40,7 @@ const HomePage = ({ data }) => {
 
 HomePage.getInitialProps = async () => {
   return {
-    data: (await http.get('api/v2/coins')).data,
+    data: (await http.get('api/v2/coins?pageItem=15')).data,
   }
 }
 
