@@ -5,6 +5,7 @@ import { AuthContext } from '@store/auth'
 import { Error401 } from '@components/error'
 import { FaGithub } from 'react-icons/fa'
 import { LoginForm, RegisterForm, SettingsFrom } from '@components/auth'
+import { Slide } from 'react-reveal'
 import { useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import type { GetStaticProps } from 'next'
@@ -85,26 +86,53 @@ const AuthPage = () => {
               </li>
             </ul>
           </div>
-          {status === 'login' && <LoginForm />}
-          {status === 'register' && <RegisterForm />}
-          {status === 'settings' && (
-            <SettingsFrom setImg={setImg} img={img} tem={tem} setTem={setTem} />
+          {status === 'login' && (
+            <Slide right>
+              <LoginForm />
+              <div className="mt-3">
+                <button className="btn btn-dark w-100">
+                  <FaGithub
+                    className="me-1"
+                    size={20}
+                    style={{ marginTop: 3.5 }}
+                  />
+                  ورود از طریق گیت هاب
+                </button>
+                {/* <button className="btn btn-danger mt-1 w-100">
+                <FaGoogle className="me-1" size={20} style={{ marginTop: 3.5 }} />
+                ورود از طریق گوگل
+              </button> */}
+              </div>
+            </Slide>
           )}
-          {status !== 'settings' && (
-            <div className="mt-3">
-              <button className="btn btn-dark w-100">
-                <FaGithub
-                  className="me-1"
-                  size={20}
-                  style={{ marginTop: 3.5 }}
-                />
-                ورود از طریق گیت هاب
-              </button>
-              {/* <button className="btn btn-danger mt-1 w-100">
-              <FaGoogle className="me-1" size={20} style={{ marginTop: 3.5 }} />
-              ورود از طریق گوگل
-            </button> */}
-            </div>
+          {status === 'register' && (
+            <Slide right>
+              <RegisterForm />
+              <div className="mt-3">
+                <button className="btn btn-dark w-100">
+                  <FaGithub
+                    className="me-1"
+                    size={20}
+                    style={{ marginTop: 3.5 }}
+                  />
+                  ورود از طریق گیت هاب
+                </button>
+                {/* <button className="btn btn-danger mt-1 w-100">
+                <FaGoogle className="me-1" size={20} style={{ marginTop: 3.5 }} />
+                ورود از طریق گوگل
+              </button> */}
+              </div>
+            </Slide>
+          )}
+          {status === 'settings' && (
+            <Slide right>
+              <SettingsFrom
+                setImg={setImg}
+                img={img}
+                tem={tem}
+                setTem={setTem}
+              />
+            </Slide>
           )}
         </div>
       </div>

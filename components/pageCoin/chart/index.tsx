@@ -5,10 +5,9 @@ import { useTranslation } from 'react-i18next'
 const Chart = ({ props, nameCoin }) => {
   const { t } = useTranslation()
   return (
-    //  flex-column flex-sm-row
-    <div className="d-flex justify-content-between">
-      <ChartComponents />
-      <div style={{ width: 220 }} className="mt-5 pt-4 text-center">
+    <div className="d-flex justify-content-between flex-column flex-sm-row">
+      <ChartComponents usd={props.usd} />
+      <div style={{ width: 240 }} className="mt-5 pt-4 text-center w-xm-100">
         <h2 className="h6 m-0 mb-2">
           {t('price.change') + ' (' + nameCoin.toUpperCase() + ')'}
         </h2>

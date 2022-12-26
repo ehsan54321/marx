@@ -1,6 +1,7 @@
 import Accordion from '@components/Accordion'
 import ControllerCoin from '@components/coins/ControllerCoins'
 import http from '@services/httpServices'
+import Jump from 'react-reveal/Jump'
 import SEO from '@components/Seo'
 import { useTranslation } from 'react-i18next'
 
@@ -14,7 +15,9 @@ const HomePage = ({ data }) => {
         keywords="bitcoin, وب سایت نمایش قیمت ارز های دجیتال, دجیتال بیت کوین, بیت کوین, ارز دجیتال"
         description="وب سایت MyApp یک سایت نمایش قیمت ارز های دجیتال است مانند بیت کوین اتریوم تتر دوج کوین و غیر"
       />
-      <h1 className="h5 mt-4 mb-4 h1_page">{t('list-coins')}</h1>
+      <Jump>
+        <h1 className="h5 mt-4 mb-4 h1_page">{t('list-coins')}</h1>
+      </Jump>
       <div className="background-color bg-white pt-4 px-0 pb-2">
         <ControllerCoin dataServer={data} />
       </div>

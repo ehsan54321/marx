@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import MapCoin from './MapCoin'
 import { BsSearch } from 'react-icons/bs'
 import { numberToPersian, removeSpas } from '@lib/helper'
-import { startTransition, useEffect, useState } from 'react'
+import { startTransition, useState } from 'react'
 import { TbX } from 'react-icons/tb'
 import { useTranslation } from 'react-i18next'
 
@@ -27,19 +27,18 @@ const ControllerCoins = ({ dataServer }) => {
   const [dataView, setDataView] = useState<coinType[]>(data.slice(0, 15))
   const [searchValue, setSearchValue] = useState<string>('')
   const { t } = useTranslation()
-  useEffect(() => {
-    if (page === 2) setDataView(data.slice(15, 30))
-    else if (page === 3) setDataView(data.slice(30, 45))
-    // else if (page === 4) setDataView(data.slice(45, 60))
-    // else if (page === 5) setDataView(data.slice(60, 75))
+  const PageSizeHandler = (pageName) => {
+    setPage(pageName)
+    if (pageName === 2) setDataView(data.slice(15, 30))
+    else if (pageName === 3) setDataView(data.slice(30, 45))
+    else if (pageName === 4) setDataView(data.slice(45, 60))
+    // else if (pageName === 5) setDataView(data.slice(60, 75))
     else setDataView(data.slice(0, 15))
-  }, [page])
+  }
   const { pageSize } = dataServer
   const arrPageSize = () => {
-    let arr: number[] = [1]
-    for (let i = 1; i < pageSize; i++) {
-      arr = [...arr, arr.length + 1]
-    }
+    const arr: number[] = [1]
+    for (let i = 1; i < pageSize; i++) arr.push(arr.length + 1)
     return arr.sort((a, c) => c - a)
   }
   const searchHandler = (searchValue) => {
@@ -52,7 +51,13 @@ const ControllerCoins = ({ dataServer }) => {
           numberToPersian(searchValue, 'fa')
     )
     setData(dataSearch)
-    setDataView(dataSearch)
+    if (dataSearch.length === dataServer.coins.length) {
+      if (page === 2) setDataView(dataSearch.slice(15, 30))
+      else if (page === 3) setDataView(dataSearch.slice(30, 45))
+      // else if (page === 4) setDataView(dataSearch.slice(45, 60))
+      // else if (page === 5) setDataView(dataSearch.slice(60, 75))
+      else setDataView(dataSearch.slice(0, 15))
+    } else setDataView(dataSearch)
   }
   return (
     <>
@@ -70,7 +75,7 @@ const ControllerCoins = ({ dataServer }) => {
         >
           {searchValue && (
             <span className="position-absolute bg-black ms-1">
-              <TbX className="text-white" size={16} />
+              <TbX className="text-white" size={15} />
             </span>
           )}
         </button>
@@ -78,7 +83,7 @@ const ControllerCoins = ({ dataServer }) => {
           type="text"
           className={classNames(
             'uiCoin_search border-start-0 w-100',
-            !searchValue && 'text-start'
+            !searchValue ? 'text-start' : ''
           )}
           maxLength={15}
           dir="auto"
@@ -106,14 +111,14 @@ const ControllerCoins = ({ dataServer }) => {
         lanData={data.length <= 0}
       />
 
-      {data.length > 15  && (
+      {data.length > 15 && (
         <nav>
           <ul className="pagination justify-content-center mt-2" dir="ltr">
             {arrPageSize().map((item) => (
               <li className="page-item" key={item}>
                 <a
                   className={page === item ? 'page-link active' : 'page-link'}
-                  onClick={() => setPage(item)}
+                  onClick={() => PageSizeHandler(item)}
                 >
                   {item}
                 </a>

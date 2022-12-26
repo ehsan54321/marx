@@ -1,8 +1,10 @@
-import { Error401 } from '@components/error'
 import Image from 'next/image'
+import Jump from 'react-reveal/Jump'
 import SEO from '@components/Seo'
 import StarPage from '@components/stars/StarPage'
 import { AuthContext } from '@store/auth'
+import { Error401 } from '@components/error'
+import { Fade } from 'react-reveal'
 import { useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -36,7 +38,9 @@ const PageStars = () => {
     return (
       <>
         <SEO title={t('title.selected')} />
-        <h1 className="h5 mt-4 mb-4 h1_page">{t('selected.list')}</h1>
+        <Jump>
+          <h1 className="h5 mt-4 mb-4 h1_page">{t('selected.list')}</h1>
+        </Jump>
         <div className="background-color bg-white">
           <div
             className="d-flex flex-wrap justify-content-center"
@@ -44,13 +48,14 @@ const PageStars = () => {
           >
             {dataStar &&
               dataStar.map((star: starType) => (
-                <StarPage
-                  key={star.id}
-                  name={star.faName}
-                  nameEN={star.name}
-                  poster_path={star.poster_path}
-                  deleteStar={DeleteStarInLocalStorage}
-                />
+                <Fade key={star.id} collapse right>
+                  <StarPage
+                    name={star.faName}
+                    nameEN={star.name}
+                    poster_path={star.poster_path}
+                    deleteStar={DeleteStarInLocalStorage}
+                  />
+                </Fade>
               ))}
           </div>
 

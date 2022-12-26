@@ -6,6 +6,7 @@ import sweetalert2 from 'sweetalert2'
 import { AuthContext } from '@store/auth'
 import { BsFillCaretDownFill, BsFillPersonFill } from 'react-icons/bs'
 import { FaBars, FaTimes } from 'react-icons/fa'
+import { Fade } from 'react-reveal'
 import { FcFaq } from 'react-icons/fc'
 import { HiLogout } from 'react-icons/hi'
 import { resErr } from '@lib/helper'
@@ -172,8 +173,9 @@ const Header = () => {
 }
 
 const Auth = () => {
+  const [show, setShow] = useState(false)
   const { isFind, setAuthState, authState, isAuth } = useContext(AuthContext)
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const router = useRouter()
   const Logout = () => {
     http
@@ -194,6 +196,93 @@ const Auth = () => {
       })
       .catch(() => resErr(t))
   }
+  return (
+    <>
+      {isFind() ? (
+        <span className={classNames('loader', t('lang') ? 'ms-3' : 'me-3')}>
+          <svg viewBox="22 22 44 44">
+            <circle
+              cx="44"
+              cy="44"
+              r="20.2"
+              fill="none"
+              strokeWidth="3.6"
+            ></circle>
+          </svg>
+        </span>
+      ) : !isAuth ? (
+        <>
+          <ChangeMode />
+          <Link href="/auth#login" className={t('lang') ? 'ms-2' : 'me-2'}>
+            <button type="button" className="btn btn-outline-dark">
+              <span>{t('btn-login')}</span>
+            </button>
+          </Link>
+        </>
+      ) : (
+        <div
+          className={classNames(
+            'align-items-center position-relative layout_dup d-flex',
+            t('lang') ? '' : 'layout_dupEN',
+            show ? 'active' : ''
+          )}
+          onMouseEnter={() => setShow(true)}
+          onMouseLeave={() => setShow(false)}
+        >
+          <div className="d-sm-none">
+            <ChangeMode />
+            <Link href="/account">
+              <img
+                src={authState.poster_path}
+                className="rounded-circle ms-2"
+                alt={`${t('profile')} ${authState.username}`}
+                width="40px"
+                height="auto"
+              />
+            </Link>
+          </div>
+          <button
+            className="layout_dupBtn pe-0 bg-white d-xm-none"
+            type="button"
+          >
+            <img
+              src={authState.poster_path}
+              className="rounded-circle me-1 h-auto"
+              alt={`${t('profile')} ${authState.username}`}
+            />
+            <BsFillCaretDownFill />
+          </button>
+          <Fade when={show}>
+            <ul className="layout_menu position-absolute bg-white">
+              <Link href="/account" className="text-dark">
+                <li className="layout_dupLi">
+                  <BsFillPersonFill />
+                  <span className={t('lang') ? 'ms-1' : 'me-1'}>
+                    {t('profile')}
+                  </span>
+                </li>
+              </Link>
+              <div onClick={Logout}>
+                <li className="layout_dupLi cursor-pointer">
+                  <HiLogout />
+                  <span className={t('lang') ? 'ms-2' : 'me-2'}>
+                    {t('logout')}
+                  </span>
+                </li>
+              </div>
+            <div className="d-flex justify-content-center">
+              <ChangeMode />
+            </div>
+            </ul>
+          </Fade>
+        </div>
+      )}
+    </>
+  )
+}
+
+const ChangeMode = () => {
+  const { t, i18n } = useTranslation()
   const ChangeLang = () => {
     if (t('lang')) {
       i18n.changeLanguage('en')
@@ -250,68 +339,6 @@ const Auth = () => {
           />
         </svg>
       </div>
-      {isFind() ? (
-        <span className={classNames('loader', t('lang') ? 'ms-3' : 'me-3')}>
-          <svg viewBox="22 22 44 44">
-            <circle
-              cx="44"
-              cy="44"
-              r="20.2"
-              fill="none"
-              strokeWidth="3.6"
-            ></circle>
-          </svg>
-        </span>
-      ) : !isAuth ? (
-        <Link href="/auth#login" className={t('lang') ? 'ms-2' : 'me-2'}>
-          <button type="button" className="btn btn-outline-dark">
-            <span>{t('btn-login')}</span>
-          </button>
-        </Link>
-      ) : (
-        <div
-          className={classNames(
-            'align-items-center position-relative mui-8mdyrd d-flex',
-            t('lang') ? '' : 'mui-8mdyrdEN'
-          )}
-        >
-          <div className="d-sm-none">
-            <Link href="/account">
-              <img
-                src={authState.poster_path}
-                className="rounded-circle ms-2 h-auto"
-                alt={`${t('profile')} ${authState.username}`}
-              />
-            </Link>
-          </div>
-          <button className="mui-1qmkd8i pe-0 bg-white d-xm-none" type="button">
-            <img
-              src={authState.poster_path}
-              className="rounded-circle me-1 h-auto"
-              alt={`${t('profile')} ${authState.username}`}
-            />
-            <BsFillCaretDownFill />
-          </button>
-          <ul className="menu mui-16g0ei6 position-absolute d-none bg-white">
-            <Link href="/account" className="text-dark">
-              <li className="mui-pu6x1m">
-                <BsFillPersonFill />
-                <span className={t('lang') ? 'ms-1' : 'me-1'}>
-                  {t('profile')}
-                </span>
-              </li>
-            </Link>
-            <div onClick={Logout}>
-              <li className="mui-pu6x1m cursor-pointer">
-                <HiLogout />
-                <span className={t('lang') ? 'ms-2' : 'me-2'}>
-                  {t('logout')}
-                </span>
-              </li>
-            </div>
-          </ul>
-        </div>
-      )}
     </>
   )
 }

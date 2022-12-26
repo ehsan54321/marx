@@ -83,28 +83,27 @@
       background: #4b5563;
     }
   }
-}
+  &dupLi {
+    line-height: 1.75;
+    padding: 8px;
+    border-radius: 5px;
 
-.mui-1qmkd8i {
-  padding: 6px 16px;
-
-  img {
-    width: 40px;
-    object-fit: cover;
+    &:hover {
+      background: #0000000a;
+    }
   }
-}
-.mui-16g0ei6 {
-  padding: 8px;
-  box-shadow: 0px 2px 1px #0000001a, 0px 0px 1px #00000040;
-  border-radius: 8px;
-  color: #001a3f;
-}
-.mui-pu6x1m {
-  line-height: 1.75;
-  padding: 8px;
-  border-radius: 5px;
+  &dupBtn {
+    padding: 6px 16px;
 
-  &:hover {
-    background: #0000000a;
+    img {
+      width: 40px;
+      object-fit: cover;
+    }
+  }
+  &menu {
+    padding: 8px;
+    box-shadow: 0px 2px 1px #0000001a, 0px 0px 1px #00000040;
+    border-radius: 8px;
+    color: #001a3f;
   }
 }

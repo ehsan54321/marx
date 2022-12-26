@@ -11,6 +11,9 @@
 }
 
 @media (max-width: 575px) {
+  .w-xm-100 {
+    width: 100% !important;
+  }
   .tr th {
     letter-spacing: -0.2px;
     font-size: 10px;
@@ -53,17 +56,16 @@
 }
 
 @media (min-width: 576px) {
-  .mui-8mdyrd {
+  .layout_dup {
     height: 70px;
 
-    &:hover .menu {
+    & .layout_menu {
       inset: 12px auto auto -20px;
-      display: block !important;
       width: 150px;
     }
-  }
-  .mui-8mdyrdEN:hover .menu {
-    inset: 12px -20px auto auto !important;
+    &EN .layout_menu {
+      inset: 12px -20px auto auto !important;
+    }
   }
   .layout_col {
     height: auto !important;
