@@ -9,7 +9,7 @@ type MetaProps = {
 }
 const SEO = (props: MetaProps) => {
   const { title: titleText, keywords, description, noText } = props
-  const title = noText ? titleText : titleText + ' | MyApp'
+  const title = noText ? titleText : titleText + ' • MyApp'
   const icon = baseURL + 'static/images/favicon.ico'
   return (
     <Head>

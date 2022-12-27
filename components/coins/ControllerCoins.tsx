@@ -22,24 +22,27 @@ type coinType = {
   }
 }
 const ControllerCoins = ({ dataServer }) => {
+  const pageItem: number = 15
+  const { pageSize } = dataServer
   const [page, setPage] = useState<number>(1)
   const [data, setData] = useState<coinType[]>(dataServer.coins)
-  const [dataView, setDataView] = useState<coinType[]>(data.slice(0, 15))
+  const [dataView, setDataView] = useState<coinType[]>(data.slice(0, pageItem))
   const [searchValue, setSearchValue] = useState<string>('')
   const { t } = useTranslation()
-  const PageSizeHandler = (pageName) => {
-    setPage(pageName)
-    if (pageName === 2) setDataView(data.slice(15, 30))
-    else if (pageName === 3) setDataView(data.slice(30, 45))
-    else if (pageName === 4) setDataView(data.slice(45, 60))
-    // else if (pageName === 5) setDataView(data.slice(60, 75))
-    else setDataView(data.slice(0, 15))
-  }
-  const { pageSize } = dataServer
   const arrPageSize = () => {
     const arr: number[] = [1]
     for (let i = 1; i < pageSize; i++) arr.push(arr.length + 1)
     return arr.sort((a, c) => c - a)
+  }
+  const PageSizeHandler = (pageName) => {
+    setPage(pageName)
+    for (let i = 1; i <= pageSize; i++) {
+      if (pageName === i) {
+        // PageLengthCoin => PLC
+        const PLC = (i - 1) * pageItem
+        setDataView(data.slice(PLC, PLC + pageItem))
+      }
+    }
   }
   const searchHandler = (searchValue) => {
     const dataSearch = dataServer.coins.filter(
@@ -52,16 +55,18 @@ const ControllerCoins = ({ dataServer }) => {
     )
     setData(dataSearch)
     if (dataSearch.length === dataServer.coins.length) {
-      if (page === 2) setDataView(dataSearch.slice(15, 30))
-      else if (page === 3) setDataView(dataSearch.slice(30, 45))
-      // else if (page === 4) setDataView(dataSearch.slice(45, 60))
-      // else if (page === 5) setDataView(dataSearch.slice(60, 75))
-      else setDataView(dataSearch.slice(0, 15))
+      for (let i = 1; i <= pageSize; i++) {
+        if (page === i) {
+          // PageLengthCoin => PLC
+          const PLC = (i - 1) * pageItem
+          setDataView(dataSearch.slice(PLC, PLC + pageItem))
+        }
+      }
     } else setDataView(dataSearch)
   }
   return (
     <>
-      <div className="mx-4 mb-4 d-flex mt-2 uiCoin_select">
+      <div className="mx-4 mb-4 d-flex mt-2 uiCoin_search">
         <button type="submit" className="uiCoin_searchBtn h5 text-white">
           <BsSearch />
         </button>
@@ -82,10 +87,10 @@ const ControllerCoins = ({ dataServer }) => {
         <input
           type="text"
           className={classNames(
-            'uiCoin_search border-start-0 w-100',
+            'border-start-0 w-100',
             !searchValue ? 'text-start' : ''
           )}
-          maxLength={15}
+          maxLength={pageItem}
           dir="auto"
           value={searchValue}
           placeholder={
@@ -111,7 +116,7 @@ const ControllerCoins = ({ dataServer }) => {
         lanData={data.length <= 0}
       />
 
-      {data.length > 15 && (
+      {data.length > pageItem && (
         <nav>
           <ul className="pagination justify-content-center mt-2" dir="ltr">
             {arrPageSize().map((item) => (

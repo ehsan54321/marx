@@ -198,6 +198,7 @@ const Auth = () => {
   }
   return (
     <>
+      <ChangeMode />
       {isFind() ? (
         <span className={classNames('loader', t('lang') ? 'ms-3' : 'me-3')}>
           <svg viewBox="22 22 44 44">
@@ -212,7 +213,6 @@ const Auth = () => {
         </span>
       ) : !isAuth ? (
         <>
-          <ChangeMode />
           <Link href="/auth#login" className={t('lang') ? 'ms-2' : 'me-2'}>
             <button type="button" className="btn btn-outline-dark">
               <span>{t('btn-login')}</span>
@@ -230,7 +230,6 @@ const Auth = () => {
           onMouseLeave={() => setShow(false)}
         >
           <div className="d-sm-none">
-            <ChangeMode />
             <Link href="/account">
               <img
                 src={authState.poster_path}
@@ -270,9 +269,6 @@ const Auth = () => {
                   </span>
                 </li>
               </div>
-            <div className="d-flex justify-content-center">
-              <ChangeMode />
-            </div>
             </ul>
           </Fade>
         </div>
@@ -307,37 +303,37 @@ const ChangeMode = () => {
             />
           </span>
         </div> */}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 48 48"
-          width="20px"
-          height="20px"
-          className="cursor-pointer"
-          onClick={ChangeLang}
-        >
-          <path
-            fill="#CFD8DC"
-            d="M15,13h25c1.104,0,2,0.896,2,2v25c0,1.104-0.896,2-2,2H26L15,13z"
-          />
-          <path
-            fill="#546E7A"
-            d="M26.832,34.854l-0.916-1.776l0.889-0.459c0.061-0.031,6.101-3.208,9.043-9.104l0.446-0.895l1.79,0.893l-0.447,0.895c-3.241,6.496-9.645,9.85-9.916,9.989L26.832,34.854z"
-          />
-          <path
-            fill="#546E7A"
-            d="M38.019 34l-.87-.49c-.207-.116-5.092-2.901-8.496-7.667l1.627-1.162c3.139 4.394 7.805 7.061 7.851 7.087L39 32.26 38.019 34zM26 22H40V24H26z"
-          />
-          <path fill="#546E7A" d="M32 20H34V24H32z" />
-          <path
-            fill="#2196F3"
-            d="M33,35H8c-1.104,0-2-0.896-2-2V8c0-1.104,0.896-2,2-2h14L33,35z"
-          />
-          <path fill="#3F51B5" d="M26 42L23 35 33 35z" />
-          <path
-            fill="#FFF"
-            d="M19.172,24h-4.36l-1.008,3H11l4.764-13h2.444L23,27h-2.805L19.172,24z M15.444,22h3.101l-1.559-4.714L15.444,22z"
-          />
-        </svg>
+        <span className="cursor-pointer" onClick={ChangeLang}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 48 48"
+            width="20px"
+            height="20px"
+          >
+            <path
+              fill="#CFD8DC"
+              d="M15,13h25c1.104,0,2,0.896,2,2v25c0,1.104-0.896,2-2,2H26L15,13z"
+            />
+            <path
+              fill="#546E7A"
+              d="M26.832,34.854l-0.916-1.776l0.889-0.459c0.061-0.031,6.101-3.208,9.043-9.104l0.446-0.895l1.79,0.893l-0.447,0.895c-3.241,6.496-9.645,9.85-9.916,9.989L26.832,34.854z"
+            />
+            <path
+              fill="#546E7A"
+              d="M38.019 34l-.87-.49c-.207-.116-5.092-2.901-8.496-7.667l1.627-1.162c3.139 4.394 7.805 7.061 7.851 7.087L39 32.26 38.019 34zM26 22H40V24H26z"
+            />
+            <path fill="#546E7A" d="M32 20H34V24H32z" />
+            <path
+              fill="#2196F3"
+              d="M33,35H8c-1.104,0-2-0.896-2-2V8c0-1.104,0.896-2,2-2h14L33,35z"
+            />
+            <path fill="#3F51B5" d="M26 42L23 35 33 35z" />
+            <path
+              fill="#FFF"
+              d="M19.172,24h-4.36l-1.008,3H11l4.764-13h2.444L23,27h-2.805L19.172,24z M15.444,22h3.101l-1.559-4.714L15.444,22z"
+            />
+          </svg>
+        </span>
       </div>
     </>
   )

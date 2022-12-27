@@ -67,8 +67,8 @@ const ChartComponents = ({ usd }) => {
         id: 1,
         data: [
           (usd * 0.645) / 3,
-          (usd * 0.587) / 3,
-          (usd * 0.579) / 3,
+          (usd * 0.597) / 3,
+          (usd * 0.599) / 3,
           (usd * 0.845) / 3,
           (usd * 0.765) / 3,
           (usd * 0.876) / 3,
