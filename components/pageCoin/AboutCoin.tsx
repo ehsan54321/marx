@@ -11,10 +11,10 @@ const AboutCoin = ({ aboutCoin, dayGrith }) => {
       setWidth(tradingVolume.current.getBoundingClientRect().width - 16 + 'px')
   }, [])
   return (
-    <div className="d-sm-flex">
-      <div className="d-flex">
+    <div className="sm:flex">
+      <div className="flex">
         <div className="me-3 mb-3 mb-sm-0" ref={tradingVolume}>
-          <span className="text-good">
+          <span className="text-slate-500">
             {t('lang') ? (
               <>
                 {'ارزش معاملات ۲۴'}
@@ -30,55 +30,53 @@ const AboutCoin = ({ aboutCoin, dayGrith }) => {
             )}
           </span>
           <br />
-          <span className="font-13 mt-1 mb-3 mb-sm-0">
+          <span className="text-[13px] mt-1 mb-3 mb-sm-0">
             {numberToPersian(formatCurrency('756345'), t('lang'))}
           </span>
         </div>
         <div className="vr"></div>
-        <div className="ms-3 me-3 d-flex flex-column">
-          <span className="text-good">{t('coin.display.size') + ':'}</span>
-          <span className="font-13 mt-1">
+        <div className="ms-3 me-3 flex flex-col">
+          <span className="text-slate-500">{t('coin.display.size') + ':'}</span>
+          <span className="text-[13px] mt-1">
             {numberToPersian(dayGrith, t('lang'))}
           </span>
         </div>
       </div>
 
       <div
-        style={{ borderTop: '1px solid currentcolor', opacity: 0.25 }}
-        className="d-sm-none"
+        style={{ borderTop: '1px solid currentcolor' }}
+        className="sm:hidden opacity-25"
       ></div>
 
       <div className="vr d-xm-none"></div>
-      <div className="d-flex">
+      <div className="flex">
         <div
-          className="ms-3 me-sm-3 d-flex flex-column me-3 mt-3 mt-sm-0"
+          className="ms-3 me-sm-3 flex flex-col me-3 mt-3 mt-sm-0"
           style={{ width }}
         >
-          <span className="text-good">{t('coin.total.market') + ':'}</span>
-          <span className="font-13 mt-1">
+          <span className="text-slate-500">{t('coin.total.market') + ':'}</span>
+          <span className="text-[13px] mt-1">
             {numberToPersian('448.127M', t('lang'))}
           </span>
         </div>
 
         <div className="vr"></div>
         <div className="ms-3 mt-3 mt-sm-0">
-          <span className="text-good">{t('coin.date') + ':'}</span>
+          <span className="text-slate-500">{t('coin.date') + ':'}</span>
           <br />
           <div className="text-center">
             <span>{numberToPersian(aboutCoin.arz, t('lang'))}</span>
           </div>
-          <div className="progress h-auto">
+          <div className="h-auto">
             <div
-              className="progress-bar bg-success progress-bar-striped justify-content-start"
+              className="bg-green-700 justify-start text-white py-px text-center rounded-lg"
               style={{ width: aboutCoin.now + '%' }}
             >
-              <span style={{ marginTop: '.15rem' }}>
-                {numberToPersian(aboutCoin.now, t('lang')) + '٪'}
-              </span>
+              <span>{numberToPersian(aboutCoin.now, t('lang')) + '٪'}</span>
             </div>
           </div>
-          <div className="font-13 d-flex justify-content-between">
-            <span className="text-good me-1">
+          <div className="text-[13px] flex justify-between">
+            <span className="text-slate-500 me-1">
               {t('coin.display.size') + ':'}
             </span>
             <span>{numberToPersian(aboutCoin.maxArz, t('lang'))}</span>

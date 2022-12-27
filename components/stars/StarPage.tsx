@@ -6,9 +6,9 @@ import { useTranslation } from 'react-i18next'
 const StarPage = (props) => {
   const { t } = useTranslation()
   return (
-    <div className="d-flex flex-column justify-content-around star_home">
-      <div className="d-flex">
-        <div className="d-flex align-items-center">
+    <div className="flex flex-col justify-around star_home">
+      <div className="flex">
+        <div className="flex items-center">
           <Image
             src={`/static/images/coins/${props.poster_path}.svg`}
             alt={props.name}
@@ -23,10 +23,10 @@ const StarPage = (props) => {
           }}
           className="uiCoin_nameCoin ms-1"
         >
-          <span title={t('name-coin')} className="d-flex mb-1 name transition">
+          <span title={t('name-coin')} className="flex mb-1 name my_transition">
             {props.name}
           </span>
-          <span className="text-uppercase d-flex mb-0 font-13 ms-1 text-good">
+          <span className="text-uppercase flex mb-0 text-[13px] ms-1 text-slate-500">
             {'(' + props.nameEN + ')'}
           </span>
         </Link>

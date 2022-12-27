@@ -8,7 +8,7 @@ const ErrorSite = () => {
     <>
       <SEO title={t('error.server')} noText />
       <div className="background-color bg-white">
-        <div className="d-flex flex-column align-items-center">
+        <div className="flex flex-col items-center">
           <Image
             src="/static/images/server-down.svg"
             alt="یافت نشد"
@@ -17,10 +17,7 @@ const ErrorSite = () => {
             height={330}
           />
           <h1 className="h4">{t('error') + ' Network Error'}</h1>
-          <div
-            className="text-good mb-4"
-            style={{ overflow: 'auto', fontWeight: 500 }}
-          >
+          <div className="ttext-slate-500 mb-4 overflow-auto font-medium">
             <span>{t('error.server')}</span>
           </div>
         </div>

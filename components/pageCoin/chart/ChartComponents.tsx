@@ -100,8 +100,8 @@ const ChartComponents = ({ usd }) => {
     ],
   }
   return (
-    <div className="pe-sm-3 w-100 w-xm-75">
-      <div className="divider d-flex">
+    <div className="pe-sm-3 w-full w-xm-75">
+      <div className="divider flex">
         <h2 className="h6 m-0 px-3">{t('chart')}</h2>
       </div>
       <div className="bg-white mt-3">

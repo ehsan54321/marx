@@ -147,10 +147,9 @@ const Login = () => {
             <BsEnvelopeFill />
           </div>
           <input
-            className={classNames(
-              'form-control',
-              errorEmail.stt && 'is-invalid'
-            )}
+            className={
+              errorEmail.stt ? 'form-control is-invalid' : 'form-control'
+            }
             type="email"
           />
         </div>
@@ -169,7 +168,7 @@ const Login = () => {
           <input
             className={classNames(
               'form-control',
-              errorPass.stt ? 'is-invalid' : 'border-end-0'
+              errorPass.stt ? 'is-invalid' : 'border-l-0'
             )}
             type={passLook ? 'password' : 'text'}
           />
@@ -187,7 +186,7 @@ const Login = () => {
       <div>
         <button
           type="submit"
-          className="w-100 mt-4 auth_btn btn btn-outline-primary"
+          className="w-full mt-4 auth_btn btn btn-outline-primary"
           disabled={loader}
         >
           {loader && (

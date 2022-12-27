@@ -17,11 +17,11 @@ const ControllerPageCoin = (props: Props) => {
   const { t } = useTranslation()
   return (
     <>
-      <div className="row w-100 ms-0">
-        <div className="d-flex mb-3 justify-content-between col">
-          <div className="d-flex">
-            <div className="ms-2 d-flex">
-              <div className="d-flex align-items-center coinPage_imgCoin">
+      <div className="row w-full ms-0">
+        <div className="flex mb-3 justify-between col">
+          <div className="flex">
+            <div className="ms-2 flex">
+              <div className="flex items-center coinPage_imgCoin">
                 <Image
                   src={`/static/images/coins/${props.coin.poster_path}.svg`}
                   alt={props.coin.name}
@@ -29,25 +29,25 @@ const ControllerPageCoin = (props: Props) => {
                   height={40}
                 />
               </div>
-              <div className="d-flex pt-3">
+              <div className="flex pt-3">
                 <div style={{ lineHeight: 0 }}>
                   <h1 className="ms-1 h5" title={t('name-coin')}>
                     {t('lang') ? props.coin.name : props.coin.all_name}
                   </h1>
                   <br />
-                  <h2 className="d-flex mb-0 coinPage_nameEN">
-                    <span className="text-uppercase font-15">
+                  <h2 className="flex mb-0 coinPage_nameEN">
+                    <span className="text-uppercase text-[15px]">
                       {'(' + nameCoin + ')'}
                     </span>
                     <i className="text-white">_</i>
-                    <span className="text-capitalize font-15">
+                    <span className="text-capitalize text-[15px]">
                       {t('lang') ? props.coin.all_name : props.coin.name}
                     </span>
                   </h2>
                 </div>
               </div>
             </div>
-            <div className="d-flex align-items-center ms-2 font-17 coinPage_star">
+            <div className="flex items-center ms-2 text-[17px] coinPage_star">
               <Star
                 name={nameCoin}
                 faName={props.coin.name}
@@ -56,14 +56,14 @@ const ControllerPageCoin = (props: Props) => {
               />
             </div>
           </div>
-          <div className="d-flex align-items-center ms-1">
+          <div className="flex items-center ms-1">
             <span
               style={{
-                borderRadius: 10,
                 color: '#014a8f',
                 background: '#f2f6f9',
                 padding: '6px 8.5px',
               }}
+              className="rounded-[10px]"
             >
               {'#' + numberToPersian(props.coin.id, t('lang'))}
             </span>
@@ -77,8 +77,10 @@ const ControllerPageCoin = (props: Props) => {
           <div
             title={t('change-24h')}
             className={classNames(
-              `bg-${props.coin.day.colorDayIn}`,
-              'coinPage_dar text-white justify-content-center mt-3 d-flex h6'
+              props.coin.day.colorDayIn === 'danger' ? ' bg-red-500' : '',
+              props.coin.day.colorDayIn === 'success' ? ' bg-green-700' : '',
+              props.coin.day.colorDayIn === 'info' ? 'bg-blue-500' : '',
+              'coinPage_dar text-white justify-center mt-3 flex h6'
             )}
           >
             <div>
@@ -100,9 +102,9 @@ const ControllerPageCoin = (props: Props) => {
           className="mt-3 mb-3 col"
           style={{ paddingLeft: 'calc(var(--bs-gutter-x) * .0)' }}
         >
-          <div className="d-flex flex-column" title={t('mane-usd')}>
-            <span className="text-good">{t('mane-usd')}:</span>
-            <span className="font-18 mt-1">
+          <div className="flex flex-col" title={t('mane-usd')}>
+            <span className="text-slate-500">{t('mane-usd')}:</span>
+            <span className="text-[18px] mt-1">
               {numberToPersian(formatCurrency(props.coin.usd), t('lang'))}
               <span
                 className={classNames(
@@ -115,10 +117,10 @@ const ControllerPageCoin = (props: Props) => {
             </span>
           </div>
         </div>
-        <div className="d-flex mt-3 align-items-center mb-3 col">
-          <div className="d-flex flex-column" title={t('mane-rials')}>
-            <span className="text-good">{t('mane-rials')}:</span>
-            <span className="font-18 mt-1">
+        <div className="flex mt-3 items-center mb-3 col">
+          <div className="flex flex-col" title={t('mane-rials')}>
+            <span className="text-slate-500">{t('mane-rials')}:</span>
+            <span className="text-[18px] mt-1">
               {numberToPersian(
                 formatCurrency(~~(props.coin.usd * props.rials)),
                 t('lang')

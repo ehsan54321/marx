@@ -22,18 +22,18 @@ const Share = ({ nameCoin, name }) => {
     })
   }
   return (
-    <div className="d-sm-flex justify-content-between">
-      <div className="d-flex text-secondary mb-2 mb-sm-0 ms-2">
-        <div className="me-1 d-flex align-items-center">
+    <div className="sm:flex justify-between">
+      <div className="flex text-secondary mb-2 mb-sm-0 ms-2">
+        <div className="me-1 flex items-center">
           <HiOutlineShare size={15} />
         </div>
-        <span className="font-14">اشتراک گزاری</span>
+        <span className="text-[14px]">اشتراک گزاری</span>
       </div>
-      <div className="d-flex ms-2 justify-content-center">
+      <div className="flex ms-2 justify-center">
         <a
           target="_blank"
           rel="nofollow noreferrer"
-          className="me-2 hover:red"
+          className="me-2 hover:text-red-500"
           href={`mailto:?subject=${
             'صفحه کوین ' + name
           }&body=Open this link:%0D%0A${baseURL}coins/${nameCoin}`}
@@ -53,13 +53,13 @@ const Share = ({ nameCoin, name }) => {
         <a
           target="_blank"
           rel="nofollow noreferrer"
-          className="me-2 hover:green"
+          className="me-2 hover:text-green-600"
           href={`whatsapp://send?text=${baseURL}coins/${nameCoin}`}
         >
           <AiOutlineWhatsApp />
           <span className="ms-1">{t('whatsapp')}</span>
         </a>
-        <a onClick={copyHandler} className="hover:secondary">
+        <a onClick={copyHandler} className="hover:text-neutral-500">
           <RiFileCopyLine />
           <span className="ms-1">{t('copy.link')}</span>
         </a>

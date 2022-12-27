@@ -4,7 +4,14 @@
 @import './fonts';
 @import './customClass';
 
+// tailwind
+@tailwind components;
+@tailwind utilities;
+// tailwind
+
 // components
+@import './components/container';
+@import './components/spinner';
 @import './components/divider';
 @import './components/btn';
 @import './components/loader';

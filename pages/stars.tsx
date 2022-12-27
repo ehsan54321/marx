@@ -39,13 +39,12 @@ const PageStars = () => {
       <>
         <SEO title={t('title.selected')} />
         <Jump>
-          <h1 className="h5 mt-4 mb-4 h1_page">{t('selected.list')}</h1>
+          <h1 className="h5 mt-4 mb-4 leading-7 font-bold">
+            {t('selected.list')}
+          </h1>
         </Jump>
         <div className="background-color bg-white">
-          <div
-            className="d-flex flex-wrap justify-content-center"
-            style={{ gap: 9 }}
-          >
+          <div className="flex flex-wrap justify-center gap-[9.5px]">
             {dataStar &&
               dataStar.map((star: starType) => (
                 <Fade key={star.id} collapse right>
@@ -68,7 +67,7 @@ const PageStars = () => {
                 width={100}
                 height={100}
               />
-              <p className="text-good mt-2">منتخبی یافت نشد.</p>
+              <p className="text-slate-500 mt-2">منتخبی یافت نشد.</p>
             </div>
           )}
         </div>

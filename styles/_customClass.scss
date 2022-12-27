@@ -1,18 +1,12 @@
-.font- {
-  &18 {
-    font-size: 18px !important;
+.table {
+  --bs-table-accent-bg: transparent;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  & > :not(caption) > * > * {
+    box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
   }
-  &17 {
-    font-size: 17px !important;
-  }
-  &15-5 {
-    font-size: 15.5px !important;
-  }
-  &15 {
-    font-size: 15px !important;
-  }
-  &13 {
-    font-size: 13px !important;
+  & > thead {
+    vertical-align: bottom;
   }
 }
 
@@ -28,22 +22,6 @@
   }
 }
 
-.hover\: {
-  &green:hover {
-    color: $green;
-  }
-  &red:hover {
-    color: $red;
-  }
-  &secondary:hover {
-    color: $secondary;
-  }
-}
-
-.cursor-pointer {
-  cursor: pointer !important;
-}
-
 .background-color {
   overflow-x: auto;
   border-radius: 8px;
@@ -56,7 +34,7 @@
   --bs-breadcrumb-divider: '~';
 }
 
-.transition {
+.my_transition {
   transition: color 0.4s ease-in-out !important;
 }
 
@@ -64,11 +42,6 @@
   --bs-table-accent-bg: #f4f6fd;
   transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
   transition-duration: 0.5s;
-}
-
-.h1_page {
-  font-weight: 700;
-  line-height: 1.8;
 }
 
 .tr {

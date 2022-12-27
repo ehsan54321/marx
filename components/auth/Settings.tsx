@@ -26,22 +26,22 @@ const Settings = ({ setImg, img, tem, setTem }) => {
     { value: 'tem2', label: t('tem') + ' ' + numberToPersian(2, t('lang')) },
   ]
   return (
-    <div style={{ height: 125 }}>
-      <div className="d-flex">
+    <div className="h-32">
+      <div className="flex">
         <Select
-          className="w-100"
+          className="w-full"
           onChange={ChangeLang}
           defaultValue={[t('lang') ? optionsLang[0] : optionsLang[1]]}
           options={optionsLang}
         />
         <Select
-          className="w-100 ms-3"
+          className="w-full ms-3"
           onChange={(e) => setImg(e.value === 'img')}
           defaultValue={[img ? optionsImg[0] : optionsImg[1]]}
           options={optionsImg}
         />
         <Select
-          className="w-100 ms-3"
+          className="w-full ms-3"
           onChange={(e) => setTem(e.value === 'tem1')}
           defaultValue={[tem ? optionsTem[0] : optionsTem[1]]}
           options={optionsTem}

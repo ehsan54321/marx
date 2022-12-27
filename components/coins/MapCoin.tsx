@@ -23,7 +23,10 @@ const MapCoin = (props: { data: coin[]; rials: number; lanData: boolean }) => {
   return (
     <>
       <table
-        className={classNames('table hover w-100', props.lanData && 'd-none')}
+        className={classNames(
+          'table hover w-full',
+          props.lanData ? 'hidden' : ''
+        )}
       >
         <thead>
           <tr className="tr h-auto">
@@ -31,11 +34,11 @@ const MapCoin = (props: { data: coin[]; rials: number; lanData: boolean }) => {
             <th className="text-start uiCoin_coin">{t('name-coin')}</th>
             <th className="uiCoin_price">
               <span className="d-xm-none">{t('mane-rials')}</span>
-              <span className="d-sm-none">{t('price')}</span>
+              <span className="sm:hidden">{t('price')}</span>
             </th>
             <th className="uiCoin_change">{t('change-24h')}</th>
             <th className="d-xm-none uiCoin_usd">{t('mane-usd')}</th>
-            <th className="d-none d-lg-table-cell uiCoin_change7">
+            <th className="hidden lg:table-cell	uiCoin_change7">
               {t('change-7d')}
             </th>
           </tr>
@@ -53,7 +56,7 @@ const MapCoin = (props: { data: coin[]; rials: number; lanData: boolean }) => {
         </tbody>
       </table>
       {props.lanData && (
-        <div className="m-5 p-5 text-center text-good">
+        <div className="m-5 p-5 text-center">
           <Image
             src="/static/images/no-data.svg"
             className="mb-2 ms-3"
@@ -61,7 +64,7 @@ const MapCoin = (props: { data: coin[]; rials: number; lanData: boolean }) => {
             width={100}
             height={100}
           />
-          <p>{t('no.coin')}</p>
+          <p className="text-slate-500">{t('no.coin')}</p>
         </div>
       )}
     </>

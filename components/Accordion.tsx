@@ -22,7 +22,7 @@ const Accordion = (props) => {
           <button
             className={classNames(
               'accordion-button',
-              !(showItem === 1) && 'collapsed'
+              !(showItem === 1) ? 'collapsed' : ''
             )}
             type="button"
             onClick={() => {
@@ -50,7 +50,7 @@ const Accordion = (props) => {
             type="button"
             className={classNames(
               'accordion-button',
-              !(showItem === 2) && 'collapsed'
+              !(showItem === 2) ? 'collapsed' : ''
             )}
             onClick={() => {
               if (showItem === 2) setShowItem(null)

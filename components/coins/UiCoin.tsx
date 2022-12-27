@@ -30,14 +30,14 @@ const UiCoin = (props: Props) => {
       <td className="d-xm-none">
         <div>
           <Star name={my_key} faName={name} id={id} poster_path={poster_path} />
-          <span className="text-good d-xm-none uiCoin_id">
+          <span className="text-slate-400 d-xm-none uiCoin_id">
             {numberToPersian(id, t('lang'))}
           </span>
         </div>
       </td>
       <td>
-        <div className="d-flex">
-          <div className="me-2 d-sm-none uiCoin_star">
+        <div className="flex">
+          <div className="me-2 sm:hidden uiCoin_star">
             <Star
               name={my_key}
               faName={name}
@@ -45,8 +45,8 @@ const UiCoin = (props: Props) => {
               poster_path={poster_path}
             />
           </div>
-          <div className="d-flex">
-            <div className="d-flex align-items-center">
+          <div className="flex">
+            <div className="flex items-center">
               <Image
                 src={`/static/images/coins/${poster_path}.svg`}
                 alt={t('lang') ? name : all_name}
@@ -59,13 +59,13 @@ const UiCoin = (props: Props) => {
                 pathname: '/coins/[coin]',
                 query: { coin: my_key },
               }}
-              className="d-flex flex-column mt-sm-0 mt-1 pb-sm-0 pb-1 ms-1 uiCoin_nameCoin"
+              className="flex flex-col mt-sm-0 mt-1 pb-sm-0 pb-1 ms-1 uiCoin_nameCoin"
               title={t('name-coin')}
             >
-              <span className="d-none d-sm-inline text-start transition name">
+              <span className="hidden sm:inline text-start my_transition name">
                 {t('lang') ? name : all_name}
               </span>
-              <span className="text-uppercase d-flex uiCoin_nameEN">
+              <span className="text-uppercase flex uiCoin_nameEN">
                 {'(' + my_key + ')'}
               </span>
             </Link>
@@ -75,8 +75,8 @@ const UiCoin = (props: Props) => {
       <td>
         <p
           className={classNames(
-            !t('lang') && 'uiCoin_numEnMode',
-            'uiCoin_numbers mb-0 uiCoin_mane'
+            'uiCoin_numbers mb-0 uiCoin_mane',
+            !t('lang') ? 'uiCoin_numEnMode' : ''
           )}
           title={t('mane-rials')}
         >
@@ -94,8 +94,8 @@ const UiCoin = (props: Props) => {
         </p>
         <p
           className={classNames(
-            !t('lang') && 'uiCoin_numEnMode',
-            'uiCoin_numbers uiCoin_mane mb-0 d-sm-none uiCoin_numbersSm'
+            'uiCoin_numbers uiCoin_mane mb-0 sm:hidden uiCoin_numbersSm',
+            !t('lang') ? 'uiCoin_numEnMode' : ''
           )}
           title={t('mane-usd')}
         >
@@ -110,9 +110,9 @@ const UiCoin = (props: Props) => {
       <td>
         <div
           className={classNames(
-            !t('lang') && 'uiCoin_numEnMode',
             'uiCoin_numbers',
-            `text-${dayAll.color_day_in === 'info' ? '' : dayAll.color_day_in}`
+            `text-${dayAll.color_day_in === 'info' ? '' : dayAll.color_day_in}`,
+            !t('lang') ? 'uiCoin_numEnMode' : ''
           )}
           title={t('change-24h')}
         >
@@ -126,7 +126,7 @@ const UiCoin = (props: Props) => {
       <td className="d-xm-none">
         <p
           className={classNames(
-            !t('lang') && 'uiCoin_numEnMode',
+            !t('lang') ? 'uiCoin_numEnMode' : '',
             'uiCoin_numbers mb-0'
           )}
           title={t('mane-usd')}
@@ -139,12 +139,12 @@ const UiCoin = (props: Props) => {
           </span>
         </p>
       </td>
-      <td className="border-0 justify-content-center d-none d-lg-table-cell">
+      <td className="border-0 justify-center hidden lg:table-cell">
         <div
           className={classNames(
-            !t('lang') && 'uiCoin_numEnMode',
             'uiCoin_numbers',
-            `text-${dayAll.color_day7 === 'info' ? '' : dayAll.color_day7}`
+            `text-${dayAll.color_day7 === 'info' ? '' : dayAll.color_day7}`,
+            !t('lang') ? 'uiCoin_numEnMode' : ''
           )}
           title={t('change-7d')}
         >

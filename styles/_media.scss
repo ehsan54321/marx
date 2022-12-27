@@ -44,10 +44,6 @@
       background: white;
       width: 100vw;
       overflow: hidden;
-      & ul li {
-        background: white !important;
-        padding: 15px 20px;
-      }
     }
     &active {
       border-bottom: 1px solid #eee;

@@ -76,11 +76,7 @@ const Star = ({ name, faName, id, poster_path }: starObj) => {
   }
 
   if (loaderStatus) {
-    return (
-      <div className="spinner-grow text-primary star_wh">
-        <span className="visually-hidden">{t('loading') + '...'}</span>
-      </div>
-    )
+    return <div className="spinner-grow text-blue-600 star_wh"></div>
   } else {
     return isAuth && status ? (
       <AiTwotoneStar

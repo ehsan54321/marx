@@ -49,7 +49,9 @@ const Coin = ({ props, nameCoin }) => {
         <Share nameCoin={nameCoin} name={props.coin.name} />
       </div>
       <div className="background-color bg-white mt-3">
-        <h2 className="h1_page h5 ms-3 mb-3">{t('introducing.coin')}</h2>
+        <h2 className="leading-7 font-bold h5 ms-3 mb-3">
+          {t('introducing.coin')}
+        </h2>
         <Accordion
           title={{ one: 'به زبان فارسی', tow: 'to Lang English' }}
           di={{

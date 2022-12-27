@@ -142,7 +142,7 @@ const UserInfo = () => {
                 defaultValue={authState.email}
                 className={classNames(
                   'form-control',
-                  errorEmail.stt && 'is-invalid'
+                  errorEmail.stt ? 'form-control is-invalid' : 'form-control'
                 )}
                 type="email"
               />
@@ -165,7 +165,7 @@ const UserInfo = () => {
                 defaultValue={authState.password}
                 className={classNames(
                   'form-control',
-                  errorPass.stt ? 'is-invalid' : 'border-end-0'
+                  errorPass.stt ? 'is-invalid' : 'border-l-0'
                 )}
                 type={passLook ? 'password' : 'text'}
               />

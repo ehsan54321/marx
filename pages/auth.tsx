@@ -38,7 +38,7 @@ const AuthPage = () => {
         </Link>
       </div>
       <div>
-        <div className="text-center" style={{ marginBottom: -160 }}>
+        <div className="text-center mb-[-160px]">
           <Image
             src="/static/images/favicon.ico"
             alt="لوگو"
@@ -90,16 +90,12 @@ const AuthPage = () => {
             <Slide right>
               <LoginForm />
               <div className="mt-3">
-                <button className="btn btn-dark w-100">
-                  <FaGithub
-                    className="me-1"
-                    size={20}
-                    style={{ marginTop: 3.5 }}
-                  />
+                <button className="btn btn-dark w-full">
+                  <FaGithub className="me-1 mt-[3.5px]" size={20} />
                   ورود از طریق گیت هاب
                 </button>
-                {/* <button className="btn btn-danger mt-1 w-100">
-                <FaGoogle className="me-1" size={20} style={{ marginTop: 3.5 }} />
+                {/* <button className="btn btn-danger mt-1 w-full">
+                <FaGoogle className="me-1 mt-[3.5px]" size={20} />
                 ورود از طریق گوگل
               </button> */}
               </div>
@@ -109,16 +105,12 @@ const AuthPage = () => {
             <Slide right>
               <RegisterForm />
               <div className="mt-3">
-                <button className="btn btn-dark w-100">
-                  <FaGithub
-                    className="me-1"
-                    size={20}
-                    style={{ marginTop: 3.5 }}
-                  />
+                <button className="btn btn-dark w-full">
+                  <FaGithub className="me-1 mt-[3.5px]" size={20} />
                   ورود از طریق گیت هاب
                 </button>
-                {/* <button className="btn btn-danger mt-1 w-100">
-                <FaGoogle className="me-1" size={20} style={{ marginTop: 3.5 }} />
+                {/* <button className="btn btn-danger mt-1 w-full">
+                <FaGoogle className="me-1 mt-[3.5px]" size={20} />
                 ورود از طریق گوگل
               </button> */}
               </div>

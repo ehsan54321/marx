@@ -66,28 +66,26 @@ const ControllerCoins = ({ dataServer }) => {
   }
   return (
     <>
-      <div className="mx-4 mb-4 d-flex mt-2 uiCoin_search">
+      <div className="mx-4 mb-4 flex mt-2 uiCoin_search">
         <button type="submit" className="uiCoin_searchBtn h5 text-white">
           <BsSearch />
         </button>
         <button
           type="submit"
-          className="h5 uiCoin_btnX cursor-pointer bg-white d-flex position-relative"
+          className="h5 uiCoin_btnX cursor-pointer bg-white flex relative"
           onClick={() => {
             setSearchValue('')
             searchHandler('')
           }}
         >
           {searchValue && (
-            <span className="position-absolute bg-black ms-1">
-              <TbX className="text-white" size={15} />
-            </span>
+            <span className="absolute bg-black ms-1 text-white">×</span>
           )}
         </button>
         <input
           type="text"
           className={classNames(
-            'border-start-0 w-100',
+            'border-r-0 w-full',
             !searchValue ? 'text-start' : ''
           )}
           maxLength={pageItem}
@@ -118,7 +116,7 @@ const ControllerCoins = ({ dataServer }) => {
 
       {data.length > pageItem && (
         <nav>
-          <ul className="pagination justify-content-center mt-2" dir="ltr">
+          <ul className="pagination justify-center mt-2" dir="ltr">
             {arrPageSize().map((item) => (
               <li className="page-item" key={item}>
                 <a

@@ -25,7 +25,7 @@ const Account = () => {
             </ul>
           </nav>
         </Jump>
-        <div className="w-100 text-right p-2 pt-0 ms-0 row">
+        <div className="w-full text-right p-2 pt-0 ms-0 row">
           <div className="col-lg-3 col-md-5">
             <UserCard />
           </div>

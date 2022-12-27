@@ -501,7 +501,7 @@ const coins = [
     id: 36,
     key: 'mana',
     name: 'مانا',
-    all_name: 'Decentraland MANA',
+    all_name: 'Decentraland',
     poster_path: 'mana',
     usd: 0.416,
     day: {
