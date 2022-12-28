@@ -35,13 +35,13 @@ const Settings = ({ setImg, img, tem, setTem }) => {
           options={optionsLang}
         />
         <Select
-          className="w-full ms-3"
+          className="w-full mr-4"
           onChange={(e) => setImg(e.value === 'img')}
           defaultValue={[img ? optionsImg[0] : optionsImg[1]]}
           options={optionsImg}
         />
         <Select
-          className="w-full ms-3"
+          className="w-full mr-4"
           onChange={(e) => setTem(e.value === 'tem1')}
           defaultValue={[tem ? optionsTem[0] : optionsTem[1]]}
           options={optionsTem}

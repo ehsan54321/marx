@@ -18,14 +18,14 @@ const Account = () => {
       <>
         <SEO title={`${t('profile')} ${authState.username}`} />
         <Jump>
-          <nav className="mt-4 mb-4 nav_page">
+          <nav className="mt-6 mb-6 nav_page">
             <ul className="breadcrumb">
               <li className="breadcrumb-item">{t('profile')}</li>
               <li className="breadcrumb-item active">{authState.username}</li>
             </ul>
           </nav>
         </Jump>
-        <div className="w-full text-right p-2 pt-0 ms-0 row">
+        <div className="w-full text-right p-2 pt-0 mr-0 row">
           <div className="col-lg-3 col-md-5">
             <UserCard />
           </div>

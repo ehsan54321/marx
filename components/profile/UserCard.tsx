@@ -34,15 +34,15 @@ const UserCard = () => {
       <div className="text-center p-2">
         <img
           src={authState.poster_path}
-          className="rounded-circle w-32"
+          className="rounded-full w-32"
           alt={`${t('profile')} ${authState.username}`}
         />
       </div>
       <div className="divider flex mt-1 mb-2">
-        <span className="px-3">{t('info.user')}</span>
+        <span className="px-4">{t('info.user')}</span>
       </div>
       <div className="text-center card-body">
-        <div className="mb-3">
+        <div className="mb-4">
           <p>
             <span className="text-slate-500 h6">{t('info.account')}</span>
             {authState.username}

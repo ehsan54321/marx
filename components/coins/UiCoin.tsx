@@ -27,17 +27,17 @@ const UiCoin = (props: Props) => {
   const { t } = useTranslation()
   return (
     <tr className="tr">
-      <td className="d-xm-none">
+      <td className="max-sm:hidden">
         <div>
           <Star name={my_key} faName={name} id={id} poster_path={poster_path} />
-          <span className="text-slate-400 d-xm-none uiCoin_id">
+          <span className="text-slate-400 max-sm:hidden text-[12px] mr-[10px]">
             {numberToPersian(id, t('lang'))}
           </span>
         </div>
       </td>
       <td>
         <div className="flex">
-          <div className="me-2 sm:hidden uiCoin_star">
+          <div className="ml-2 sm:hidden mt-[7px]">
             <Star
               name={my_key}
               faName={name}
@@ -59,13 +59,13 @@ const UiCoin = (props: Props) => {
                 pathname: '/coins/[coin]',
                 query: { coin: my_key },
               }}
-              className="flex flex-col mt-sm-0 mt-1 pb-sm-0 pb-1 ms-1 uiCoin_nameCoin"
+              className="flex flex-col sm:mt-0 mt-[.8px] max-sm:pb-1 mr-1 uiCoin_nameCoin"
               title={t('name-coin')}
             >
-              <span className="hidden sm:inline text-start my_transition name">
+              <span className="hidden sm:inline text-right my_transition name leading-6">
                 {t('lang') ? name : all_name}
               </span>
-              <span className="text-uppercase flex uiCoin_nameEN">
+              <span className="uppercase flex uiCoin_nameEN text-slate-500 mr-1 leading-6 text-[12px] mt-1">
                 {'(' + my_key + ')'}
               </span>
             </Link>
@@ -87,7 +87,7 @@ const UiCoin = (props: Props) => {
             )}
           </span>
           <span
-            className={classNames('uiCoin_toman', t('lang') ? 'ms-1' : 'me-1')}
+            className={classNames('uiCoin_toman', t('lang') ? 'mr-1' : 'ml-1')}
           >
             {t('toman')}
           </span>
@@ -101,7 +101,7 @@ const UiCoin = (props: Props) => {
         >
           <span>{numberToPersian(formatCurrency(usd), t('lang'))}</span>
           <span
-            className={classNames('uiCoin_toman', t('lang') ? 'ms-1' : 'me-1')}
+            className={classNames('uiCoin_toman', t('lang') ? 'mr-1' : 'ml-1')}
           >
             {t('usd')}
           </span>
@@ -123,7 +123,7 @@ const UiCoin = (props: Props) => {
           </span>
         </div>
       </td>
-      <td className="d-xm-none">
+      <td className="max-sm:hidden">
         <p
           className={classNames(
             !t('lang') ? 'uiCoin_numEnMode' : '',
@@ -133,7 +133,7 @@ const UiCoin = (props: Props) => {
         >
           <span>{numberToPersian(formatCurrency(usd), t('lang'))}</span>
           <span
-            className={classNames('uiCoin_toman', t('lang') ? 'ms-1' : 'me-1')}
+            className={classNames('uiCoin_toman', t('lang') ? 'mr-1' : 'ml-1')}
           >
             {t('usd')}
           </span>

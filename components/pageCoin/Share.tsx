@@ -23,45 +23,45 @@ const Share = ({ nameCoin, name }) => {
   }
   return (
     <div className="sm:flex justify-between">
-      <div className="flex text-secondary mb-2 mb-sm-0 ms-2">
-        <div className="me-1 flex items-center">
+      <div className="flex text-slate-500 max-sm:mb-2 mr-2">
+        <div className="ml-1 flex items-center">
           <HiOutlineShare size={15} />
         </div>
         <span className="text-[14px]">اشتراک گزاری</span>
       </div>
-      <div className="flex ms-2 justify-center">
+      <div className="flex mr-2 justify-center">
         <a
           target="_blank"
           rel="nofollow noreferrer"
-          className="me-2 hover:text-red-500"
+          className="ml-2 hover:text-red-500"
           href={`mailto:?subject=${
             'صفحه کوین ' + name
           }&body=Open this link:%0D%0A${baseURL}coins/${nameCoin}`}
         >
           <AiOutlineMail />
-          <span className="ms-1">{t('email')}</span>
+          <span className="mr-1">{t('email')}</span>
         </a>
         <a
           target="_blank"
           rel="nofollow noreferrer"
-          className="me-2"
+          className="ml-2"
           href={`https://t.me/share/url?url=${baseURL}coins/${nameCoin}`}
         >
           <TbBrandTelegram />
-          <span className="ms-1">{t('telegram')}</span>
+          <span className="mr-1">{t('telegram')}</span>
         </a>
         <a
           target="_blank"
           rel="nofollow noreferrer"
-          className="me-2 hover:text-green-600"
+          className="ml-2 hover:text-green-600"
           href={`whatsapp://send?text=${baseURL}coins/${nameCoin}`}
         >
           <AiOutlineWhatsApp />
-          <span className="ms-1">{t('whatsapp')}</span>
+          <span className="mr-1">{t('whatsapp')}</span>
         </a>
         <a onClick={copyHandler} className="hover:text-neutral-500">
           <RiFileCopyLine />
-          <span className="ms-1">{t('copy.link')}</span>
+          <span className="mr-1">{t('copy.link')}</span>
         </a>
       </div>
     </div>

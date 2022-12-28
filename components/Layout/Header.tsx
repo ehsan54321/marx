@@ -27,7 +27,7 @@ const Header = () => {
   }
   return (
     <nav
-      className="bg-white sticky layout_head top-0"
+      className="bg-white sticky layout_head z-20 top-0 h-16"
       dir={t('lang') ? 'rtl' : 'ltr'}
     >
       <div className="container-xxl justify-between items-center flex h-full">
@@ -37,12 +37,12 @@ const Header = () => {
               <li className="nav-item">
                 <button
                   className={classNames(
-                    'layout_toggle block sm:hidden mt-[3px]',
-                    t('lang') ? 'me-2' : 'ms-2'
+                    ' block sm:hidden bg-transparent',
+                    t('lang') ? 'ml-2' : 'mr-2'
                   )}
                   onClick={() => setModal(!modal)}
                 >
-                  {modal ? <FaTimes /> : <FaBars />}
+                  {modal ? <FaTimes size={28} /> : <FaBars size={28} />}
                 </button>
               </li>
               <li className="nav-item">
@@ -58,11 +58,11 @@ const Header = () => {
               </li>
               <li
                 className={classNames(
-                  'nav-item d-xm-none',
+                  'nav-item max-sm:hidden h-6',
                   t('lang') ? 'layout_divider' : 'layout_dividerEn'
                 )}
               >
-                <div className="vr h-full mx-lg-2"></div>
+                <div className="vr h-full lg:mx-2"></div>
               </li>
             </ul>
           </div>
@@ -75,17 +75,17 @@ const Header = () => {
               height: height(),
             }}
           >
-            <ul className="block sm:flex m-sm-auto mt-3 items-center">
+            <ul className="block sm:flex sm:m-auto mt-4 items-center">
               <Link
                 href="/"
-                className="font-medium px-3 py-2 sm:rounded-lg sm:hover:bg-slate-100 text-lg sm:inline block sm:leading-1 leading-10"
+                className="font-medium px-4 py-2 sm:rounded-lg sm:hover:bg-slate-100 text-lg sm:inline block sm:leading-1 leading-10"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="15px"
                   height="15px"
                   viewBox="0 0 30 30"
-                  className={t('lang') ? 'me-1' : 'ms-1'}
+                  className={t('lang') ? 'ml-1' : 'mr-1'}
                 >
                   <path
                     fill="#dbf2ff"
@@ -128,14 +128,14 @@ const Header = () => {
               </Link>
               <Link
                 href="/stars"
-                className="font-medium px-3 py-2 sm:rounded-lg sm:hover:bg-slate-100 text-lg sm:inline block sm:leading-1 leading-10"
+                className="font-medium px-4 py-2 sm:rounded-lg sm:hover:bg-slate-100 text-lg sm:inline block sm:leading-1 leading-10"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="18"
                   height="18"
                   viewBox="0 0 48 48"
-                  className={t('lang') ? 'me-1' : 'ms-1'}
+                  className={t('lang') ? 'ml-1' : 'mr-1'}
                 >
                   <path
                     fill="#FFCA28"
@@ -155,10 +155,10 @@ const Header = () => {
               {activePathName === '' && (
                 <a
                   href="#faq"
-                  className="text-secondary font-medium px-3 py-2 text-slate-500 rounded-lg sm:hover:bg-slate-100 text-lg sm:inline block sm:leading-1 leading-10"
+                  className="font-medium px-4 py-2 rounded-lg sm:hover:bg-slate-100 text-lg sm:inline block sm:leading-1 leading-10"
                 >
-                  <FcFaq className={t('lang') ? 'me-1 mt-0' : 'ms-1 mt-0'} />
-                  <span>{t('faq')}</span>
+                  <FcFaq className={t('lang') ? 'ml-1 mt-0' : 'mr-1 mt-0'} />
+                  <span className="text-slate-500">{t('faq')}</span>
                 </a>
               )}
 
@@ -208,7 +208,7 @@ const Auth = () => {
     <>
       <ChangeMode />
       {isFind() ? (
-        <span className={classNames('loader', t('lang') ? 'ms-3' : 'me-3')}>
+        <span className="loader">
           <svg viewBox="22 22 44 44">
             <circle
               cx="44"
@@ -221,24 +221,19 @@ const Auth = () => {
         </span>
       ) : !isAuth ? (
         <>
-          <Link href="/auth#login" className={t('lang') ? 'ms-2' : 'me-2'}>
+          <Link href="/auth#login">
             <button type="button" className="btn btn-outline-dark">
               <span>{t('btn-login')}</span>
             </button>
           </Link>
         </>
       ) : (
-        <div
-          className={classNames(
-            'relative layout_dup flex items-center',
-            t('lang') ? '' : 'layout_dupEN'
-          )}
-        >
+        <div className="relative h-20 flex items-center">
           <div className="sm:hidden">
             <Link href="/account">
               <img
                 src={authState.poster_path}
-                className="rounded-circle ms-2"
+                className="mr-2 rounded-full"
                 alt={`${t('profile')} ${authState.username}`}
                 width="40px"
                 height="auto"
@@ -249,37 +244,43 @@ const Auth = () => {
             onMouseEnter={() => setShow(true)}
             onMouseLeave={() => setShow(false)}
           >
-            <button
-              className="layout_dupBtn pe-0 bg-white d-xm-none"
-              type="button"
-            >
+            <button className="pl-0 bg-white max-sm:hidden" type="button">
               <img
                 src={authState.poster_path}
-                className="rounded-circle me-1 h-auto"
+                className="rounded-full mr-1 h-auto w-10 object-cover"
                 alt={`${t('profile')} ${authState.username}`}
               />
               <BsFillCaretDownFill />
             </button>
-            <Fade when={show}>
-              <ul className="layout_menu absolute bg-white">
-                <Link href="/account" className="text-dark">
-                  <li className="layout_dupLi">
-                    <BsFillPersonFill />
-                    <span className={t('lang') ? 'ms-1' : 'me-1'}>
-                      {t('profile')}
-                    </span>
-                  </li>
-                </Link>
-                <div onClick={Logout}>
-                  <li className="layout_dupLi cursor-pointer">
-                    <HiLogout />
-                    <span className={t('lang') ? 'ms-2' : 'me-2'}>
-                      {t('logout')}
-                    </span>
-                  </li>
-                </div>
-              </ul>
-            </Fade>
+            <ul
+              className={classNames(
+                'layout_menu absolute bg-white top-3',
+                t('lang')
+                  ? show
+                    ? 'right-[-70px]'
+                    : 'right-40'
+                  : show
+                  ? 'left-[-70px]'
+                  : 'left-40'
+              )}
+            >
+              <Link href="/account">
+                <li className="layout_dupLi text-black">
+                  <BsFillPersonFill />
+                  <span className={t('lang') ? 'mr-1' : 'mr-1'}>
+                    {t('profile')}
+                  </span>
+                </li>
+              </Link>
+              <div onClick={Logout}>
+                <li className="layout_dupLi cursor-pointer">
+                  <HiLogout />
+                  <span className={t('lang') ? 'mr-2' : 'ml-2'}>
+                    {t('logout')}
+                  </span>
+                </li>
+              </div>
+            </ul>
           </div>
         </div>
       )}
@@ -300,8 +301,10 @@ const ChangeMode = () => {
   }
   return (
     <>
-      <div className="flex items-center">
-        {/* <div className="flex me-2" onClick={() => setMod(!mod)}>
+      <div
+        className={classNames(t('lang') ? 'ml-2' : 'mr-2', 'flex items-center')}
+      >
+        {/* <div className="flex ml-2" onClick={() => setMod(!mod)}>
           <span
             className={classNames('switch flex', mod ? 'switch_active' : '')}
           >

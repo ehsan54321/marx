@@ -4,16 +4,7 @@
   }
 }
 
-@media (min-width: 600px) {
-  .auth_login {
-    width: 550px;
-  }
-}
-
 @media (max-width: 575px) {
-  .w-xm-100 {
-    width: 100% !important;
-  }
   .tr th {
     letter-spacing: -0.2px;
     font-size: 10px;
@@ -23,17 +14,10 @@
       color: #5a5d60;
       line-height: 2.9;
       font-size: 12.5px !important;
-      margin-top: 0;
-    }
-    &search {
-      max-width: revert;
     }
     &numbers {
       font-size: 14.5px !important;
     }
-  }
-  .d-xm-none {
-    display: none !important;
   }
   .layout_ {
     &links {
@@ -49,23 +33,9 @@
       border-bottom: 1px solid #eee;
     }
   }
-  .star_home {
-    width: 150px;
-  }
 }
 
 @media (min-width: 576px) {
-  .layout_dup {
-    height: 70px;
-
-    & .layout_menu {
-      inset: 10px auto auto -20px;
-      width: 150px;
-    }
-    &EN .layout_menu {
-      inset: 10px -20px auto auto !important;
-    }
-  }
   .layout_col {
     height: auto !important;
   }

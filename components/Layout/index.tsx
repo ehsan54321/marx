@@ -51,17 +51,17 @@ const Progress = () => {
   }, [])
   if (show) {
     return (
-      <div className="layout_wrapper bg-white sticky right-0 mb-4">
-        <div className="layout_progressBar w-full">
+      <div className="z-10 bg-white sticky right-0 mb-6 top-16">
+        <div className="h-[5px] w-full">
           <div
-            className="layout_progressMain h-full"
+            className="h-full w-0 bg-slate-500"
             style={{ width: `${width}%` }}
           ></div>
         </div>
       </div>
     )
   } else {
-    return <div className="mb-4 pb-1"></div>
+    return <div className="mb-6 pb-1"></div>
   }
 }
 
@@ -78,8 +78,8 @@ const ScrollTop = () => {
   return (
     <button
       className={classNames(
-        'btn fixed bg-white layout_scrollTop',
-        show ? 'opacity-100' : 'opacity-0'
+        'fixed bg-white layout_scrollTop py-2 px-[12px] rounded-full z-10 cursor-pointer',
+        show ? 'bottom-[15px] right-4' : 'bottom-[-40px] right-[-20px]'
       )}
       onClick={topPage}
     >

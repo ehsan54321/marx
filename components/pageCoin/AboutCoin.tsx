@@ -13,7 +13,7 @@ const AboutCoin = ({ aboutCoin, dayGrith }) => {
   return (
     <div className="sm:flex">
       <div className="flex">
-        <div className="me-3 mb-3 mb-sm-0" ref={tradingVolume}>
+        <div className="ml-4 max-sm:mb-4" ref={tradingVolume}>
           <span className="text-slate-500">
             {t('lang') ? (
               <>
@@ -30,12 +30,12 @@ const AboutCoin = ({ aboutCoin, dayGrith }) => {
             )}
           </span>
           <br />
-          <span className="text-[13px] mt-1 mb-3 mb-sm-0">
+          <span className="text-[13px] mt-1 max-sm:mb-4">
             {numberToPersian(formatCurrency('756345'), t('lang'))}
           </span>
         </div>
         <div className="vr"></div>
-        <div className="ms-3 me-3 flex flex-col">
+        <div className="mr-4 ml-4 flex flex-col">
           <span className="text-slate-500">{t('coin.display.size') + ':'}</span>
           <span className="text-[13px] mt-1">
             {numberToPersian(dayGrith, t('lang'))}
@@ -48,10 +48,10 @@ const AboutCoin = ({ aboutCoin, dayGrith }) => {
         className="sm:hidden opacity-25"
       ></div>
 
-      <div className="vr d-xm-none"></div>
+      <div className="vr max-sm:hidden"></div>
       <div className="flex">
         <div
-          className="ms-3 me-sm-3 flex flex-col me-3 mt-3 mt-sm-0"
+          className="mr-4 sm:mr-3 flex flex-col ml-4 max-sm:mt-4"
           style={{ width }}
         >
           <span className="text-slate-500">{t('coin.total.market') + ':'}</span>
@@ -61,22 +61,24 @@ const AboutCoin = ({ aboutCoin, dayGrith }) => {
         </div>
 
         <div className="vr"></div>
-        <div className="ms-3 mt-3 mt-sm-0">
+        <div className="mr-4 max-sm:mt-4">
           <span className="text-slate-500">{t('coin.date') + ':'}</span>
           <br />
           <div className="text-center">
             <span>{numberToPersian(aboutCoin.arz, t('lang'))}</span>
           </div>
           <div className="h-auto">
-            <div
-              className="bg-green-700 justify-start text-white py-px text-center rounded-lg"
-              style={{ width: aboutCoin.now + '%' }}
-            >
-              <span>{numberToPersian(aboutCoin.now, t('lang')) + '٪'}</span>
+            <div className="bg-slate-300 rounded-lg">
+              <div
+                className="text-white text-center rounded-lg bg-green-700"
+                style={{ width: aboutCoin.now + '%' }}
+              >
+                <span>{numberToPersian(aboutCoin.now, t('lang')) + '٪'}</span>
+              </div>
             </div>
           </div>
           <div className="text-[13px] flex justify-between">
-            <span className="text-slate-500 me-1">
+            <span className="text-slate-500 mr-1">
               {t('coin.display.size') + ':'}
             </span>
             <span>{numberToPersian(aboutCoin.maxArz, t('lang'))}</span>

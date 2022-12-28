@@ -6,9 +6,9 @@ const Footer = ({ NoFooter }: { NoFooter: boolean }) => {
   const { t } = useTranslation()
   if (!NoFooter) {
     return (
-      <footer className="mt-3 bg-white layout_border">
+      <footer className="mt-4 bg-white layout_border">
         <div className="container-xxl">
-          <div className="flex justify-between items-center ms-2 me-2 layout_content">
+          <div className="flex justify-between items-center mx-2 h-16">
             <div className="flex items-center">
               <Image
                 src="/static/images/favicon.ico"
@@ -17,7 +17,7 @@ const Footer = ({ NoFooter }: { NoFooter: boolean }) => {
                 height={33}
                 priority
               />
-              <small className="layout_text mx-2 sm:flex hidden text-black-50">
+              <small className="mx-2 sm:flex hidden text-slate-500">
                 {t('lang')
                   ? '۱۴۰۱ © طبق ماده 12 فصل سوم قانون جرائم رایانه‌ای هرگونه کپی برداری از طرح قالب، مطالب و فایل‌های تارنمای MyApp به هر نحو، پیگرد قانونی دارد.'
                   : '1401 © According to article 12 of the third chapter of the Computer Crimes Law, any copying of the MyApp website template design, contents and files in any way is prosecuted.'}
@@ -29,7 +29,10 @@ const Footer = ({ NoFooter }: { NoFooter: boolean }) => {
                 rel="nofollow noreferrer"
                 target="_blank"
               >
-                <BsGithub className="layout_icon" size={30} />
+                <BsGithub
+                  className="layout_icon text-slate-600 hover:text-black"
+                  size={30}
+                />
               </a>
             </div>
           </div>

@@ -28,7 +28,7 @@ const Coin = ({ props, nameCoin }) => {
         description={props.coin.aboutCoin.body}
       />
       <Jump>
-        <nav className="mt-4 mb-4 nav_page">
+        <nav className="mt-6 mb-6 nav_page">
           <ul className="breadcrumb">
             <li className="breadcrumb-item">
               <Link className="hover:secondary" href="/">
@@ -45,11 +45,11 @@ const Coin = ({ props, nameCoin }) => {
       <div className="background-color bg-white">
         <ControllerPageCoin {...props} nameCoin={nameCoin} />
       </div>
-      <div className="background-color bg-white mt-3">
+      <div className="background-color bg-white mt-4">
         <Share nameCoin={nameCoin} name={props.coin.name} />
       </div>
-      <div className="background-color bg-white mt-3">
-        <h2 className="leading-7 font-bold h5 ms-3 mb-3">
+      <div className="background-color bg-white mt-4">
+        <h2 className="leading-7 font-bold h5 mr-4 mb-4">
           {t('introducing.coin')}
         </h2>
         <Accordion

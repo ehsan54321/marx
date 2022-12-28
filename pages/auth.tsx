@@ -30,7 +30,7 @@ const AuthPage = () => {
   return !isAuth ? (
     <>
       <SEO title={text} />
-      <div className="mt-3 ms-2">
+      <div className="mt-4 mr-2">
         <Link href="/">
           <button className="btn btn-outline-secondary">
             {t('go.to.home.page')}
@@ -48,8 +48,8 @@ const AuthPage = () => {
             priority
           />
         </div>
-        <div className="background-color bg-white text-center m-auto ps-3 pe-3 auth_login">
-          <div className="mb-3">
+        <div className="background-color bg-white text-center mx-auto pr-4 pe-3 pt-16 mt-[15vh] sm:w-[550px]">
+          <div className="mb-4">
             <ul className={tem ? 'nav nav-tabs' : 'nav nav-pills'}>
               <li className="nav-item">
                 <a
@@ -89,13 +89,13 @@ const AuthPage = () => {
           {status === 'login' && (
             <Slide right>
               <LoginForm />
-              <div className="mt-3">
+              <div className="mt-4">
                 <button className="btn btn-dark w-full">
-                  <FaGithub className="me-1 mt-[3.5px]" size={20} />
+                  <FaGithub className="ml-1 mt-[3.5px]" size={20} />
                   ورود از طریق گیت هاب
                 </button>
                 {/* <button className="btn btn-danger mt-1 w-full">
-                <FaGoogle className="me-1 mt-[3.5px]" size={20} />
+                <FaGoogle className="ml-1 mt-[3.5px]" size={20} />
                 ورود از طریق گوگل
               </button> */}
               </div>
@@ -104,13 +104,13 @@ const AuthPage = () => {
           {status === 'register' && (
             <Slide right>
               <RegisterForm />
-              <div className="mt-3">
+              <div className="mt-4">
                 <button className="btn btn-dark w-full">
-                  <FaGithub className="me-1 mt-[3.5px]" size={20} />
+                  <FaGithub className="ml-1 mt-[3.5px]" size={20} />
                   ورود از طریق گیت هاب
                 </button>
                 {/* <button className="btn btn-danger mt-1 w-full">
-                <FaGoogle className="me-1 mt-[3.5px]" size={20} />
+                <FaGoogle className="ml-1 mt-[3.5px]" size={20} />
                 ورود از طریق گوگل
               </button> */}
               </div>
@@ -130,7 +130,7 @@ const AuthPage = () => {
       </div>
     </>
   ) : (
-    <div className="mt-4">
+    <div className="mt-6">
       <Error401 btnHome>{t('error.401')}</Error401>
     </div>
   )

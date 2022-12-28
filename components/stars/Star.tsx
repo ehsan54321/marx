@@ -76,12 +76,12 @@ const Star = ({ name, faName, id, poster_path }: starObj) => {
   }
 
   if (loaderStatus) {
-    return <div className="spinner-grow text-blue-600 star_wh"></div>
+    return <div className="spinner-grow text-blue-600"></div>
   } else {
     return isAuth && status ? (
       <AiTwotoneStar
         onClick={starHandler}
-        className="star_star cursor-pointer star_gold m-auto mt-0"
+        className="star_star cursor-pointer text-yellow-300 m-auto mt-0"
         size={17}
       />
     ) : (
@@ -91,7 +91,7 @@ const Star = ({ name, faName, id, poster_path }: starObj) => {
         width="17"
         height="17"
         onClick={starHandler}
-        className="star_star cursor-pointer m-auto"
+        className="cursor-pointer m-auto"
       />
     )
   }

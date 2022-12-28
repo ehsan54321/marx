@@ -138,8 +138,8 @@ const Login = () => {
   }
   return (
     <form className="form-floating" onSubmit={onSubmit}>
-      <div className="mb-3">
-        <div className="text-start mb-2">
+      <div className="mb-4">
+        <div className="text-right mb-2">
           <label htmlFor="login_email">{t('email')}</label>
         </div>
         <div className="input-group">
@@ -158,7 +158,7 @@ const Login = () => {
         </div>
       </div>
       <div>
-        <div className="text-start mb-2">
+        <div className="text-right mb-2">
           <label htmlFor="login_password">{t('password')}</label>
         </div>
         <div className="input-group">
@@ -186,11 +186,11 @@ const Login = () => {
       <div>
         <button
           type="submit"
-          className="w-full mt-4 auth_btn btn btn-outline-primary"
+          className="w-full mt-6 text-inherit text-blue-600 btn btn-outline-primary"
           disabled={loader}
         >
           {loader && (
-            <span className="loader text-dark me-1" role="progressbar">
+            <span className="loader text-black ml-1" role="progressbar">
               <svg viewBox="22 22 44 44" width="20">
                 <circle
                   cx="44"

@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 const StarPage = (props) => {
   const { t } = useTranslation()
   return (
-    <div className="flex flex-col justify-around star_home">
+    <div className="flex flex-col justify-around rounded-xl w-44 h-44 p-[10px] bg-gray-100">
       <div className="flex">
         <div className="flex items-center">
           <Image
@@ -21,12 +21,12 @@ const StarPage = (props) => {
             pathname: '/coins/[coin]',
             query: { coin: props.nameEN },
           }}
-          className="uiCoin_nameCoin ms-1"
+          className="uiCoin_nameCoin mr-1"
         >
           <span title={t('name-coin')} className="flex mb-1 name my_transition">
             {props.name}
           </span>
-          <span className="text-uppercase flex mb-0 text-[13px] ms-1 text-slate-500">
+          <span className="uppercase flex mb-0 text-[13px] mr-1 text-slate-500">
             {'(' + props.nameEN + ')'}
           </span>
         </Link>

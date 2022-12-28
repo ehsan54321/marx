@@ -125,11 +125,11 @@ const UserInfo = () => {
     e.preventDefault()
   }
   return (
-    <div className="p-3 mt-2 mt-md-0 background-color card">
+    <div className="p-3 max-md:mt-2 background-color card">
       <div className="card-body">
         <form className="form-floating" onSubmit={onSubmit}>
-          <div className="mb-3">
-            <div className="text-start mb-2">
+          <div className="mb-4">
+            <div className="text-right mb-2">
               <label htmlFor="login_email">{t('email')}</label>
             </div>
             <div className="input-group">
@@ -152,7 +152,7 @@ const UserInfo = () => {
             </div>
           </div>
           <div>
-            <div className="text-start mb-2">
+            <div className="text-right mb-2">
               <label htmlFor="login_password">{t('password')}</label>
             </div>
             <div className="input-group">
@@ -181,7 +181,7 @@ const UserInfo = () => {
             </div>
           </div>
           {!disabled && (
-            <div className="text-center mt-4">
+            <div className="text-center mt-6">
               <button type="submit" className="btn btn-primary">
                 <span>{t('info.confirm')}</span>
               </button>
@@ -189,7 +189,7 @@ const UserInfo = () => {
           )}
         </form>
         {disabled && (
-          <div className="text-center mt-4">
+          <div className="text-center mt-6">
             <button
               type="submit"
               className="btn btn-outline-primary disabled"

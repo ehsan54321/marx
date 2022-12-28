@@ -23,7 +23,7 @@ const Error401 = ({ children, btn = false, btnHome = false }: Props) => {
           height={330}
         />
         <h1 className="h4">{t('error') + ' 401'}</h1>
-        <div className="text-slate-400 mb-4 overflow-auto">
+        <div className="text-slate-400 mb-6 overflow-auto">
           <span>{children}</span>
         </div>
         {btn && (

@@ -1,16 +1,10 @@
 .spinner-grow {
   display: inline-block;
-  width: var(--bs-spinner-width);
-  height: var(--bs-spinner-height);
-  vertical-align: var(--bs-spinner-vertical-align);
+  width: 16px;
+  height: 16px;
+  vertical-align: -0.125em;
   border-radius: 50%;
-  animation: var(--bs-spinner-animation-speed) linear infinite
-    var(--bs-spinner-animation-name);
-  --bs-spinner-width: 2rem;
-  --bs-spinner-height: 2rem;
-  --bs-spinner-vertical-align: -0.125em;
-  --bs-spinner-animation-speed: 0.75s;
-  --bs-spinner-animation-name: spinner-grow;
+  animation: 0.75s linear infinite spinner-grow;
   background: currentcolor;
   opacity: 0;
 }

@@ -66,27 +66,29 @@ const ControllerCoins = ({ dataServer }) => {
   }
   return (
     <>
-      <div className="mx-4 mb-4 flex mt-2 uiCoin_search">
+      <div className="mx-6 mb-6 flex mt-2 sm:max-w-[260px]">
         <button type="submit" className="uiCoin_searchBtn h5 text-white">
           <BsSearch />
         </button>
         <button
           type="submit"
-          className="h5 uiCoin_btnX cursor-pointer bg-white flex relative"
+          className="h5 relative cursor-pointer bg-white flex"
           onClick={() => {
             setSearchValue('')
             searchHandler('')
           }}
         >
           {searchValue && (
-            <span className="absolute bg-black ms-1 text-white">×</span>
+            <span className="absolute bg-black mr-1 text-white rounded-full w-6 top-[6.2px]">
+              ×
+            </span>
           )}
         </button>
         <input
           type="text"
           className={classNames(
-            'border-r-0 w-full',
-            !searchValue ? 'text-start' : ''
+            'border-r-0 w-full uiCoin_search',
+            !searchValue ? 'text-right' : ''
           )}
           maxLength={pageItem}
           dir="auto"

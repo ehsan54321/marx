@@ -16,16 +16,13 @@ const HomePage = ({ data }) => {
         description="وب سایت MyApp یک سایت نمایش قیمت ارز های دجیتال است مانند بیت کوین اتریوم تتر دوج کوین و غیر"
       />
       <Jump>
-        <h1 className="h5 mt-4 mb-4 leading-7 font-bold">{t('list-coins')}</h1>
+        <h1 className="h5 mt-6 mb-6 leading-7 font-bold">{t('list-coins')}</h1>
       </Jump>
-      <div className="background-color bg-white pt-4 px-0 pb-2">
+      <div className="background-color bg-white pt-6 px-0 pb-2">
         <ControllerCoin dataServer={data} />
       </div>
-      <div
-        className="background-color bg-white pt-4 pb-4 ps-1 pe-1 mt-3"
-        id="faq"
-      >
-        <h2 className="h5 mx-3 mb-3">{t('common.questions')}</h2>
+      <div className="background-color bg-white pt-6 pb-6 px-1 mt-4" id="faq">
+        <h2 className="h5 mx-4 mb-4">{t('common.questions')}</h2>
         <Accordion
           title={{
             one: 'قیمت‌ ارزهای دیجیتال چگونه تعیین می‌شوند؟',

@@ -39,7 +39,7 @@ const PageStars = () => {
       <>
         <SEO title={t('title.selected')} />
         <Jump>
-          <h1 className="h5 mt-4 mb-4 leading-7 font-bold">
+          <h1 className="h5 mt-6 mb-6 leading-7 font-bold">
             {t('selected.list')}
           </h1>
         </Jump>
@@ -63,7 +63,7 @@ const PageStars = () => {
               <Image
                 src="/static/images/no-data.svg"
                 alt="داده ای یافت نشد"
-                className="ms-3"
+                className="mr-4"
                 width={100}
                 height={100}
               />

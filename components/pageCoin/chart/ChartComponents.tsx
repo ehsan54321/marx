@@ -100,11 +100,11 @@ const ChartComponents = ({ usd }) => {
     ],
   }
   return (
-    <div className="pe-sm-3 w-full w-xm-75">
+    <div className="sm:pl-4 w-full w-xm-75">
       <div className="divider flex">
-        <h2 className="h6 m-0 px-3">{t('chart')}</h2>
+        <h2 className="h6 m-0 px-4">{t('chart')}</h2>
       </div>
-      <div className="bg-white mt-3">
+      <div className="bg-white mt-4">
         <Line
           options={{
             responsive: true,

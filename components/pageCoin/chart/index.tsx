@@ -7,7 +7,7 @@ const Chart = ({ props, nameCoin }) => {
   return (
     <div className="flex justify-between flex-col sm:flex-row">
       <ChartComponents usd={props.usd} />
-      <div className="mt-5 pt-4 text-center w-60 w-xm-100">
+      <div className="mt-12 pt-6 text-center w-60 max-sm:w-full">
         <h2 className="h6 m-0 mb-2">
           {t('price.change') + ' (' + nameCoin.toUpperCase() + ')'}
         </h2>

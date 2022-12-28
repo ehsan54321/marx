@@ -17,7 +17,7 @@ const ErrorSite = () => {
             height={330}
           />
           <h1 className="h4">{t('error') + ' Network Error'}</h1>
-          <div className="ttext-slate-500 mb-4 overflow-auto font-medium">
+          <div className="ttext-slate-500 mb-6 overflow-auto font-medium">
             <span>{t('error.server')}</span>
           </div>
         </div>
