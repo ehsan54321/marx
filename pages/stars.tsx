@@ -37,7 +37,7 @@ const PageStars = () => {
   if (isAuth) {
     return (
       <>
-        <SEO title={t('title.selected')} />
+        <SEO title={t('title.selected')} url="stars" />
         <Jump>
           <h1 className="h5 mt-6 mb-6 leading-7 font-bold">
             {t('selected.list')}

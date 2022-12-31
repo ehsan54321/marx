@@ -6,7 +6,6 @@ import sweetalert2 from 'sweetalert2'
 import { AuthContext } from '@store/auth'
 import { BsFillCaretDownFill, BsFillPersonFill } from 'react-icons/bs'
 import { FaBars, FaTimes } from 'react-icons/fa'
-import { Fade } from 'react-reveal'
 import { FcFaq } from 'react-icons/fc'
 import { HiLogout } from 'react-icons/hi'
 import { resErr } from '@lib/helper'
@@ -22,8 +21,8 @@ const Header = () => {
   Router.events.on('routeChangeStart', () => setModal(false))
   const height = () => {
     if (!modal) return 0
-    if (activePathName) return 'calc(113.422px + 4rem)'
-    else return '242px'
+    if (activePathName) return 222
+    else return 278
   }
   return (
     <nav
@@ -244,30 +243,36 @@ const Auth = () => {
             onMouseEnter={() => setShow(true)}
             onMouseLeave={() => setShow(false)}
           >
-            <button className="pl-0 bg-white max-sm:hidden" type="button">
+            <button
+              className="pl-0 bg-white max-sm:hidden min-w-[65px] max-w-[65px]"
+              type="button"
+            >
               <img
                 src={authState.poster_path}
-                className="rounded-full mr-1 h-auto w-10 object-cover"
+                className={classNames(
+                  'rounded-full h-auto w-10 object-cover',
+                  t('lang') ? 'ml-1' : 'mr-1'
+                )}
                 alt={`${t('profile')} ${authState.username}`}
               />
               <BsFillCaretDownFill />
             </button>
             <ul
               className={classNames(
-                'layout_menu absolute bg-white top-3',
+                'layout_menu absolute bg-white top-3 max-sm:right-96',
                 t('lang')
                   ? show
-                    ? 'right-[-70px]'
+                    ? 'right-[-60px]'
                     : 'right-40'
                   : show
-                  ? 'left-[-70px]'
+                  ? 'left-[-60px]'
                   : 'left-40'
               )}
             >
               <Link href="/account">
                 <li className="layout_dupLi text-black">
                   <BsFillPersonFill />
-                  <span className={t('lang') ? 'mr-1' : 'mr-1'}>
+                  <span className={t('lang') ? 'mr-1' : 'ml-1'}>
                     {t('profile')}
                   </span>
                 </li>

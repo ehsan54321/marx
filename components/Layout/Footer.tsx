@@ -17,10 +17,8 @@ const Footer = ({ NoFooter }: { NoFooter: boolean }) => {
                 height={33}
                 priority
               />
-              <small className="mx-2 sm:flex hidden text-slate-500">
-                {t('lang')
-                  ? '۱۴۰۱ © طبق ماده 12 فصل سوم قانون جرائم رایانه‌ای هرگونه کپی برداری از طرح قالب، مطالب و فایل‌های تارنمای MyApp به هر نحو، پیگرد قانونی دارد.'
-                  : '1401 © According to article 12 of the third chapter of the Computer Crimes Law, any copying of the MyApp website template design, contents and files in any way is prosecuted.'}
+              <small className="mx-2 sm:flex hidden text-gray-500">
+                {t('footer.text')}
               </small>
             </div>
             <div>

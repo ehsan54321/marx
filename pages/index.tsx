@@ -12,11 +12,12 @@ const HomePage = ({ data }) => {
     <>
       <SEO
         title={t('title.home')}
-        keywords="bitcoin, وب سایت نمایش قیمت ارز های دجیتال, دجیتال بیت کوین, بیت کوین, ارز دجیتال"
-        description="وب سایت MyApp یک سایت نمایش قیمت ارز های دجیتال است مانند بیت کوین اتریوم تتر دوج کوین و غیر"
+        keywords="قیمت ارزهای دجیتال, قیمت ارز دجیتال, قیمت ارزهای دجیتال در ایران, قیمت ارزهای دجیتال در سال ۱۴۰۰, ارزهای دجیتال در سال 1400,قیمت ارز, لیست قیمت ارزهای دجیتال, ارز دجیتال"
+        description="وب سایت MyApp یک سایت نمایش قیمت ارز های دجیتال است که بیش از ۴۲ ارز دجیتال دارد مانند بیت کوین اتریوم تتر دوج کوین و غیر ..."
+        url=""
       />
       <Jump>
-        <h1 className="h5 mt-6 mb-6 leading-7 font-bold">{t('list-coins')}</h1>
+        <h1 className="h5 mt-6 mb-6 leading-7 font-bold">{t('title.home')}</h1>
       </Jump>
       <div className="background-color bg-white pt-6 px-0 pb-2">
         <ControllerCoin dataServer={data} />
@@ -40,7 +41,7 @@ const HomePage = ({ data }) => {
 
 HomePage.getInitialProps = async () => {
   return {
-    data: (await http.get('api/v2/coins?pageItem=15')).data,
+    data: (await http.get('api/v2/coins?pi=20')).data,
   }
 }
 

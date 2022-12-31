@@ -34,13 +34,11 @@ const Accordion = (props) => {
           </button>
         </h2>
         <div
-          className="accordion-collapse accordion_transition"
+          className="accordion-collapse overflow-hidden h-0 accordion_transition"
           style={{ height: `calc(${hItemOne()}px - 1rem)` }}
         >
           <div className="accordion-body" ref={oneAccordion}>
-            <p className="accordion_list" dir="auto">
-              {props.di.one}
-            </p>
+            <p dir="auto">{props.di.one}</p>
           </div>
         </div>
       </div>
@@ -61,13 +59,11 @@ const Accordion = (props) => {
           </button>
         </h2>
         <div
-          className="accordion-collapse accordion_transition"
+          className="accordion-collapse overflow-hidden h-0 accordion_transition"
           style={{ height: `calc(${hItemTow()}px - 1rem)` }}
         >
           <div className="accordion-body" ref={towAccordion}>
-            <p className="accordion_list" dir="auto">
-              {props.di.tow}
-            </p>
+            <p dir="auto">{props.di.tow}</p>
           </div>
         </div>
       </div>

@@ -16,7 +16,10 @@ const Account = () => {
   if (isAuth) {
     return (
       <>
-        <SEO title={`${t('profile')} ${authState.username}`} />
+        <SEO
+          title={`${t('profile')} ${authState.username}`}
+          url={'account/' + authState.username}
+        />
         <Jump>
           <nav className="mt-6 mb-6 nav_page">
             <ul className="breadcrumb">

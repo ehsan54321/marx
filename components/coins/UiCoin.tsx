@@ -37,7 +37,7 @@ const UiCoin = (props: Props) => {
       </td>
       <td>
         <div className="flex">
-          <div className="ml-2 sm:hidden mt-[7px]">
+          <div className="ml-2 sm:hidden mt-3">
             <Star
               name={my_key}
               faName={name}
@@ -80,7 +80,7 @@ const UiCoin = (props: Props) => {
           )}
           title={t('mane-rials')}
         >
-          <span>
+          <span className="leading-8 font-bold">
             {numberToPersian(
               formatCurrency(~~(usd * props.rialsOne)),
               t('lang')
@@ -94,12 +94,14 @@ const UiCoin = (props: Props) => {
         </p>
         <p
           className={classNames(
-            'uiCoin_numbers uiCoin_mane mb-0 sm:hidden uiCoin_numbersSm',
+            'uiCoin_numbers uiCoin_mane mb-0 sm:hidden',
             !t('lang') ? 'uiCoin_numEnMode' : ''
           )}
           title={t('mane-usd')}
         >
-          <span>{numberToPersian(formatCurrency(usd), t('lang'))}</span>
+          <span className="leading-8 font-bold">
+            {numberToPersian(formatCurrency(usd), t('lang'))}
+          </span>
           <span
             className={classNames('uiCoin_toman', t('lang') ? 'mr-1' : 'ml-1')}
           >
@@ -116,10 +118,12 @@ const UiCoin = (props: Props) => {
           )}
           title={t('change-24h')}
         >
-          <span>
-            {numberToPersian(dayAll.day_in, t('lang')) + '٪'}
-            {(dayAll.color_day_in === 'red' && '-') ||
-              (dayAll.color_day_in === 'green' && '+')}
+          <span className="leading-8 font-bold">
+            {numberToPersian(dayAll.day_in, t('lang')) +
+              '٪' +
+              ((dayAll.color_day_in === 'red' && '-') ||
+                (dayAll.color_day_in === 'green' && '+') ||
+                '')}
           </span>
         </div>
       </td>
@@ -131,7 +135,9 @@ const UiCoin = (props: Props) => {
           )}
           title={t('mane-usd')}
         >
-          <span>{numberToPersian(formatCurrency(usd), t('lang'))}</span>
+          <span className="leading-8 font-bold">
+            {numberToPersian(formatCurrency(usd), t('lang'))}
+          </span>
           <span
             className={classNames('uiCoin_toman', t('lang') ? 'mr-1' : 'ml-1')}
           >
@@ -148,10 +154,12 @@ const UiCoin = (props: Props) => {
           )}
           title={t('change-7d')}
         >
-          <span>
-            {numberToPersian(dayAll.day7, t('lang')) + '٪'}
-            {(dayAll.color_day7 === 'red' && '-') ||
-              (dayAll.color_day7 === 'green' && '+')}
+          <span className="leading-8 font-bold">
+            {numberToPersian(dayAll.day7, t('lang')) +
+              '٪' +
+              ((dayAll.color_day7 === 'red' && '-') ||
+                (dayAll.color_day7 === 'green' && '+') ||
+                '')}
           </span>
         </div>
       </td>

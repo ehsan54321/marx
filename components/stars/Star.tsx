@@ -26,7 +26,7 @@ const Star = ({ name, faName, id, poster_path }: starObj) => {
   const starHandler = () => {
     const setFalse = (status: boolean) => {
       setStatus(status)
-      setTimeout(() => setLoaderStatus(false), 620)
+      setTimeout(() => setLoaderStatus(false), 350)
     }
     setLoaderStatus(true)
     if (isAuth) {

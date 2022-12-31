@@ -72,11 +72,12 @@ const Register = () => {
             timerProgressBar: true,
           })
         }
+        setLoader(false)
       })
       .catch(() => {
         resErr(t)
+        setLoader(false)
       })
-    setLoader(false)
   }
   const onSubmit = (e) => {
     const username: string = removeSpas(e.target['0'].value)
@@ -298,11 +299,11 @@ const Register = () => {
       <div>
         <button
           type="submit"
-          className="w-full mt-6 text-inherit text-blue-600 btn btn-outline-primary"
+          className="w-full mt-6 text-inherit text-blue-600 btn btn-outline-primary disabled:cursor-progress disabled:pointer-events-auto"
           disabled={loader}
         >
           {loader && (
-            <span className="loader text-black ml-1" role="progressbar">
+            <span className="loader text-black ml-1">
               <svg viewBox="22 22 44 44" width="20">
                 <circle
                   cx="44"

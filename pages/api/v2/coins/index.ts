@@ -1,8 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 const ApiPageHome = (req: NextApiRequest, res: NextApiResponse) => {
-  const { pageItem }: any = req.query
-  const pageSize = Math.ceil(coins.length / pageItem)
+  // pageItem
+  const { pi }: any = req.query
+  const pageSize = Math.ceil(coins.length / pi)
   res.status(200).json({ coins, rials: 34856, pageSize })
 }
 

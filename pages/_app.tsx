@@ -1,4 +1,5 @@
 import AuthProvider from '@store/auth'
+import HiThere from '@components/HiThere'
 import Layout from '@components/Layout'
 import Loader from '@util/Loader'
 import { Router } from 'next/router'
@@ -25,9 +26,12 @@ const App = ({ Component, pageProps }: AppProps<AppCustomProps>) => {
   return (
     <AuthProvider>
       <Layout NoLayout={pageProps.NoLayout} NoFooter={pageProps.NoFooter}>
-        <div className="container-xl">
-          {loaderStatus ? <Loader /> : <Component {...pageProps} />}
-        </div>
+        <>
+          <div className="container-xl">
+            {loaderStatus ? <Loader /> : <Component {...pageProps} />}
+          </div>
+          <HiThere />
+        </>
       </Layout>
     </AuthProvider>
   )

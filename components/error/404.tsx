@@ -15,6 +15,7 @@ const NotFound = () => {
             ? `این (url: ${router.asPath}) وجد ندارد`
             : `this (url: ${router.asPath}) there is no joy`
         }
+        url="404"
         noText
       />
       <div className="background-color bg-white">
@@ -27,7 +28,7 @@ const NotFound = () => {
             height={330}
           />
           <h1 className="h4">{t('error') + ' 404'}</h1>
-          <div className="text-slate-400 mb-6 overflow-auto font-medium">
+          <div className="text-gray-500 mb-6 overflow-auto font-medium">
             <span>{t('error.404')}</span>
           </div>
           <Link href="/">

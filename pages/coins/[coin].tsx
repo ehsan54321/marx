@@ -26,13 +26,14 @@ const Coin = ({ props, nameCoin }) => {
         title={t('lang') ? props.coin.name : props.coin.all_name}
         keywords={`${props.coin.name}, وب سایت نمایش قیمت ارز های دجیتال, دجیتال بیت کوین , بیت کوین ,ارز دجیتال`}
         description={props.coin.aboutCoin.body}
+        url={'coins' + nameCoin}
       />
       <Jump>
         <nav className="mt-6 mb-6 nav_page">
           <ul className="breadcrumb">
             <li className="breadcrumb-item">
               <Link className="hover:secondary" href="/">
-                {t('list-coins')}
+                {t('title.home')}
               </Link>
             </li>
             <li className="breadcrumb-item active">

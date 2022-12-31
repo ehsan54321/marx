@@ -1,10 +1,10 @@
 {
   "name": "my-app",
-  "version": "2.4.6",
+  "version": "2.4.7",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "format": "prettier --write \"components\" \"pages\" \"lib\" \"services\" \"styles\" \"util\"",
+    "format": "prettier --write \"components\" \"pages\" \"lib\" \"services\" \"styles\" \"util/Loader.tsx\"",
     "lint": "next lint",
     "build": "next build",
     "package-update": "yarn upgrade --latest",
@@ -17,9 +17,9 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@types/node": "18.11.17",
+    "@types/node": "18.11.18",
     "@types/react": "18.0.26",
-    "autoprefixer": "^10.4.13",
+    "autoprefixer": "10.4.13",
     "chart.js": "4.1.1",
     "classnames": "2.3.2",
     "cookies-next": "2.1.1",
@@ -29,7 +29,7 @@
     "i18next": "22.4.6",
     "jsonwebtoken": "9.0.0",
     "persian-date": "1.1.0",
-    "postcss": "^8.4.20",
+    "postcss": "8.4.20",
     "prettier": "2.8.1",
     "react-chartjs-2": "5.1.0",
     "react-i18next": "12.1.1",
@@ -38,7 +38,7 @@
     "react-select": "5.7.0",
     "sass": "1.57.1",
     "sweetalert2": "11.6.16",
-    "tailwindcss": "^3.2.4",
+    "tailwindcss": "3.2.4",
     "typescript": "4.9.4"
   }
 }

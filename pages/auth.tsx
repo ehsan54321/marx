@@ -29,7 +29,7 @@ const AuthPage = () => {
     : 'Page Login & Register'
   return !isAuth ? (
     <>
-      <SEO title={text} />
+      <SEO title={text} url="auth" />
       <div className="mt-4 mr-2">
         <Link href="/">
           <button className="btn btn-outline-secondary">

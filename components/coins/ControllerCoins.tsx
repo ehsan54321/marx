@@ -1,10 +1,9 @@
-import classNames from 'classnames'
-import MapCoin from './MapCoin'
-import { BsSearch } from 'react-icons/bs'
-import { numberToPersian, removeSpas } from '@lib/helper'
-import { startTransition, useState } from 'react'
-import { TbX } from 'react-icons/tb'
-import { useTranslation } from 'react-i18next'
+import classNames from 'classnames';
+import MapCoin from './MapCoin';
+import { numberToPersian, removeSpas } from '@lib/helper';
+import { startTransition, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { BsSearch,  } from 'react-icons/bs'
 
 type coinType = {
   id: number
@@ -22,13 +21,13 @@ type coinType = {
   }
 }
 const ControllerCoins = ({ dataServer }) => {
-  const pageItem: number = 15
+  const pageItem: number = 20
+  const { t } = useTranslation()
   const { pageSize } = dataServer
   const [page, setPage] = useState<number>(1)
+  const [searchValue, setSearchValue] = useState<string>('')
   const [data, setData] = useState<coinType[]>(dataServer.coins)
   const [dataView, setDataView] = useState<coinType[]>(data.slice(0, pageItem))
-  const [searchValue, setSearchValue] = useState<string>('')
-  const { t } = useTranslation()
   const arrPageSize = () => {
     const arr: number[] = [1]
     for (let i = 1; i < pageSize; i++) arr.push(arr.length + 1)
@@ -66,49 +65,51 @@ const ControllerCoins = ({ dataServer }) => {
   }
   return (
     <>
-      <div className="mx-6 mb-6 flex mt-2 sm:max-w-[260px]">
-        <button type="submit" className="uiCoin_searchBtn h5 text-white">
-          <BsSearch />
-        </button>
-        <button
-          type="submit"
-          className="h5 relative cursor-pointer bg-white flex"
-          onClick={() => {
-            setSearchValue('')
-            searchHandler('')
-          }}
-        >
-          {searchValue && (
-            <span className="absolute bg-black mr-1 text-white rounded-full w-6 top-[6.2px]">
-              ×
-            </span>
-          )}
-        </button>
-        <input
-          type="text"
-          className={classNames(
-            'border-r-0 w-full uiCoin_search',
-            !searchValue ? 'text-right' : ''
-          )}
-          maxLength={pageItem}
-          dir="auto"
-          value={searchValue}
-          placeholder={
-            t('lang')
-              ? `جستجو بین ${numberToPersian(
-                  dataServer.coins.length,
-                  '1'
-                )} کوین`
-              : `search ${dataServer.coins.length} coin`
-          }
-          onChange={(e) => {
-            startTransition(() => {
-              searchHandler(removeSpas(e.target.value.toLocaleLowerCase()))
-            })
-            setSearchValue(e.target.value)
-            e.preventDefault()
-          }}
-        />
+      <div className="flex mb-6">
+        <div className="mx-6 flex mt-2 sm:max-w-[260px]">
+          <button type="submit" className="uiCoin_searchBtn h5 text-white">
+            <BsSearch />
+          </button>
+          <button
+            type="submit"
+            className="h5 relative cursor-pointer bg-white flex"
+            onClick={() => {
+              setSearchValue('')
+              searchHandler('')
+            }}
+          >
+            {searchValue && (
+              <span className="absolute bg-black mr-1 text-white rounded-full w-6 top-[6.2px]">
+                ×
+              </span>
+            )}
+          </button>
+          <input
+            type="text"
+            className={classNames(
+              'border-r-0 w-full uiCoin_search h-9 outline-0 pr-8 p-1 text-gray-400 focus:text-black',
+              !searchValue ? 'text-right' : ''
+            )}
+            maxLength={pageItem}
+            dir="auto"
+            value={searchValue}
+            placeholder={
+              t('lang')
+                ? `جستجو بین ${numberToPersian(
+                    dataServer.coins.length,
+                    '1'
+                  )} کوین`
+                : `search ${dataServer.coins.length} coin`
+            }
+            onChange={(e) => {
+              startTransition(() => {
+                searchHandler(removeSpas(e.target.value.toLocaleLowerCase()))
+              })
+              setSearchValue(e.target.value)
+              e.preventDefault()
+            }}
+          />
+        </div>
       </div>
       <MapCoin
         rials={dataServer.rials}

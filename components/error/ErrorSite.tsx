@@ -6,7 +6,7 @@ const ErrorSite = () => {
   const { t } = useTranslation()
   return (
     <>
-      <SEO title={t('error.server')} noText />
+      <SEO title={t('error.server')} url="500" noText />
       <div className="background-color bg-white">
         <div className="flex flex-col items-center">
           <Image
@@ -17,7 +17,7 @@ const ErrorSite = () => {
             height={330}
           />
           <h1 className="h4">{t('error') + ' Network Error'}</h1>
-          <div className="ttext-slate-500 mb-6 overflow-auto font-medium">
+          <div className="text-gray-500 mb-6 overflow-auto font-medium">
             <span>{t('error.server')}</span>
           </div>
         </div>
