@@ -23,12 +23,12 @@ const Footer = ({ NoFooter }: { NoFooter: boolean }) => {
             </div>
             <div>
               <a
-                href="https://github.com/ehsan54321/my-app"
+                href="https://github.com/ehsan54321/marx"
                 rel="nofollow noreferrer"
                 target="_blank"
               >
                 <BsGithub
-                  className="layout_icon text-slate-600 hover:text-black"
+                  className="layout_icon text-slate-500 hover:text-black"
                   size={30}
                 />
               </a>

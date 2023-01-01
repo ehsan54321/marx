@@ -1,10 +1,10 @@
 {
-  "name": "my-app",
-  "version": "2.4.7",
+  "name": "marxket",
+  "version": "2.5.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "format": "prettier --write \"components\" \"pages\" \"lib\" \"services\" \"styles\" \"util/Loader.tsx\"",
+    "format": "prettier --write \"components\" \"pages\" \"lib\" \"services\" \"styles\" \"util\"",
     "lint": "next lint",
     "build": "next build",
     "package-update": "yarn upgrade --latest",

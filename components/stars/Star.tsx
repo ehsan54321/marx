@@ -1,5 +1,5 @@
 import sweetalert2 from 'sweetalert2'
-import { AiTwotoneStar } from 'react-icons/ai'
+import { AiOutlineStar, AiTwotoneStar } from 'react-icons/ai'
 import { AuthContext } from '@store/auth'
 import { memo, useContext, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
@@ -85,13 +85,10 @@ const Star = ({ name, faName, id, poster_path }: starObj) => {
         size={17}
       />
     ) : (
-      <img
-        alt="star"
-        src="/static/images/star.svg"
-        width="17"
-        height="17"
+      <AiOutlineStar
         onClick={starHandler}
         className="cursor-pointer m-auto"
+        size={17}
       />
     )
   }

@@ -1,7 +1,7 @@
 import AuthProvider from '@store/auth'
 import HiThere from '@components/HiThere'
 import Layout from '@components/Layout'
-import Loader from '@util/Loader'
+import Loader from '@components/Loader'
 import { Router } from 'next/router'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -24,16 +24,16 @@ const App = ({ Component, pageProps }: AppProps<AppCustomProps>) => {
   Router.events.on('routeChangeStart', () => setLoaderStatus(true))
   Router.events.on('routeChangeComplete', () => setLoaderStatus(false))
   return (
-    <AuthProvider>
-      <Layout NoLayout={pageProps.NoLayout} NoFooter={pageProps.NoFooter}>
-        <>
+    <>
+      <AuthProvider>
+        <Layout NoLayout={pageProps.NoLayout} NoFooter={pageProps.NoFooter}>
           <div className="container-xl">
             {loaderStatus ? <Loader /> : <Component {...pageProps} />}
           </div>
-          <HiThere />
-        </>
-      </Layout>
-    </AuthProvider>
+        </Layout>
+      </AuthProvider>
+      <HiThere />
+    </>
   )
 }
 

@@ -3,7 +3,6 @@ const customTailwind = {
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
     './store/**/*.{js,ts,jsx,tsx}',
-    './util/Loader.tsx',
   ],
   theme: {
     extend: {},

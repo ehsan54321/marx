@@ -211,7 +211,7 @@ const Register = () => {
           <label htmlFor="register_username">{t('username')}</label>
         </div>
         <div className="input-group">
-          <div className="input-group-text bg-white auth_input">
+          <div className="input-group-text bg-white">
             <BsFillPersonFill />
           </div>
           <input
@@ -230,7 +230,7 @@ const Register = () => {
           <label htmlFor="register_email">{t('email')}</label>
         </div>
         <div className="input-group">
-          <div className="input-group-text auth_input bg-white">
+          <div className="input-group-text bg-white">
             <BsEnvelopeFill />
           </div>
           <input
@@ -249,7 +249,7 @@ const Register = () => {
           <label htmlFor="register_password">{t('password')}</label>
         </div>
         <div className="input-group">
-          <div className="input-group-text auth_input bg-white">
+          <div className="input-group-text bg-white">
             <RiLockPasswordFill />
           </div>
           <input
@@ -275,7 +275,7 @@ const Register = () => {
           <label htmlFor="register_password">{t('re.password')}</label>
         </div>
         <div className="input-group">
-          <div className="input-group-text auth_input bg-white">
+          <div className="input-group-text bg-white">
             <RiLockPasswordFill />
           </div>
           <input

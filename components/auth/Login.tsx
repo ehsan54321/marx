@@ -11,13 +11,6 @@ import { useTranslation } from 'react-i18next'
 
 type filedInput = { stt: boolean; mas: string }
 type onFinishType = { email: string; password: string }
-type authObj = {
-  email: string
-  username: string
-  password: string
-  poster_path: string
-  is_admin: boolean
-}
 const Login = () => {
   const [loader, setLoader] = useState<boolean>(false)
   const [passLook, setPassLook] = useState<boolean>(true)
@@ -33,46 +26,45 @@ const Login = () => {
   const { t } = useTranslation()
   const { setAuthState } = useContext(AuthContext)
   const noFind = 'لطفا این فیلد را پر کنید.'
-  const onFinish = async (value: onFinishType) => {
-    try {
-      http
-        .post('api/v2/auth/login', {
-          password: value.password,
-          email: value.email,
-          lang: t('lang'),
-        })
-        .then(({ data }) => {
-          if (data.status === 'SUCCESS') {
-            setAuthState(data.data)
-            router.push('/account')
-            sweetalert2.fire({
-              icon: 'success',
-              toast: true,
-              position: 'top-end',
-              timer: 7000,
-              title: t('login.success'),
-              showConfirmButton: false,
-              showCloseButton: true,
-              timerProgressBar: true,
-            })
-          } else {
-            sweetalert2.fire({
-              icon: 'error',
-              toast: true,
-              position: 'top-end',
-              timer: 7000,
-              title: data.message,
-              showConfirmButton: false,
-              showCloseButton: true,
-              timerProgressBar: true,
-            })
-          }
-        })
-        .catch(() => resErr(t))
-    } catch {
-      resErr(t)
-    }
-    setLoader(false)
+  const onFinish = (value: onFinishType) => {
+    http
+      .post('api/v2/auth/login', {
+        password: value.password,
+        email: value.email,
+        lang: t('lang'),
+      })
+      .then(({ data }) => {
+        if (data.status === 'SUCCESS') {
+          setAuthState(data.data)
+          router.push('/account')
+          sweetalert2.fire({
+            icon: 'success',
+            toast: true,
+            position: 'top-end',
+            timer: 7000,
+            title: t('login.success'),
+            showConfirmButton: false,
+            showCloseButton: true,
+            timerProgressBar: true,
+          })
+        } else {
+          sweetalert2.fire({
+            icon: 'error',
+            toast: true,
+            position: 'top-end',
+            timer: 7000,
+            title: data.message,
+            showConfirmButton: false,
+            showCloseButton: true,
+            timerProgressBar: true,
+          })
+        }
+        setLoader(false)
+      })
+      .catch(() => {
+        resErr(t)
+        setLoader(false)
+      })
   }
   const onSubmit = (e) => {
     const email: string = removeSpas(e.target['0'].value.toLowerCase())
@@ -143,7 +135,7 @@ const Login = () => {
           <label htmlFor="login_email">{t('email')}</label>
         </div>
         <div className="input-group">
-          <div className="input-group-text auth_input bg-white">
+          <div className="input-group-text bg-white">
             <BsEnvelopeFill />
           </div>
           <input
@@ -162,7 +154,7 @@ const Login = () => {
           <label htmlFor="login_password">{t('password')}</label>
         </div>
         <div className="input-group">
-          <div className="input-group-text auth_input bg-white">
+          <div className="input-group-text bg-white">
             <RiLockPasswordFill />
           </div>
           <input

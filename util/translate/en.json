@@ -1,4 +1,6 @@
 {
+  "app": "Marx",
+  "full.app": "MarxKet",
   "home": "Home",
   "stars": "Stars",
   "logout": "Logout",
@@ -16,7 +18,7 @@
   "open": "Open",
   "close": "Close",
   "hiding": "Hiding",
-  "footer.text": "1401 © According to article 12 of the third chapter of the Computer Crimes Law, any copying of the MyApp website template design, contents and files in any way is prosecuted",
+  "footer.text": "1401 © According to article 12 of the third chapter of the Computer Crimes Law, any copying of the MarxKet website template design, contents and files in any way is prosecuted",
   "hi.there": "Hi There",
 
   "title.home": "The price of digital currencies in iran",

@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { baseURL } from '@baseUrl'
+import { useTranslation } from 'react-i18next'
 
 type MetaProps = {
   title?: string
@@ -10,7 +11,8 @@ type MetaProps = {
 }
 const SEO = (props: MetaProps) => {
   const { title: titleText, keywords, description, noText, url } = props
-  const title = noText ? titleText : titleText + ' • MyApp'
+  const { t } = useTranslation()
+  const title = noText ? titleText : titleText + ' • ' + t('full.app')
   const icon = baseURL + 'static/images/favicon.ico'
   return (
     <Head>
@@ -27,24 +29,21 @@ const SEO = (props: MetaProps) => {
       <link rel="icon" href={icon} />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <link rel="canonical" href={baseURL + url} />
-      <meta
-        name="robots"
-        content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-      />
+      <meta name="robots" content="index, follow" />
       <meta name="googlebot" content="index, follow" />
       <link rel="canonical" href={baseURL} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={icon} />
       <meta property="og:locale" content="fa_IR" />
-      <meta property="og:site_name" content="MyApp" />
+      <meta property="og:site_name" content={t('full.app')} />
       <meta property="og:url" content={baseURL + url} />
       <meta property="og:type" content="website" />
       <meta name="google" content="notranslate" />
       <meta name="MobileOptimized" content="310" />
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       <link rel="canonical" href={baseURL} />
-      <meta name="application-name" content="MyApp" />
+      <meta name="application-name" content={t('full.app')} />
       <link rel="alternate" hrefLang="fa-IR" href={baseURL} />
       <meta name="mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-capable" content="yes" />

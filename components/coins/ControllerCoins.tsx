@@ -1,9 +1,9 @@
-import classNames from 'classnames';
-import MapCoin from './MapCoin';
-import { numberToPersian, removeSpas } from '@lib/helper';
-import { startTransition, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { BsSearch,  } from 'react-icons/bs'
+import classNames from 'classnames'
+import MapCoin from './MapCoin'
+import { numberToPersian, removeSpas } from '@lib/helper'
+import { startTransition, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { BsSearch } from 'react-icons/bs'
 
 type coinType = {
   id: number

@@ -133,7 +133,7 @@ const UserInfo = () => {
               <label htmlFor="login_email">{t('email')}</label>
             </div>
             <div className="input-group">
-              <div className="input-group-text auth_input bg-white">
+              <div className="input-group-text bg-white">
                 <BsEnvelopeFill />
               </div>
               <input
@@ -156,7 +156,7 @@ const UserInfo = () => {
               <label htmlFor="login_password">{t('password')}</label>
             </div>
             <div className="input-group">
-              <div className="input-group-text auth_input bg-white">
+              <div className="input-group-text bg-white">
                 <RiLockPasswordFill />
               </div>
               <input
