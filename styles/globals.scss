@@ -2,7 +2,6 @@
 @import './fonts';
 @import './restCssDefaultBrowser';
 @import './customBootstrap';
-@import './customBootstrap/index2';
 @import './customClass';
 
 // tailwind
@@ -12,6 +11,7 @@
 
 // components
 @import './components/container';
+@import './components/avatar';
 @import './components/spinner';
 @import './components/divider';
 @import './components/btn';

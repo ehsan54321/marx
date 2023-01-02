@@ -142,13 +142,14 @@ const UserInfo = () => {
                 defaultValue={authState.email}
                 className={classNames(
                   'form-control',
-                  errorEmail.stt ? 'form-control is-invalid' : 'form-control'
+                  errorEmail.stt ? 'is-invalid' : ''
                 )}
+                name="email"
                 type="email"
               />
             </div>
             <div className="mt-1 text-center">
-              <span className="text-danger">{errorEmail.mas}</span>
+              <span className="text-red-600">{errorEmail.mas}</span>
             </div>
           </div>
           <div>
@@ -167,6 +168,7 @@ const UserInfo = () => {
                   'form-control',
                   errorPass.stt ? 'is-invalid' : 'border-l-0'
                 )}
+                name="password"
                 type={passLook ? 'password' : 'text'}
               />
               <div
@@ -177,7 +179,7 @@ const UserInfo = () => {
               </div>
             </div>
             <div className="mt-1 text-center">
-              <span className="text-danger">{errorPass.mas}</span>
+              <span className="text-red-600">{errorPass.mas}</span>
             </div>
           </div>
           {!disabled && (

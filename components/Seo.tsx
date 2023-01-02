@@ -50,6 +50,10 @@ const SEO = (props: MetaProps) => {
       <meta name="apple-mobile-web-app-status-bar-style" content="black" />
       <meta name="apple-mobile-web-app-title" content={title} />
       <link rel="manifest" href="/manifest.json" />
+      <meta
+        name="google-site-verification"
+        content="xkDxKK16KVjSTQv4vP93Dx0xztiwUEWrlX3_VzrUYcA"
+      />
     </Head>
   )
 }

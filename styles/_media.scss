@@ -24,21 +24,16 @@
       position: absolute;
       top: 65px;
       right: 0;
-      height: 0;
-      background: white;
       width: 100vw;
-      overflow: hidden;
     }
     &active {
       border-bottom: 1px solid #eee;
+      border-top: 1.4px solid #eee;
     }
   }
 }
 
 @media (min-width: 576px) {
-  .layout_col {
-    height: auto !important;
-  }
   .uiCoin_ {
     &idTh {
       width: 11%;
@@ -108,7 +103,7 @@
   }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 360px) {
   .errorImage {
     width: 260px;
     margin-bottom: 15px;

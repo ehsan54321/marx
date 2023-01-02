@@ -17,7 +17,7 @@ const HomePage = ({ data }) => {
         url=""
       />
       <Jump>
-        <h1 className="h5 mt-6 mb-6 leading-7 font-bold">{t('title.home')}</h1>
+        <h1 className="h5 mb-6 leading-7 font-bold">{t('title.home')}</h1>
       </Jump>
       <div className="background-color bg-white pt-6 px-0 pb-2">
         <ControllerCoin dataServer={data} />

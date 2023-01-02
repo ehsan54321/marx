@@ -222,7 +222,7 @@ const Register = () => {
           />
         </div>
         <div className="mt-1">
-          <span className="text-danger">{errorUsername.mas}</span>
+          <span className="text-red-600">{errorUsername.mas}</span>
         </div>
       </div>
       <div className="mb-4">
@@ -234,14 +234,16 @@ const Register = () => {
             <BsEnvelopeFill />
           </div>
           <input
-            className={
-              errorEmail.stt ? 'form-control is-invalid' : 'form-control'
-            }
+            className={classNames(
+              'form-control',
+              errorEmail.stt ? 'is-invalid' : ''
+            )}
+            name="email"
             type="email"
           />
         </div>
         <div className="mt-1">
-          <span className="text-danger">{errorEmail.mas}</span>
+          <span className="text-red-600">{errorEmail.mas}</span>
         </div>
       </div>
       <div className="mb-4">
@@ -257,6 +259,7 @@ const Register = () => {
               'form-control',
               errorPass.stt ? 'is-invalid' : 'border-l-0'
             )}
+            name="password"
             type={passLook ? 'password' : 'text'}
           />
           <div
@@ -267,7 +270,7 @@ const Register = () => {
           </div>
         </div>
         <div className="mt-1">
-          <span className="text-danger">{errorPass.mas}</span>
+          <span className="text-red-600">{errorPass.mas}</span>
         </div>
       </div>
       <div>
@@ -283,6 +286,7 @@ const Register = () => {
               'form-control',
               errorRePass.stt ? 'is-invalid' : 'border-l-0'
             )}
+            name="rePassword"
             type={rePassLook ? 'password' : 'text'}
           />
           <div
@@ -293,7 +297,7 @@ const Register = () => {
           </div>
         </div>
         <div className="mt-1">
-          <span className="text-danger">{errorRePass.mas}</span>
+          <span className="text-red-600">{errorRePass.mas}</span>
         </div>
       </div>
       <div>

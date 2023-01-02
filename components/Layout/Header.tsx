@@ -1,3 +1,4 @@
+import * as Avatar from '@radix-ui/react-avatar'
 import classNames from 'classnames'
 import http from '@services/httpServices'
 import Image from 'next/image'
@@ -21,12 +22,61 @@ const Header = () => {
   Router.events.on('routeChangeStart', () => setModal(false))
   const height = () => {
     if (!modal) return 0
-    if (activePathName) return 222
-    else return 278
+    if (activePathName) return 182
+    else return 240
   }
+  const HomeIcon = () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="15px"
+      height="15px"
+      viewBox="0 0 30 30"
+      className={t('lang') ? 'ml-1' : 'mr-1'}
+    >
+      <path
+        fill="#dbf2ff"
+        d="M2.5 28.5L2.5 11.279 14.998 3.587 27.5 11.279 27.5 28.5z"
+      />
+      <path
+        fill="#7496c4"
+        d="M14.998,4.174L27,11.559V28H3V11.559L14.998,4.174 M14.998,3L2,11v18h26V11L14.998,3L14.998,3z"
+      />
+      <path fill="#b5ddf5" d="M3 25H27V28H3z" />
+      <path
+        fill="#f78f8f"
+        d="M14.998 4.644L1.5 12.951 1.5 9.895 14.998 1.587 28.5 9.895 28.5 12.952z"
+      />
+      <path
+        fill="#c74343"
+        d="M14.998,2.174l13.002,8v1.883L15.522,4.379l-0.524-0.322l-0.524,0.323L2,12.056v-1.882 L14.998,2.174 M14.998,1L1,9.615v4.231l13.998-8.615L29,13.846V9.615L14.998,1L14.998,1z"
+      />
+      <g>
+        <path fill="#ffc49c" d="M11.5 16.5H18.5V28.5H11.5z" />
+        <path fill="#a16a4a" d="M18,17v11h-6V17H18 M19,16h-8v13h8V16L19,16z" />
+      </g>
+      <path
+        fill="#a16a4a"
+        d="M16.5 22A0.5 0.5 0 1 0 16.5 23A0.5 0.5 0 1 0 16.5 22Z"
+      />
+    </svg>
+  )
+  const StarIcon = () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="18"
+      viewBox="0 0 48 48"
+      className={t('lang') ? 'ml-1' : 'mr-1'}
+    >
+      <path
+        fill="#FFCA28"
+        d="M24 4.051L30.49 17.186 45 19.29 34.5 29.512 36.977 43.949 24 37.137 11.023 43.949 13.5 29.512 3 19.29 17.51 17.186z"
+      />
+    </svg>
+  )
   return (
     <nav
-      className="bg-white sticky layout_head z-20 top-0 h-16"
+      className="bg-white sticky layout_head z-20 top-0 h-16 left-0 right-0"
       dir={t('lang') ? 'rtl' : 'ltr'}
     >
       <div className="container-xxl justify-between items-center flex h-full">
@@ -36,7 +86,7 @@ const Header = () => {
               <li className="nav-item">
                 <button
                   className={classNames(
-                    ' block sm:hidden bg-transparent',
+                    'block sm:hidden bg-transparent',
                     t('lang') ? 'ml-2' : 'mr-2'
                   )}
                   onClick={() => setModal(!modal)}
@@ -45,7 +95,7 @@ const Header = () => {
                 </button>
               </li>
               <li className="nav-item">
-                <Link href="/">
+                <Link href="/" className="flex">
                   <Image
                     src="/static/images/favicon.ico"
                     alt="لوگو"
@@ -53,6 +103,9 @@ const Header = () => {
                     height={33}
                     priority
                   />
+                  <span className="mr-2 font-bold text-[15px] mt-[6px] sm:hidden">
+                    MAR<span className="text-red-500">X</span>
+                  </span>
                 </Link>
               </li>
               <li
@@ -67,8 +120,8 @@ const Header = () => {
           </div>
           <div
             className={classNames(
-              modal ? 'layout_active' : 'layout_col',
-              'layout_links items-center flex'
+              modal ? 'layout_active' : 'sm:h-[auto!important]',
+              'layout_links items-center flex bg-white overflow-hidden'
             )}
             style={{
               height: height(),
@@ -79,42 +132,7 @@ const Header = () => {
                 href="/"
                 className="font-medium px-4 py-2 sm:rounded-lg sm:hover:bg-slate-100 text-lg sm:inline block sm:leading-1 leading-10"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="15px"
-                  height="15px"
-                  viewBox="0 0 30 30"
-                  className={t('lang') ? 'ml-1' : 'mr-1'}
-                >
-                  <path
-                    fill="#dbf2ff"
-                    d="M2.5 28.5L2.5 11.279 14.998 3.587 27.5 11.279 27.5 28.5z"
-                  />
-                  <path
-                    fill="#7496c4"
-                    d="M14.998,4.174L27,11.559V28H3V11.559L14.998,4.174 M14.998,3L2,11v18h26V11L14.998,3L14.998,3z"
-                  />
-                  <path fill="#b5ddf5" d="M3 25H27V28H3z" />
-                  <path
-                    fill="#f78f8f"
-                    d="M14.998 4.644L1.5 12.951 1.5 9.895 14.998 1.587 28.5 9.895 28.5 12.952z"
-                  />
-                  <path
-                    fill="#c74343"
-                    d="M14.998,2.174l13.002,8v1.883L15.522,4.379l-0.524-0.322l-0.524,0.323L2,12.056v-1.882 L14.998,2.174 M14.998,1L1,9.615v4.231l13.998-8.615L29,13.846V9.615L14.998,1L14.998,1z"
-                  />
-                  <g>
-                    <path fill="#ffc49c" d="M11.5 16.5H18.5V28.5H11.5z" />
-                    <path
-                      fill="#a16a4a"
-                      d="M18,17v11h-6V17H18 M19,16h-8v13h8V16L19,16z"
-                    />
-                  </g>
-                  <path
-                    fill="#a16a4a"
-                    d="M16.5 22A0.5 0.5 0 1 0 16.5 23A0.5 0.5 0 1 0 16.5 22Z"
-                  />
-                </svg>
+                <HomeIcon />
                 <span
                   className={
                     activePathName !== ''
@@ -129,18 +147,7 @@ const Header = () => {
                 href="/stars"
                 className="font-medium px-4 py-2 sm:rounded-lg sm:hover:bg-slate-100 text-lg sm:inline block sm:leading-1 leading-10"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 48 48"
-                  className={t('lang') ? 'ml-1' : 'mr-1'}
-                >
-                  <path
-                    fill="#FFCA28"
-                    d="M24 4.051L30.49 17.186 45 19.29 34.5 29.512 36.977 43.949 24 37.137 11.023 43.949 13.5 29.512 3 19.29 17.51 17.186z"
-                  />
-                </svg>
+                <StarIcon />
                 <span
                   className={
                     activePathName !== 'stars'
@@ -230,13 +237,11 @@ const Auth = () => {
         <div className="relative h-20 flex items-center">
           <div className="sm:hidden">
             <Link href="/account">
-              <img
-                src={authState.poster_path}
-                className="mr-2 rounded-full"
-                alt={`${t('profile')} ${authState.username}`}
-                width="40px"
-                height="auto"
-              />
+              <Avatar.Root className="AvatarRoot bg-slate-100 mr-2 w-12 h-12 rounded-full">
+                <Avatar.Fallback className="AvatarFallback w-full h-full flex items-center justify-center bg-slate-100">
+                  {authState.username.toLocaleUpperCase()}
+                </Avatar.Fallback>
+              </Avatar.Root>
             </Link>
           </div>
           <div
@@ -244,17 +249,19 @@ const Auth = () => {
             onMouseLeave={() => setShow(false)}
           >
             <button
-              className="pl-0 bg-white max-sm:hidden min-w-[65px] max-w-[65px]"
+              className="pl-0 bg-white max-sm:hidden min-w-[67px] max-w-[67px]"
               type="button"
             >
-              <img
-                src={authState.poster_path}
+              <Avatar.Root
                 className={classNames(
-                  'rounded-full h-auto w-10 object-cover',
+                  'AvatarRoot bg-slate-100 w-12 h-12 rounded-full',
                   t('lang') ? 'ml-1' : 'mr-1'
                 )}
-                alt={`${t('profile')} ${authState.username}`}
-              />
+              >
+                <Avatar.Fallback className="AvatarFallback flex items-center justify-center w-full h-full bg-slate-100">
+                  {authState.username.toLocaleUpperCase()}
+                </Avatar.Fallback>
+              </Avatar.Root>
               <BsFillCaretDownFill />
             </button>
             <ul

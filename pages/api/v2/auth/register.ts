@@ -14,10 +14,7 @@ const Register = (req: NextApiRequest, res: NextApiResponse) => {
   const date = new persianDate()
   const dataOBJ: any = {
     ...req.body,
-    poster_path:
-      'https://www.gravatar.com/avatar/4e7f0e6f71df72220e4ce37c92c377e3?s=185&d=identicon&r;=PG',
     date: date.toLocale('en').format('YYYY/MM/DD'),
-    is_admin: false,
   }
   http
     .post('/api/v2/db/new/user', {

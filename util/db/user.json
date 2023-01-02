@@ -4,33 +4,13 @@
       "username": "احسان",
       "email": "user@gmail.com",
       "password": "user-user",
-      "poster_path": "https://www.gravatar.com/avatar/4e7f0e6f71df72220e4ce37c92c377e3?s=185&d=identicon&r;=PG",
-      "date": "1401/10/02",
-      "is_admin": false
+      "date": "1401/10/02"
     },
     "user-test@gmail.com": {
       "email": "user-test@gmail.com",
       "password": "user-test",
       "username": "کاربرتستی",
-      "poster_path": "https://www.gravatar.com/avatar/24e96aef-6a72-4400-9a95-a926bad3fc69?s=185&d=identicon&r;=PG",
-      "date": "1401/10/02",
-      "is_admin": false
-    },
-    "luser-test@gmail.com": {
-      "email": "luser-test@gmail.com",
-      "password": "user-test",
-      "username": "trdc",
-      "poster_path": "https://www.gravatar.com/avatar/4e7f0e6f71df72220e4ce37c92c377e3?s=185&d=identicon&r;=PG",
-      "date": "1401/10/08",
-      "is_admin": false
-    },
-    "use8r-test@gmail.com": {
-      "email": "use8r-test@gmail.com",
-      "password": "user-test",
-      "username": "userf",
-      "poster_path": "https://www.gravatar.com/avatar/4e7f0e6f71df72220e4ce37c92c377e3?s=185&d=identicon&r;=PG",
-      "date": "1401/10/09",
-      "is_admin": false
+      "date": "1401/10/02"
     }
   }
 }

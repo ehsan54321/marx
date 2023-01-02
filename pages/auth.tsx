@@ -17,7 +17,7 @@ export const getStaticProps: GetStaticProps = () => {
 const AuthPage = () => {
   const [status, setStatus] = useState<string>('login')
   const [img, setImg] = useState<boolean>(true)
-  const [tem, setTem] = useState<boolean>(true)
+  const [theme, setTheme] = useState<boolean>(true)
   const { isAuth } = useContext(AuthContext)
   const { t } = useTranslation()
   useEffect(() => {
@@ -50,7 +50,7 @@ const AuthPage = () => {
         </div>
         <div className="background-color bg-white text-center mx-auto pr-4 pe-3 pt-16 mt-[15vh] sm:w-[550px]">
           <div className="mb-4">
-            <ul className={tem ? 'nav nav-tabs' : 'nav nav-pills'}>
+            <ul className={theme ? 'nav nav-tabs' : 'nav nav-pills'}>
               <li className="nav-item">
                 <a
                   className={
@@ -121,8 +121,8 @@ const AuthPage = () => {
               <SettingsFrom
                 setImg={setImg}
                 img={img}
-                tem={tem}
-                setTem={setTem}
+                theme={theme}
+                setTheme={setTheme}
               />
             </Slide>
           )}

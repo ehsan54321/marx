@@ -1,0 +1,18 @@
+@import '@radix-ui/colors/blackA.css';
+@import '@radix-ui/colors/violet.css';
+
+.AvatarRoot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  overflow: hidden;
+  user-select: none;
+}
+
+.AvatarFallback {
+  color: var(--violet11);
+  font-size: 15px;
+  line-height: 1;
+  font-weight: 500;
+}

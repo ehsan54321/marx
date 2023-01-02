@@ -1,4 +1,4 @@
-const customTailwind = {
+const customConfigTailwindCSS = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
@@ -26,4 +26,4 @@ const customTailwind = {
   plugins: [],
 }
 
-module.exports = customTailwind
+module.exports = customConfigTailwindCSS

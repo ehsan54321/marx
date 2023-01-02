@@ -77,14 +77,14 @@ const ControllerPageCoin = (props: Props) => {
           <div
             title={t('change-24h')}
             className={classNames(
-              props.coin.day.colorDayIn === 'danger' ? ' bg-red-500' : '',
-              props.coin.day.colorDayIn === 'success' ? ' bg-green-700' : '',
+              props.coin.day.colorDayIn === 'red' ? ' bg-red-500' : '',
+              props.coin.day.colorDayIn === 'green' ? ' bg-green-700' : '',
               props.coin.day.colorDayIn === 'info' ? 'bg-blue-500' : '',
               'rounded-full text-white justify-center mt-4 flex h6 py-[20px]'
             )}
           >
             <div>
-              {props.coin.day.colorDayIn === 'danger' ? (
+              {props.coin.day.colorDayIn === 'red' ? (
                 <BsFillCaretDownFill />
               ) : (
                 <BsFillCaretUpFill />
@@ -93,7 +93,7 @@ const ControllerPageCoin = (props: Props) => {
             <span className="font-bold">
               {numberToPersian(props.coin.day.dayIn, t('lang')) +
                 '٪' +
-                (props.coin.day.colorDayIn === 'danger' ? '-' : '+')}
+                (props.coin.day.colorDayIn === 'red' ? '-' : '+')}
             </span>
           </div>
         </div>

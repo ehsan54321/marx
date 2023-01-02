@@ -139,14 +139,16 @@ const Login = () => {
             <BsEnvelopeFill />
           </div>
           <input
-            className={
-              errorEmail.stt ? 'form-control is-invalid' : 'form-control'
-            }
+            className={classNames(
+              'form-control',
+              errorEmail.stt ? 'is-invalid' : ''
+            )}
+            name="email"
             type="email"
           />
         </div>
         <div className="mt-1">
-          <span className="text-danger">{errorEmail.mas}</span>
+          <span className="text-red-600">{errorEmail.mas}</span>
         </div>
       </div>
       <div>
@@ -162,6 +164,7 @@ const Login = () => {
               'form-control',
               errorPass.stt ? 'is-invalid' : 'border-l-0'
             )}
+            name="password"
             type={passLook ? 'password' : 'text'}
           />
           <div
@@ -172,7 +175,7 @@ const Login = () => {
           </div>
         </div>
         <div className="mt-1">
-          <span className="text-danger">{errorPass.mas}</span>
+          <span className="text-red-600">{errorPass.mas}</span>
         </div>
       </div>
       <div>

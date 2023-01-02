@@ -1,3 +1,4 @@
+import * as Avatar from '@radix-ui/react-avatar'
 import http from '@services/httpServices'
 import sweetalert2 from 'sweetalert2'
 import { AuthContext } from '@store/auth'
@@ -32,11 +33,11 @@ const UserCard = () => {
   return (
     <div className="p-3 background-color card">
       <div className="text-center p-2">
-        <img
-          src={authState.poster_path}
-          className="rounded-full w-32"
-          alt={`${t('profile')} ${authState.username}`}
-        />
+        <Avatar.Root className="AvatarRoot bg-slate-100 w-32 h-32 rounded-full">
+          <Avatar.Fallback className="AvatarFallback flex items-center justify-center bg-slate-100 w-full h-full">
+            {authState.username.toLocaleUpperCase()}
+          </Avatar.Fallback>
+        </Avatar.Root>
       </div>
       <div className="divider flex mt-1 mb-2">
         <span className="px-4">{t('info.user')}</span>

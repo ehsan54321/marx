@@ -10,14 +10,21 @@ const Footer = ({ NoFooter }: { NoFooter: boolean }) => {
         <div className="container-xxl">
           <div className="flex justify-between items-center mx-2 h-16">
             <div className="flex items-center">
-              <Image
-                src="/static/images/favicon.ico"
-                alt="لوگو"
-                width={33}
-                height={33}
-                priority
-              />
-              <small className="mx-2 sm:flex hidden text-gray-500">
+              <div className="flex items-center w-auto">
+                <Image
+                  src="/static/images/favicon.ico"
+                  alt="لوگو"
+                  width={33}
+                  height={33}
+                  priority
+                />
+                <h2 className="mr-2 font-bold text-[15px] my-auto w-[66px]">
+                  {t('full.app')}
+                  <br />
+                  (MAR<span className="text-red-500">X</span>)
+                </h2>
+              </div>
+              <small className="mx-2 max-sm:hidden text-gray-500">
                 {t('footer.text')}
               </small>
             </div>

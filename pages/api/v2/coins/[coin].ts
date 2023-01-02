@@ -6,20 +6,20 @@ const ApiPageCoin = (req: NextApiRequest, res: NextApiResponse) => {
     const dataFinish = {
       ...data,
       day: {
-        colorDayIn: ~~(Math.random() * 100) <= 50 ? 'danger' : 'success',
+        colorDayIn: ~~(Math.random() * 100) <= 50 ? 'red' : 'green',
         dayIn: JSON.stringify(~~(Math.random() * 10) + 2),
         day7: 0.01,
-        colorDay7: 'success',
+        colorDay7: 'green',
         day30: 0,
         colorDay30: 'info',
         day90: 53.42,
-        colorDay90: 'danger',
+        colorDay90: 'red',
         day180: 53.33,
-        colorDay180: 'danger',
+        colorDay180: 'red',
         day365: 40.33,
-        colorDay365: 'danger',
+        colorDay365: 'red',
         dayAll: 1406,
-        colorDayAll: 'success',
+        colorDayAll: 'green',
       },
     }
     res.status(200).json({

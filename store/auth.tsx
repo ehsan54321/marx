@@ -7,9 +7,7 @@ type authObj = {
   email: string
   username: string
   password: string
-  poster_path: string
   date: string
-  is_admin: boolean
 }
 type context = {
   isAuth: boolean

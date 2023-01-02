@@ -1,5 +1,4 @@
 import AuthProvider from '@store/auth'
-import HiThere from '@components/HiThere'
 import Layout from '@components/Layout'
 import Loader from '@components/Loader'
 import { Router } from 'next/router'
@@ -12,7 +11,7 @@ import type { AppProps } from 'next/app'
 type AppCustomProps = { NoFooter: boolean; NoLayout: boolean }
 const App = ({ Component, pageProps }: AppProps<AppCustomProps>) => {
   const [loaderStatus, setLoaderStatus] = useState<boolean>(false)
-  const [refPage, setRefPage] = useState(true)
+  const [refPage, setRefPage] = useState<boolean>(true)
   const { i18n } = useTranslation()
   if (process.browser && refPage) {
     if (localStorage.getItem('lang') === 'en')
@@ -24,16 +23,13 @@ const App = ({ Component, pageProps }: AppProps<AppCustomProps>) => {
   Router.events.on('routeChangeStart', () => setLoaderStatus(true))
   Router.events.on('routeChangeComplete', () => setLoaderStatus(false))
   return (
-    <>
-      <AuthProvider>
-        <Layout NoLayout={pageProps.NoLayout} NoFooter={pageProps.NoFooter}>
-          <div className="container-xl">
-            {loaderStatus ? <Loader /> : <Component {...pageProps} />}
-          </div>
-        </Layout>
-      </AuthProvider>
-      <HiThere />
-    </>
+    <AuthProvider>
+      <Layout NoLayout={pageProps.NoLayout} NoFooter={pageProps.NoFooter}>
+        <div className="container-xl">
+          {loaderStatus ? <Loader /> : <Component {...pageProps} />}
+        </div>
+      </Layout>
+    </AuthProvider>
   )
 }
 

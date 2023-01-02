@@ -51,11 +51,11 @@ const Progress = () => {
   }, [])
   if (show) {
     return (
-      <div className="z-10 bg-white sticky right-0 mb-6 top-16">
+      <div className="z-10 bg-white fixed right-0 top-16 left-0">
         <div className="h-[5px] w-full">
           <div
             className="h-full w-0 bg-slate-500"
-            style={{ width: `${width}%` }}
+            style={{ width: `${width < 1 ? 0 : width}%` }}
           ></div>
         </div>
       </div>
@@ -67,14 +67,21 @@ const Progress = () => {
 
 const ScrollTop = () => {
   const [show, setShow] = useState(false)
-  useEffect(() => {
-    window.addEventListener('scroll', () => {
-      if (document.documentElement.clientHeight - 240 <= window.pageYOffset) {
+  const getShow = () => {
+    const _ = window
+    _.addEventListener('scroll', () => {
+      if (_.document.documentElement.clientHeight - 240 <= _.pageYOffset) {
         setShow(true)
       } else setShow(false)
     })
+  }
+  useEffect(() => {
+    getShow()
   }, [])
-  const topPage = () => window.scroll({ top: 0 })
+  const topPage = () => {
+    const _ = window
+    _.scroll({ top: 0 })
+  }
   return (
     <button
       className={classNames(

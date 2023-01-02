@@ -63,9 +63,8 @@ const Star = ({ name, faName, id, poster_path }: starObj) => {
         .fire({
           icon: 'warning',
           title: t('text.no.login'),
-          confirmButtonText: `<a href="javascript:void(0)" class="text-white">${t(
-            'text.no.login.button'
-          )}</a>`,
+          confirmButtonText: `<a href="javascript:void(0)"><span class="text-white">
+          ${t('text.no.login.button')}</span></a>`,
           showCloseButton: true,
         })
         .then((e) => {

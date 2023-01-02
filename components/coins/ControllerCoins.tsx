@@ -66,7 +66,7 @@ const ControllerCoins = ({ dataServer }) => {
   return (
     <>
       <div className="flex mb-6">
-        <div className="mx-6 flex mt-2 sm:max-w-[260px]">
+        <div className="mx-6 flex mt-2 w-full sm:max-w-xs">
           <button type="submit" className="uiCoin_searchBtn h5 text-white">
             <BsSearch />
           </button>
@@ -90,7 +90,7 @@ const ControllerCoins = ({ dataServer }) => {
               'border-r-0 w-full uiCoin_search h-9 outline-0 pr-8 p-1 text-gray-400 focus:text-black',
               !searchValue ? 'text-right' : ''
             )}
-            maxLength={pageItem}
+            maxLength={35}
             dir="auto"
             value={searchValue}
             placeholder={
