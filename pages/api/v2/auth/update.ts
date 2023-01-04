@@ -1,7 +1,34 @@
-const UpdateApi = (req, res) => {
-  console.log(req.body.data)
-  const { password, email } = req.body
-  res.status(200).json({ password, email })
+import http from '@services/httpServices'
+import jwt from 'jsonwebtoken'
+import { setCookie } from 'cookies-next'
+import type { NextApiRequest, NextApiResponse } from 'next'
+
+const Update = (req: NextApiRequest, res: NextApiResponse) => {
+  if (process.env.NODE_ENV === 'production') {
+    res.status(200).json({
+      message: 'شما اجازه ساخت حساب کاربری را ندارید!',
+      status: 'ERROR',
+    })
+  } else {
+    const { username, email, date } = req.body
+    const createToken = () => {
+      const token = { email, username, date }
+      return jwt.sign(token, process.env.JWT_SECRET_KEY, {
+        algorithm: 'HS256',
+        expiresIn: '90d',
+      })
+    }
+    http.post('/api/v2/db/update/user', { username, email }).then(() => {
+      setCookie('token', createToken(), {
+        res,
+        req,
+        maxAge: 90 * 24 * 60,
+        httpOnly: true,
+        secure: true,
+      })
+      res.status(200).json('SUCCESS')
+    })
+  }
 }
 
-export default UpdateApi
+export default Update

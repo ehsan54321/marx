@@ -33,8 +33,8 @@ const UserCard = () => {
   return (
     <div className="p-3 background-color card">
       <div className="text-center p-2">
-        <Avatar.Root className="AvatarRoot bg-slate-100 w-32 h-32 rounded-full">
-          <Avatar.Fallback className="AvatarFallback flex items-center justify-center bg-slate-100 w-full h-full">
+        <Avatar.Root className="items-center justify-center align-middle select-none overflow-hidden inline-flex bg-slate-100 w-32 h-32 rounded-full">
+          <Avatar.Fallback className="leading-4 text-base font-medium text-purple-800 flex items-center justify-center bg-slate-100 w-full h-full">
             {authState.username.toLocaleUpperCase()}
           </Avatar.Fallback>
         </Avatar.Root>

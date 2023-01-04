@@ -92,10 +92,10 @@ const Register = () => {
       /^[a-zA-Z0-9_$*@+#!%&{}\.()-\s]{1,999999}$/
     )
     const noFind = 'لطفا این فیلد را پر کنید.'
+    let isUsername: boolean = false
     let isEmail: boolean = false
     let isPassword: boolean = false
     let isRePassword: boolean = false
-    let isUsername: boolean = false
     setErrorEmail({ stt: false, mas: '' })
     setErrorPass({ stt: false, mas: '' })
     setErrorRePass({ stt: false, mas: '' })
@@ -218,11 +218,16 @@ const Register = () => {
             className={
               errorUsername.stt ? 'form-control is-invalid' : 'form-control'
             }
+            name="username"
             type="text"
           />
         </div>
         <div className="mt-1">
           <span className="text-red-600">{errorUsername.mas}</span>
+          {errorUsername.mas && <br />}
+          <span className="text-slate-500">
+            به شما پیشنهاد می کنم از نام های فارسی استفاده کنید.
+          </span>
         </div>
       </div>
       <div className="mb-4">

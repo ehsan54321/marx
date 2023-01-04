@@ -30,7 +30,10 @@ const SEO = (props: MetaProps) => {
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <link rel="canonical" href={baseURL + url} />
       <meta name="robots" content="index, follow" />
+      <meta name="robots" content="notranslate" />
+      <meta name="robots" content="max-image-preview:large" />
       <meta name="googlebot" content="index, follow" />
+      <meta name="google" content="notranslate" />
       <link rel="canonical" href={baseURL} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
@@ -39,7 +42,6 @@ const SEO = (props: MetaProps) => {
       <meta property="og:site_name" content={t('full.app')} />
       <meta property="og:url" content={baseURL + url} />
       <meta property="og:type" content="website" />
-      <meta name="google" content="notranslate" />
       <meta name="MobileOptimized" content="310" />
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       <link rel="canonical" href={baseURL} />

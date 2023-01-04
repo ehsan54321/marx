@@ -1,6 +1,6 @@
 const Loader = () => {
   return (
-    <div className="flex justify-center loader_container absolute left-2/4">
+    <div className="flex justify-center loader_container top-1/2 w-10 h-10 absolute left-2/4">
       <span className="loader">
         <svg viewBox="22 22 44 44">
           <circle

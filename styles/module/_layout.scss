@@ -30,21 +30,19 @@
   }
   &dupLi {
     line-height: 1.75;
-    padding: 8px;
     border-radius: 5px;
 
     &:hover {
       background: #0000000a;
     }
   }
-  &dup {
-    height: 70px;
-  }
   &menu {
-    padding: 8px;
     box-shadow: 0px 2px 1px #0000001a, 0px 0px 1px #00000040;
-    border-radius: 8px;
     width: 150px;
     transition: all 0.1s linear;
   }
+}
+
+#momMenu:hover .layout_menu {
+  top: 0;
 }

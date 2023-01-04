@@ -1,10 +1,10 @@
 {
   "name": "marxket",
-  "version": "2.5.1",
+  "version": "2.5.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "format": "prettier --write \"components\" \"pages\" \"lib\" \"services\" \"styles\" \"util\"",
+    "format": "prettier --write \"components\" \"pages\" \"lib\" \"services\" \"styles\"",
     "lint": "next lint",
     "build": "next build",
     "package-update": "yarn upgrade --latest",
@@ -17,7 +17,6 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@radix-ui/colors": "0.1.8",
     "@radix-ui/react-avatar": "1.0.1",
     "@types/node": "18.11.18",
     "@types/react": "18.0.26",

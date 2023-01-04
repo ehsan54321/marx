@@ -1,30 +1,21 @@
-import classNames from 'classnames'
 import http from '@services/httpServices'
 import sweetalert2 from 'sweetalert2'
 import { AuthContext } from '@store/auth'
-import { BsEnvelopeFill, BsEye, BsEyeSlash } from 'react-icons/bs'
+import { BsEnvelopeFill, BsFillPersonFill } from 'react-icons/bs'
 import { resErr, removeSpas } from '@lib/helper'
-import { RiLockPasswordFill } from 'react-icons/ri'
 import { useContext, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 type filedInput = { stt: boolean; mas: string }
 const UserInfo = () => {
   const [disabled, setDisabled] = useState<boolean>(true)
-  const [passLook, setPassLook] = useState<boolean>(true)
-  const [errorEmail, setErrorEmail] = useState<filedInput>({
+  const [errorUsername, setErrorUsername] = useState<filedInput>({
     stt: false,
     mas: '',
   })
-  const [errorPass, setErrorPass] = useState<filedInput>({
-    stt: false,
-    mas: '',
-  })
-  const { authState } = useContext(AuthContext)
+  const { authState, setAuthState } = useContext(AuthContext)
   const { t } = useTranslation()
-  const finish = (value: { email: string; password: string }) => {
-    value.email = removeSpas(value.email.toLowerCase())
-    value.password = removeSpas(value.password.toLowerCase())
+  const finish = (username: string) => {
     sweetalert2
       .fire({
         icon: 'warning',
@@ -37,8 +28,13 @@ const UserInfo = () => {
       .then((result) => {
         if (result.isConfirmed) {
           http
-            .post('api/v2/auth/update', value.email, value.password)
+            .post('api/v2/auth/update', {
+              username,
+              email: authState.email,
+              date: authState.date,
+            })
             .then(() => {
+              setAuthState({ ...authState, username })
               sweetalert2.fire({
                 icon: 'success',
                 title:
@@ -52,82 +48,77 @@ const UserInfo = () => {
       })
   }
   const onSubmit = (e) => {
-    const email: string = removeSpas(e.target['0'].value.toLowerCase())
-    const password: string = removeSpas(e.target['1'].value.toLowerCase())
-    const emailRegExp = new RegExp(/^[a-zA-Z\s][a-zA-Z0-9_\.-\s]*@gmail.com$/)
-    const passwordRegExp = new RegExp(
-      /^[a-zA-Z0-9_$*@+#!%&{}\.()-\s]{1,999999}$/
+    const username: string = removeSpas(e.target['0'].value)
+    const usernameRegExp = new RegExp(
+      /^[A-Za-zآابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیئ\s][A-Za-z0-9آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیئ\s]*$/
     )
+    const emailRegExp = new RegExp(/^[a-zA-Z\s][a-zA-Z0-9_\.-\s]*@gmail.com$/)
     const noFind = 'لطفا این فیلد را پر کنید.'
-    let isEmail: boolean = false
-    let isPassword: boolean = false
-    setErrorEmail({ stt: false, mas: '' })
-    setErrorPass({ stt: false, mas: '' })
+    let isUsername: boolean = false
+    setErrorUsername({ stt: false, mas: '' })
     if (
-      email &&
-      email.length >= 14 &&
-      email.length <= 52 &&
-      emailRegExp.exec(email)
+      username &&
+      username.length >= 3 &&
+      username.length <= 14 &&
+      usernameRegExp.exec(username)
     ) {
-      setErrorEmail({ stt: false, mas: '' })
-      isEmail = true
+      setErrorUsername({ stt: false, mas: '' })
+      isUsername = true
     } else {
-      if (!email) setErrorEmail({ stt: true, mas: noFind })
-      else if (!(email.length >= 14 && email.length <= 52)) {
-        if (email.length <= 14) {
-          setErrorEmail({
+      if (!username) setErrorUsername({ stt: true, mas: noFind })
+      else if (!(username.length >= 3 && username.length <= 14)) {
+        if (username.length <= 3) {
+          setErrorUsername({
             stt: true,
-            mas: 'ایمیل شما می بایست بیش از ۱۴ حرف باشد!',
+            mas: 'نام کاربری شما می بایست بیش از ۳ حرف باشد!',
           })
         } else {
-          setErrorEmail({
+          setErrorUsername({
             stt: true,
-            mas: 'ایمیل شما می بایست کمتر از ۵۲ حرف باشد!',
+            mas: 'نام کاربری شما می بایست کمتر از ۱۴ حرف باشد!',
           })
         }
-      } else if (!!!emailRegExp.exec(email)) {
-        setErrorEmail({
+      } else if (!!!emailRegExp.exec(username)) {
+        setErrorUsername({
           stt: true,
-          mas: 'یک ایمیل معتبر وارد کنید!',
+          mas: 'نام کاربری شما نباید شامل حروف غیر انگلیسی و فارسی باشد!',
         })
       }
     }
-    if (
-      password &&
-      password.length >= 6 &&
-      password.length <= 32 &&
-      passwordRegExp.exec(password)
-    ) {
-      setErrorPass({ stt: false, mas: '' })
-      isPassword = true
-    } else {
-      if (!password) setErrorPass({ stt: true, mas: noFind })
-      else if (!(password.length >= 6 && password.length <= 32)) {
-        if (password.length <= 6) {
-          setErrorPass({
-            stt: true,
-            mas: 'رمز عبور شما می بایست بیش از ۶ حرف باشد!',
-          })
-        } else {
-          setErrorPass({
-            stt: true,
-            mas: 'رمز عبور شما می بایست کمتر از ۳۲ حرف باشد!',
-          })
-        }
-      } else if (!!!passwordRegExp.exec(password)) {
-        setErrorPass({
-          stt: true,
-          mas: 'رمز عبور از حروف انگلیسی تشگیل شد باشد!',
-        })
-      }
-    }
-    if (isEmail && isPassword) finish({ email, password })
+    if (isUsername) finish(username)
     e.preventDefault()
   }
   return (
     <div className="p-3 max-md:mt-2 background-color card">
       <div className="card-body">
         <form className="form-floating" onSubmit={onSubmit}>
+          <div className="mb-4">
+            <div className="text-right mb-2">
+              <label htmlFor="login_username">{t('username')}</label>
+            </div>
+            <div className="input-group">
+              <div className="input-group-text bg-white">
+                <BsFillPersonFill />
+              </div>
+              <input
+                id="login_username"
+                disabled={disabled}
+                defaultValue={authState.username}
+                className={
+                  errorUsername.stt ? 'form-control is-invalid' : 'form-control'
+                }
+                name="username"
+                type="text"
+              />
+            </div>
+            <div className="mt-1 text-center">
+              <span className="text-red-600">{errorUsername.mas}</span>
+              {errorUsername.mas && <br />}
+              <span className="text-slate-500">
+                به شما پیشنهاد می کنم از نام های فارسی استفاده کنید.
+              </span>
+            </div>
+          </div>
           <div className="mb-4">
             <div className="text-right mb-2">
               <label htmlFor="login_email">{t('email')}</label>
@@ -138,49 +129,15 @@ const UserInfo = () => {
               </div>
               <input
                 id="login_email"
-                disabled={disabled}
+                disabled={true}
+                // disabled={disabled}
                 defaultValue={authState.email}
-                className={classNames(
-                  'form-control',
-                  errorEmail.stt ? 'is-invalid' : ''
-                )}
+                className="form-control"
                 name="email"
                 type="email"
               />
             </div>
-            <div className="mt-1 text-center">
-              <span className="text-red-600">{errorEmail.mas}</span>
-            </div>
-          </div>
-          <div>
-            <div className="text-right mb-2">
-              <label htmlFor="login_password">{t('password')}</label>
-            </div>
-            <div className="input-group">
-              <div className="input-group-text bg-white">
-                <RiLockPasswordFill />
-              </div>
-              <input
-                id="login_password"
-                disabled={disabled}
-                defaultValue={authState.password}
-                className={classNames(
-                  'form-control',
-                  errorPass.stt ? 'is-invalid' : 'border-l-0'
-                )}
-                name="password"
-                type={passLook ? 'password' : 'text'}
-              />
-              <div
-                className="input-group-text bg-white"
-                onClick={() => setPassLook(!passLook)}
-              >
-                {!passLook ? <BsEye /> : <BsEyeSlash />}
-              </div>
-            </div>
-            <div className="mt-1 text-center">
-              <span className="text-red-600">{errorPass.mas}</span>
-            </div>
+            <div className="mt-1 text-center"></div>
           </div>
           {!disabled && (
             <div className="text-center mt-6">
@@ -194,9 +151,8 @@ const UserInfo = () => {
           <div className="text-center mt-6">
             <button
               type="submit"
-              className="btn btn-outline-primary disabled"
+              className="btn btn-outline-primary"
               onClick={() => setDisabled(false)}
-              disabled
             >
               <span>{t('info.information')}</span>
             </button>

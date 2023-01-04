@@ -1,5 +1,5 @@
 .loader {
-  animation: 1.4s ease-in-out 0s infinite normal none running a1;
+  animation: 1.4s ease-in-out 0s infinite normal none running loader;
   width: 40px;
   height: 40px;
 
@@ -7,17 +7,14 @@
     stroke: currentcolor;
     stroke-dasharray: 80px, 200px;
     stroke-dashoffset: 0;
-    animation: 1.4s linear 0s infinite normal none running a2;
+    animation: 1.4s linear 0s infinite normal none running svgLoader;
   }
   &_container {
-    top: 47%;
     transform: translateX(-50%) translateY(-50%);
-    width: 40px;
-    height: 40px;
   }
 }
 
-@keyframes a1 {
+@keyframes loader {
   0% {
     transform: rotate(0deg);
   }
@@ -25,7 +22,7 @@
     transform: rotate(360deg);
   }
 }
-@keyframes a2 {
+@keyframes svgLoader {
   0% {
     stroke-dasharray: 1px, 200px;
     stroke-dashoffset: 0;

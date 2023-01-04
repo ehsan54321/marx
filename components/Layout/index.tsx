@@ -51,11 +51,11 @@ const Progress = () => {
   }, [])
   if (show) {
     return (
-      <div className="z-10 bg-white fixed right-0 top-16 left-0">
+      <div className="z-10 bg-white sticky right-0 mb-6 top-16">
         <div className="h-[5px] w-full">
           <div
             className="h-full w-0 bg-slate-500"
-            style={{ width: `${width < 1 ? 0 : width}%` }}
+            style={{ width: `${width}%` }}
           ></div>
         </div>
       </div>

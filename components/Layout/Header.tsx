@@ -76,7 +76,7 @@ const Header = () => {
   )
   return (
     <nav
-      className="bg-white sticky layout_head z-20 top-0 h-16 left-0 right-0"
+      className="bg-white sticky layout_head z-20 top-0 h-16"
       dir={t('lang') ? 'rtl' : 'ltr'}
     >
       <div className="container-xxl justify-between items-center flex h-full">
@@ -103,7 +103,12 @@ const Header = () => {
                     height={33}
                     priority
                   />
-                  <span className="mr-2 font-bold text-[15px] mt-[6px] sm:hidden">
+                  <span
+                    className={classNames(
+                      'font-bold text-[15px] mt-[6px] sm:hidden text-black',
+                      t('lang') ? 'mr-2' : 'ml-2'
+                    )}
+                  >
                     MAR<span className="text-red-500">X</span>
                   </span>
                 </Link>
@@ -187,7 +192,6 @@ const Header = () => {
 }
 
 const Auth = () => {
-  const [show, setShow] = useState(false)
   const { isFind, setAuthState, authState, isAuth } = useContext(AuthContext)
   const { t } = useTranslation()
   const router = useRouter()
@@ -234,31 +238,28 @@ const Auth = () => {
           </Link>
         </>
       ) : (
-        <div className="relative h-20 flex items-center">
+        <div className="relative flex items-center">
           <div className="sm:hidden">
             <Link href="/account">
-              <Avatar.Root className="AvatarRoot bg-slate-100 mr-2 w-12 h-12 rounded-full">
-                <Avatar.Fallback className="AvatarFallback w-full h-full flex items-center justify-center bg-slate-100">
+              <Avatar.Root className="items-center justify-center align-middle select-none overflow-hidden inline-flex bg-slate-100 mr-2 w-12 h-12 rounded-full">
+                <Avatar.Fallback className="leading-4 text-[15px] font-medium text-purple-800 w-full h-full flex items-center justify-center bg-slate-100">
                   {authState.username.toLocaleUpperCase()}
                 </Avatar.Fallback>
               </Avatar.Root>
             </Link>
           </div>
-          <div
-            onMouseEnter={() => setShow(true)}
-            onMouseLeave={() => setShow(false)}
-          >
+          <div id="momMenu">
             <button
               className="pl-0 bg-white max-sm:hidden min-w-[67px] max-w-[67px]"
               type="button"
             >
               <Avatar.Root
                 className={classNames(
-                  'AvatarRoot bg-slate-100 w-12 h-12 rounded-full',
+                  'items-center justify-center align-middle select-none overflow-hidden inline-flex bg-slate-100 w-12 h-12 rounded-full',
                   t('lang') ? 'ml-1' : 'mr-1'
                 )}
               >
-                <Avatar.Fallback className="AvatarFallback flex items-center justify-center w-full h-full bg-slate-100">
+                <Avatar.Fallback className="leading-4 text-[15px] font-medium text-purple-800 flex items-center justify-center w-full h-full bg-slate-100">
                   {authState.username.toLocaleUpperCase()}
                 </Avatar.Fallback>
               </Avatar.Root>
@@ -266,18 +267,12 @@ const Auth = () => {
             </button>
             <ul
               className={classNames(
-                'layout_menu absolute bg-white top-3 max-sm:right-96',
-                t('lang')
-                  ? show
-                    ? 'right-[-60px]'
-                    : 'right-40'
-                  : show
-                  ? 'left-[-60px]'
-                  : 'left-40'
+                'layout_menu p-2 rounded-lg absolute bg-white max-sm:right-96 top-[-110px]',
+                t('lang') ? 'right-[-60px]' : 'left-[-60px]'
               )}
             >
               <Link href="/account">
-                <li className="layout_dupLi text-black">
+                <li className="layout_dupLi p-2 text-black">
                   <BsFillPersonFill />
                   <span className={t('lang') ? 'mr-1' : 'ml-1'}>
                     {t('profile')}
@@ -285,7 +280,7 @@ const Auth = () => {
                 </li>
               </Link>
               <div onClick={Logout}>
-                <li className="layout_dupLi cursor-pointer">
+                <li className="layout_dupLi p-2 cursor-pointer">
                   <HiLogout />
                   <span className={t('lang') ? 'mr-2' : 'ml-2'}>
                     {t('logout')}
@@ -359,7 +354,7 @@ const ChangeMode = () => {
             />
             <path fill="#3F51B5" d="M26 42L23 35 33 35z" />
             <path
-              fill="#FFF"
+              fill="#fff"
               d="M19.172,24h-4.36l-1.008,3H11l4.764-13h2.444L23,27h-2.805L19.172,24z M15.444,22h3.101l-1.559-4.714L15.444,22z"
             />
           </svg>

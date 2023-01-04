@@ -5,10 +5,10 @@
 
   &:before,
   &::after {
+    content: '';
     width: 50%;
     border-top: 1px solid transparent;
     border-top-color: inherit;
     transform: translateY(50%);
-    content: '';
   }
 }

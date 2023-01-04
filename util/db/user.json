@@ -8,9 +8,9 @@
     },
     "user-test@gmail.com": {
       "email": "user-test@gmail.com",
-      "password": "user-test",
       "username": "کاربرتستی",
-      "date": "1401/10/02"
+      "date": "1401/10/02",
+      "password": "user-test"
     }
   }
 }

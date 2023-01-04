@@ -37,7 +37,7 @@ const ControllerCoins = ({ dataServer }) => {
     setPage(pageName)
     for (let i = 1; i <= pageSize; i++) {
       if (pageName === i) {
-        // PageLengthCoin => PLC
+        //    PLC => PageLengthCoin
         const PLC = (i - 1) * pageItem
         setDataView(data.slice(PLC, PLC + pageItem))
       }
@@ -56,7 +56,7 @@ const ControllerCoins = ({ dataServer }) => {
     if (dataSearch.length === dataServer.coins.length) {
       for (let i = 1; i <= pageSize; i++) {
         if (page === i) {
-          // PageLengthCoin => PLC
+          //    PLC => PageLengthCoin
           const PLC = (i - 1) * pageItem
           setDataView(dataSearch.slice(PLC, PLC + pageItem))
         }
@@ -66,7 +66,7 @@ const ControllerCoins = ({ dataServer }) => {
   return (
     <>
       <div className="flex mb-6">
-        <div className="mx-6 flex mt-2 w-full sm:max-w-xs">
+        <div className="mx-6 flex mt-2 w-full sm:max-w-[285px]">
           <button type="submit" className="uiCoin_searchBtn h5 text-white">
             <BsSearch />
           </button>

@@ -10,7 +10,6 @@ const Login = (req: NextApiRequest, res: NextApiResponse) => {
     const token = {
       email,
       username: users[email].username,
-      password,
       date: users[email].date,
     }
     const createToken = () => {

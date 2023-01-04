@@ -26,7 +26,7 @@ const Item = (props) => {
   return (
     <>
       <div className="flex justify-between coinPage_item list-group-item">
-        <span className="text-secondary">
+        <span className="text-gray-500">
           {numberToPersian('24H', t('lang'))}
         </span>
         <span className={`text-${props.day.colorDayIn}`}>
@@ -36,7 +36,7 @@ const Item = (props) => {
         </span>
       </div>
       <div className="flex justify-between coinPage_item list-group-item">
-        <span className="text-secondary">
+        <span className="text-gray-500">
           {numberToPersian('7 ', t('lang')) + t('day') + ' ' + t('lately')}
         </span>
         <span className={`text-${props.day.colorDay7}`}>
@@ -46,7 +46,7 @@ const Item = (props) => {
         </span>
       </div>
       <div className="flex justify-between coinPage_item list-group-item">
-        <span className="text-secondary">
+        <span className="text-gray-500">
           {numberToPersian('30 ', t('lang')) + t('day')}
         </span>
         <span className={`text-${props.day.colorDay30}`}>
@@ -56,7 +56,7 @@ const Item = (props) => {
         </span>
       </div>
       <div className="flex justify-between coinPage_item list-group-item">
-        <span className="text-secondary">
+        <span className="text-gray-500">
           {numberToPersian('90 ', t('lang')) + t('day')}
         </span>
         <span className={'text-' + props.day.colorDay90}>
@@ -66,7 +66,7 @@ const Item = (props) => {
         </span>
       </div>
       <div className="flex justify-between coinPage_item list-group-item">
-        <span className="text-secondary">
+        <span className="text-gray-500">
           {numberToPersian('180 ', t('lang')) + t('day')}
         </span>
         <span className={`text-${props.day.colorDay180}`}>
@@ -77,7 +77,7 @@ const Item = (props) => {
       </div>
 
       <div className="flex justify-between coinPage_item list-group-item">
-        <span className="text-secondary">
+        <span className="text-gray-500">
           {numberToPersian('365 ', t('lang')) + t('day')}
         </span>
         <span className={`text-${props.day.colorDay365}`}>
@@ -87,7 +87,7 @@ const Item = (props) => {
         </span>
       </div>
       <div className="flex justify-between coinPage_item list-group-item">
-        <span className="text-secondary">{t('all')}</span>
+        <span className="text-gray-500">{t('all')}</span>
         <span className={`text-${props.day.colorDayAll}`}>
           {numberToPersian(props.day.dayAll, t('lang')) + '٪'}
           {(props.day.colorDayAll === 'red' && '-') ||
