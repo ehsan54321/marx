@@ -1,4 +1,4 @@
-import sweetalert2 from 'sweetalert2'
+import Swal from 'sweetalert2'
 import { AiOutlineStar, AiTwotoneStar } from 'react-icons/ai'
 import { AuthContext } from '@store/auth'
 import { memo, useContext, useEffect, useState } from 'react'
@@ -59,18 +59,16 @@ const Star = ({ name, faName, id, poster_path }: starObj) => {
       }
     } else {
       // زمانی که کاربر وارد نشد باشد
-      sweetalert2
-        .fire({
-          icon: 'warning',
-          title: t('text.no.login'),
-          confirmButtonText: `<a href="javascript:void(0)"><span class="text-white">
+      Swal.fire({
+        icon: 'warning',
+        title: t('text.no.login'),
+        confirmButtonText: `<a href="javascript:void(0)"><span class="text-white">
           ${t('text.no.login.button')}</span></a>`,
-          showCloseButton: true,
-        })
-        .then((e) => {
-          setLoaderStatus(false)
-          if (e.isConfirmed) router.push('/auth#login')
-        })
+        showCloseButton: true,
+      }).then((e) => {
+        setLoaderStatus(false)
+        if (e.isConfirmed) router.push('/auth#login')
+      })
     }
   }
 

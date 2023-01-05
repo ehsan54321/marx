@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import MapCoin from './MapCoin'
-import { numberToPersian, removeSpas } from '@lib/helper'
-import { startTransition, useState } from 'react'
-import { useTranslation } from 'react-i18next'
 import { BsSearch } from 'react-icons/bs'
+import { numberToPersian, removeSpas } from '@lib/helper'
+import { startTransition, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 type coinType = {
   id: number
@@ -24,6 +24,7 @@ const ControllerCoins = ({ dataServer }) => {
   const pageItem: number = 20
   const { t } = useTranslation()
   const { pageSize } = dataServer
+  const inputSearch = useRef(null)
   const [page, setPage] = useState<number>(1)
   const [searchValue, setSearchValue] = useState<string>('')
   const [data, setData] = useState<coinType[]>(dataServer.coins)
@@ -74,6 +75,8 @@ const ControllerCoins = ({ dataServer }) => {
             type="submit"
             className="h5 relative cursor-pointer bg-white flex"
             onClick={() => {
+              inputSearch.current.value = ''
+              inputSearch.current.focus()
               setSearchValue('')
               searchHandler('')
             }}
@@ -92,7 +95,7 @@ const ControllerCoins = ({ dataServer }) => {
             )}
             maxLength={35}
             dir="auto"
-            value={searchValue}
+            ref={inputSearch}
             placeholder={
               t('lang')
                 ? `جستجو بین ${numberToPersian(
@@ -117,7 +120,7 @@ const ControllerCoins = ({ dataServer }) => {
         lanData={data.length <= 0}
       />
 
-      {data.length > pageItem && (
+      {!searchValue && data.length > pageItem && (
         <nav>
           <ul className="pagination justify-center mt-2" dir="ltr">
             {arrPageSize().map((item) => (

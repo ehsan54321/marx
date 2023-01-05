@@ -77,9 +77,9 @@ const ControllerPageCoin = (props: Props) => {
           <div
             title={t('change-24h')}
             className={classNames(
-              props.coin.day.colorDayIn === 'red' ? ' bg-red-500' : '',
-              props.coin.day.colorDayIn === 'green' ? ' bg-green-700' : '',
-              props.coin.day.colorDayIn === 'info' ? 'bg-blue-500' : '',
+              (props.coin.day.colorDayIn === 'red' && 'bg-red-500') ||
+                (props.coin.day.colorDayIn === 'green' && 'bg-green-700') ||
+                (props.coin.day.colorDayIn === 'info' && 'bg-blue-500'),
               'rounded-full text-white justify-center mt-4 flex h6 py-[20px]'
             )}
           >
@@ -98,12 +98,9 @@ const ControllerPageCoin = (props: Props) => {
           </div>
         </div>
         <div></div>
-        <div
-          className="mt-4 mb-4 col"
-          style={{ paddingLeft: 'calc(var(--bs-gutter-x) * .0)' }}
-        >
+        <div className="mt-4 mb-4 col pl-0">
           <div className="flex flex-col" title={t('mane-usd')}>
-            <span className="text-slate-500">{t('mane-usd')}:</span>
+            <span className="text-slate-500">{t('mane-usd') + ' :'}</span>
             <span className="text-[18px] mt-1">
               {numberToPersian(formatCurrency(props.coin.usd), t('lang'))}
               <span
@@ -119,7 +116,7 @@ const ControllerPageCoin = (props: Props) => {
         </div>
         <div className="flex mt-4 items-center mb-4 col">
           <div className="flex flex-col" title={t('mane-rials')}>
-            <span className="text-slate-500">{t('mane-rials')}:</span>
+            <span className="text-slate-500">{t('mane-rials') + ' :'}</span>
             <span className="text-[18px] mt-1">
               {numberToPersian(
                 formatCurrency(~~(props.coin.usd * props.rials)),

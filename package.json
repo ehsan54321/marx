@@ -1,6 +1,6 @@
 {
   "name": "marxket",
-  "version": "2.5.2",
+  "version": "2.5.8",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -26,8 +26,8 @@
     "cookies-next": "2.1.1",
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.1",
-    "eslint-config-prettier": "8.5.0",
-    "i18next": "22.4.6",
+    "eslint-config-prettier": "8.6.0",
+    "i18next": "22.4.8",
     "jsonwebtoken": "9.0.0",
     "persian-date": "1.1.0",
     "postcss": "8.4.20",

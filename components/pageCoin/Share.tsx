@@ -1,4 +1,4 @@
-import sweetalert2 from 'sweetalert2'
+import Swal from 'sweetalert2'
 import { AiOutlineMail, AiOutlineWhatsApp } from 'react-icons/ai'
 import { baseURL } from '@baseUrl'
 import { HiOutlineShare } from 'react-icons/hi'
@@ -10,7 +10,7 @@ const Share = ({ nameCoin, name }) => {
   const { t } = useTranslation()
   const copyHandler = () => {
     navigator.clipboard.writeText(`${baseURL}coins/${nameCoin}`)
-    sweetalert2.fire({
+    Swal.fire({
       icon: 'success',
       toast: true,
       position: 'top-end',
@@ -22,14 +22,14 @@ const Share = ({ nameCoin, name }) => {
     })
   }
   return (
-    <div className="sm:flex justify-between">
-      <div className="flex text-slate-500 max-sm:mb-2 mr-2">
+    <div className="sm:flex justify-between ml-2 mr-2">
+      <div className="flex text-slate-500 max-sm:mb-2">
         <div className="ml-1 flex items-center">
           <HiOutlineShare size={15} />
         </div>
         <span className="text-[14px]">اشتراک گزاری</span>
       </div>
-      <div className="flex mr-2 justify-center">
+      <div className="flex justify-center">
         <a
           target="_blank"
           rel="nofollow noreferrer"

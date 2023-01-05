@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import http from '@services/httpServices'
-import sweetalert2 from 'sweetalert2'
+import Swal from 'sweetalert2'
 import { AuthContext } from '@store/auth'
 import {
   BsEnvelopeFill,
@@ -50,7 +50,7 @@ const Register = () => {
         if (data.status === 'SUCCESS') {
           setAuthState(data.data)
           router.push('/account')
-          sweetalert2.fire({
+          Swal.fire({
             icon: 'success',
             toast: true,
             position: 'top-end',
@@ -61,7 +61,7 @@ const Register = () => {
             timerProgressBar: true,
           })
         } else {
-          sweetalert2.fire({
+          Swal.fire({
             icon: 'error',
             toast: true,
             position: 'top-end',

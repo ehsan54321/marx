@@ -24,7 +24,6 @@ const SEO = (props: MetaProps) => {
       <meta name="format-detection" content="telephone=no" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="enamad" content="" />
-      <link rel="shortcut icon" href={icon} />
       <link rel="shortcut icon" type="image/x-icon" href={icon} />
       <link rel="icon" href={icon} />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />

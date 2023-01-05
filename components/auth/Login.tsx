@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import http from '@services/httpServices'
-import sweetalert2 from 'sweetalert2'
+import Swal from 'sweetalert2'
 import { AuthContext } from '@store/auth'
 import { BsEnvelopeFill, BsEye, BsEyeSlash } from 'react-icons/bs'
-import { resErr, removeSpas } from '@lib/helper'
+import { removeSpas, resErr } from '@lib/helper'
 import { RiLockPasswordFill } from 'react-icons/ri'
 import { useContext, useState } from 'react'
 import { useRouter } from 'next/router'
@@ -37,7 +37,7 @@ const Login = () => {
         if (data.status === 'SUCCESS') {
           setAuthState(data.data)
           router.push('/account')
-          sweetalert2.fire({
+          Swal.fire({
             icon: 'success',
             toast: true,
             position: 'top-end',
@@ -48,7 +48,7 @@ const Login = () => {
             timerProgressBar: true,
           })
         } else {
-          sweetalert2.fire({
+          Swal.fire({
             icon: 'error',
             toast: true,
             position: 'top-end',

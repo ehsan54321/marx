@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import http from '@services/httpServices'
 import Image from 'next/image'
 import Link from 'next/link'
-import sweetalert2 from 'sweetalert2'
+import Swal from 'sweetalert2'
 import { AuthContext } from '@store/auth'
 import { BsFillCaretDownFill, BsFillPersonFill } from 'react-icons/bs'
 import { FaBars, FaTimes } from 'react-icons/fa'
@@ -201,7 +201,7 @@ const Auth = () => {
       .then(() => {
         setAuthState(null)
         router.push('/auth#login')
-        sweetalert2.fire({
+        Swal.fire({
           icon: 'error',
           toast: true,
           position: 'top-end',
@@ -250,7 +250,7 @@ const Auth = () => {
           </div>
           <div id="momMenu">
             <button
-              className="pl-0 bg-white max-sm:hidden min-w-[67px] max-w-[67px]"
+              className="pl-0 bg-white max-sm:hidden min-w-[67px] max-w-[67px] cursor-pointer"
               type="button"
             >
               <Avatar.Root
@@ -267,12 +267,12 @@ const Auth = () => {
             </button>
             <ul
               className={classNames(
-                'layout_menu p-2 rounded-lg absolute bg-white max-sm:right-96 top-[-110px]',
+                'layout_menu p-2 rounded-lg absolute bg-white max-sm:right-96',
                 t('lang') ? 'right-[-60px]' : 'left-[-60px]'
               )}
             >
               <Link href="/account">
-                <li className="layout_dupLi p-2 text-black">
+                <li className="leading-7 hover:bg-gray-100 rounded-md p-2 text-black">
                   <BsFillPersonFill />
                   <span className={t('lang') ? 'mr-1' : 'ml-1'}>
                     {t('profile')}
@@ -280,7 +280,7 @@ const Auth = () => {
                 </li>
               </Link>
               <div onClick={Logout}>
-                <li className="layout_dupLi p-2 cursor-pointer">
+                <li className="leading-7 hover:bg-gray-100 rounded-md p-2 cursor-pointer">
                   <HiLogout />
                   <span className={t('lang') ? 'mr-2' : 'ml-2'}>
                     {t('logout')}

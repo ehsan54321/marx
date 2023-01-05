@@ -1,6 +1,6 @@
 import * as Avatar from '@radix-ui/react-avatar'
 import http from '@services/httpServices'
-import sweetalert2 from 'sweetalert2'
+import Swal from 'sweetalert2'
 import { AuthContext } from '@store/auth'
 import { numberToPersian, resErr } from '@lib/helper'
 import { useContext } from 'react'
@@ -17,7 +17,7 @@ const UserCard = () => {
       .then(() => {
         setAuthState(null)
         router.push('/auth#login')
-        sweetalert2.fire({
+        Swal.fire({
           icon: 'error',
           toast: true,
           position: 'top-end',

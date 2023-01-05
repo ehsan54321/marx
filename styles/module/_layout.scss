@@ -28,21 +28,26 @@
   &icon {
     transition: color 0.45s ease-out;
   }
-  &dupLi {
-    line-height: 1.75;
-    border-radius: 5px;
-
-    &:hover {
-      background: #0000000a;
-    }
-  }
   &menu {
     box-shadow: 0px 2px 1px #0000001a, 0px 0px 1px #00000040;
     width: 150px;
-    transition: all 0.1s linear;
+    top: -120px;
   }
 }
 
 #momMenu:hover .layout_menu {
+  animation: darp 1s;
   top: 0;
+}
+
+@keyframes darp {
+  0% {
+    top: -36px;
+  }
+  30% {
+    top: 20px;
+  }
+  100% {
+    top: 0;
+  }
 }

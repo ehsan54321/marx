@@ -35,4 +35,15 @@
     stroke-dasharray: 100px, 200px;
     stroke-dashoffset: -125px;
   }
+  100%,
+  0% {
+    stroke: #30505b;
+  }
+  40% {
+    stroke: #45b29d;
+  }
+  80%,
+  90% {
+    stroke: #000;
+  }
 }

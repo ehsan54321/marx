@@ -1,5 +1,5 @@
 import http from '@services/httpServices'
-import sweetalert2 from 'sweetalert2'
+import Swal from 'sweetalert2'
 import { AuthContext } from '@store/auth'
 import { BsEnvelopeFill, BsFillPersonFill } from 'react-icons/bs'
 import { resErr, removeSpas } from '@lib/helper'
@@ -16,36 +16,34 @@ const UserInfo = () => {
   const { authState, setAuthState } = useContext(AuthContext)
   const { t } = useTranslation()
   const finish = (username: string) => {
-    sweetalert2
-      .fire({
-        icon: 'warning',
-        title:
-          '<span class="h4">در صورتی که از ذخیره سازی اطلاعات وارد شده اطمینان دارید بر روی تایید کلیک کنید؟</span>',
-        showCancelButton: true,
-        cancelButtonText: 'لغو',
-        confirmButtonText: 'تایید',
-      })
-      .then((result) => {
-        if (result.isConfirmed) {
-          http
-            .post('api/v2/auth/update', {
-              username,
-              email: authState.email,
-              date: authState.date,
+    Swal.fire({
+      icon: 'warning',
+      title:
+        '<span class="h4">در صورتی که از ذخیره سازی اطلاعات وارد شده اطمینان دارید بر روی تایید کلیک کنید؟</span>',
+      showCancelButton: true,
+      cancelButtonText: 'لغو',
+      confirmButtonText: 'تایید',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        http
+          .post('api/v2/auth/update', {
+            username,
+            email: authState.email,
+            date: authState.date,
+          })
+          .then(() => {
+            setAuthState({ ...authState, username })
+            Swal.fire({
+              icon: 'success',
+              title:
+                '<span class="h4">اطلاعات با موفقیت تغییر پیدا کرد!</span>',
+              confirmButtonText: 'باشه',
             })
-            .then(() => {
-              setAuthState({ ...authState, username })
-              sweetalert2.fire({
-                icon: 'success',
-                title:
-                  '<span class="h4">اطلاعات با موفقیت تغییر پیدا کرد!</span>',
-                confirmButtonText: 'باشه',
-              })
-              setDisabled(true)
-            })
-            .catch(() => resErr(t))
-        }
-      })
+            setDisabled(true)
+          })
+          .catch(() => resErr(t))
+      }
+    })
   }
   const onSubmit = (e) => {
     const username: string = removeSpas(e.target['0'].value)

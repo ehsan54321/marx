@@ -1,11 +1,11 @@
-import sweetalert2 from 'sweetalert2'
+import Swal from 'sweetalert2'
 
 export const removeSpas = (str) => str.replace(/(\s)/g, '')
 export const formatCurrency = (num) =>
   num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
 export const resErr = (t) => {
-  sweetalert2.fire({
+  Swal.fire({
     icon: 'error',
     toast: true,
     position: 'top-end',
