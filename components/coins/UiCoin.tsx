@@ -60,7 +60,7 @@ const UiCoin = (props: Props) => {
                 query: { coin: my_key },
               }}
               className="flex flex-col sm:mt-0 mt-[.8px] max-sm:pb-1 mr-1 uiCoin_nameCoin"
-              title={t('name-coin')}
+              title={t('coin')}
             >
               <span className="hidden sm:inline text-right my_transition name leading-6">
                 {t('lang') ? name : all_name}

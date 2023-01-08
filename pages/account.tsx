@@ -5,7 +5,6 @@ import { GetStaticProps } from 'next'
 import { useContext } from 'react'
 import { UserCard, UserInfo } from '@components/profile'
 import { useTranslation } from 'react-i18next'
-import Jump from 'react-reveal/Jump'
 
 export const getStaticProps: GetStaticProps = () => {
   return { props: { NoFooter: true } }
@@ -20,14 +19,12 @@ const Account = () => {
           title={`${t('profile')} ${authState.username}`}
           url={'account/' + authState.username}
         />
-        <Jump>
-          <nav className="mt-6 mb-6 nav_page">
-            <ul className="breadcrumb">
-              <li className="breadcrumb-item">{t('profile')}</li>
-              <li className="breadcrumb-item active">{authState.username}</li>
-            </ul>
-          </nav>
-        </Jump>
+        <nav className="mt-6 mb-6 nav_page h1Page">
+          <ul className="breadcrumb">
+            <li className="breadcrumb-item">{t('profile')}</li>
+            <li className="breadcrumb-item active">{authState.username}</li>
+          </ul>
+        </nav>
         <div className="w-full text-right p-2 pt-0 mr-0 row">
           <div className="col-lg-3 col-md-5">
             <UserCard />

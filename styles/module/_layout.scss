@@ -32,6 +32,7 @@
     box-shadow: 0px 2px 1px #0000001a, 0px 0px 1px #00000040;
     width: 150px;
     top: -120px;
+    animation: closeDarp 0.8s;
   }
 }
 
@@ -40,9 +41,18 @@
   top: 0;
 }
 
+@keyframes closeDarp {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: -120px;
+  }
+}
+
 @keyframes darp {
   0% {
-    top: -36px;
+    top: -33px;
   }
   30% {
     top: 20px;

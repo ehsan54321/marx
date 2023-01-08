@@ -5,7 +5,6 @@ import { AuthContext } from '@store/auth'
 import { Error401 } from '@components/error'
 import { FaGithub } from 'react-icons/fa'
 import { LoginForm, RegisterForm, SettingsFrom } from '@components/auth'
-import { Slide } from 'react-reveal'
 import { useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import type { GetStaticProps } from 'next'
@@ -87,7 +86,7 @@ const AuthPage = () => {
             </ul>
           </div>
           {status === 'login' && (
-            <Slide right>
+            <div className="auth_an">
               <LoginForm />
               <div className="mt-4">
                 <button className="btn btn-dark w-full">
@@ -99,10 +98,10 @@ const AuthPage = () => {
                 ورود از طریق گوگل
               </button> */}
               </div>
-            </Slide>
+            </div>
           )}
           {status === 'register' && (
-            <Slide right>
+            <div className="auth_an">
               <RegisterForm />
               <div className="mt-4">
                 <button className="btn btn-dark w-full">
@@ -114,17 +113,17 @@ const AuthPage = () => {
                 ورود از طریق گوگل
               </button> */}
               </div>
-            </Slide>
+            </div>
           )}
           {status === 'settings' && (
-            <Slide right>
+            <div className="auth_an">
               <SettingsFrom
                 setImg={setImg}
                 img={img}
                 theme={theme}
                 setTheme={setTheme}
               />
-            </Slide>
+            </div>
           )}
         </div>
       </div>

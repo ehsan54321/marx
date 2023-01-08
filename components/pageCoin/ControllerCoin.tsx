@@ -31,7 +31,7 @@ const ControllerPageCoin = (props: Props) => {
               </div>
               <div className="flex pt-4">
                 <div style={{ lineHeight: 0 }}>
-                  <h1 className="mr-1 h5" title={t('name-coin')}>
+                  <h1 className="mr-1 h5" title={t('coin')}>
                     {t('lang') ? props.coin.name : props.coin.all_name}
                   </h1>
                   <br />

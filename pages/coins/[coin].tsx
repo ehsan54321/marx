@@ -1,7 +1,6 @@
 import Accordion from '@components/Accordion'
 import ControllerPageCoin from '@components/pageCoin/ControllerCoin'
 import http from '@services/httpServices'
-import Jump from 'react-reveal/Jump'
 import Link from 'next/link'
 import SEO from '@components/Seo'
 import Share from '@components/pageCoin/Share'
@@ -28,20 +27,18 @@ const Coin = ({ props, nameCoin }) => {
         description={props.coin.aboutCoin.body}
         url={'coins' + nameCoin}
       />
-      <Jump>
-        <nav className="mt-6 mb-6 nav_page">
-          <ul className="breadcrumb">
-            <li className="breadcrumb-item">
-              <Link className="hover:secondary" href="/">
-                {t('title.home')}
-              </Link>
-            </li>
-            <li className="breadcrumb-item active">
-              {t('lang') ? props.coin.name : props.coin.all_name}
-            </li>
-          </ul>
-        </nav>
-      </Jump>
+      <nav className="mt-6 mb-6 nav_page">
+        <ul className="breadcrumb">
+          <li className="breadcrumb-item">
+            <Link className="hover:secondary" href="/">
+              {t('title.home')}
+            </Link>
+          </li>
+          <li className="breadcrumb-item active">
+            {t('lang') ? props.coin.name : props.coin.all_name}
+          </li>
+        </ul>
+      </nav>
 
       <div className="background-color bg-white">
         <ControllerPageCoin {...props} nameCoin={nameCoin} />

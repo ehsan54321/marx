@@ -15,7 +15,7 @@ const MapCoin = (props: Props) => {
         <thead>
           <tr className="tr h-auto">
             <th className="text-center max-sm:hidden uiCoin_idTh">#</th>
-            <th className="text-right uiCoin_coin">{t('name-coin')}</th>
+            <th className="text-right uiCoin_coin">{t('coin')}</th>
             <th className="uiCoin_price">
               <span className="max-sm:hidden">{t('mane-rials')}</span>
               <span className="sm:hidden">{t('price')}</span>

@@ -1,7 +1,6 @@
 import Accordion from '@components/Accordion'
 import ControllerCoin from '@components/coins/ControllerCoins'
 import http from '@services/httpServices'
-import Jump from 'react-reveal/Jump'
 import SEO from '@components/Seo'
 import { useTranslation } from 'react-i18next'
 
@@ -16,9 +15,7 @@ const HomePage = ({ data }) => {
         description={`وب سایت مارکس کت یک سایت نمایش قیمت ارز های دجیتال است که بیش از ۴۲ ارز دجیتال دارد مانند بیت کوین اتریوم تتر دوج کوین و غیر ...`}
         url=""
       />
-      <Jump>
-        <h1 className="h5 mb-6 leading-7 font-bold">{t('title.home')}</h1>
-      </Jump>
+      <h1 className="h5 mb-6 leading-7 font-bold h1Page">{t('title.home')}</h1>
       <div className="background-color bg-white pt-6 px-0 pb-2">
         <ControllerCoin dataServer={data} />
       </div>
