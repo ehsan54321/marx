@@ -26,7 +26,7 @@ const SEO = (props: MetaProps) => {
       <meta name="enamad" content="" />
       <link rel="shortcut icon" type="image/x-icon" href={icon} />
       <link rel="icon" href={icon} />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <link rel="canonical" href={baseURL + url} />
       <meta name="robots" content="index, follow" />
       <meta name="robots" content="notranslate" />

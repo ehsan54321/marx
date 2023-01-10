@@ -15,13 +15,13 @@ const Login = (req: NextApiRequest, res: NextApiResponse) => {
     const createToken = () => {
       return jwt.sign(token, process.env.JWT_SECRET_KEY, {
         algorithm: 'HS256',
-        expiresIn: '90d',
+        expiresIn: '60d',
       })
     }
     setCookie('token', createToken(), {
       res,
       req,
-      maxAge: 90 * 24 * 60,
+      maxAge: 2 * 30 * 24 * 60 * 60,
       httpOnly: true,
       secure: true,
     })

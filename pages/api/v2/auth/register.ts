@@ -14,7 +14,7 @@ const Register = (req: NextApiRequest, res: NextApiResponse) => {
     const createToken = (token) => {
       return jwt.sign(token, process.env.JWT_SECRET_KEY, {
         algorithm: 'HS256',
-        expiresIn: '90d',
+        expiresIn: '60d',
       })
     }
     const date = new persianDate()
@@ -36,7 +36,7 @@ const Register = (req: NextApiRequest, res: NextApiResponse) => {
           setCookie('token', createToken(dataOBJClint), {
             res,
             req,
-            maxAge: 90 * 24 * 60,
+            maxAge: 2 * 30 * 24 * 60 * 60,
             httpOnly: true,
             secure: true,
           })

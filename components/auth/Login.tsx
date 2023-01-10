@@ -181,11 +181,11 @@ const Login = () => {
       <div>
         <button
           type="submit"
-          className="w-full mt-6 text-inherit text-blue-600 btn btn-outline-primary disabled:cursor-progress disabled:pointer-events-auto"
+          className="w-full mt-6 text-inherit text-blue-600 disabled:cursor-progress disabled:opacity-70 disabled:bg-white disabled:hover:text-blue-600 border border-solid border-blue-600 bg-white inline-block py-1.5 text-base cursor-pointer rounded hover:bg-blue-600 hover:text-white outline-none transition-btn"
           disabled={loader}
         >
           {loader && (
-            <span className="loader text-black ml-1">
+            <span className="loader ml-1">
               <svg viewBox="22 22 44 44" width="20">
                 <circle
                   cx="44"

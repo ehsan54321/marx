@@ -23,7 +23,7 @@ const ApiPageCoin = (req: NextApiRequest, res: NextApiResponse) => {
       },
     }
     res.status(200).json({
-      rials: 34856,
+      rials: 39494,
       coin: dataFinish,
     })
   } catch {

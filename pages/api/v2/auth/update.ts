@@ -15,14 +15,14 @@ const Update = (req: NextApiRequest, res: NextApiResponse) => {
       const token = { email, username, date }
       return jwt.sign(token, process.env.JWT_SECRET_KEY, {
         algorithm: 'HS256',
-        expiresIn: '90d',
+        expiresIn: '60d',
       })
     }
     http.post('/api/v2/db/update/user', { username, email }).then(() => {
       setCookie('token', createToken(), {
         res,
         req,
-        maxAge: 90 * 24 * 60,
+        maxAge: 2 * 30 * 24 * 60 * 60,
         httpOnly: true,
         secure: true,
       })

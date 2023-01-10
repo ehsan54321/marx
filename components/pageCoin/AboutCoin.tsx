@@ -43,10 +43,7 @@ const AboutCoin = ({ aboutCoin, dayGrith }) => {
         </div>
       </div>
 
-      <div
-        style={{ borderTop: '1px solid currentcolor' }}
-        className="sm:hidden opacity-25"
-      ></div>
+      <div className="sm:hidden opacity-25 border-t border-solid border-current"></div>
 
       <div className="vr max-sm:hidden"></div>
       <div className="flex">

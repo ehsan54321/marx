@@ -30,7 +30,7 @@ const ControllerPageCoin = (props: Props) => {
                 />
               </div>
               <div className="flex pt-4">
-                <div style={{ lineHeight: 0 }}>
+                <div className="leading-[0]">
                   <h1 className="mr-1 h5" title={t('coin')}>
                     {t('lang') ? props.coin.name : props.coin.all_name}
                   </h1>
@@ -57,14 +57,7 @@ const ControllerPageCoin = (props: Props) => {
             </div>
           </div>
           <div className="flex items-center mr-1">
-            <span
-              style={{
-                color: '#014a8f',
-                background: '#f2f6f9',
-                padding: '6px 8.5px',
-              }}
-              className="rounded-[10px]"
-            >
+            <span className="rounded-[10px] text-blue-900 py-[6px] px-[8.5px] bg-[#f2f6f9]">
               {'#' + numberToPersian(props.coin.id, t('lang'))}
             </span>
           </div>
@@ -79,7 +72,7 @@ const ControllerPageCoin = (props: Props) => {
             className={classNames(
               (props.coin.day.colorDayIn === 'red' && 'bg-red-500') ||
                 (props.coin.day.colorDayIn === 'green' && 'bg-green-700') ||
-                (props.coin.day.colorDayIn === 'info' && 'bg-blue-500'),
+                'bg-blue-500',
               'rounded-full text-white justify-center mt-4 flex h6 py-[20px]'
             )}
           >

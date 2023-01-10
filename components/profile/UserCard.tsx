@@ -57,7 +57,7 @@ const UserCard = () => {
         </div>
         <button
           type="button"
-          className="mb-0 btn btn-outline-danger"
+          className="inline-block mb-0 px-4 py-1.5 bg-white text-red-600 text-base rounded border border-solid border-red-600 hover:bg-red-600 hover:text-white hover:shadow-md outline-none transition-btn cursor-pointer"
           onClick={Logout}
         >
           <span>{t('info.logout')}</span>

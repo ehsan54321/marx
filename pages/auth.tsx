@@ -31,7 +31,10 @@ const AuthPage = () => {
       <SEO title={text} url="auth" />
       <div className="mt-4 mr-2">
         <Link href="/">
-          <button className="btn btn-outline-secondary">
+          <button
+            type="button"
+            className="inline-block px-6 py-2 bg-gray-200 text-gray-800 text-base rounded hover:bg-gray-300 transition-btn cursor-pointer"
+          >
             {t('go.to.home.page')}
           </button>
         </Link>
@@ -44,7 +47,6 @@ const AuthPage = () => {
             className={img ? '' : 'opacity-0'}
             width={110}
             height={110}
-            priority
           />
         </div>
         <div className="background-color bg-white text-center mx-auto pr-4 pe-3 pt-16 mt-[15vh] sm:w-[550px]">
@@ -88,31 +90,13 @@ const AuthPage = () => {
           {status === 'login' && (
             <div className="auth_an">
               <LoginForm />
-              <div className="mt-4">
-                <button className="btn btn-dark w-full">
-                  <FaGithub className="ml-1 mt-[3.5px]" size={20} />
-                  ورود از طریق گیت هاب
-                </button>
-                {/* <button className="btn btn-danger mt-1 w-full">
-                <FaGoogle className="ml-1 mt-[3.5px]" size={20} />
-                ورود از طریق گوگل
-              </button> */}
-              </div>
+              <LoginEasy />
             </div>
           )}
           {status === 'register' && (
             <div className="auth_an">
               <RegisterForm />
-              <div className="mt-4">
-                <button className="btn btn-dark w-full">
-                  <FaGithub className="ml-1 mt-[3.5px]" size={20} />
-                  ورود از طریق گیت هاب
-                </button>
-                {/* <button className="btn btn-danger mt-1 w-full">
-                <FaGoogle className="ml-1 mt-[3.5px]" size={20} />
-                ورود از طریق گوگل
-              </button> */}
-              </div>
+              <LoginEasy />
             </div>
           )}
           {status === 'settings' && (
@@ -131,6 +115,21 @@ const AuthPage = () => {
   ) : (
     <div className="mt-6">
       <Error401 btnHome>{t('error.401')}</Error401>
+    </div>
+  )
+}
+
+const LoginEasy = () => {
+  return (
+    <div className="mt-4">
+      <button className="inline-block py-1.5 text-base border border-solid bg-black text-white cursor-pointer rounded shadow-md hover:bg-[#424649] border-[#212529] outline-none transition-btn w-full">
+        <FaGithub className="ml-1 mt-[3.5px]" size={20} />
+        ورود از طریق گیت هاب
+      </button>
+      {/* <button className="btn btn-danger mt-1 w-full">
+        <FaGoogle className="ml-1 mt-[3.5px]" size={20} />
+        ورود از طریق گوگل
+      </button> */}
     </div>
   )
 }

@@ -1,9 +1,8 @@
 import Accordion from '@components/Accordion'
-import ControllerPageCoin from '@components/pageCoin/ControllerCoin'
+import { ControllerCoin, Share } from '@components/pageCoin'
 import http from '@services/httpServices'
 import Link from 'next/link'
 import SEO from '@components/Seo'
-import Share from '@components/pageCoin/Share'
 import { useTranslation } from 'react-i18next'
 import type { GetServerSideProps } from 'next'
 
@@ -41,7 +40,7 @@ const Coin = ({ props, nameCoin }) => {
       </nav>
 
       <div className="background-color bg-white">
-        <ControllerPageCoin {...props} nameCoin={nameCoin} />
+        <ControllerCoin {...props} nameCoin={nameCoin} />
       </div>
       <div className="background-color bg-white mt-4">
         <Share nameCoin={nameCoin} name={props.coin.name} />

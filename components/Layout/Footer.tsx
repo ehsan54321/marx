@@ -16,7 +16,6 @@ const Footer = ({ NoFooter }: { NoFooter: boolean }) => {
                   alt="لوگو"
                   width={33}
                   height={33}
-                  priority
                 />
                 <h2 className="mr-2 font-bold text-[15px] my-auto w-[66px]">
                   {t('full.app')}

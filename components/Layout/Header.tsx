@@ -101,7 +101,6 @@ const Header = () => {
                     alt="لوگو"
                     width={33}
                     height={33}
-                    priority
                   />
                   <span
                     className={classNames(
@@ -128,14 +127,12 @@ const Header = () => {
               modal ? 'layout_active' : 'sm:h-[auto!important]',
               'layout_links items-center flex bg-white overflow-hidden'
             )}
-            style={{
-              height: height(),
-            }}
+            style={{ height: height() }}
           >
             <ul className="block sm:flex sm:m-auto mt-4 items-center">
               <Link
                 href="/"
-                className="font-medium px-4 py-2 sm:rounded-lg sm:hover:bg-slate-100 text-lg sm:inline block sm:leading-1 leading-10"
+                className="font-medium px-4 py-1.5 sm:rounded-lg sm:hover:bg-slate-100 text-lg sm:inline block sm:leading-1 leading-10"
               >
                 <HomeIcon />
                 <span
@@ -150,7 +147,7 @@ const Header = () => {
               </Link>
               <Link
                 href="/stars"
-                className="font-medium px-4 py-2 sm:rounded-lg sm:hover:bg-slate-100 text-lg sm:inline block sm:leading-1 leading-10"
+                className="font-medium px-4 py-1.5 sm:rounded-lg sm:hover:bg-slate-100 text-lg sm:inline block sm:leading-1 leading-10"
               >
                 <StarIcon />
                 <span
@@ -166,7 +163,7 @@ const Header = () => {
               {activePathName === '' && (
                 <a
                   href="#faq"
-                  className="font-medium px-4 py-2 rounded-lg sm:hover:bg-slate-100 text-lg sm:inline block sm:leading-1 leading-10"
+                  className="font-medium px-4 py-1.5 rounded-lg sm:hover:bg-slate-100 text-lg sm:inline block sm:leading-1 leading-10"
                 >
                   <FcFaq className={t('lang') ? 'ml-1 mt-0' : 'mr-1 mt-0'} />
                   <span className="text-slate-500">{t('faq')}</span>
@@ -232,7 +229,10 @@ const Auth = () => {
       ) : !isAuth ? (
         <>
           <Link href="/auth#login">
-            <button type="button" className="btn btn-outline-dark">
+            <button
+              type="button"
+              className="inline-block px-3.5 py-1.5 bg-white text-black text-base rounded border border-solid border-black hover:bg-black hover:text-white hover:shadow-md outline-none transition-btn cursor-pointer"
+            >
               <span>{t('btn-login')}</span>
             </button>
           </Link>
