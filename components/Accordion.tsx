@@ -16,7 +16,7 @@ const Accordion = (props) => {
     return 0
   }
   return (
-    <div className="accordion accordion-flush">
+    <div className="accordion">
       <div className="accordion-item">
         <h2 className="accordion-header">
           <button

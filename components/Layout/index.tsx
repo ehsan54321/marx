@@ -4,14 +4,11 @@ import Header from './Header'
 import Router from 'next/router'
 import { FaChevronUp } from 'react-icons/fa'
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 
-type Props = {
-  children: JSX.Element
-  NoLayout: boolean
-  NoFooter: boolean
-}
-const Layout = ({ children, NoLayout, NoFooter }: Props) => {
-  if (!NoLayout)
+const Layout = ({ children }: { children: JSX.Element }) => {
+  const router = useRouter()
+  if (!(router.pathname === '/auth')) {
     return (
       <>
         <div>
@@ -20,10 +17,10 @@ const Layout = ({ children, NoLayout, NoFooter }: Props) => {
           <ScrollTop />
           {children}
         </div>
-        <Footer NoFooter={NoFooter} />
+        <Footer />
       </>
     )
-  else return children
+  } else return children
 }
 
 const Progress = () => {

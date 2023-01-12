@@ -7,11 +7,6 @@ import { FaGithub } from 'react-icons/fa'
 import { LoginForm, RegisterForm, SettingsFrom } from '@components/auth'
 import { useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import type { GetStaticProps } from 'next'
-
-export const getStaticProps: GetStaticProps = () => {
-  return { props: { NoLayout: true } }
-}
 
 const AuthPage = () => {
   const [status, setStatus] = useState<string>('login')
@@ -33,7 +28,7 @@ const AuthPage = () => {
         <Link href="/">
           <button
             type="button"
-            className="inline-block px-6 py-2 bg-gray-200 text-gray-800 text-base rounded hover:bg-gray-300 transition-btn cursor-pointer"
+            className="inline-block px-6 py-2 bg-gray-200 text-gray-800 text-base rounded-md hover:bg-gray-300 transition-btn cursor-pointer"
           >
             {t('go.to.home.page')}
           </button>
@@ -122,7 +117,7 @@ const AuthPage = () => {
 const LoginEasy = () => {
   return (
     <div className="mt-4">
-      <button className="inline-block py-1.5 text-base border border-solid bg-black text-white cursor-pointer rounded shadow-md hover:bg-[#424649] border-[#212529] outline-none transition-btn w-full">
+      <button className="inline-block py-1.5 text-base border border-solid bg-black text-white cursor-pointer rounded-md shadow-md hover:bg-[#424649] border-[#212529] outline-none transition-btn w-full">
         <FaGithub className="ml-1 mt-[3.5px]" size={20} />
         ورود از طریق گیت هاب
       </button>

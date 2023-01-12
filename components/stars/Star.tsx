@@ -25,7 +25,7 @@ const Star = ({ name, faName, id, poster_path }: starObj) => {
   const starHandler = () => {
     const setFalse = (status: boolean) => {
       setStatus(status)
-      setTimeout(() => setLoaderStatus(false), 350)
+      setTimeout(() => setLoaderStatus(false), 400)
     }
     setLoaderStatus(true)
     if (isAuth) {
@@ -88,7 +88,7 @@ const Star = ({ name, faName, id, poster_path }: starObj) => {
       </svg>
     ) : (
       <svg
-        className="w-4 text-yellow-400 cursor-pointer"
+        className="w-4 hover:text-yellow-400 cursor-pointer transition-colors ease-linear"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 576 512"
         onClick={starHandler}

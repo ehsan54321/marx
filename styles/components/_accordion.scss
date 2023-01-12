@@ -85,22 +85,6 @@
     color: #42526e;
   }
 }
-.accordion-flush .accordion-item {
-  border-left: 0;
-  border-right: 0;
-  border-radius: 0;
-  & .accordion-button,
-  & .accordion-button.collapsed {
-    border-radius: 0;
-  }
-
-  &:first-child {
-    border-top: 0;
-  }
-  &:last-child {
-    border-bottom: 0;
-  }
-}
 .accordion_transition {
   transition: height 0.35s ease;
 }

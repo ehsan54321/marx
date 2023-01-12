@@ -127,7 +127,7 @@ const ControllerPageCoin = (props: Props) => {
           </div>
         </div>
       </div>
-      <Chart props={props.coin} nameCoin={nameCoin} />
+      <Chart props={props.coin} nameCoin={nameCoin} chart={props.coin.chart} />
     </>
   )
 }

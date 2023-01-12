@@ -1,14 +1,10 @@
 import SEO from '@components/Seo'
 import { AuthContext } from '@store/auth'
 import { Error401 } from '@components/error'
-import { GetStaticProps } from 'next'
 import { useContext } from 'react'
 import { UserCard, UserInfo } from '@components/profile'
 import { useTranslation } from 'react-i18next'
 
-export const getStaticProps: GetStaticProps = () => {
-  return { props: { NoFooter: true } }
-}
 const Account = () => {
   const { authState, isAuth } = useContext(AuthContext)
   const { t } = useTranslation()

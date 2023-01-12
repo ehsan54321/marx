@@ -1,15 +1,12 @@
+import classNames from 'classnames'
+import http from '@services/httpServices'
+import { CategoryScale, LinearScale, PointElement } from 'chart.js'
+import { Chart as ChartJS, LineElement, Title, Tooltip } from 'chart.js'
 import { defaults } from 'chart.js'
 import { Line } from 'react-chartjs-2'
+import { numberToPersian, resErr } from '@lib/helper'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-} from 'chart.js'
 
 ChartJS.register(
   CategoryScale,
@@ -19,100 +16,127 @@ ChartJS.register(
   Title,
   Tooltip
 )
-
+const classBtn =
+  'px-6 py-2.5 text-white transition duration-150 ease-in-out cursor-pointer'
 defaults.font.family = 'vazir'
-const ChartComponents = ({ usd }) => {
+const ChartComponents = ({ coinName, chart }) => {
   const { t } = useTranslation()
-  // numberToPersian('7 ', t('lang')) + t('day') + ' ' + t('lately'),
-  // numberToPersian('30 ', t('lang')) + t('day'),
-  // numberToPersian('90 ', t('lang')) + t('day'),
-  // numberToPersian('180 ', t('lang')) + t('day'),
-  // numberToPersian('365 ', t('lang')) + t('day'),
-  // t('all'),
-  const labels = [
-    '3:20', // 1
-    '3:45', // 2
-    '4:00', // 3
-    '4:12', // 4
-    '4:20', // 5
-    '4:45', // 6
-    '5:00', // 7
-    '5:12', // 8
-    '5:20', // 9
-    '5:45', // 10
-    '6:00', // 11
-    '6:12', // 12
-    '6:20', // 13
-    '6:45', // 14
-    '7:00', // 15
-    '7:12', // 16
-    '7:20', // 17
-    '7:45', // 18
-    '8:00', // 19
-    '8:12', // 20
-    '8:20', // 21
-    '8:45', // 22
-    '9:00', // 23
-    '9:12', // 24
-    '9:20', // 25
-    '9:45', // 26
-    '10:00', // 27
-    '10:12', // 28
-  ]
-
-  const data = {
+  const [active, setActive] = useState<string>('24')
+  const [data, setData] = useState(chart.data)
+  const [labels, setLabels] = useState(chart.labels)
+  const dataChart = {
     labels,
     datasets: [
       {
         id: 1,
-        data: [
-          (usd * 0.645) / 3,
-          (usd * 0.597) / 3,
-          (usd * 0.599) / 3,
-          (usd * 0.845) / 3,
-          (usd * 0.765) / 3,
-          (usd * 0.876) / 3,
-          (usd * 1.265) / 3,
-          (usd * 1.343) / 3,
-          (usd * 1.454) / 3,
-          (usd * 1.432) / 3,
-          (usd * 1.545) / 3,
-          (usd * 1.645) / 3,
-          (usd * 1.587) / 3,
-          (usd * 1.579) / 3,
-          (usd * 1.845) / 3,
-          (usd * 1.765) / 3,
-          (usd * 1.876) / 3,
-          (usd * 2.265) / 3,
-          (usd * 2.343) / 3,
-          (usd * 2.454) / 3,
-          (usd * 2.432) / 3,
-          (usd * 2.545) / 3,
-          (usd * 2.6) / 3,
-          (usd * 2.654) / 3,
-          (usd * 2.832) / 3,
-          (usd * 2.59) / 3,
-          (usd * 2.6) / 3,
-          (usd * 2.547) / 3,
-        ],
+        data,
         borderColor: '#f43f5e',
       },
     ],
+  }
+  const setNewData = (key) => {
+    if (key === '24') {
+      setData(chart.data)
+      setLabels(chart.labels)
+      setActive(key)
+    } else {
+      http
+        .get(`api/v2/coins/${coinName}?chart=true&item=${key}`)
+        .then((result) => {
+          setData(result.data.data)
+          setLabels(result.data.labels)
+          setActive(key)
+        })
+        .catch((err) => {
+          resErr(t)
+        })
+    }
   }
   return (
     <div className="sm:pl-4 w-full w-xm-75">
       <div className="divider flex">
         <h2 className="h6 m-0 px-4">{t('chart')}</h2>
       </div>
-      <div className="bg-white mt-4">
-        <Line
-          options={{
-            responsive: true,
-          }}
-          data={data}
+      <div className="flex flex-wrap">
+        <button
+          className={classNames(
+            'rounded-r',
+            classBtn,
+            active === '24'
+              ? 'bg-blue-800 hover:bg-blue-900'
+              : 'bg-blue-600 hover:bg-blue-700'
+          )}
+          onClick={() => setNewData('24')}
+        >
+          <span>{numberToPersian('24', t('lang')) + ' ' + t('lately')}</span>
+        </button>
+        <MainBtnGroup
+          setActive={setNewData}
+          active={active}
+          name="7"
+          item={numberToPersian('7 ', t('lang')) + t('day') + ' ' + t('lately')}
         />
+        <MainBtnGroup
+          setActive={setNewData}
+          active={active}
+          name="30"
+          item={numberToPersian('30 ', t('lang')) + t('day')}
+        />
+        <MainBtnGroup
+          setActive={setNewData}
+          active={active}
+          name="90"
+          item={numberToPersian('90 ', t('lang')) + t('day')}
+        />
+        <MainBtnGroup
+          setActive={setNewData}
+          active={active}
+          name="180"
+          item={numberToPersian('180 ', t('lang')) + t('day')}
+        />
+        <MainBtnGroup
+          setActive={setNewData}
+          active={active}
+          name="360"
+          item={numberToPersian('365 ', t('lang')) + t('day')}
+        />
+        <div className="vr"></div>
+        <button
+          className={classNames(
+            'rounded-l',
+            classBtn,
+            active === 'all'
+              ? 'bg-blue-800 hover:bg-blue-900'
+              : 'bg-blue-600 hover:bg-blue-700'
+          )}
+          onClick={() => setNewData('all')}
+        >
+          <span>{t('all')}</span>
+        </button>
+      </div>
+      <div className="bg-white mt-4">
+        <Line options={{ responsive: true }} data={dataChart} />
       </div>
     </div>
+  )
+}
+
+const MainBtnGroup = ({ name, active, setActive, item }) => {
+  return (
+    <>
+      <div className="vr"></div>
+      <button
+        className={classNames(
+          classBtn,
+          active === name
+            ? 'bg-blue-800 hover:bg-blue-900'
+            : 'bg-blue-600 hover:bg-blue-700'
+        )}
+        onClick={() => setActive(name)}
+      >
+        <span>{item}</span>
+      </button>
+    </>
   )
 }
 

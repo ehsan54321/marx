@@ -19,7 +19,10 @@ const HomePage = ({ data }) => {
       <div className="background-color bg-white pt-6 px-0 pb-2">
         <ControllerCoin dataServer={data} />
       </div>
-      <div className="background-color bg-white pt-6 pb-6 px-1 mt-4" id="faq">
+      <div
+        className="background-color bg-white pt-6 pb-6 px-1 mt-4"
+        id="common-questions"
+      >
         <h2 className="h5 mx-4 mb-4">{t('common.questions')}</h2>
         <Accordion
           title={{

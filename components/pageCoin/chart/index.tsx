@@ -2,11 +2,11 @@ import ChartComponents from './ChartComponents'
 import { numberToPersian } from '@lib/helper'
 import { useTranslation } from 'react-i18next'
 
-const Chart = ({ props, nameCoin }) => {
+const Chart = ({ props, nameCoin, chart }) => {
   const { t } = useTranslation()
   return (
     <div className="flex justify-between flex-col sm:flex-row">
-      <ChartComponents usd={props.usd} />
+      <ChartComponents coinName={nameCoin} chart={chart} />
       <div className="mt-12 pt-6 text-center w-60 max-sm:w-full">
         <h2 className="h6 m-0 mb-2">
           {t('price.change') + ' (' + nameCoin.toUpperCase() + ')'}
@@ -18,8 +18,6 @@ const Chart = ({ props, nameCoin }) => {
     </div>
   )
 }
-
-export default Chart
 
 const Item = (props) => {
   const { t } = useTranslation()
@@ -97,3 +95,5 @@ const Item = (props) => {
     </>
   )
 }
+
+export default Chart

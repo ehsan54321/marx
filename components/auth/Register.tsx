@@ -308,7 +308,7 @@ const Register = () => {
       <div>
         <button
           type="submit"
-          className="w-full mt-6 text-inherit text-blue-600 disabled:cursor-progress disabled:opacity-70 disabled:bg-white disabled:hover:text-blue-600 border border-solid border-blue-600 bg-white inline-block py-1.5 text-base cursor-pointer rounded hover:bg-blue-600 hover:text-white outline-none transition-btn"
+          className="w-full mt-6 text-inherit text-blue-600 disabled:cursor-progress disabled:opacity-70 disabled:bg-white disabled:hover:text-blue-600 border border-solid border-blue-600 bg-white inline-block py-1.5 text-base cursor-pointer rounded-md hover:bg-blue-600 hover:text-white outline-none transition-btn"
           disabled={loader}
         >
           {loader && (

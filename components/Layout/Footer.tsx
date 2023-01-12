@@ -1,10 +1,12 @@
 import Image from 'next/image'
 import { BsGithub } from 'react-icons/bs'
 import { useTranslation } from 'react-i18next'
+import { useRouter } from 'next/router'
 
-const Footer = ({ NoFooter }: { NoFooter: boolean }) => {
+const Footer = () => {
+  const router = useRouter()
   const { t } = useTranslation()
-  if (!NoFooter) {
+  if (!(router.pathname === '/account')) {
     return (
       <footer className="mt-4 bg-white layout_border">
         <div className="container-xxl">

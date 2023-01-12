@@ -160,9 +160,9 @@ const Header = () => {
                   {t('stars')}
                 </span>
               </Link>
-              {activePathName === '' && (
+              {(activePathName === '' || activePathName === 'coins') && (
                 <a
-                  href="#faq"
+                  href="#common-questions"
                   className="font-medium px-4 py-1.5 rounded-lg sm:hover:bg-slate-100 text-lg sm:inline block sm:leading-1 leading-10"
                 >
                   <FcFaq className={t('lang') ? 'ml-1 mt-0' : 'mr-1 mt-0'} />
@@ -231,7 +231,7 @@ const Auth = () => {
           <Link href="/auth#login">
             <button
               type="button"
-              className="inline-block px-3.5 py-1.5 bg-white text-black text-base rounded border border-solid border-black hover:bg-black hover:text-white hover:shadow-md outline-none transition-btn cursor-pointer"
+              className="inline-block px-3.5 py-1.5 bg-white text-black text-base rounded-md border border-solid border-black hover:bg-black hover:text-white hover:shadow-md outline-none transition-btn cursor-pointer"
             >
               <span>{t('btn-login')}</span>
             </button>
@@ -272,7 +272,7 @@ const Auth = () => {
               )}
             >
               <Link href="/account">
-                <li className="leading-7 hover:bg-gray-100 rounded-md p-2 text-black">
+                <li className="leading-7 hover:bg-slate-100 rounded-md p-2 text-black">
                   <BsFillPersonFill />
                   <span className={t('lang') ? 'mr-1' : 'ml-1'}>
                     {t('profile')}
@@ -280,7 +280,7 @@ const Auth = () => {
                 </li>
               </Link>
               <div onClick={Logout}>
-                <li className="leading-7 hover:bg-gray-100 rounded-md p-2 cursor-pointer">
+                <li className="leading-7 hover:bg-red-100 text-red-500 rounded-md p-2 cursor-pointer">
                   <HiLogout />
                   <span className={t('lang') ? 'mr-2' : 'ml-2'}>
                     {t('logout')}
