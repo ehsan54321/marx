@@ -16,9 +16,7 @@ i18n.use(initReactI18next).init({
   },
   lng: 'fa',
   keySeparator: false,
-  interpolation: {
-    escapeValue: false,
-  },
+  interpolation: { escapeValue: false },
 })
 
 export default i18n

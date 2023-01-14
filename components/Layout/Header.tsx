@@ -6,11 +6,13 @@ import Link from 'next/link'
 import Swal from 'sweetalert2'
 import { AuthContext } from '@store/auth'
 import { BsFillCaretDownFill, BsFillPersonFill } from 'react-icons/bs'
-import { FaBars, FaTimes } from 'react-icons/fa'
+import { FaSun } from 'react-icons/fa'
 import { FcFaq } from 'react-icons/fc'
 import { HiLogout } from 'react-icons/hi'
+import { MdNightlight } from 'react-icons/md'
 import { resErr } from '@lib/helper'
 import { Router, useRouter } from 'next/router'
+import { ThemeContext } from '@store/theme'
 import { useContext, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -22,7 +24,7 @@ const Header = () => {
   Router.events.on('routeChangeStart', () => setModal(false))
   const height = () => {
     if (!modal) return 0
-    if (activePathName) return 182
+    if (activePathName && activePathName !== 'coins') return 182
     else return 240
   }
   const HomeIcon = () => (
@@ -91,7 +93,26 @@ const Header = () => {
                   )}
                   onClick={() => setModal(!modal)}
                 >
-                  {modal ? <FaTimes size={28} /> : <FaBars size={28} />}
+                  <div
+                    className={classNames(
+                      'block w-6 h-1 bg-black transition-all ease-in-out duration-500 my-1 rounded',
+                      modal ? 'active' : ''
+                    )}
+                    id="one"
+                  ></div>
+                  <div
+                    className={classNames(
+                      'block w-6 h-1 bg-black my-1 rounded',
+                      modal ? 'opacity-0' : ''
+                    )}
+                  ></div>
+                  <div
+                    className={classNames(
+                      'block w-6 h-1 bg-black transition-all ease-in-out duration-500 my-1 rounded',
+                      modal ? 'active' : ''
+                    )}
+                    id="three"
+                  ></div>
                 </button>
               </li>
               <li className="nav-item">
@@ -132,14 +153,14 @@ const Header = () => {
             <ul className="block sm:flex sm:m-auto mt-4 items-center">
               <Link
                 href="/"
-                className="font-medium px-4 py-1.5 sm:rounded-lg sm:hover:bg-slate-100 text-lg sm:inline block sm:leading-1 leading-10"
+                className="font-medium px-4 py-2 sm:rounded-lg sm:hover:bg-slate-100 text-lg sm:inline block sm:leading-1 leading-10"
               >
                 <HomeIcon />
                 <span
                   className={
                     activePathName !== ''
                       ? 'text-slate-500'
-                      : 'text-slate-700 my_transition'
+                      : 'text-slate-700 transition'
                   }
                 >
                   {t('home')}
@@ -147,13 +168,13 @@ const Header = () => {
               </Link>
               <Link
                 href="/stars"
-                className="font-medium px-4 py-1.5 sm:rounded-lg sm:hover:bg-slate-100 text-lg sm:inline block sm:leading-1 leading-10"
+                className="font-medium px-4 py-2 sm:rounded-lg sm:hover:bg-slate-100 text-lg sm:inline block sm:leading-1 leading-10"
               >
                 <StarIcon />
                 <span
                   className={
                     activePathName !== 'stars'
-                      ? 'text-slate-500 my_transition'
+                      ? 'text-slate-500 transition'
                       : 'text-slate-700'
                   }
                 >
@@ -163,7 +184,7 @@ const Header = () => {
               {(activePathName === '' || activePathName === 'coins') && (
                 <a
                   href="#common-questions"
-                  className="font-medium px-4 py-1.5 rounded-lg sm:hover:bg-slate-100 text-lg sm:inline block sm:leading-1 leading-10"
+                  className="font-medium px-4 py-2 rounded-lg sm:hover:bg-slate-100 text-lg sm:inline block sm:leading-1 leading-10"
                 >
                   <FcFaq className={t('lang') ? 'ml-1 mt-0' : 'mr-1 mt-0'} />
                   <span className="text-slate-500">{t('faq')}</span>
@@ -255,7 +276,7 @@ const Auth = () => {
             >
               <Avatar.Root
                 className={classNames(
-                  'items-center justify-center align-middle select-none overflow-hidden inline-flex bg-slate-100 w-12 h-12 rounded-full',
+                  'items-center justify-center align-middle select-none overflow-hidden inline-flex bg-slate-100 w-12 h-12 rounded-full an_fadeIn',
                   t('lang') ? 'ml-1' : 'mr-1'
                 )}
               >
@@ -297,6 +318,7 @@ const Auth = () => {
 
 const ChangeMode = () => {
   const { t, i18n } = useTranslation()
+  const { theme, setTheme } = useContext(ThemeContext)
   const ChangeLang = () => {
     if (t('lang')) {
       i18n.changeLanguage('en')
@@ -311,23 +333,41 @@ const ChangeMode = () => {
       <div
         className={classNames(t('lang') ? 'ml-2' : 'mr-2', 'flex items-center')}
       >
-        {/* <div className="flex ml-2" onClick={() => setMod(!mod)}>
+        <div
+          className={classNames('flex', t('lang') ? 'ml-2' : 'mr-2')}
+          onClick={() => {
+            localStorage.setItem('theme', (!theme).toString())
+            setTheme(!theme)
+          }}
+        >
           <span
-            className={classNames('switch flex', mod ? 'switch_active' : '')}
+            className={classNames(
+              'switch flex',
+              t('lang')
+                ? theme
+                  ? 'switch_active'
+                  : ''
+                : theme
+                ? 'switch_activeLeft'
+                : 'switch_left'
+            )}
           >
             <FaSun
               size={15}
-              className={classNames('cursor-pointer', mod ? 'switch_icon' : '')}
+              className={classNames(
+                'cursor-pointer',
+                theme ? 'switch_icon' : ''
+              )}
             />
             <MdNightlight
               size={15}
               className={classNames(
                 'cursor-pointer',
-                !mod ? 'switch_icon' : ''
+                !theme ? 'switch_icon' : ''
               )}
             />
           </span>
-        </div> */}
+        </div>
         <span className="cursor-pointer" onClick={ChangeLang}>
           <svg
             xmlns="http://www.w3.org/2000/svg"

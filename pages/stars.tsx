@@ -58,7 +58,7 @@ const PageStars = () => {
               <Image
                 src="/static/images/no-data.svg"
                 alt="داده ای یافت نشد"
-                className="mr-4"
+                className="mr-4 filter-invert-dark"
                 width={100}
                 height={100}
               />

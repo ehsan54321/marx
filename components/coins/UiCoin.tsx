@@ -50,6 +50,7 @@ const UiCoin = (props: Props) => {
               <Image
                 src={`/static/images/coins/${poster_path}.svg`}
                 alt={t('lang') ? name : all_name}
+                className="filter-invert-dark"
                 width={26.5}
                 height={26.5}
               />
@@ -62,7 +63,7 @@ const UiCoin = (props: Props) => {
               className="flex flex-col sm:mt-0 mt-[.8px] max-sm:pb-1 mr-1 uiCoin_nameCoin"
               title={t('coin')}
             >
-              <span className="hidden sm:inline text-right my_transition name leading-6">
+              <span className="hidden sm:inline text-right transition duration-[.35s] ease-in-out name leading-6">
                 {t('lang') ? name : all_name}
               </span>
               <span className="uppercase flex uiCoin_nameEN text-slate-500 mr-1 leading-6 text-[12px] mt-1">

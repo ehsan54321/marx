@@ -3,7 +3,7 @@
   "name": "مارکس کت",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "https://marx.iran.liara.run/static/images/favicon.ico",
       "sizes": "96x96 32x32 16x16",
       "type": "image/x-icon"
     }

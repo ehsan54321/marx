@@ -1,6 +1,10 @@
-@media (min-width: 1199px) {
+@media (min-width: 1200px) {
   .container-xl {
     max-width: 1200px;
+  }
+  .h4,
+  h4 {
+    font-size: 1.5rem;
   }
 }
 
@@ -52,6 +56,14 @@
 }
 
 @media (min-width: 768px) {
+  .col-md-5 {
+    flex: 0 0 auto;
+    width: 41.66666667%;
+  }
+  .col-md-7 {
+    flex: 0 0 auto;
+    width: 58.33333333%;
+  }
   .uiCoin_ {
     &idTh {
       width: 7%;
@@ -72,6 +84,14 @@
 }
 
 @media (min-width: 992px) {
+  .col-lg-3 {
+    flex: 0 0 auto;
+    width: 25%;
+  }
+  .col-lg-9 {
+    flex: 0 0 auto;
+    width: 75%;
+  }
   .uiCoin_ {
     &idTh {
       width: 6.1%;

@@ -24,7 +24,10 @@ const StarPage = (props) => {
             }}
             className="uiCoin_nameCoin mr-1"
           >
-            <span title={t('coin')} className="flex mb-1 name my_transition">
+            <span
+              title={t('coin')}
+              className="flex mb-1 name transition duration-[.35s] ease-in-out"
+            >
               {props.name}
             </span>
             <span className="uppercase flex mb-0 text-[13px] mr-1 text-slate-500">

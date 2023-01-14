@@ -21,11 +21,13 @@ type coinType = {
   }
 }
 const ControllerCoins = ({ dataServer }) => {
-  const pageItem: number = 20
   const { t } = useTranslation()
+  const pageItem: number = 20
   const { pageSize } = dataServer
   const inputSearch = useRef(null)
   const [page, setPage] = useState<number>(1)
+  const [them, setThem] = useState<string>('')
+  const [focus, setFocus] = useState<boolean>(false)
   const [searchValue, setSearchValue] = useState<string>('')
   const [data, setData] = useState<coinType[]>(dataServer.coins)
   const [dataView, setDataView] = useState<coinType[]>(data.slice(0, pageItem))
@@ -50,8 +52,8 @@ const ControllerCoins = ({ dataServer }) => {
         removeSpas(coin.key).includes(searchValue) ||
         removeSpas(coin.name).includes(searchValue) ||
         removeSpas(coin.all_name).toLocaleLowerCase().includes(searchValue) ||
-        numberToPersian(coin.id.toString(), 'fa') ===
-          numberToPersian(searchValue, 'fa')
+        numberToPersian(coin.id.toString(), true) ===
+          numberToPersian(searchValue, true)
     )
     setData(dataSearch)
     if (dataSearch.length === dataServer.coins.length) {
@@ -66,8 +68,8 @@ const ControllerCoins = ({ dataServer }) => {
   }
   return (
     <>
-      <div className="flex mb-6">
-        <div className="mx-6 flex mt-2 w-full sm:max-w-[285px]">
+      <div className="flex mb-6 justify-between mx-6 max-sm:flex-col">
+        <div className="flex mt-2 w-full sm:max-w-[285px]">
           <button type="submit" className="uiCoin_searchBtn h5 text-white">
             <BsSearch />
           </button>
@@ -86,24 +88,33 @@ const ControllerCoins = ({ dataServer }) => {
                 ×
               </span>
             )}
+            {!searchValue && (
+              <span
+                className={classNames(
+                  'absolute text-gray-400 text-[14.5px] w-32 top-[9px] transition-all',
+                  focus ? 'mr-7' : 'mr-2'
+                )}
+              >
+                {t('lang')
+                  ? `جستجو بین ${numberToPersian(
+                      dataServer.coins.length,
+                      true
+                    )} کوین`
+                  : `search ${dataServer.coins.length} coin`}
+              </span>
+            )}
           </button>
           <input
             type="text"
             className={classNames(
-              'border-r-0 w-full uiCoin_search h-9 outline-0 pr-8 p-1 text-gray-400 focus:text-black',
+              'border-r-0 w-full uiCoin_search h-9 outline-0 pr-8 p-1 text-[14.5px] text-gray-400 focus:text-black',
               !searchValue ? 'text-right' : ''
             )}
             maxLength={35}
             dir="auto"
             ref={inputSearch}
-            placeholder={
-              t('lang')
-                ? `جستجو بین ${numberToPersian(
-                    dataServer.coins.length,
-                    '1'
-                  )} کوین`
-                : `search ${dataServer.coins.length} coin`
-            }
+            onFocus={() => setFocus(true)}
+            onBlur={() => setFocus(false)}
             onChange={(e) => {
               startTransition(() => {
                 searchHandler(removeSpas(e.target.value.toLocaleLowerCase()))
@@ -113,10 +124,39 @@ const ControllerCoins = ({ dataServer }) => {
             }}
           />
         </div>
+        <div className="flex items-center mb-1.5 relative sm:w-1/3 max-sm:mt-3">
+          <select
+            className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded-md shadow outline-none"
+            value={them}
+            onChange={(e) => setThem(e.target.value)}
+          >
+            <option value="filter-0">{t('filter-none')}</option>
+            <option value="filter-invert">{t('filter-invert')}</option>
+            <option value="filter-grayscale">{t('filter-grayscale')}</option>
+            <option value="filter-sepia">{t('filter-sepia')}</option>
+            <option value="filter-hue-rotate">{t('filter-hue-rotate')}</option>
+            <option value="filter-hue-rotate-lg">
+              {t('filter-hue-rotate-lg')}
+            </option>
+            <option value="filter-hue-rotate-xl">
+              {t('filter-hue-rotate-xl')}
+            </option>
+          </select>
+          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+            <svg
+              className="fill-current h-4 w-4"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+            >
+              <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+            </svg>
+          </div>
+        </div>
       </div>
       <MapCoin
         rials={dataServer.rials}
         data={dataView}
+        them={them}
         lanData={data.length <= 0}
       />
 

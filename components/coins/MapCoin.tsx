@@ -3,9 +3,9 @@ import Image from 'next/image'
 import UiCoin from './UiCoin'
 import { useTranslation } from 'react-i18next'
 
-type Props = { data; rials: number; lanData: boolean }
+type Props = { data; rials: number; lanData: boolean; them: string }
 const MapCoin = (props: Props) => {
-  const { data, rials, lanData } = props
+  const { data, rials, lanData, them } = props
   const { t } = useTranslation()
   return (
     <>
@@ -27,7 +27,7 @@ const MapCoin = (props: Props) => {
             </th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className={them}>
           {data.map((coin) => (
             <UiCoin
               key={coin.id}
@@ -43,8 +43,8 @@ const MapCoin = (props: Props) => {
         <div className="m-5 p-5 text-center">
           <Image
             src="/static/images/no-data.svg"
-            className="mb-2 mr-4"
-            alt="لوگو"
+            className="mb-2 mr-4 filter-invert-dark"
+            alt="داده ای یافت نشد"
             width={100}
             height={100}
           />

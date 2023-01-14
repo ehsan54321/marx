@@ -41,11 +41,7 @@ const AuthProvider = ({ children }): JSX.Element => {
     else return false
   }
   const value = { isAuth: !!authState, authState, isFind, setAuthState }
-  return (
-    <div className="flex flex-col justify-between h-screen">
-      <Provider value={value}>{children}</Provider>
-    </div>
-  )
+  return <Provider value={value}>{children}</Provider>
 }
 
 export default AuthProvider

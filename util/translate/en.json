@@ -52,6 +52,14 @@
   "info.logout": "User account exit",
   "info.information": "Change user information",
 
+  "filter-none": "No mode",
+  "filter-invert": "Dark mode",
+  "filter-grayscale": "Black and white mode",
+  "filter-sepia": "Yellow mode",
+  "filter-hue-rotate": "Low color mode",
+  "filter-hue-rotate-lg": "Medium color mode",
+  "filter-hue-rotate-xl": "Bold color mode",
+
   "email": "Email",
   "password": "Password",
   "re.password": "RePassword",

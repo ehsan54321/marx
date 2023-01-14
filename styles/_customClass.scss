@@ -19,6 +19,37 @@
   }
 }
 
+.filter-invert-all .filter-invert-dark {
+  filter: invert(1);
+}
+
+.filter- {
+  &invert-all {
+    filter: invert(1);
+  }
+  &hue-rotate img {
+    filter: hue-rotate(45deg) !important;
+  }
+  &hue-rotate-lg img {
+    filter: hue-rotate(150deg) !important;
+  }
+  &hue-rotate-xl img {
+    filter: hue-rotate(205deg) !important;
+  }
+  &invert img {
+    filter: invert(1) !important;
+  }
+  &grayscale img {
+    filter: grayscale(1) !important;
+  }
+  &sepia img {
+    filter: sepia(1) !important;
+  }
+  &saturate img {
+    filter: saturate(0.5) !important;
+  }
+}
+
 .vr {
   display: inline-block;
   align-self: stretch;
@@ -34,15 +65,6 @@
   padding: 18px 7px;
   box-shadow: 0 0 7px 0 #eaeff4;
   border: 1px solid #ecf0f4;
-}
-
-.nav_page {
-  --bs-breadcrumb-divider: '~';
-  animation: h1PageAn 0.8s both;
-}
-
-.my_transition {
-  transition: color 0.4s ease-in-out !important;
 }
 
 .hover > tbody > tr:hover > * {

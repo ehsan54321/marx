@@ -11,7 +11,7 @@
     margin-top: 0.75px;
   }
 
-  &:after {
+  &::after {
     content: '';
     position: absolute;
     width: 10px;
@@ -22,7 +22,13 @@
     left: 2px;
     transition: all 0.5s;
   }
+  &_left::after {
+    left: 13.5px;
+  }
   &_active::after {
     left: 14.3px;
+  }
+  &_activeLeft::after {
+    left: 2.6px;
   }
 }

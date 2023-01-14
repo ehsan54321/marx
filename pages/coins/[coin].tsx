@@ -26,7 +26,7 @@ const Coin = ({ props, nameCoin }) => {
         description={props.coin.aboutCoin.body}
         url={'coins' + nameCoin}
       />
-      <nav className="mt-6 mb-6 nav_page">
+      <nav className="mt-6 mb-6">
         <ul className="breadcrumb">
           <li className="breadcrumb-item">
             <Link className="hover:text-blue-500" href="/">

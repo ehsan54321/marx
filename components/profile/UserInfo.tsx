@@ -31,15 +31,28 @@ const UserInfo = () => {
             email: authState.email,
             date: authState.date,
           })
-          .then(() => {
-            setAuthState({ ...authState, username })
-            Swal.fire({
-              icon: 'success',
-              title:
-                '<span class="h4">اطلاعات با موفقیت تغییر پیدا کرد!</span>',
-              confirmButtonText: 'باشه',
-            })
-            setDisabled(true)
+          .then((res) => {
+            if (res.data.status === 'SUCCESS') {
+              setAuthState({ ...authState, username })
+              Swal.fire({
+                icon: 'success',
+                title:
+                  '<span class="h4">اطلاعات با موفقیت تغییر پیدا کرد!</span>',
+                confirmButtonText: 'باشه',
+              })
+              setDisabled(true)
+            } else {
+              Swal.fire({
+                icon: 'error',
+                toast: true,
+                position: 'top-end',
+                timer: 7000,
+                title: res.data.message,
+                showConfirmButton: false,
+                showCloseButton: true,
+                timerProgressBar: true,
+              })
+            }
           })
           .catch(() => resErr(t))
       }
@@ -87,8 +100,8 @@ const UserInfo = () => {
     e.preventDefault()
   }
   return (
-    <div className="p-3 max-md:mt-2 background-color card">
-      <div className="card-body">
+    <div className="max-md:mt-2 background-color bg-white min-w-0 bg-clip-border">
+      <div className="flex-auto p-4">
         <form className="form-floating" onSubmit={onSubmit}>
           <div className="mb-4">
             <div className="text-right mb-2">

@@ -18,7 +18,7 @@ const ControllerPageCoin = (props: Props) => {
   return (
     <>
       <div className="row w-full mr-0">
-        <div className="flex mb-4 justify-between col">
+        <div className="flex mb-4 justify-between">
           <div className="flex">
             <div className="mr-2 flex">
               <div className="flex items-center coinPage_imgCoin">
