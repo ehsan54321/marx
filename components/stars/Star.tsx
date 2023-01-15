@@ -1,6 +1,8 @@
+import classNames from 'classnames'
 import Swal from 'sweetalert2'
 import { AuthContext } from '@store/auth'
 import { memo, useContext, useEffect, useState } from 'react'
+import { ThemeContext } from '@store/theme'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
 
@@ -13,6 +15,7 @@ type starObj = {
 const Star = ({ name, faName, id, poster_path }: starObj) => {
   const { t } = useTranslation()
   const { isAuth } = useContext(AuthContext)
+  const { theme } = useContext(ThemeContext)
   const [loaderStatus, setLoaderStatus] = useState<boolean>(false)
   const [status, setStatus] = useState<boolean>(false)
   const router = useRouter()
@@ -76,7 +79,7 @@ const Star = ({ name, faName, id, poster_path }: starObj) => {
   } else {
     return isAuth && status ? (
       <svg
-        className="w-4 text-yellow-400 cursor-pointer"
+        className="w-4 text-yellow-400 cursor-pointer filter-invert-dark"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 576 512"
         onClick={starHandler}
@@ -88,7 +91,10 @@ const Star = ({ name, faName, id, poster_path }: starObj) => {
       </svg>
     ) : (
       <svg
-        className="w-4 hover:text-yellow-400 cursor-pointer transition-colors ease-linear"
+        className={classNames(
+          'w-4 cursor-pointer transition-colors ease-linear',
+          theme ? 'hover:text-yellow-400' : ''
+        )}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 576 512"
         onClick={starHandler}

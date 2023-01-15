@@ -19,8 +19,12 @@
   }
 }
 
-.filter-invert-all .filter-invert-dark {
+.dark .filter-invert-dark {
   filter: invert(1);
+}
+
+.dark .filter-invert-lite {
+  filter: invert(0);
 }
 
 .filter- {
@@ -48,6 +52,10 @@
   &saturate img {
     filter: saturate(0.5) !important;
   }
+}
+
+.dark .filter-invert img {
+  filter: invert(0) !important;
 }
 
 .vr {

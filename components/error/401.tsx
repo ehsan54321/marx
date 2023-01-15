@@ -18,7 +18,7 @@ const Error401 = ({ children, btn = false, btnHome = false }: Props) => {
         <Image
           src={safeIcon}
           alt="یافت نشد"
-          className="errorImage"
+          className="errorImage filter-invert-dark"
           width={330}
           height={330}
         />

@@ -70,11 +70,11 @@ const ControllerCoins = ({ dataServer }) => {
     <>
       <div className="flex mb-6 justify-between mx-6 max-sm:flex-col">
         <div className="flex mt-2 w-full sm:max-w-[285px]">
-          <button type="submit" className="uiCoin_searchBtn h5 text-white">
+          <button type="button" className="uiCoin_searchBtn h5 text-white">
             <BsSearch />
           </button>
           <button
-            type="submit"
+            type="button"
             className="h5 relative cursor-pointer bg-white flex"
             onClick={() => {
               inputSearch.current.value = ''

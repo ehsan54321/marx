@@ -226,7 +226,7 @@ const Register = () => {
           <span className="text-red-600">{errorUsername.mas}</span>
           {errorUsername.mas && <br />}
           <span className="text-slate-500">
-            به شما پیشنهاد می کنم از نام های فارسی استفاده کنید.
+            به شما پیشنهاد می کنیم از نام های فارسی استفاده کنید.
           </span>
         </div>
       </div>

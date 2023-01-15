@@ -25,6 +25,7 @@ const ControllerPageCoin = (props: Props) => {
                 <Image
                   src={`/static/images/coins/${props.coin.poster_path}.svg`}
                   alt={props.coin.name}
+                  className="filter-invert-dark"
                   width={40}
                   height={40}
                 />
@@ -70,10 +71,10 @@ const ControllerPageCoin = (props: Props) => {
           <div
             title={t('change-24h')}
             className={classNames(
+              'rounded-full text-white justify-center mt-4 flex h6 py-[20px] filter-invert-dark',
               (props.coin.day.colorDayIn === 'red' && 'bg-red-500') ||
                 (props.coin.day.colorDayIn === 'green' && 'bg-green-700') ||
-                'bg-blue-500',
-              'rounded-full text-white justify-center mt-4 flex h6 py-[20px]'
+                'bg-blue-500'
             )}
           >
             <div>

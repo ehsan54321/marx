@@ -22,7 +22,7 @@ const Share = ({ nameCoin, name }) => {
     })
   }
   return (
-    <div className="sm:flex justify-between ml-2 mr-2">
+    <div className="sm:flex justify-between mx-2">
       <div className="flex text-slate-500 max-sm:mb-2">
         <div className="ml-1 flex items-center">
           <HiOutlineShare size={15} />

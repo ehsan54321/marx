@@ -23,7 +23,7 @@ const NotFound = () => {
           <Image
             src="/static/images/page-not-found.svg"
             alt="یافت نشد"
-            className="errorImage"
+            className="errorImage filter-invert-dark"
             width={330}
             height={330}
           />

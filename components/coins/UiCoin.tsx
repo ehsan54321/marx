@@ -113,8 +113,12 @@ const UiCoin = (props: Props) => {
       <td>
         <div
           className={classNames(
-            'uiCoin_numbers',
-            `text-${dayAll.color_day_in === 'info' ? '' : dayAll.color_day_in}`,
+            'uiCoin_numbers filter-invert-dark',
+            `text-${
+              dayAll.color_day_in === 'info'
+                ? ' filter-invert-lite'
+                : dayAll.color_day_in
+            }`,
             !t('lang') ? 'uiCoin_numEnMode' : ''
           )}
           title={t('change-24h')}
@@ -149,8 +153,12 @@ const UiCoin = (props: Props) => {
       <td className="border-0 justify-center hidden lg:table-cell">
         <div
           className={classNames(
-            'uiCoin_numbers',
-            `text-${dayAll.color_day7 === 'info' ? '' : dayAll.color_day7}`,
+            'uiCoin_numbers filter-invert-dark',
+            `text-${
+              dayAll.color_day7 === 'info'
+                ? ' filter-invert-lite'
+                : dayAll.color_day7
+            }`,
             !t('lang') ? 'uiCoin_numEnMode' : ''
           )}
           title={t('change-7d')}

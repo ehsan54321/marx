@@ -9,9 +9,9 @@
     stroke-dashoffset: 0;
     animation: 1.4s linear 0s infinite normal none running svgLoader;
   }
-  &_container {
-    transform: translateX(-50%) translateY(-50%);
-  }
+  // &_container {
+  //   transform: translateX(-50%) translateY(-50%);
+  // }
 }
 
 @keyframes loader {

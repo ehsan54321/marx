@@ -42,7 +42,7 @@ const SEO = (props: MetaProps) => {
       <meta property="og:url" content={baseURL + url} />
       <meta property="og:type" content="website" />
       <meta name="MobileOptimized" content="310" />
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
       <link rel="canonical" href={baseURL} />
       <meta name="application-name" content={t('full.app')} />
       <link rel="alternate" hrefLang="fa-IR" href={baseURL} />

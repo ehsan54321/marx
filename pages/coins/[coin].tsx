@@ -3,6 +3,7 @@ import http from '@services/httpServices'
 import Link from 'next/link'
 import SEO from '@components/Seo'
 import { ControllerCoin, Share } from '@components/pageCoin'
+import { HiCloudDownload } from 'react-icons/hi'
 import { useTranslation } from 'react-i18next'
 import type { GetServerSideProps } from 'next'
 
@@ -44,6 +45,26 @@ const Coin = ({ props, nameCoin }) => {
       </div>
       <div className="background-color bg-white mt-4">
         <Share nameCoin={nameCoin} name={props.coin.name} />
+        <div className="flex justify-between items-center mt-4 mx-2">
+          <div className="flex text-slate-500 mt-1">
+            <div className="ml-1">
+              <HiCloudDownload size={15} />
+            </div>
+            <span className="text-[14px]">دانلود ایکون {props.coin.name}</span>
+          </div>
+          <button
+            type="submit"
+            className="px-3 text-white inline-block py-1.5 text-base cursor-pointer rounded-md bg-blue-600 hover:bg-blue-700 focus:bg-blue-800 outline-none transition-btn"
+            onClick={() => {
+              const link = document.createElement('a')
+              link.download = props.coin.all_name + '-' + nameCoin + '.svg'
+              link.href = `/static/images/coins/${props.coin.poster_path}.svg`
+              link.click()
+            }}
+          >
+            دانلود
+          </button>
+        </div>
       </div>
       <div className="background-color bg-white mt-4" id="common-questions">
         <h2 className="leading-7 font-bold h5 mr-4 mb-4">

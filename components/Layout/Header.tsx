@@ -6,12 +6,10 @@ import Link from 'next/link'
 import Swal from 'sweetalert2'
 import { AuthContext } from '@store/auth'
 import { BsFillCaretDownFill, BsFillPersonFill } from 'react-icons/bs'
-import { FaSun } from 'react-icons/fa'
 import { FcFaq } from 'react-icons/fc'
 import { HiLogout } from 'react-icons/hi'
-import { MdNightlight } from 'react-icons/md'
 import { resErr } from '@lib/helper'
-import { Router, useRouter } from 'next/router'
+import Router, { useRouter } from 'next/router'
 import { ThemeContext } from '@store/theme'
 import { useContext, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -22,6 +20,7 @@ const Header = () => {
   const { t } = useTranslation()
   const activePathName = router.pathname.split('/')[1]
   Router.events.on('routeChangeStart', () => setModal(false))
+  const marg = t('lang') ? 'ml-1' : 'mr-1'
   const height = () => {
     if (!modal) return 0
     if (activePathName && activePathName !== 'coins') return 182
@@ -33,7 +32,7 @@ const Header = () => {
       width="15px"
       height="15px"
       viewBox="0 0 30 30"
-      className={t('lang') ? 'ml-1' : 'mr-1'}
+      className={classNames(marg, 'filter-invert-dark')}
     >
       <path
         fill="#dbf2ff"
@@ -68,7 +67,7 @@ const Header = () => {
       width="18"
       height="18"
       viewBox="0 0 48 48"
-      className={t('lang') ? 'ml-1' : 'mr-1'}
+      className={classNames(marg, 'filter-invert-dark')}
     >
       <path
         fill="#FFCA28"
@@ -186,7 +185,9 @@ const Header = () => {
                   href="#common-questions"
                   className="font-medium px-4 py-2 rounded-lg sm:hover:bg-slate-100 text-lg sm:inline block sm:leading-1 leading-10"
                 >
-                  <FcFaq className={t('lang') ? 'ml-1 mt-0' : 'mr-1 mt-0'} />
+                  <FcFaq
+                    className={classNames('filter-invert-dark mt-0', marg)}
+                  />
                   <span className="text-slate-500">{t('faq')}</span>
                 </a>
               )}
@@ -201,7 +202,7 @@ const Header = () => {
             </ul>
           </div>
         </div>
-        <div className="hidden sm:flex">
+        <div className="hidden sm:flex items-center">
           <Auth />
         </div>
       </div>
@@ -248,16 +249,14 @@ const Auth = () => {
           </svg>
         </span>
       ) : !isAuth ? (
-        <>
-          <Link href="/auth#login">
-            <button
-              type="button"
-              className="inline-block px-3.5 py-1.5 bg-white text-black text-base rounded-md border border-solid border-black hover:bg-black hover:text-white hover:shadow-md outline-none transition-btn cursor-pointer"
-            >
-              <span>{t('btn-login')}</span>
-            </button>
-          </Link>
-        </>
+        <Link href="/auth#login">
+          <button
+            type="button"
+            className="inline-block px-3.5 py-1.5 bg-white text-black text-base rounded-md border border-solid border-black hover:bg-black hover:text-white hover:shadow-md outline-none transition-btn cursor-pointer ml-[3px]"
+          >
+            <span>{t('btn-login')}</span>
+          </button>
+        </Link>
       ) : (
         <div className="relative flex items-center">
           <div className="sm:hidden">
@@ -280,7 +279,7 @@ const Auth = () => {
                   t('lang') ? 'ml-1' : 'mr-1'
                 )}
               >
-                <Avatar.Fallback className="leading-4 text-[15px] font-medium text-purple-800 flex items-center justify-center w-full h-full bg-slate-100">
+                <Avatar.Fallback className="leading-4 text-[15px] font-medium text-purple-800 flex items-center justify-center w-full h-full bg-slate-100 filter-invert-dark">
                   {authState.username.toLocaleUpperCase()}
                 </Avatar.Fallback>
               </Avatar.Root>
@@ -301,7 +300,7 @@ const Auth = () => {
                 </li>
               </Link>
               <div onClick={Logout}>
-                <li className="leading-7 hover:bg-red-100 text-red-500 rounded-md p-2 cursor-pointer">
+                <li className="leading-7 hover:bg-red-100 text-red-500 rounded-md p-2 cursor-pointer filter-invert-dark">
                   <HiLogout />
                   <span className={t('lang') ? 'mr-2' : 'ml-2'}>
                     {t('logout')}
@@ -331,44 +330,39 @@ const ChangeMode = () => {
   return (
     <>
       <div
-        className={classNames(t('lang') ? 'ml-2' : 'mr-2', 'flex items-center')}
+        className={classNames(t('lag') ? 'ml-2' : 'mr-2', 'flex items-center')}
       >
         <div
-          className={classNames('flex', t('lang') ? 'ml-2' : 'mr-2')}
+          className={t('lang') ? 'ml-2' : 'mr-2'}
           onClick={() => {
+            if (theme) document.querySelector('body').classList.add('dark')
+            else document.querySelector('body').classList.remove('dark')
             localStorage.setItem('theme', (!theme).toString())
             setTheme(!theme)
           }}
         >
-          <span
-            className={classNames(
-              'switch flex',
-              t('lang')
-                ? theme
-                  ? 'switch_active'
-                  : ''
-                : theme
-                ? 'switch_activeLeft'
-                : 'switch_left'
-            )}
-          >
-            <FaSun
-              size={15}
-              className={classNames(
-                'cursor-pointer',
-                theme ? 'switch_icon' : ''
-              )}
-            />
-            <MdNightlight
-              size={15}
-              className={classNames(
-                'cursor-pointer',
-                !theme ? 'switch_icon' : ''
-              )}
-            />
-          </span>
+          <div className="flex items-center">
+            <label htmlFor="airplane-mode" className="mt-2">
+              <span className="cursor-pointer mx-1 text-[22px] filter-invert-dark">
+                {!theme ? '☀️' : '🌒'}
+              </span>
+            </label>
+            <div
+              className="SwitchRoot rounded-full relative"
+              id="airplane-mode"
+              data-state={theme ? '' : 'checked'}
+            >
+              <button
+                className="SwitchThumb bg-white rounded-full block mr-1"
+                data-state={theme ? '' : 'checked'}
+              />
+            </div>
+          </div>
         </div>
-        <span className="cursor-pointer" onClick={ChangeLang}>
+        <span
+          className="cursor-pointer filter-invert-dark"
+          onClick={ChangeLang}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 48 48"

@@ -12,7 +12,7 @@ const ErrorSite = () => {
           <Image
             src="/static/images/server-down.svg"
             alt="یافت نشد"
-            className="errorImage"
+            className="errorImage filter-invert-dark"
             width={330}
             height={330}
           />
