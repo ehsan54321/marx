@@ -37,7 +37,7 @@ const AuthPage = () => {
       <div>
         <div className="text-center mb-[-160px]">
           <Image
-            src="/static/images/favicon.ico"
+            src="/static/images/favicon-192x192.png"
             alt="لوگو"
             className={img ? '' : 'opacity-0'}
             width={110}
@@ -117,7 +117,7 @@ const AuthPage = () => {
 const LoginEasy = () => {
   return (
     <div className="mt-4">
-      <button className="inline-block py-1.5 text-base border border-solid bg-black text-white cursor-pointer rounded-md shadow-md hover:bg-[#424649] border-[#212529] outline-none transition-btn w-full">
+      <button className="inline-block py-1.5 text-base border border-solid bg-black text-white cursor-pointer rounded-md shadow-md hover:bg-[#424649] border-[#212529] outline-0 transition-btn w-full">
         <FaGithub className="ml-1 mt-[3.5px]" size={20} />
         ورود از طریق گیت هاب
       </button>

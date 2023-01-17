@@ -67,9 +67,8 @@ const ScrollTop = () => {
   const [show, setShow] = useState(false)
   const { theme } = useContext(ThemeContext)
   const getShow = () => {
-    const _ = window
-    _.addEventListener('scroll', () => {
-      if (_.document.documentElement.clientHeight - 240 <= _.pageYOffset) {
+    addEventListener('scroll', () => {
+      if (document.documentElement.clientHeight - 240 <= pageYOffset) {
         setShow(true)
       } else setShow(false)
     })
@@ -77,7 +76,7 @@ const ScrollTop = () => {
   useEffect(() => {
     getShow()
   }, [])
-  const topPage = () => window.scroll({ top: 0 })
+  const topPage = () => scroll({ top: 0 })
   return (
     <button
       className={classNames(

@@ -14,7 +14,7 @@ const Footer = () => {
             <div className="flex items-center">
               <div className="flex items-center w-auto">
                 <Image
-                  src="/static/images/favicon.ico"
+                  src="/static/images/favicon-96x96.png"
                   alt="لوگو"
                   width={33}
                   height={33}

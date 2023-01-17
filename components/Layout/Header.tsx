@@ -117,7 +117,7 @@ const Header = () => {
               <li className="nav-item">
                 <Link href="/" className="flex">
                   <Image
-                    src="/static/images/favicon.ico"
+                    src="/static/images/favicon-96x96.png"
                     alt="لوگو"
                     width={33}
                     height={33}
@@ -252,7 +252,7 @@ const Auth = () => {
         <Link href="/auth#login">
           <button
             type="button"
-            className="inline-block px-3.5 py-1.5 bg-white text-black text-base rounded-md border border-solid border-black hover:bg-black hover:text-white hover:shadow-md outline-none transition-btn cursor-pointer ml-[3px]"
+            className="inline-block px-3.5 py-1.5 bg-white text-black text-base rounded-md border border-solid border-black hover:bg-black hover:text-white hover:shadow-md outline-0 transition-btn cursor-pointer ml-[3px]"
           >
             <span>{t('btn-login')}</span>
           </button>
@@ -287,7 +287,7 @@ const Auth = () => {
             </button>
             <ul
               className={classNames(
-                'layout_menu p-2 rounded-lg absolute bg-white max-sm:right-96',
+                'menu p-2 rounded-lg absolute bg-white max-sm:hidden',
                 t('lang') ? 'right-[-60px]' : 'left-[-60px]'
               )}
             >
@@ -329,9 +329,7 @@ const ChangeMode = () => {
   }
   return (
     <>
-      <div
-        className={classNames(t('lag') ? 'ml-2' : 'mr-2', 'flex items-center')}
-      >
+      <div className="flex items-center mode mx-1">
         <div
           className={t('lang') ? 'ml-2' : 'mr-2'}
           onClick={() => {
@@ -341,10 +339,10 @@ const ChangeMode = () => {
             setTheme(!theme)
           }}
         >
-          <div className="flex items-center">
+          <div className="flex items-center cursor-pointer">
             <label htmlFor="airplane-mode" className="mt-2">
-              <span className="cursor-pointer mx-1 text-[22px] filter-invert-dark">
-                {!theme ? '☀️' : '🌒'}
+              <span className="mx-1 text-[22px] filter-invert-dark">
+                {theme ? '☀️' : '🌒'}
               </span>
             </label>
             <div

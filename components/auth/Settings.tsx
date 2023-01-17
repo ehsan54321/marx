@@ -1,8 +1,12 @@
 import { numberToPersian } from '@lib/helper'
+import { ThemeContext } from '@store/theme'
+import { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 
-const Settings = ({ setImg, img, theme, setTheme }) => {
+const Settings = (props) => {
+  const { setImg, img } = props
   const { t, i18n } = useTranslation()
+  const { theme, setTheme } = useContext(ThemeContext)
   const ChangeLang = () => {
     if (t('lang')) {
       i18n.changeLanguage('en')
@@ -13,10 +17,10 @@ const Settings = ({ setImg, img, theme, setTheme }) => {
     }
   }
   const styleSelect =
-    'block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded-md shadow outline-none'
+    'block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2.5 pr-8 rounded-md shadow outline-0'
   return (
-    <div className="flex">
-      <div className="inline-block relative w-1/3">
+    <div className="grid grid-cols-2 gap-3">
+      <div className="inline-block relative w-60">
         <select
           className={styleSelect}
           onChange={ChangeLang}
@@ -27,7 +31,7 @@ const Settings = ({ setImg, img, theme, setTheme }) => {
         </select>
         <Icon />
       </div>
-      <div className="inline-block relative w-1/3 mr-3">
+      <div className="inline-block relative w-60">
         <select
           className={styleSelect}
           onChange={() => setImg(!img)}
@@ -38,11 +42,11 @@ const Settings = ({ setImg, img, theme, setTheme }) => {
         </select>
         <Icon />
       </div>
-      <div className="inline-block relative w-1/3 mr-3">
+      <div className="inline-block relative w-60">
         <select
           className={styleSelect}
-          onChange={() => setTheme(!theme)}
-          value={theme.toString()}
+          onChange={() => props.setTheme(!props.theme)}
+          value={props.theme.toString()}
         >
           <option value="true">
             {t('tem') + ' ' + numberToPersian(1, t('lang'))}
@@ -52,6 +56,33 @@ const Settings = ({ setImg, img, theme, setTheme }) => {
           </option>
         </select>
         <Icon />
+      </div>
+      <div className="inline-block relative w-60">
+        <div
+          className="flex items-center"
+          onClick={() => {
+            if (theme) document.querySelector('body').classList.add('dark')
+            else document.querySelector('body').classList.remove('dark')
+            localStorage.setItem('theme', (!theme).toString())
+            setTheme(!theme)
+          }}
+        >
+          <label htmlFor="airplane-mode" className="mt-2 cursor-pointer">
+            <span className="cursor-pointer mx-1 text-[22px] filter-invert-dark">
+              {theme ? '☀️' : '🌒'}
+            </span>
+          </label>
+          <div
+            className="SwitchRoot rounded-full relative cursor-pointer"
+            id="airplane-mode"
+            data-state={theme ? '' : 'checked'}
+          >
+            <button
+              className="SwitchThumb bg-white rounded-full block mr-1"
+              data-state={theme ? '' : 'checked'}
+            />
+          </div>
+        </div>
       </div>
     </div>
   )

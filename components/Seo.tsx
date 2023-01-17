@@ -13,7 +13,7 @@ const SEO = (props: MetaProps) => {
   const { title: titleText, keywords, description, noText, url } = props
   const { t } = useTranslation()
   const title = noText ? titleText : titleText + ' • ' + t('full.app')
-  const icon = baseURL + 'static/images/favicon.ico'
+  const icon = baseURL + 'static/images/'
   return (
     <Head>
       <meta charSet="UTF-8" />
@@ -24,8 +24,6 @@ const SEO = (props: MetaProps) => {
       <meta name="format-detection" content="telephone=no" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="enamad" content="" />
-      <link rel="shortcut icon" type="image/x-icon" href={icon} />
-      <link rel="icon" href={icon} />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <link rel="canonical" href={baseURL + url} />
       <meta name="robots" content="index, follow" />
@@ -33,23 +31,87 @@ const SEO = (props: MetaProps) => {
       <meta name="robots" content="max-image-preview:large" />
       <meta name="googlebot" content="index, follow" />
       <meta name="google" content="notranslate" />
-      <link rel="canonical" href={baseURL} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={icon} />
+      <meta property="og:image" content={icon + 'favicon.ico'} />
       <meta property="og:locale" content="fa_IR" />
       <meta property="og:site_name" content={t('full.app')} />
       <meta property="og:url" content={baseURL + url} />
       <meta property="og:type" content="website" />
       <meta name="MobileOptimized" content="310" />
       <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-      <link rel="canonical" href={baseURL} />
       <meta name="application-name" content={t('full.app')} />
       <link rel="alternate" hrefLang="fa-IR" href={baseURL} />
       <meta name="mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="black" />
       <meta name="apple-mobile-web-app-title" content={title} />
+      <link
+        rel="apple-touch-icon"
+        sizes="36x36"
+        href={icon + 'favicon-36x36.png'}
+      />
+      <link
+        rel="apple-touch-icon"
+        sizes="48x48"
+        href={icon + 'favicon-48x48.png'}
+      />
+      <link
+        rel="apple-touch-icon"
+        sizes="64x64"
+        href={icon + 'favicon-64x64.png'}
+      />
+      <link
+        rel="apple-touch-icon"
+        sizes="72x72"
+        href={icon + 'favicon-72x72.png'}
+      />
+      <link
+        rel="apple-touch-icon"
+        sizes="96x96"
+        href={icon + 'favicon-96x96.png'}
+      />
+      <link
+        rel="apple-touch-icon"
+        sizes="144x144"
+        href={icon + 'favicon-144x144.png'}
+      />
+      <link
+        rel="apple-touch-icon"
+        sizes="192x192"
+        href={icon + 'favicon-192x192.png'}
+      />
+      <link
+        rel="apple-touch-icon"
+        sizes="512x512"
+        href={icon + 'favicon-512x512.png'}
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="36x36"
+        href={icon + 'favicon-36x36.png'}
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="96x96"
+        href={icon + 'favicon-96x96.png'}
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="192x192"
+        href={icon + 'favicon-192x192.png'}
+      />
+      <link
+        rel="shortcut icon"
+        type="image/x-icon"
+        href={icon + 'favicon.ico'}
+      />
+      <link rel="icon" type="image/x-icon" href={icon + 'favicon.ico'} />
+      <meta name="msapplication-TileColor" content="#ffffff" />
+      <meta name="msapplication-TileImage" content="favicon-144x144.png" />
       <link rel="manifest" href="/manifest.json" />
       <meta
         name="google-site-verification"

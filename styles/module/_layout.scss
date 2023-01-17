@@ -28,12 +28,6 @@
   &icon {
     transition: color 0.45s ease-out;
   }
-  &menu {
-    box-shadow: 0px 2px 1px #0000001a, 0px 0px 1px #00000040;
-    width: 150px;
-    top: -120px;
-    animation: closeDarp 0.8s;
-  }
 }
 
 #one.active {
@@ -46,7 +40,14 @@
   background: $red;
 }
 
-#momMenu:hover .layout_menu {
+#momMenu .menu {
+  box-shadow: 0px 2px 1px #0000001a, 0px 0px 1px #00000040;
+  width: 150px;
+  top: -120px;
+  animation: closeDarp 0.8s;
+}
+
+#momMenu:hover .menu {
   animation: darp 1s;
   top: 0;
 }

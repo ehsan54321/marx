@@ -21,8 +21,8 @@ type coinType = {
   }
 }
 const ControllerCoins = ({ dataServer }) => {
-  const { t } = useTranslation()
   const pageItem: number = 20
+  const { t } = useTranslation()
   const { pageSize } = dataServer
   const inputSearch = useRef(null)
   const [page, setPage] = useState<number>(1)
@@ -126,7 +126,7 @@ const ControllerCoins = ({ dataServer }) => {
         </div>
         <div className="flex items-center mb-1.5 relative sm:w-1/3 max-sm:mt-3">
           <select
-            className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded-md shadow outline-none"
+            className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded-md shadow outline-0"
             value={them}
             onChange={(e) => setThem(e.target.value)}
           >

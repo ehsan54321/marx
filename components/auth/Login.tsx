@@ -26,8 +26,8 @@ const Login = () => {
   const { t } = useTranslation()
   const { setAuthState } = useContext(AuthContext)
   const noFind = 'لطفا این فیلد را پر کنید.'
-  const onFinish = (value: onFinishType) => {
-    http
+  const onFinish = async (value: onFinishType) => {
+    await http
       .post('api/v2/auth/login', {
         password: value.password,
         email: value.email,
@@ -59,12 +59,11 @@ const Login = () => {
             timerProgressBar: true,
           })
         }
-        setLoader(false)
       })
       .catch(() => {
         resErr(t)
-        setLoader(false)
       })
+    setLoader(false)
   }
   const onSubmit = (e) => {
     const email: string = removeSpas(e.target['0'].value.toLowerCase())
@@ -181,7 +180,7 @@ const Login = () => {
       <div>
         <button
           type="submit"
-          className="w-full mt-6 text-inherit text-blue-600 disabled:cursor-progress disabled:opacity-70 disabled:bg-white disabled:hover:text-blue-600 border border-solid border-blue-600 bg-white inline-block py-1.5 text-base cursor-pointer rounded-md hover:bg-blue-600 hover:text-white outline-none transition-btn"
+          className="w-full mt-6 text-inherit text-blue-600 disabled:cursor-progress disabled:opacity-70 disabled:bg-white disabled:hover:text-blue-600 border border-solid border-blue-600 bg-white inline-block py-1.5 text-base cursor-pointer rounded-md hover:bg-blue-600 hover:text-white outline-0 transition-btn"
           disabled={loader}
         >
           {loader && (

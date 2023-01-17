@@ -33,7 +33,7 @@ const UserCard = () => {
   return (
     <div className="p-3 background-color bg-white min-w-0 bg-clip-border">
       <div className="text-center p-2">
-        <Avatar.Root className="items-center justify-center align-middle select-none overflow-hidden inline-flex bg-slate-100 w-32 h-32 rounded-full an_fadeIn">
+        <Avatar.Root className="items-center justify-center align-middle select-none overflow-hidden inline-flex bg-slate-100 w-32 h-32 rounded-full an_fadeIn filter-invert-dark">
           <Avatar.Fallback className="leading-4 text-base font-medium text-purple-800 flex items-center justify-center bg-slate-100 w-full h-full">
             {authState.username.toLocaleUpperCase()}
           </Avatar.Fallback>
@@ -57,7 +57,7 @@ const UserCard = () => {
         </div>
         <button
           type="button"
-          className="inline-block mb-0 px-4 py-1.5 bg-white text-red-600 text-base rounded-md border border-solid border-red-600 hover:bg-red-600 hover:text-white hover:shadow-md outline-none transition-btn cursor-pointer"
+          className="inline-block mb-0 px-4 py-1.5 bg-white text-red-600 text-base rounded-md border border-solid border-red-600 hover:bg-red-600 hover:text-white hover:shadow-md outline-0 transition-btn cursor-pointer"
           onClick={Logout}
         >
           <span>{t('info.logout')}</span>

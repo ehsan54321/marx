@@ -12,7 +12,11 @@ const User = (req: NextApiRequest, res: NextApiResponse) => {
   }
   if (data) {
     try {
-      res.status(200).json(deCodeToken(data).payload)
+      res.status(200).json({
+        ...deCodeToken(data).payload,
+        exp: undefined,
+        iat: undefined,
+      })
     } catch {
       res.status(200).json('شما وارد نشدید')
     }

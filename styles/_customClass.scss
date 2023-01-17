@@ -28,9 +28,6 @@
 }
 
 .filter- {
-  &invert-all {
-    filter: invert(1);
-  }
   &hue-rotate img {
     filter: hue-rotate(45deg) !important;
   }

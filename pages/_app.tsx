@@ -17,9 +17,17 @@ const App = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
     const getModes = () => {
       if (localStorage.getItem('lang') === 'en') i18n.changeLanguage('en')
-      if (localStorage.getItem('theme') === 'false') {
-        setTheme(false)
-        document.querySelector('body').classList.add('dark')
+      const themeLocal = localStorage.getItem('theme')
+      if (themeLocal) {
+        if (themeLocal === 'false') {
+          setTheme(false)
+          document.querySelector('body').classList.add('dark')
+        }
+      } else {
+        if (matchMedia('(prefers-color-scheme: dark)').matches) {
+          setTheme(false)
+          document.querySelector('body').classList.add('dark')
+        }
       }
     }
     getModes()
@@ -32,7 +40,6 @@ const App = ({ Component, pageProps }: AppProps) => {
       <div
         className={classNames(
           'flex flex-col justify-between h-screen',
-          theme ? '' : 'filter-invert-all',
           t('lang') ? 'fa' : 'en'
         )}
       >

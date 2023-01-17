@@ -54,7 +54,7 @@ const Coin = ({ props, nameCoin }) => {
           </div>
           <button
             type="submit"
-            className="px-3 text-white inline-block py-1.5 text-base cursor-pointer rounded-md bg-blue-600 hover:bg-blue-700 focus:bg-blue-800 outline-none transition-btn"
+            className="px-3 text-white inline-block py-1.5 text-base cursor-pointer rounded-md bg-blue-600 hover:bg-blue-700 focus:bg-blue-800 outline-0 transition-btn"
             onClick={() => {
               const link = document.createElement('a')
               link.download = props.coin.all_name + '-' + nameCoin + '.svg'
