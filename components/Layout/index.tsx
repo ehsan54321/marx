@@ -49,7 +49,7 @@ const Progress = () => {
   }, [])
   if (show) {
     return (
-      <div className="z-10 bg-white sticky right-0 mb-6 top-16">
+      <div className="z-20 bg-white sticky right-0 mb-6 top-16">
         <div className="h-[5px] w-full">
           <div
             className="h-full w-0 bg-slate-500"

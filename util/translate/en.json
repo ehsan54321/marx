@@ -1,7 +1,8 @@
 {
   "app": "Marx",
   "full.app": "MarxKet",
-  "home": "Home",
+  "page":"Main Page of Marks Kat Exchange",
+  "home": "Home Page",
   "stars": "Stars",
   "logout": "Logout",
   "delete": "Delete",
@@ -23,6 +24,7 @@
   "chart": "Market Chart",
   "price.change": "Price Change",
   "coin": "coin",
+  "coins": "coins",
   "change-24h": "Changes (24h)",
   "change-7d": "Weekly changes",
   "mane-usd": "price usd",
@@ -73,6 +75,9 @@
   "img": "image",
   "no.img": "no image",
   "tem": "Theme",
+
+  "user.manual": "USER MANUAL",
+  "most.popular": "MOST POPULAR",
 
   "text.no.login": ".You must log in first",
   "text.no.login.button": "Come in",

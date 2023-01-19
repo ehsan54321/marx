@@ -66,8 +66,8 @@ const Coin = ({ props, nameCoin }) => {
           </button>
         </div>
       </div>
-      <div className="background-color bg-white mt-4" id="common-questions">
-        <h2 className="leading-7 font-bold h5 mr-4 mb-4">
+      <div className="background-color bg-white mt-4">
+        <h2 className="leading-7 font-bold h5 mr-4 mb-4" id="FAQ">
           {t('introducing.coin')}
         </h2>
         <Accordion

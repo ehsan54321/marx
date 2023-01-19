@@ -21,11 +21,11 @@ const Account = () => {
             <li className="breadcrumb-item active">{authState.username}</li>
           </ul>
         </nav>
-        <div className="w-full text-right p-2 pt-0 mr-0 row">
-          <div className="col-lg-3 col-md-5">
+        <div className="w-full text-right p-2 pt-0 mr-0 row flex-auto">
+          <div className="col-lg-4">
             <UserCard />
           </div>
-          <div className="col-lg-9 col-md-7">
+          <div className="col-lg-8">
             <UserInfo />
           </div>
         </div>

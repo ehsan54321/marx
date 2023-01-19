@@ -10,24 +10,6 @@
       "purpose": "any maskable"
     },
     {
-      "src": "/static/images/favicon-48x48.png",
-      "type": "image/png",
-      "sizes": "48x48",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/static/images/favicon-64x64.png",
-      "type": "image/png",
-      "sizes": "64x64",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/static/images/favicon-72x72.png",
-      "type": "image/png",
-      "sizes": "72x72",
-      "purpose": "any maskable"
-    },
-    {
       "src": "/static/images/favicon-96x96.png",
       "type": "image/png",
       "sizes": "96x96",
@@ -52,7 +34,6 @@
       "purpose": "any maskable"
     }
   ],
-  "scope": "/",
   "start_url": "/",
   "display": "standalone",
   "theme_color": "#ffffff",

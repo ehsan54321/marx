@@ -4,11 +4,6 @@
 @import './customBootstrap';
 @import './customClass';
 
-// tailwind
-@tailwind components;
-@tailwind utilities;
-// tailwind
-
 // components
 @import './components/container';
 @import './components/radixUi';
@@ -25,7 +20,13 @@
 // module
 @import './module/uiCoin';
 @import './module/layout';
+@import './module/home';
 @import './module/coinPage';
 // module
+
+// tailwind
+@tailwind components;
+@tailwind utilities;
+// tailwind
 
 @import './media';

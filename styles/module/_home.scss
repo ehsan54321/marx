@@ -1,0 +1,277 @@
+.clear-fix {
+  clear: both;
+}
+
+.info-bar {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 0px;
+}
+
+.info-bar li {
+  display: inline-block;
+  margin-right: 20px;
+  line-height: 25px;
+}
+
+a:hover {
+  color: #f9b500;
+}
+
+a:hover > b {
+  color: #f9b500;
+}
+
+.app {
+  width: 1200px;
+}
+
+@media (max-width: 1199.98px) {
+  .app {
+    width: 992px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .app {
+    width: 768px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .app {
+    width: 576px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .app {
+    width: calc(100% - 30px);
+    padding: 0 15px;
+  }
+}
+
+.intro-h-600px {
+  height: 600px;
+}
+
+.intro-h-100 {
+  height: 100%;
+}
+
+.intro-h-2-3 {
+  height: calc(200% / 3);
+}
+
+.intro-h-1-3 {
+  height: calc(100% / 3);
+}
+
+.intro-h-50:first-of-type {
+  margin-bottom: 10px;
+}
+
+.intro-h-50 {
+  height: calc(50% - 5px);
+}
+
+.intro-2-3-col {
+  float: left;
+  margin-right: 10px;
+  width: calc(calc(200% / 3) - 10px);
+}
+
+.intro-1-3-col {
+  float: right;
+  width: calc(100% / 3);
+}
+
+.intro-1-3-item {
+  width: 100%;
+}
+
+.intro-1-3-col-item {
+  float: left;
+  width: calc(100% / 3);
+}
+
+.intro-1-3-col-item:nth-of-type(2) {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: calc(calc(100% / 3) - 20px);
+}
+
+.img-bg {
+  background: #f9b500;
+  z-index: 1;
+}
+
+.bg-1 {
+  background: url('/static/images/bolg/mana-decentraland-price-300x169.jpg')
+    no-repeat center;
+}
+
+.bg-2 {
+  background: url('/static/images/bolg/Binance-22th-bnb-burn-001-300x169.png')
+    no-repeat center;
+}
+
+.bg-3 {
+  background: url('/static/images/bolg/crypto-exchanges-sec-300x158.jpg')
+    no-repeat center;
+}
+
+.bg-4 {
+  background: url('/static/images/bolg/shyam-nagarajan-ibm-001-300x168.jpeg')
+    no-repeat center;
+}
+
+.bg-5 {
+  background: url('/static/images/bolg/Digital-Currency-Group-Loss-003-300x157.jpg')
+    no-repeat center;
+}
+
+.bg-6 {
+  background: url('/static/images/bolg/bitcoin-developing-0031-300x169.jpg')
+    no-repeat center;
+}
+
+.intro-item-caption {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.caption-title {
+  position: absolute;
+  bottom: 50px;
+  left: 20px;
+}
+
+.caption-title span {
+  font-weight: 800;
+  color: #fff;
+}
+
+.caption-title b {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.dark .intro-item-caption {
+  filter: invert(1);
+}
+
+.dark .img-bg {
+  filter: invert(1);
+}
+
+@media (max-width: 767.98px) {
+  .intro-2-3-col {
+    width: 100%;
+    float: none;
+    margin-right: 0px;
+  }
+  .intro-1-3-col {
+    width: 100%;
+  }
+  .intro-1-3-col-item {
+    float: none;
+    width: 100%;
+  }
+  .intro-1-3-col-item:nth-of-type(2) {
+    float: none;
+    width: 100%;
+    margin: 0 0 10px 0;
+  }
+  .intro-h-600px {
+    height: auto;
+  }
+  .intro-h-600px {
+    height: auto;
+  }
+  .intro-h-100 {
+    height: auto;
+  }
+  .intro-h-50 {
+    height: auto;
+  }
+  .intro-h-2-3 {
+    height: auto;
+  }
+  .intro-h-1-3 {
+    height: auto;
+  }
+  .h-md-300px {
+    height: 300px;
+    margin-bottom: 10px;
+  }
+}
+
+.footer {
+  background: #191919;
+  direction: ltr;
+  & * {
+    font-size: 14px;
+  }
+}
+
+.footer-row {
+  width: 100%;
+  background: rgba(25, 25, 25, 0.9);
+}
+
+.bg-map {
+  background-image: url('/static/images/map.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.footer-col {
+  float: left;
+  margin-right: 30px;
+  width: calc(calc(100% / 3) - 30px);
+}
+
+.footer-p {
+  color: #ccc;
+  line-height: 28px;
+}
+
+.footer-section-title {
+  color: #f9b500;
+  padding: 30px 0;
+}
+
+.footer-section-link-item {
+  margin-bottom: 20px;
+}
+
+.footer-line {
+  background: rgba(170, 170, 170, 0.2);
+  height: 1px;
+  margin-bottom: 20px;
+}
+
+.footer-section-link-item a {
+  color: #ccc;
+  font-size: 14px;
+}
+
+.footer-section-link-item a:hover {
+  color: #f9b500;
+}
+
+.footer-section-link-item p {
+  color: #ccc;
+  font-size: 14px;
+  padding-top: 15px;
+}
+
+@media (max-width: 575.98px) {
+  .footer-col {
+    float: none;
+    padding: 15px;
+    width: calc(100% - 30px);
+    margin-right: 0;
+  }
+}

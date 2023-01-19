@@ -1,10 +1,10 @@
 {
-  "id": 10,
-  "key": "uni",
-  "name": "یونی سواپ",
-  "all_name": "Uniswap",
-  "poster_path": "uni",
-  "usd": 0.787,
+  "id": 44,
+  "key": "chz",
+  "name": "چیلیز",
+  "all_name": "Chiliz CHZ",
+  "poster_path": "chz",
+  "usd": 0.1601,
   "dayGrith": "2008-10-30",
   "aboutCoin": {
     "now": 90.88,

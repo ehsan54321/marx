@@ -100,7 +100,7 @@ const UserInfo = () => {
     e.preventDefault()
   }
   return (
-    <div className="max-md:mt-2 background-color bg-white min-w-0 bg-clip-border">
+    <div className="max-lg:mt-2 background-color bg-white min-w-0 bg-clip-border">
       <div className="flex-auto p-4">
         <form className="form-floating" onSubmit={onSubmit}>
           <div className="mb-4">

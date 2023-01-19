@@ -31,6 +31,7 @@ const SEO = (props: MetaProps) => {
       <meta name="robots" content="max-image-preview:large" />
       <meta name="googlebot" content="index, follow" />
       <meta name="google" content="notranslate" />
+      <meta name="revisit-after" content="15 days" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={icon + 'favicon.ico'} />
@@ -46,25 +47,11 @@ const SEO = (props: MetaProps) => {
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="black" />
       <meta name="apple-mobile-web-app-title" content={title} />
+      <meta name="expires" content="never" />
       <link
         rel="apple-touch-icon"
         sizes="36x36"
         href={icon + 'favicon-36x36.png'}
-      />
-      <link
-        rel="apple-touch-icon"
-        sizes="48x48"
-        href={icon + 'favicon-48x48.png'}
-      />
-      <link
-        rel="apple-touch-icon"
-        sizes="64x64"
-        href={icon + 'favicon-64x64.png'}
-      />
-      <link
-        rel="apple-touch-icon"
-        sizes="72x72"
-        href={icon + 'favicon-72x72.png'}
       />
       <link
         rel="apple-touch-icon"

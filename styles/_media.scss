@@ -8,6 +8,21 @@
   }
 }
 
+@media (max-width: 769px) {
+  .layout_ {
+    &links {
+      position: absolute;
+      top: 63px;
+      right: 0;
+      width: 100vw;
+    }
+    &active {
+      border-bottom: 1px solid #eee;
+      border-top: 1.4px solid #eee;
+    }
+  }
+}
+
 @media (max-width: 575px) {
   .tr th {
     letter-spacing: -0.2px;
@@ -21,18 +36,6 @@
     }
     &numbers {
       font-size: 14.5px !important;
-    }
-  }
-  .layout_ {
-    &links {
-      position: absolute;
-      top: 65px;
-      right: 0;
-      width: 100vw;
-    }
-    &active {
-      border-bottom: 1px solid #eee;
-      border-top: 1.4px solid #eee;
     }
   }
 }
@@ -56,14 +59,6 @@
 }
 
 @media (min-width: 768px) {
-  .col-md-5 {
-    flex: 0 0 auto;
-    width: 41.66666667%;
-  }
-  .col-md-7 {
-    flex: 0 0 auto;
-    width: 58.33333333%;
-  }
   .uiCoin_ {
     &idTh {
       width: 7%;
@@ -83,14 +78,14 @@
   }
 }
 
-@media (min-width: 992px) {
-  .col-lg-3 {
+@media (min-width: 980px) {
+  .col-lg-4 {
     flex: 0 0 auto;
-    width: 25%;
+    width: 265px;
   }
-  .col-lg-9 {
+  .col-lg-8 {
     flex: 0 0 auto;
-    width: 75%;
+    width: calc(100% - 265px);
   }
   .uiCoin_ {
     &idTh {

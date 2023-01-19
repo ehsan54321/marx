@@ -17,8 +17,8 @@ const customConfigTailwindCSS = {
     },
     screens: {
       sm: '576px',
-      md: '768px',
-      lg: '992px',
+      md: '770px',
+      lg: '980px',
       xl: '1200px',
     },
   },

@@ -23,8 +23,8 @@ const Header = () => {
   const marg = t('lang') ? 'ml-1' : 'mr-1'
   const height = () => {
     if (!modal) return 0
-    if (activePathName && activePathName !== 'coins') return 182
-    else return 240
+    if (activePathName !== 'coins') return 240
+    else return 292
   }
   const HomeIcon = () => (
     <svg
@@ -77,7 +77,7 @@ const Header = () => {
   )
   return (
     <nav
-      className="bg-white sticky layout_head z-20 top-0 h-16"
+      className="bg-white sticky layout_head z-30 top-0 h-16"
       dir={t('lang') ? 'rtl' : 'ltr'}
     >
       <div className="container-xxl justify-between items-center flex h-full">
@@ -87,7 +87,7 @@ const Header = () => {
               <li className="nav-item">
                 <button
                   className={classNames(
-                    'block sm:hidden bg-transparent',
+                    'block md:hidden bg-transparent',
                     t('lang') ? 'ml-2' : 'mr-2'
                   )}
                   onClick={() => setModal(!modal)}
@@ -124,7 +124,7 @@ const Header = () => {
                   />
                   <span
                     className={classNames(
-                      'font-bold text-[15px] mt-[6px] sm:hidden text-black',
+                      'font-bold text-[15px] mt-[6px] md:hidden text-black',
                       t('lang') ? 'mr-2' : 'ml-2'
                     )}
                   >
@@ -134,7 +134,7 @@ const Header = () => {
               </li>
               <li
                 className={classNames(
-                  'nav-item max-sm:hidden h-6',
+                  'nav-item max-md:hidden h-6',
                   t('lang') ? 'layout_divider' : 'layout_dividerEn'
                 )}
               >
@@ -144,15 +144,15 @@ const Header = () => {
           </div>
           <div
             className={classNames(
-              modal ? 'layout_active' : 'sm:h-[auto!important]',
+              modal ? 'layout_active' : 'md:h-[auto!important]',
               'layout_links items-center flex bg-white overflow-hidden'
             )}
             style={{ height: height() }}
           >
-            <ul className="block sm:flex sm:m-auto mt-4 items-center">
+            <ul className="block md:flex md:m-auto mt-4 items-center">
               <Link
                 href="/"
-                className="font-medium px-4 py-2 sm:rounded-lg sm:hover:bg-slate-100 text-lg sm:inline block sm:leading-1 leading-10"
+                className="font-medium px-4 py-2 rounded-lg md:hover:bg-slate-100 text-lg md:inline block md:leading-1 leading-10"
               >
                 <HomeIcon />
                 <span
@@ -166,8 +166,92 @@ const Header = () => {
                 </span>
               </Link>
               <Link
+                href="/coins"
+                className="font-medium px-4 py-2 rounded-lg md:hover:bg-slate-100 text-lg md:inline block md:leading-1 leading-10"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18px"
+                  height="18px"
+                  viewBox="0 0 48 48"
+                  className={classNames(marg, 'filter-invert-dark')}
+                >
+                  <circle cx="20.5" cy="35.5" r="9.5" fill="#c9d4e0" />
+                  <circle cx="20.5" cy="35.5" r="7.5" fill="#b2bbc7" />
+                  <path
+                    fill="#c9d4e0"
+                    d="M18.116,39.329V37.9c0.519,0.318,1.071,0.476,1.657,0.476c0.441,0,0.786-0.105,1.035-0.315 c0.249-0.21,0.373-0.495,0.373-0.855c0-0.752-0.531-1.127-1.593-1.127c-0.346,0-0.764,0.032-1.254,0.095v-4.24h4.202V33.3h-2.773 v1.519c0.222-0.021,0.432-0.032,0.63-0.032c0.78,0,1.39,0.205,1.831,0.614c0.441,0.41,0.662,0.96,0.662,1.652 c0,0.765-0.263,1.391-0.789,1.876c-0.526,0.486-1.238,0.728-2.138,0.728C19.227,39.657,18.613,39.547,18.116,39.329z"
+                  />
+                  <path
+                    d="M11.046,34.591c2.182,1.255,4.643,2.081,7.278,2.324c2.401,2.568,5.638,4.33,9.275,4.883	C29.088,40.121,30,37.919,30,35.5c0-5.247-4.253-9.5-9.5-9.5C15.56,26,11.504,29.771,11.046,34.591z"
+                    opacity=".05"
+                  />
+                  <path
+                    d="M11.266,33.552c2.226,1.342,4.779,2.199,7.52,2.387c2.374,2.69,5.708,4.501,9.462,4.929	C29.343,39.367,30,37.512,30,35.5c0-5.247-4.253-9.5-9.5-9.5C15.929,26,12.122,29.251,11.266,33.552z"
+                    opacity=".07"
+                  />
+                  <circle cx="30" cy="26" r="14" fill="#ff8f6b" />
+                  <circle cx="30" cy="26" r="12" fill="#ed6c47" />
+                  <path
+                    fill="#f5be00"
+                    d="M29.039,31.308h-5.89v-1.623h1.929v-5.799l-1.981,0.429v-1.662l4.026-0.812v7.844h1.916V31.308z"
+                  />
+                  <path
+                    fill="#ff8f6b"
+                    d="M33.474,31.47c-2.217,0-3.325-1.556-3.325-4.669c0-1.615,0.3-2.845,0.899-3.692 c0.6-0.846,1.469-1.27,2.607-1.27c2.165,0,3.247,1.582,3.247,4.747c0,1.576-0.295,2.784-0.886,3.624 C35.426,31.05,34.578,31.47,33.474,31.47z M33.565,23.405c-0.887,0-1.331,1.115-1.331,3.344c0,2.1,0.435,3.149,1.305,3.149 c0.849,0,1.273-1.082,1.273-3.247S34.396,23.405,33.565,23.405z"
+                  />
+                  <radialGradient
+                    id="gFcLP_8vJw7uqN0sJV2bNa"
+                    cx="19.893"
+                    cy="18.826"
+                    r="18.001"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop offset="0" />
+                    <stop offset="1" stop-opacity="0" />
+                  </radialGradient>
+                  <path
+                    fill="url(#gFcLP_8vJw7uqN0sJV2bNa)"
+                    d="M16,26c0,4.429,2.062,8.37,5.272,10.936C30.617,36.281,38,28.512,38,19	c0-1.712-0.254-3.361-0.701-4.93C35.172,12.766,32.678,12,30,12C22.268,12,16,18.268,16,26z"
+                  />
+                  <linearGradient
+                    id="gFcLP_8vJw7uqN0sJV2bNb"
+                    x1="9.018"
+                    x2="31.29"
+                    y1="8.018"
+                    y2="30.29"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop offset="0" stop-color="#fede00" />
+                    <stop offset="1" stop-color="#ffd000" />
+                  </linearGradient>
+                  <circle
+                    cx="20"
+                    cy="19"
+                    r="16"
+                    fill="url(#gFcLP_8vJw7uqN0sJV2bNb)"
+                  />
+                  <circle cx="20" cy="19" r="13" fill="#f5be00" />
+                  <g>
+                    <path
+                      fill="#fee119"
+                      d="M16.427,24.896v-2.385c0.866,0.53,1.788,0.795,2.765,0.795c0.736,0,1.312-0.175,1.727-0.525 c0.415-0.351,0.623-0.826,0.623-1.427c0-1.255-0.886-1.882-2.659-1.882c-0.578,0-1.275,0.053-2.094,0.159v-7.076h7.014v2.279 h-4.629v2.535c0.371-0.035,0.721-0.053,1.051-0.053c1.301,0,2.32,0.342,3.056,1.024c0.736,0.684,1.104,1.603,1.104,2.757 c0,1.277-0.439,2.321-1.316,3.131c-0.877,0.811-2.067,1.215-3.569,1.215C18.282,25.444,17.258,25.262,16.427,24.896z"
+                    />
+                  </g>
+                </svg>
+                <span
+                  className={
+                    activePathName !== 'coins'
+                      ? 'text-slate-500'
+                      : 'text-slate-700 transition'
+                  }
+                >
+                  {t('coins')}
+                </span>
+              </Link>
+              <Link
                 href="/stars"
-                className="font-medium px-4 py-2 sm:rounded-lg sm:hover:bg-slate-100 text-lg sm:inline block sm:leading-1 leading-10"
+                className="font-medium px-4 py-2 rounded-lg md:hover:bg-slate-100 text-lg md:inline block md:leading-1 leading-10"
               >
                 <StarIcon />
                 <span
@@ -180,10 +264,10 @@ const Header = () => {
                   {t('stars')}
                 </span>
               </Link>
-              {(activePathName === '' || activePathName === 'coins') && (
+              {activePathName === 'coins' && (
                 <a
-                  href="#common-questions"
-                  className="font-medium px-4 py-2 rounded-lg sm:hover:bg-slate-100 text-lg sm:inline block sm:leading-1 leading-10"
+                  href="#FAQ"
+                  className="font-medium px-4 py-2 rounded-lg md:hover:bg-slate-100 text-lg md:inline block md:leading-1 leading-10"
                 >
                   <FcFaq
                     className={classNames('filter-invert-dark mt-0', marg)}
@@ -202,7 +286,7 @@ const Header = () => {
             </ul>
           </div>
         </div>
-        <div className="hidden sm:flex items-center">
+        <div className="hidden md:flex items-center">
           <Auth />
         </div>
       </div>
@@ -259,7 +343,7 @@ const Auth = () => {
         </Link>
       ) : (
         <div className="relative flex items-center">
-          <div className="sm:hidden">
+          <div className="md:hidden">
             <Link href="/account">
               <Avatar.Root className="items-center justify-center align-middle select-none overflow-hidden inline-flex bg-slate-100 mr-2 w-12 h-12 rounded-full">
                 <Avatar.Fallback className="leading-4 text-[15px] font-medium text-purple-800 w-full h-full flex items-center justify-center bg-slate-100">
@@ -270,7 +354,7 @@ const Auth = () => {
           </div>
           <div id="momMenu">
             <button
-              className="pl-0 bg-white max-sm:hidden min-w-[67px] max-w-[67px] cursor-pointer"
+              className="pl-0 bg-white max-md:hidden min-w-[67px] max-w-[67px] cursor-pointer"
               type="button"
             >
               <Avatar.Root
@@ -287,7 +371,7 @@ const Auth = () => {
             </button>
             <ul
               className={classNames(
-                'menu p-2 rounded-lg absolute bg-white max-sm:hidden',
+                'menu p-2 rounded-lg absolute bg-white max-md:hidden',
                 t('lang') ? 'right-[-60px]' : 'left-[-60px]'
               )}
             >
