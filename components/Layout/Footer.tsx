@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import React from 'react';
-import { useRouter } from 'next/router';
-import { useTranslation } from 'react-i18next';
+import Link from 'next/link'
+import React from 'react'
+import { useRouter } from 'next/router'
+import { useTranslation } from 'react-i18next'
 
 const Footer = () => {
   const router = useRouter()
@@ -29,13 +29,13 @@ const Footer = () => {
               <h2 className="footer-section-title uppercase">
                 {t('full.app')}
               </h2>
-              <section className="clear-fix"></section>
+              <section className="clear-both"></section>
               <p className="footer-p text-[13px]" dir="rtl">
                 ۱۴۰۱ © طبق ماده 12 فصل سوم قانون جرائم رایانه‌ای هرگونه کپی
                 برداری از طرح قالب، مطالب و فایل‌های تارنمای مارکس به هر نحو،
                 پیگرد قانونی دارد.
               </p>
-              <p className="footer-p py-5 text-[13px]">
+              <p className="footer-p py-5 text-[13px] footer-copy">
                 1401 © According to article 12 of the third chapter of the
                 Computer Crimes Law, any copying of the MarxKet website template
                 design, contents and files in any way is prosecuted
@@ -77,10 +77,10 @@ const Footer = () => {
                 <Link href="/account">{t('profile')}</Link>
               </section>
             </section>
-            <section className="clear-fix"></section>
+            <section className="clear-both"></section>
           </section>
         </section>
-        <section className="clear-fix"></section>
+        <section className="clear-both"></section>
       </footer>
     )
   }

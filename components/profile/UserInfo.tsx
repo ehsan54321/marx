@@ -28,8 +28,8 @@ const UserInfo = () => {
         http
           .post('api/v2/auth/update', {
             username,
-            email: authState.email,
-            date: authState.date,
+            email: authState.user.email,
+            date: authState.user.date,
           })
           .then((res) => {
             if (res.data.status === 'SUCCESS') {
@@ -114,7 +114,7 @@ const UserInfo = () => {
               <input
                 id="login_username"
                 disabled={disabled}
-                defaultValue={authState.username}
+                defaultValue={authState.user.name}
                 className={
                   errorUsername.stt ? 'form-control is-invalid' : 'form-control'
                 }
@@ -142,7 +142,7 @@ const UserInfo = () => {
                 id="login_email"
                 disabled={true}
                 // disabled={disabled}
-                defaultValue={authState.email}
+                defaultValue={authState.user.email}
                 className="form-control"
                 name="email"
                 type="email"

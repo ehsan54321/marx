@@ -26,7 +26,7 @@ const Login = (req: NextApiRequest, res: NextApiResponse) => {
         httpOnly: true,
         secure: true,
       })
-      res.status(201).json({ data: token, status: 'SUCCESS' })
+      res.status(201).json({ status: 'SUCCESS' })
     } else {
       res.status(200).json({
         message: lang

@@ -1,5 +1,4 @@
 import AuthProvider from '@store/auth'
-import classNames from 'classnames'
 import Layout from '@components/Layout'
 import NProgress from 'nprogress'
 import Router from 'next/router'
@@ -10,7 +9,7 @@ import '@styles/globals.scss'
 import '@store/i18n'
 import type { AppProps } from 'next/app'
 
-NProgress.configure({ showSpinner: true })
+NProgress.configure({ showSpinner: false })
 const App = ({ Component, pageProps }: AppProps) => {
   const [theme, setTheme] = useState<boolean>(true)
   const { t, i18n } = useTranslation()
@@ -37,12 +36,7 @@ const App = ({ Component, pageProps }: AppProps) => {
   Router.events.on('routeChangeError', () => NProgress.done())
   return (
     <AuthProvider>
-      <div
-        className={classNames(
-          'flex flex-col justify-between h-screen',
-          t('lang') ? 'fa' : 'en'
-        )}
-      >
+      <div className={t('lang') ? 'fa' : 'en'}>
         <ThemeProvider value={{ theme, setTheme }}>
           <Layout>
             <div className="container-xl">

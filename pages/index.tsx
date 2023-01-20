@@ -81,6 +81,40 @@ const HomePage = () => {
       poster_path: 'dai',
     },
   ]
+  const slid = [
+    {
+      title: 'رشد ۷۴درصدی مانا در یک هفته گذشته در میان شایعات همکاری با اپل',
+      poster: 'mana-decentraland-price-300x169.jpg',
+      date: '1401/11/10',
+    },
+    {
+      title: 'بایننس حدود ۶۰۰میلیون دلار توکن بی‌ان‌بی را سوزاند',
+      poster: 'Binance-22th-bnb-burn-001-300x169.png',
+      date: '1401/11/10',
+    },
+    {
+      title:
+        'افزایش ۵۰درصدی پرونده‌های حقوقی مرتبط با ارزهای دیجیتال کمیسیون بورس و اوراق بهادار در سال ۲۰۲۳',
+      poster: 'crypto-exchanges-sec-300x158.jpg',
+      date: '1401/11/10',
+    },
+    {
+      title: 'مدیر اجرایی آی‌بی‌ام: ارزهای دیجیتال بانک مرکزی آینده پول هستند',
+      poster: 'shyam-nagarajan-ibm-001-300x168.jpeg',
+      date: '1401/11/10',
+    },
+    {
+      title:
+        'دیجیتال کارنسی گروپ تا اطلاع ثانوی پرداخت سود سهام را متوقف می‌کند',
+      poster: 'Digital-Currency-Group-Loss-003-300x157.jpg',
+      date: '1401/11/10',
+    },
+    {
+      title: 'رشد ۵درصدی توسعه‌دهندگان فعال بیت کوین نسبت به سال گذشته',
+      poster: 'bitcoin-developing-0031-300x169.jpg',
+      date: '1401/11/10',
+    },
+  ]
   return (
     <>
       <SEO
@@ -89,98 +123,36 @@ const HomePage = () => {
         description="وب سایت مارکس کت یک سایت نمایش قیمت ارز های دجیتال است که بیش از ۴۴ ارز دجیتال دارد مانند بیت کوین اتریوم تتر دوج کوین و غیر ...   صفحه اصلی"
         url=""
       />
-      <h1 className="h5 mb-6 leading-7 font-bold h1Page">{t('page')}</h1>
-      <section className="intro-h-600px">
-        <section className="w-full intro-h-2-3 mb-[10px]">
-          <section className="intro-2-3-col intro-h-100 relative h-md-300px">
-            <section className="img-bg absolute top-0 bottom-0 right-0 left-0 bg-1 bg-cover intro-h-100"></section>
-            <section className="intro-item-caption z-10 w-full h-full cursor-pointer absolute top-0 left-0">
-              <p className="caption-title text-xl mr-4 absolute right-0">
-                <span>
-                  رشد ۷۴درصدی مانا در یک هفته گذشته در میان شایعات همکاری با اپل
-                </span>
+      <h1 className="h5 mb-6 leading-7 font-bold h1Page" dir="auto">
+        {t('page')}
+      </h1>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5 grid-rows-2 grid-fit">
+        {slid.map(({ title, poster, date }) => (
+          <section
+            className="relative item overflow-hidden h-[195px] max-md:h-[300px]"
+            key={title}
+          >
+            <img
+              className="img-bg absolute top-0 bottom-0 right-0 left-0 object-cover w-full filter-invert-dark"
+              alt={title}
+              src={`/static/images/bolg/${poster}`}
+            />
+            <div className="intro-item-caption filter-invert-dark z-10 w-full h-full cursor-pointer absolute top-0 left-0">
+              <p className="text-xl mr-4 absolute right-0 left-5 bottom-[50px]">
+                <span className="font-bold text-white">{title}</span>
               </p>
-              <span className="absolute right-4 p-0 bottom-9 text-white opacity-80">
-                تاریخ ساخت : {numberToPersian('1401/11/10', t('lang'))}
+              <span className="absolute right-4 p-0 bottom-9 font-bold text-white opacity-80">
+                تاریخ ساخت : {numberToPersian(date, t('lang'))}
               </span>
-            </section>
+            </div>
           </section>
-          <section className="intro-1-3-col intro-h-100">
-            <section className="intro-1-3-item intro-h-50 relative h-md-300px">
-              <section className="img-bg absolute top-0 bottom-0 right-0 left-0 bg-2 bg-cover intro-h-100"></section>
-              <section className="intro-item-caption z-10 w-full h-full cursor-pointer absolute top-0 left-0">
-                <p className="caption-title text-xl mr-4">
-                  <span>
-                    بایننس حدود ۶۰۰میلیون دلار توکن بی‌ان‌بی را سوزاند
-                  </span>
-                </p>
-                <span className="absolute right-4 p-0 bottom-9 text-white opacity-80">
-                  تاریخ ساخت : {numberToPersian('1401/11/10', t('lang'))}
-                </span>
-              </section>
-            </section>
-            <section className="intro-1-3-item intro-h-50 relative h-md-300px">
-              <section className="img-bg absolute top-0 bottom-0 right-0 left-0 bg-3 bg-cover intro-h-100"></section>
-              <section className="intro-item-caption z-10 w-full h-full cursor-pointer absolute top-0 left-0">
-                <p className="caption-title text-xl mr-4">
-                  <span>
-                    افزایش ۵۰درصدی پرونده‌های حقوقی مرتبط با ارزهای دیجیتال
-                    کمیسیون بورس و اوراق بهادار در سال ۲۰۲۲
-                  </span>
-                </p>
-                <span className="absolute right-4 p-0 bottom-9 text-white opacity-80">
-                  تاریخ ساخت : {numberToPersian('1401/11/10', t('lang'))}
-                </span>
-              </section>
-            </section>
-          </section>
-          <section className="clear-fix"></section>
-        </section>
-        <section className="w-full intro-h-1-3">
-          <section className="intro-1-3-col-item intro-h-100 relative h-md-300px">
-            <section className="img-bg absolute top-0 bottom-0 right-0 left-0 bg-4 bg-cover intro-h-100"></section>
-            <section className="intro-item-caption z-10 w-full h-full cursor-pointer absolute top-0 left-0">
-              <p className="caption-title text-xl mr-4">
-                <span>
-                  مدیر اجرایی آی‌بی‌ام: ارزهای دیجیتال بانک مرکزی آینده پول
-                  هستند
-                </span>
-              </p>
-              <span className="absolute right-4 p-0 bottom-9 text-white opacity-80">
-                تاریخ ساخت : {numberToPersian('1401/11/10', t('lang'))}
-              </span>
-            </section>
-          </section>
-          <section className="intro-1-3-col-item intro-h-100 relative h-md-300px">
-            <section className="img-bg absolute top-0 bottom-0 right-0 left-0 bg-5 bg-cover intro-h-100"></section>
-            <section className="intro-item-caption z-10 w-full h-full cursor-pointer absolute top-0 left-0">
-              <p className="caption-title text-xl mr-4">
-                <span>
-                  دیجیتال کارنسی گروپ تا اطلاع ثانوی پرداخت سود سهام را متوقف
-                  می‌کند
-                </span>
-              </p>
-              <span className="absolute right-4 p-0 bottom-9 text-white opacity-80">
-                تاریخ ساخت : {numberToPersian('1401/11/10', t('lang'))}
-              </span>
-            </section>
-          </section>
-          <section className="intro-1-3-col-item intro-h-100 relative h-md-300px">
-            <section className="img-bg absolute top-0 bottom-0 right-0 left-0 bg-6 bg-cover intro-h-100"></section>
-            <section className="intro-item-caption z-10 w-full h-full cursor-pointer absolute top-0 left-0">
-              <p className="caption-title text-xl mr-4">
-                <span>
-                  رشد ۵درصدی توسعه‌دهندگان فعال بیت کوین نسبت به سال گذشته
-                </span>
-              </p>
-              <span className="absolute right-4 p-0 bottom-9 text-white opacity-80">
-                تاریخ ساخت : {numberToPersian('1401/11/10', t('lang'))}
-              </span>
-            </section>
-          </section>
-          <section className="clear-fix"></section>
-        </section>
-      </section>
+        ))}
+      </div>
+      <h2 className="h5 mb-6 leading-7 font-bold h1Page mt-10" dir="auto">
+        {t('lang')
+          ? `پیش نمایش ${numberToPersian(topCoin.length, t('lang'))} کوین`
+          : `Preview ${numberToPersian(topCoin.length, t('lang'))} coins`}
+      </h2>
       <div className="background-color bg-white mt-7">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
           {topCoin.map(({ key, name, all_name, poster_path }) => (
@@ -215,7 +187,9 @@ const HomePage = () => {
                       }}
                       className="flex items-center hover:text-[#1e4dd8] cursor-pointer mt-1.5"
                     >
-                      <span className="ml-1 opacity-70">اطلاعات بیشتر</span>
+                      <span className="ml-1 opacity-70">
+                        {t('more.information')}
+                      </span>
                       <span className="text-[#1e4dd8] text-base h-3.5 w-3.5 flex">
                         <FaArrowLeft />
                       </span>
@@ -229,7 +203,7 @@ const HomePage = () => {
         <div className="mt-3">
           <Link href="/coins">
             <button className="inline-block py-1.5 text-base border border-solid bg-black text-white cursor-pointer rounded-md shadow-md hover:bg-[#424649] border-[#212529] outline-0 transition-btn w-full">
-              تماشای تمامی کوین ها
+              {t('view.all.coins')}
             </button>
           </Link>
         </div>

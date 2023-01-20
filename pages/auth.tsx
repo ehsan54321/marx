@@ -37,7 +37,7 @@ const AuthPage = () => {
       <div>
         <div className="text-center mb-[-160px]">
           <Image
-            src="/static/images/favicon-192x192.png"
+            src="/favicon-192x192.png"
             alt="لوگو"
             className={img ? '' : 'opacity-0'}
             width={110}

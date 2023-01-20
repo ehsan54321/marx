@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken'
+import persianDate from 'persian-date'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 const User = (req: NextApiRequest, res: NextApiResponse) => {
@@ -12,10 +13,19 @@ const User = (req: NextApiRequest, res: NextApiResponse) => {
   }
   if (data) {
     try {
+      const { payload } = deCodeToken(data)
       res.status(200).json({
-        ...deCodeToken(data).payload,
-        exp: undefined,
-        iat: undefined,
+        user: {
+          email: payload.email,
+          date: payload.date,
+          name: payload.username,
+        },
+        iat: new persianDate.unix(payload.iat)
+          .toLocale('en')
+          .format('YYYY/MM/DD'),
+        expires: new persianDate.unix(payload.exp)
+          .toLocale('en')
+          .format('YYYY/MM/DD'),
       })
     } catch {
       res.status(200).json('شما وارد نشدید')

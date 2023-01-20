@@ -46,19 +46,21 @@ const Register = () => {
   const onFinish = (value: onFinishType) => {
     http
       .post('api/v2/auth/register', value)
-      .then(({ data }) => {
-        if (data.status === 'SUCCESS') {
-          setAuthState(data.data)
-          router.push('/account')
-          Swal.fire({
-            icon: 'success',
-            toast: true,
-            position: 'top-end',
-            timer: 7000,
-            title: t('register.success'),
-            showConfirmButton: false,
-            showCloseButton: true,
-            timerProgressBar: true,
+      .then((res) => {
+        if (res.data.status === 'SUCCESS') {
+          http.get('api/v2/user').then(async ({ data }) => {
+            await setAuthState(data)
+            router.push('/account')
+            Swal.fire({
+              icon: 'success',
+              toast: true,
+              position: 'top-end',
+              timer: 7000,
+              title: t('register.success'),
+              showConfirmButton: false,
+              showCloseButton: true,
+              timerProgressBar: true,
+            })
           })
         } else {
           Swal.fire({
@@ -66,7 +68,7 @@ const Register = () => {
             toast: true,
             position: 'top-end',
             timer: 7000,
-            title: data.message,
+            title: res.data.message,
             showConfirmButton: false,
             showCloseButton: true,
             timerProgressBar: true,

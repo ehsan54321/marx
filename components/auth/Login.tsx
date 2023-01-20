@@ -26,26 +26,28 @@ const Login = () => {
   const { t } = useTranslation()
   const { setAuthState } = useContext(AuthContext)
   const noFind = 'لطفا این فیلد را پر کنید.'
-  const onFinish = async (value: onFinishType) => {
-    await http
+  const onFinish = (value: onFinishType) => {
+    http
       .post('api/v2/auth/login', {
         password: value.password,
         email: value.email,
         lang: t('lang'),
       })
-      .then(({ data }) => {
-        if (data.status === 'SUCCESS') {
-          setAuthState(data.data)
-          router.push('/account')
-          Swal.fire({
-            icon: 'success',
-            toast: true,
-            position: 'top-end',
-            timer: 7000,
-            title: t('login.success'),
-            showConfirmButton: false,
-            showCloseButton: true,
-            timerProgressBar: true,
+      .then((res) => {
+        if (res.data.status === 'SUCCESS') {
+          http.get('api/v2/user').then(async ({ data }) => {
+            await setAuthState(data)
+            router.push('/account')
+            Swal.fire({
+              icon: 'success',
+              toast: true,
+              position: 'top-end',
+              timer: 7000,
+              title: t('login.success'),
+              showConfirmButton: false,
+              showCloseButton: true,
+              timerProgressBar: true,
+            })
           })
         } else {
           Swal.fire({
@@ -53,17 +55,18 @@ const Login = () => {
             toast: true,
             position: 'top-end',
             timer: 7000,
-            title: data.message,
+            title: res.data.message,
             showConfirmButton: false,
             showCloseButton: true,
             timerProgressBar: true,
           })
+          setLoader(false)
         }
       })
       .catch(() => {
         resErr(t)
+        setLoader(false)
       })
-    setLoader(false)
   }
   const onSubmit = (e) => {
     const email: string = removeSpas(e.target['0'].value.toLowerCase())

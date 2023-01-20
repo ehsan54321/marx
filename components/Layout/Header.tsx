@@ -117,7 +117,7 @@ const Header = () => {
               <li className="nav-item">
                 <Link href="/" className="flex">
                   <Image
-                    src="/static/images/favicon-96x96.png"
+                    src="/favicon-96x96.png"
                     alt="لوگو"
                     width={33}
                     height={33}
@@ -347,7 +347,7 @@ const Auth = () => {
             <Link href="/account">
               <Avatar.Root className="items-center justify-center align-middle select-none overflow-hidden inline-flex bg-slate-100 mr-2 w-12 h-12 rounded-full">
                 <Avatar.Fallback className="leading-4 text-[15px] font-medium text-purple-800 w-full h-full flex items-center justify-center bg-slate-100">
-                  {authState.username.toLocaleUpperCase()}
+                  {authState.user.name.toLocaleUpperCase()}
                 </Avatar.Fallback>
               </Avatar.Root>
             </Link>
@@ -364,7 +364,7 @@ const Auth = () => {
                 )}
               >
                 <Avatar.Fallback className="leading-4 text-[15px] font-medium text-purple-800 flex items-center justify-center w-full h-full bg-slate-100 filter-invert-dark">
-                  {authState.username.toLocaleUpperCase()}
+                  {authState.user.name.toLocaleUpperCase()}
                 </Avatar.Fallback>
               </Avatar.Root>
               <BsFillCaretDownFill />

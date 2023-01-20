@@ -41,7 +41,7 @@ const Register = (req: NextApiRequest, res: NextApiResponse) => {
               httpOnly: true,
               secure: true,
             })
-            res.status(201).json({ data: dataOBJClint, status: 'SUCCESS' })
+            res.status(201).json({ status: 'SUCCESS' })
           } else if (r.data.message) {
             res.status(200).json({ message: r.data.message, status: 'ERROR' })
           } else {

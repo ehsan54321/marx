@@ -3,11 +3,6 @@ import { createContext, useEffect, useState } from 'react'
 import { resErr } from '@lib/helper'
 import { useTranslation } from 'react-i18next'
 
-type authObj = {
-  email: string
-  username: string
-  date: string
-}
 type context = {
   isAuth: boolean
   isFind: any
@@ -19,7 +14,7 @@ const { Provider } = AuthContext
 
 const AuthProvider = ({ children }): JSX.Element => {
   const { t } = useTranslation()
-  const [authState, setAuthState] = useState<authObj | null | boolean>(false)
+  const [authState, setAuthState] = useState(false)
   useEffect(() => {
     const getUser = () => {
       http

@@ -1,7 +1,7 @@
 {
   "app": "Marx",
   "full.app": "MarxKet",
-  "page":"Main Page of Marks Kat Exchange",
+  "page": "Main Page of Marks Kat Exchange",
   "home": "Home Page",
   "stars": "Stars",
   "logout": "Logout",
@@ -40,6 +40,8 @@
   "coin.total.market": "Total market",
   "introducing.coin": "Introducing Coin",
   "faq": "Faq",
+  "view.all.coins": "View all coins",
+  "more.information":"more information",
 
   "telegram": "Telegram",
   "whatsapp": "Whatsapp",
@@ -49,6 +51,8 @@
   "profile": "Profile",
   "info.user": "User account information",
   "info.account": "account name : ",
+  "info.iat.account": "date create iat : ",
+  "info.exp.account": "date create exp : ",
   "info.create.account": "date create account : ",
   "info.confirm": "Confirm the change of user information",
   "info.logout": "User account exit",

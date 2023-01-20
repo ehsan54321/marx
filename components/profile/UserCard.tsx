@@ -35,7 +35,7 @@ const UserCard = () => {
       <div className="text-center p-2">
         <Avatar.Root className="items-center justify-center align-middle select-none overflow-hidden inline-flex bg-slate-100 w-32 h-32 rounded-full an_fadeIn filter-invert-dark">
           <Avatar.Fallback className="leading-4 text-base font-medium text-purple-800 flex items-center justify-center bg-slate-100 w-full h-full">
-            {authState.username.toLocaleUpperCase()}
+            {authState.user.name.toLocaleUpperCase()}
           </Avatar.Fallback>
         </Avatar.Root>
       </div>
@@ -46,13 +46,21 @@ const UserCard = () => {
         <div className="mb-4">
           <p>
             <span className="text-slate-500 h6">{t('info.account')}</span>
-            {authState.username}
+            {authState.user.name}
           </p>
           <p>
             <span className="text-slate-500 h6">
               {t('info.create.account')}
             </span>
-            {numberToPersian(authState.date, t('lang'))}
+            {numberToPersian(authState.user.date, t('lang'))}
+          </p>
+          <p>
+            <span className="text-slate-500 h6">{t('info.iat.account')}</span>
+            {numberToPersian(authState.iat, t('lang'))}
+          </p>
+          <p>
+            <span className="text-slate-500 h6">{t('info.exp.account')}</span>
+            {numberToPersian(authState.expires, t('lang'))}
           </p>
         </div>
         <button

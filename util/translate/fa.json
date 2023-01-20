@@ -39,6 +39,8 @@
   "coin.total.market": "ارزش کل بازار",
   "introducing.coin": "معرفی کوین",
   "faq": "سوالات",
+  "view.all.coins": "تماشای تمامی کوین ها",
+  "more.information": "اطلاعات بیشتر",
 
   "telegram": "تلگرام",
   "whatsapp": "واتساپ",
@@ -48,6 +50,8 @@
   "profile": "پروفایل",
   "info.user": "اطلاعات حساب کاربری",
   "info.account": "نام اکانت : ",
+  "info.iat.account": "تاریخ وارد شدن به حساب : ",
+  "info.exp.account": "تاریخ پاک شدن کوکی در سیستم شما : ",
   "info.create.account": "تاریخ ساخت حساب : ",
   "info.confirm": "تایید تغییر اطلاعات کاربری",
   "info.logout": "خروج حساب کاربری",
