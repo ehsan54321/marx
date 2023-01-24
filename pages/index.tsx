@@ -133,7 +133,7 @@ const HomePage = () => {
             key={title}
           >
             <img
-              className="img-bg absolute top-0 bottom-0 right-0 left-0 object-cover w-full filter-invert-dark"
+              className="img-bg absolute top-0 bottom-0 right-0 left-0 object-cover w-full filter-invert-dark animation-img"
               alt={title}
               src={`/static/images/bolg/${poster}`}
             />

@@ -64,7 +64,7 @@ const Star = ({ name, faName, id, poster_path }: starObj) => {
       Swal.fire({
         icon: 'warning',
         title: t('text.no.login'),
-        confirmButtonText: `<a href="javascript:void(0)"><span class="text-white">
+        confirmButtonText: `<a href="/auth#login"><span class="text-white">
           ${t('text.no.login.button')}</span></a>`,
         showCloseButton: true,
       }).then((e) => {
@@ -92,7 +92,7 @@ const Star = ({ name, faName, id, poster_path }: starObj) => {
     ) : (
       <svg
         className={classNames(
-          'w-4 cursor-pointer transition-colors ease-linear',
+          'w-4 cursor-pointer transition ease-linear',
           theme ? 'hover:text-yellow-400' : ''
         )}
         xmlns="http://www.w3.org/2000/svg"

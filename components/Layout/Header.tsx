@@ -1,7 +1,6 @@
 import * as Avatar from '@radix-ui/react-avatar'
 import classNames from 'classnames'
 import http from '@services/httpServices'
-import Image from 'next/image'
 import Link from 'next/link'
 import Swal from 'sweetalert2'
 import { AuthContext } from '@store/auth'
@@ -116,11 +115,10 @@ const Header = () => {
               </li>
               <li className="nav-item">
                 <Link href="/" className="flex">
-                  <Image
+                  <img
                     src="/favicon-96x96.png"
                     alt="لوگو"
-                    width={33}
-                    height={33}
+                    className="w-[34px] h-[34px]"
                   />
                   <span
                     className={classNames(
@@ -208,7 +206,7 @@ const Header = () => {
                     gradientUnits="userSpaceOnUse"
                   >
                     <stop offset="0" />
-                    <stop offset="1" stop-opacity="0" />
+                    <stop offset="1" stopOpacity="0" />
                   </radialGradient>
                   <path
                     fill="url(#gFcLP_8vJw7uqN0sJV2bNa)"
@@ -222,8 +220,8 @@ const Header = () => {
                     y2="30.29"
                     gradientUnits="userSpaceOnUse"
                   >
-                    <stop offset="0" stop-color="#fede00" />
-                    <stop offset="1" stop-color="#ffd000" />
+                    <stop offset="0" stopColor="#fede00" />
+                    <stop offset="1" stopColor="#ffd000" />
                   </linearGradient>
                   <circle
                     cx="20"
@@ -321,22 +319,24 @@ const Auth = () => {
     <>
       <ChangeMode />
       {isFind() ? (
-        <span className="loader">
-          <svg viewBox="22 22 44 44">
-            <circle
-              cx="44"
-              cy="44"
-              r="20.2"
-              fill="none"
-              strokeWidth="3.6"
-            ></circle>
-          </svg>
-        </span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 16 16"
+          width="24"
+          height="24"
+          className="min-w-[60px] cursor-progress"
+          fill="#aaa"
+        >
+          <path
+            d="M8 0c4.411 0 8 3.589 8 8s-3.589 8-8 8-8-3.589-8-8 3.589-8 8-8zm0 1.333C4.324 1.333 1.333 4.324 1.333 8c0 1.958.854 3.716 2.203 4.937.443-1.316 1.665-2.27 3.13-2.27h2.667c1.466 0 2.69.954 3.132 2.269 1.348-1.22 2.202-2.979 2.202-4.936 0-3.676-2.991-6.667-6.667-6.667zM8 4c1.104 0 2 .995 2 2.222v.556C10 8.005 9.104 9 8 9s-2-.995-2-2.222v-.556C6 4.995 6.896 4 8 4z"
+            transform="translate(-716 -1131) translate(716 1131)"
+          ></path>
+        </svg>
       ) : !isAuth ? (
         <Link href="/auth#login">
           <button
             type="button"
-            className="inline-block px-3.5 py-1.5 bg-white text-black text-base rounded-md border border-solid border-black hover:bg-black hover:text-white hover:shadow-md outline-0 transition-btn cursor-pointer ml-[3px]"
+            className="inline-block px-3.5 py-1.5 bg-white text-black text-base rounded-md border border-solid border-black hover:bg-black hover:text-white hover:shadow-md outline-0 transition-btn cursor-pointer"
           >
             <span>{t('btn-login')}</span>
           </button>
@@ -359,7 +359,7 @@ const Auth = () => {
             >
               <Avatar.Root
                 className={classNames(
-                  'items-center justify-center align-middle select-none overflow-hidden inline-flex bg-slate-100 w-12 h-12 rounded-full an_fadeIn',
+                  'items-center justify-center align-middle select-none overflow-hidden inline-flex bg-slate-100 w-12 h-12 rounded-full',
                   t('lang') ? 'ml-1' : 'mr-1'
                 )}
               >

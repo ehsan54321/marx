@@ -86,7 +86,7 @@ const SEO = (props: MetaProps) => {
       <link rel="icon" type="image/x-icon" href="/favicon.ico" />
       <meta name="msapplication-TileColor" content="#ffffff" />
       <meta name="msapplication-TileImage" content="favicon-144x144.png" />
-      <link rel="manifest" href="/manifest.json" />
+      <link rel="manifest" href="/site.webmanifest" />
       <meta
         name="google-site-verification"
         content="xkDxKK16KVjSTQv4vP93Dx0xztiwUEWrlX3_VzrUYcA"

@@ -1,12 +1,10 @@
 ::-moz-selection {
   background: #7fb8ff;
   color: white;
-  text-shadow: none;
 }
 ::selection {
   background: #7fb8ff;
   color: white;
-  text-shadow: none;
 }
 // ::-webkit-horizontal,
 // ::-webkit-scrollbar {
@@ -56,7 +54,7 @@ body {
 .dark {
   background: #424242;
   & #__next {
-    filter: invert(0.9);
+    filter: invert(0.88);
   }
 }
 
@@ -75,10 +73,6 @@ a {
 img,
 svg {
   vertical-align: middle;
-}
-
-img {
-  animation: fadeIn 1s;
 }
 
 p {

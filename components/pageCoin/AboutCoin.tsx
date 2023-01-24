@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next'
 
 const AboutCoin = ({ aboutCoin, dayGrith }) => {
   const { t } = useTranslation()
-  const [width, setWidth] = useState<string>('auto')
   const tradingVolume = useRef(null)
+  const [width, setWidth] = useState<string>('auto')
   useEffect(() => {
     if (document.body.clientWidth <= 576)
       setWidth(tradingVolume.current.getBoundingClientRect().width - 16 + 'px')

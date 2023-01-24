@@ -43,7 +43,7 @@ const MapCoin = (props: Props) => {
         <div className="m-5 p-5 text-center">
           <Image
             src="/static/images/no-data.svg"
-            className="mb-2 mr-4 filter-invert-dark"
+            className="mb-2 mr-4 filter-invert-dark animation-img"
             alt="داده ای یافت نشد"
             width={100}
             height={100}

@@ -75,7 +75,7 @@ const ControllerCoins = ({ dataServer }) => {
           </button>
           <button
             type="button"
-            className="h5 relative cursor-pointer bg-white flex"
+            className="h5 relative cursor-pointer flex"
             onClick={() => {
               inputSearch.current.value = ''
               inputSearch.current.focus()
@@ -88,6 +88,8 @@ const ControllerCoins = ({ dataServer }) => {
                 ×
               </span>
             )}
+          </button>
+          <button type="button" className="relative cursor-text flex h5">
             {!searchValue && (
               <span
                 className={classNames(
@@ -98,7 +100,7 @@ const ControllerCoins = ({ dataServer }) => {
                 {t('lang')
                   ? `جستجو بین ${numberToPersian(
                       dataServer.coins.length,
-                      true
+                      1
                     )} کوین`
                   : `search ${dataServer.coins.length} coin`}
               </span>

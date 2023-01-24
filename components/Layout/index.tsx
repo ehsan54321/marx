@@ -33,7 +33,7 @@ const Progress = () => {
   }
   Router.events.on('routeChangeStart', restStates)
   const onScroll = () => {
-    const winScroll = document.documentElement.scrollTop
+    const winScroll = scrollY
     const height =
       document.documentElement.scrollHeight -
       document.documentElement.clientHeight
@@ -49,11 +49,11 @@ const Progress = () => {
   }, [])
   if (show) {
     return (
-      <div className="z-20 bg-white sticky right-0 mb-6 top-16">
+      <div className="z-20 sticky right-0 mb-6 top-16">
         <div className="h-[5px] w-full">
           <div
             className="h-full w-0 bg-slate-500"
-            style={{ width: `${width}%` }}
+            style={{ width: width + '%' }}
           ></div>
         </div>
       </div>
@@ -68,9 +68,8 @@ const ScrollTop = () => {
   const { theme } = useContext(ThemeContext)
   const getShow = () => {
     addEventListener('scroll', () => {
-      if (document.documentElement.clientHeight - 240 <= pageYOffset) {
-        setShow(true)
-      } else setShow(false)
+      if (innerHeight / 2 <= pageYOffset) setShow(true)
+      else setShow(false)
     })
   }
   useEffect(() => {

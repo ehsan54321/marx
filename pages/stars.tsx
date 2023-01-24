@@ -36,7 +36,7 @@ const PageStars = () => {
     return (
       <>
         <SEO title={t('title.selected')} url="stars" />
-        <h1 className="h5 mt-6 mb-6 leading-7 font-bold h1Page" dir="auto">
+        <h1 className="h5 my-6 leading-7 font-bold h1Page" dir="auto">
           {t('selected.list')}
         </h1>
         <div className="background-color bg-white">
@@ -58,7 +58,7 @@ const PageStars = () => {
               <Image
                 src="/static/images/no-data.svg"
                 alt="داده ای یافت نشد"
-                className="mr-4 filter-invert-dark"
+                className="mr-4 filter-invert-dark animation-img"
                 width={100}
                 height={100}
               />

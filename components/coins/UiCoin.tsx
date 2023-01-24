@@ -66,8 +66,8 @@ const UiCoin = (props: Props) => {
               <span className="hidden sm:inline text-right transition duration-[.35s] ease-in-out name leading-6">
                 {t('lang') ? name : all_name}
               </span>
-              <span className="uppercase flex uiCoin_nameEN text-slate-500 mr-1 leading-6 text-[12px] mt-1">
-                {'(' + my_key + ')'}
+              <span className="flex uiCoin_nameEN text-slate-500 mr-1 leading-6 text-[12px] mt-1">
+                {'(' + my_key.toLocaleUpperCase() + ')'}
               </span>
             </Link>
           </div>

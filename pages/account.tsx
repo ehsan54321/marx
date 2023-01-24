@@ -15,7 +15,7 @@ const Account = () => {
           title={`${t('profile')} ${authState.user.name}`}
           url={'account/' + authState.user.name}
         />
-        <nav className="mt-6 mb-6">
+        <nav className="my-6">
           <ul className="breadcrumb">
             <li className="breadcrumb-item">{t('profile')}</li>
             <li className="breadcrumb-item active">{authState.user.name}</li>

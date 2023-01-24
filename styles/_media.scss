@@ -85,7 +85,7 @@
 }
 
 @media (min-width: 770px) {
-  .grid-fit :nth-child(1) {
+  .grid-fit :first-child {
     grid-column: 2 / 4;
     grid-row: 1 / 3;
     height: auto;
@@ -95,11 +95,11 @@
 @media (min-width: 980px) {
   .col-lg-4 {
     flex: 0 0 auto;
-    width: 300px;
+    width: 280px;
   }
   .col-lg-8 {
     flex: 0 0 auto;
-    width: calc(100% - 300px);
+    width: calc(100% - 280px);
   }
   .uiCoin_ {
     &idTh {
