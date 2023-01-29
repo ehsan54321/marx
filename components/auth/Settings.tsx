@@ -61,8 +61,8 @@ const Settings = (props) => {
         <div
           className="flex items-center"
           onClick={() => {
-            if (theme) document.querySelector('body').classList.add('dark')
-            else document.querySelector('body').classList.remove('dark')
+            if (theme) document.body.classList.add('dark')
+            else document.body.classList.remove('dark')
             localStorage.setItem('theme', (!theme).toString())
             setTheme(!theme)
           }}

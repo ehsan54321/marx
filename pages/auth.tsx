@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import SEO from '@components/Seo'
 import { AuthContext } from '@store/auth'
@@ -23,7 +22,7 @@ const AuthPage = () => {
     : 'Page Login & Register'
   return !isAuth ? (
     <>
-      <SEO title={text} url="auth" />
+      <SEO title={text} keywords="" description="" url="auth" />
       <div className="mt-4 mr-2">
         <Link href="/">
           <button
@@ -36,12 +35,11 @@ const AuthPage = () => {
       </div>
       <div>
         <div className="text-center mb-[-160px]">
-          <Image
+          <img
             src="/favicon-192x192.png"
             alt="لوگو"
             className={img ? '' : 'opacity-0'}
             width={110}
-            height={110}
           />
         </div>
         <div className="background-color bg-white text-center mx-auto pr-4 pe-3 pt-16 mt-[15vh] sm:w-[550px]">

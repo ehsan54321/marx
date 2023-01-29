@@ -58,7 +58,7 @@ const Footer = () => {
               <section className="footer-line"></section>
               <section className="footer-section-link-item">
                 <span className="footer-p">آمار های در سال</span>
-                <p>Jan 25, 2022</p>
+                <p>Jan 25, 2023</p>
               </section>
             </section>
             <section className="footer-col">

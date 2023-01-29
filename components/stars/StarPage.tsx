@@ -14,8 +14,8 @@ const StarPage = (props) => {
               src={`/static/images/coins/${props.poster_path}.svg`}
               alt={props.name}
               className="filter-invert-dark"
-              width={26.5}
-              height={26.5}
+              width={33}
+              height={33}
             />
           </div>
           <Link

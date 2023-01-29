@@ -22,8 +22,8 @@ const Header = () => {
   const marg = t('lang') ? 'ml-1' : 'mr-1'
   const height = () => {
     if (!modal) return 0
-    if (activePathName !== 'coins') return 240
-    else return 292
+    if (activePathName !== 'coins') return 222
+    else return 268
   }
   const HomeIcon = () => (
     <svg
@@ -76,7 +76,7 @@ const Header = () => {
   )
   return (
     <nav
-      className="bg-white sticky layout_head z-30 top-0 h-16"
+      className="bg-white sticky layout_head z-30 top-0 h-14"
       dir={t('lang') ? 'rtl' : 'ltr'}
     >
       <div className="container-xxl justify-between items-center flex h-full">
@@ -150,7 +150,7 @@ const Header = () => {
             <ul className="block md:flex md:m-auto mt-4 items-center">
               <Link
                 href="/"
-                className="font-medium px-4 py-2 rounded-lg md:hover:bg-slate-100 text-lg md:inline block md:leading-1 leading-10"
+                className="font-medium px-4 py-1 rounded-lg md:hover:bg-slate-100 text-lg md:inline block md:leading-1 leading-10"
               >
                 <HomeIcon />
                 <span
@@ -165,7 +165,7 @@ const Header = () => {
               </Link>
               <Link
                 href="/coins"
-                className="font-medium px-4 py-2 rounded-lg md:hover:bg-slate-100 text-lg md:inline block md:leading-1 leading-10"
+                className="font-medium px-4 py-1 rounded-lg md:hover:bg-slate-100 text-lg md:inline block md:leading-1 leading-10"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -249,7 +249,7 @@ const Header = () => {
               </Link>
               <Link
                 href="/stars"
-                className="font-medium px-4 py-2 rounded-lg md:hover:bg-slate-100 text-lg md:inline block md:leading-1 leading-10"
+                className="font-medium px-4 py-1 rounded-lg md:hover:bg-slate-100 text-lg md:inline block md:leading-1 leading-10"
               >
                 <StarIcon />
                 <span
@@ -265,7 +265,7 @@ const Header = () => {
               {activePathName === 'coins' && (
                 <a
                   href="#FAQ"
-                  className="font-medium px-4 py-2 rounded-lg md:hover:bg-slate-100 text-lg md:inline block md:leading-1 leading-10"
+                  className="font-medium px-4 py-1 rounded-lg md:hover:bg-slate-100 text-lg md:inline block md:leading-1 leading-10"
                 >
                   <FcFaq
                     className={classNames('filter-invert-dark mt-0', marg)}
@@ -359,7 +359,7 @@ const Auth = () => {
             >
               <Avatar.Root
                 className={classNames(
-                  'items-center justify-center align-middle select-none overflow-hidden inline-flex bg-slate-100 w-12 h-12 rounded-full',
+                  'items-center justify-center align-middle select-none overflow-hidden inline-flex bg-slate-100 w-11 h-11 rounded-full',
                   t('lang') ? 'ml-1' : 'mr-1'
                 )}
               >
@@ -417,8 +417,8 @@ const ChangeMode = () => {
         <div
           className={t('lang') ? 'ml-2' : 'mr-2'}
           onClick={() => {
-            if (theme) document.querySelector('body').classList.add('dark')
-            else document.querySelector('body').classList.remove('dark')
+            if (theme) document.body.classList.add('dark')
+            else document.body.classList.remove('dark')
             localStorage.setItem('theme', (!theme).toString())
             setTheme(!theme)
           }}

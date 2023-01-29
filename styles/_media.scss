@@ -1,4 +1,4 @@
-@media (min-width: 1200px) {
+@media screen and (min-width: 1200px) {
   .container-xl {
     max-width: 1200px;
   }
@@ -8,11 +8,11 @@
   }
 }
 
-@media (max-width: 769px) {
+@media screen and (max-width: 769px) {
   .layout_ {
     &links {
       position: absolute;
-      top: 63px;
+      top: 55px;
       right: 0;
       width: 100vw;
     }
@@ -23,13 +23,13 @@
   }
 }
 
-@media (min-width: 576px) and (max-width: 767px) {
+@media screen and (min-width: 576px) and (max-width: 767px) {
   .footer-copy {
     width: 81vw;
   }
 }
 
-@media (max-width: 575px) {
+@media screen and (max-width: 575px) {
   .tr th {
     letter-spacing: -0.2px;
     font-size: 10px;
@@ -46,7 +46,7 @@
   }
 }
 
-@media (min-width: 576px) {
+@media screen and (min-width: 576px) {
   .uiCoin_ {
     &idTh {
       width: 11%;
@@ -64,7 +64,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .uiCoin_ {
     &idTh {
       width: 7%;
@@ -84,7 +84,7 @@
   }
 }
 
-@media (min-width: 770px) {
+@media screen and (min-width: 770px) {
   .grid-fit :first-child {
     grid-column: 2 / 4;
     grid-row: 1 / 3;
@@ -92,7 +92,7 @@
   }
 }
 
-@media (min-width: 980px) {
+@media screen and (min-width: 980px) {
   .col-lg-4 {
     flex: 0 0 auto;
     width: 280px;
@@ -119,14 +119,14 @@
   }
 }
 
-@media (max-width: 450px) {
+@media screen and (max-width: 450px) {
   .container-xl {
     padding-left: calc(1.5rem * 0.2);
     padding-right: calc(1.5rem * 0.2);
   }
 }
 
-@media (max-width: 360px) {
+@media screen and (max-width: 360px) {
   .errorImage {
     width: 260px;
     margin-bottom: 15px;

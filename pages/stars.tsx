@@ -35,7 +35,12 @@ const PageStars = () => {
   if (isAuth) {
     return (
       <>
-        <SEO title={t('title.selected')} url="stars" />
+        <SEO
+          title={t('title.selected')}
+          keywords=""
+          description=""
+          url="stars"
+        />
         <h1 className="h5 my-6 leading-7 font-bold h1Page" dir="auto">
           {t('selected.list')}
         </h1>

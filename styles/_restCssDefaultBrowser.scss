@@ -1,3 +1,11 @@
+:root {
+  --artdeco-reset-link-text-decoration-none: none;
+  --artdeco-reset-link-background-color-transparent: transparent;
+  --artdeco-reset-link-border-zero: 0;
+  --artdeco-reset-link-text-decoration-underline: underline;
+  --artdeco-reset-link-color-blue8: var(--blue-70, #006097);
+  --artdeco-reset-link-color-blue9: var(--blue-80, #004b7c);
+}
 ::-moz-selection {
   background: #7fb8ff;
   color: white;
@@ -21,6 +29,11 @@
 // ::-webkit-scrollbar-track {
 //   background: white;
 // }
+@viewport {
+  zoom: 1;
+  min-width: extend-to-zoom;
+  max-width: 100vw;
+}
 
 * {
   padding: 0;
@@ -51,11 +64,9 @@ body {
   background: #fafbfc;
 }
 
-.dark {
-  background: #424242;
-  & #__next {
-    filter: invert(0.88);
-  }
+.dark #__next {
+  filter: invert(0.88);
+  background: hsl(0, 0%, 90%);
 }
 
 a {
@@ -64,10 +75,38 @@ a {
   background: transparent;
   cursor: pointer;
   transition: color 0.4s ease-in-out;
+  text-decoration: var(--artdeco-reset-link-text-decoration-none);
+  background-color: var(--artdeco-reset-link-background-color-transparent);
+  border: var(--artdeco-reset-link-border-zero);
   &:hover,
   &:active {
     color: #096dd9d0;
   }
+}
+
+a:focus,
+a:hover {
+  text-decoration: var(--artdeco-reset-link-text-decoration-underline);
+  color: var(--artdeco-reset-link-color-blue8);
+}
+a:active {
+  color: var(--artdeco-reset-link-color-blue9);
+}
+a,
+a:hover {
+  color: var(--color-action);
+}
+a:active,
+a:focus,
+a:visited:focus {
+  color: var(--color-action-active);
+}
+a:visited,
+a:visited:hover {
+  color: var(--color-text-link-visited);
+}
+a:visited:active {
+  color: var(--color-text-link-visited-active);
 }
 
 img,

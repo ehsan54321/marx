@@ -13,12 +13,19 @@ const Error401 = ({ children, btn = false, btnHome = false }: Props) => {
   const { t } = useTranslation()
   return (
     <div className="background-color bg-white">
-      <SEO title={t('error') + ' 401'} url="401" noText />
+      <SEO
+        title={t('error') + ' 401'}
+        keywords=""
+        description=""
+        url="401"
+        noText
+      />
       <div className="flex items-center flex-col">
         <Image
           src={safeIcon}
           alt="یافت نشد"
           className="errorImage filter-invert-dark animation-img"
+          priority
           width={330}
           height={330}
         />
@@ -28,14 +35,20 @@ const Error401 = ({ children, btn = false, btnHome = false }: Props) => {
         </div>
         {btn && (
           <Link href="/auth#login">
-            <button className="my_btn text-white text-[14px]" type="button">
+            <button
+              className="my_btn cursor-pointer text-white text-[14px]"
+              type="button"
+            >
               <span>{t('go.to.the.login.page')}</span>
             </button>
           </Link>
         )}
         {btnHome && (
           <Link href="/">
-            <button className="my_btn text-white text-[14px]" type="button">
+            <button
+              className="my_btn cursor-pointer text-white text-[14px]"
+              type="button"
+            >
               <span>{t('go.to.the.main.page')}</span>
             </button>
           </Link>

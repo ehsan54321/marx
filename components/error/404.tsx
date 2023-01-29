@@ -15,6 +15,8 @@ const NotFound = () => {
             ? `این (url: ${router.asPath}) وجد ندارد`
             : `this (url: ${router.asPath}) there is no joy`
         }
+        keywords=""
+        description=""
         url="404"
         noText
       />
@@ -24,6 +26,7 @@ const NotFound = () => {
             src="/static/images/page-not-found.svg"
             alt="یافت نشد"
             className="errorImage filter-invert-dark animation-img"
+            priority
             width={330}
             height={330}
           />
@@ -32,7 +35,10 @@ const NotFound = () => {
             <span>{t('error.404')}</span>
           </div>
           <Link href="/">
-            <button className="my_btn text-white text-[14px]" type="button">
+            <button
+              className="my_btn cursor-pointer text-white text-[14px]"
+              type="button"
+            >
               <span>{t('go.to.the.main.page')}</span>
             </button>
           </Link>

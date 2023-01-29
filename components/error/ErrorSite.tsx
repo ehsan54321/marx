@@ -6,13 +6,20 @@ const ErrorSite = () => {
   const { t } = useTranslation()
   return (
     <>
-      <SEO title={t('error.server')} url="500" noText />
+      <SEO
+        title={t('error.server')}
+        keywords=""
+        description=""
+        url="500"
+        noText
+      />
       <div className="background-color bg-white">
         <div className="flex flex-col items-center">
           <Image
             src="/static/images/server-down.svg"
             alt="یافت نشد"
             className="errorImage filter-invert-dark animation-img"
+            priority
             width={330}
             height={330}
           />

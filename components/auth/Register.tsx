@@ -314,17 +314,7 @@ const Register = () => {
           disabled={loader}
         >
           {loader && (
-            <span className="loader ml-1">
-              <svg viewBox="22 22 44 44" width="20">
-                <circle
-                  cx="44"
-                  cy="44"
-                  r="20.2"
-                  fill="none"
-                  strokeWidth="3.6"
-                ></circle>
-              </svg>
-            </span>
+            <div className="spinner-grow align-middle mx-1 mt-[3.5px]"></div>
           )}
           <span>{loader ? t('loading') : t('register')}</span>
         </button>

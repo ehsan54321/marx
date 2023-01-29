@@ -13,6 +13,8 @@ const Account = () => {
       <>
         <SEO
           title={`${t('profile')} ${authState.user.name}`}
+          keywords=""
+          description=""
           url={'account/' + authState.user.name}
         />
         <nav className="my-6">

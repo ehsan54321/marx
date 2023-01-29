@@ -120,7 +120,7 @@ const HomePage = () => {
       <SEO
         title={t('page')}
         keywords="صفحه اصلی صرافی مارکس کت, ارز دجیتال, صرافی مارکس کت, مارکس کت"
-        description="وب سایت مارکس کت یک سایت نمایش قیمت ارز های دجیتال است که بیش از ۴۴ ارز دجیتال دارد مانند بیت کوین اتریوم تتر دوج کوین و غیر ...   صفحه اصلی"
+        description="وب سایت مارکس کت یک سایت نمایش قیمت ارز های دجیتال است که بیش از ۴۴ ارز دجیتال دارد مانند بیت کوین اتریوم تتر دوج کوین و غیر ... صفحه اصلی"
         url=""
       />
       <h1 className="h5 mb-6 leading-7 font-bold h1Page" dir="auto">
@@ -202,7 +202,7 @@ const HomePage = () => {
         </div>
         <div className="mt-3">
           <Link href="/coins">
-            <button className="inline-block py-1.5 text-base border border-solid bg-black text-white cursor-pointer rounded-md shadow-md hover:bg-[#424649] border-[#212529] outline-0 transition-btn w-full">
+            <button className="inline-block py-1.5 text-base border border-solid bg-black text-white cursor-pointer rounded-md shadow-md hover:bg-[#424649] border-[#212529] hover:border-[#424649] outline-0 transition-btn w-full">
               {t('view.all.coins')}
             </button>
           </Link>
