@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import safeIcon from 'public/static/images/safe.svg'
 import SEO from '@components/Seo'
 import { useTranslation } from 'react-i18next'
 
@@ -22,7 +21,7 @@ const Error401 = ({ children, btn = false, btnHome = false }: Props) => {
       />
       <div className="flex items-center flex-col">
         <Image
-          src={safeIcon}
+          src="/static/images/safe.svg"
           alt="یافت نشد"
           className="errorImage filter-invert-dark animation-img"
           priority

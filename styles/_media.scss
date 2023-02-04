@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width: 769px) {
-  .layout_ {
+  .head_ {
     &links {
       position: absolute;
       top: 55px;
@@ -23,13 +23,12 @@
   }
 }
 
-@media screen and (min-width: 576px) and (max-width: 767px) {
-  .footer-copy {
-    width: 81vw;
-  }
-}
-
 @media screen and (max-width: 575px) {
+  .footer-col {
+    padding: 15px;
+    width: calc(100% - 30px);
+    margin-right: 0;
+  }
   .tr th {
     letter-spacing: -0.2px;
     font-size: 10px;

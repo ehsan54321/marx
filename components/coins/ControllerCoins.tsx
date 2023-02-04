@@ -21,19 +21,26 @@ type coinType = {
   }
 }
 const ControllerCoins = ({ dataServer }) => {
-  const pageItem: number = 20
+  const pageItem: number = 15
   const { t } = useTranslation()
   const { pageSize } = dataServer
   const inputSearch = useRef(null)
+  const [pageSh, setPageSh] = useState(1)
   const [page, setPage] = useState<number>(1)
   const [them, setThem] = useState<string>('')
   const [focus, setFocus] = useState<boolean>(false)
+  const [pageSizeSh, setPageSizeSh] = useState(null)
   const [searchValue, setSearchValue] = useState<string>('')
   const [data, setData] = useState<coinType[]>(dataServer.coins)
   const [dataView, setDataView] = useState<coinType[]>(data.slice(0, pageItem))
   const arrPageSize = () => {
     const arr: number[] = [1]
     for (let i = 1; i < pageSize; i++) arr.push(arr.length + 1)
+    return arr.sort((a, c) => c - a)
+  }
+  const arrPageSizeSh = () => {
+    const arr: number[] = [1]
+    for (let i = 1; i < pageSizeSh; i++) arr.push(arr.length + 1)
     return arr.sort((a, c) => c - a)
   }
   const PageSizeHandler = (pageName) => {
@@ -46,7 +53,18 @@ const ControllerCoins = ({ dataServer }) => {
       }
     }
   }
+  const PageSizeHandlerSh = (pageName) => {
+    setPageSh(pageName)
+    for (let i = 1; i <= pageSizeSh; i++) {
+      if (pageName === i) {
+        //    PLC => PageLengthCoin
+        const PLC = (i - 1) * pageItem
+        setDataView(data.slice(PLC, PLC + pageItem))
+      }
+    }
+  }
   const searchHandler = (searchValue) => {
+    setPageSh(1)
     const dataSearch = dataServer.coins.filter(
       (coin: coinType) =>
         removeSpas(coin.key).includes(searchValue) ||
@@ -64,6 +82,12 @@ const ControllerCoins = ({ dataServer }) => {
           setDataView(dataSearch.slice(PLC, PLC + pageItem))
         }
       }
+    } else if (dataSearch.length >= pageItem) {
+      const pageSZ = Math.ceil(dataSearch.length / pageItem)
+      setPageSizeSh(pageSZ)
+      //    PLC => PageLengthCoin
+      const PLC = (1 - 1) * pageItem
+      setDataView(dataSearch.slice(PLC, PLC + pageItem))
     } else setDataView(dataSearch)
   }
   return (
@@ -89,7 +113,11 @@ const ControllerCoins = ({ dataServer }) => {
               </span>
             )}
           </button>
-          <button type="button" className="relative cursor-text flex h5">
+          <button
+            type="button"
+            className="relative cursor-text flex h5"
+            onClick={() => inputSearch.current.focus()}
+          >
             {!searchValue && (
               <span
                 className={classNames(
@@ -163,20 +191,44 @@ const ControllerCoins = ({ dataServer }) => {
       />
 
       {!searchValue && data.length > pageItem && (
-        <nav>
-          <ul className="pagination justify-center mt-2" dir="ltr">
+        <div className="flex justify-center mt-3">
+          <ul className="flex justify-center gap-1" dir="ltr">
             {arrPageSize().map((item) => (
-              <li className="page-item" key={item}>
-                <a
-                  className={page === item ? 'page-link active' : 'page-link'}
-                  onClick={() => PageSizeHandler(item)}
-                >
-                  {item}
-                </a>
+              <li
+                className={classNames(
+                  page === item
+                    ? 'border-blue-600 bg-blue-600 text-white'
+                    : 'border-gray-100',
+                  'block h-8 w-8 rounded text-center leading-8 border border-solid cursor-pointer'
+                )}
+                key={item}
+                onClick={() => PageSizeHandler(item)}
+              >
+                <span>{numberToPersian(item, t('lang'))}</span>
               </li>
             ))}
           </ul>
-        </nav>
+        </div>
+      )}
+      {searchValue && data.length > pageItem && (
+        <div className="flex justify-center mt-3">
+          <ul className="flex justify-center gap-1" dir="ltr">
+            {arrPageSizeSh().map((item) => (
+              <li
+                className={classNames(
+                  pageSh === item
+                    ? 'border-blue-600 bg-blue-600 text-white'
+                    : 'border-gray-100',
+                  'block h-8 w-8 rounded text-center leading-8 border border-solid cursor-pointer'
+                )}
+                key={item}
+                onClick={() => PageSizeHandlerSh(item)}
+              >
+                <span>{numberToPersian(item, t('lang'))}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
     </>
   )

@@ -34,7 +34,7 @@ const AuthPage = () => {
         </Link>
       </div>
       <div>
-        <div className="text-center mb-[-160px]">
+        <div className="text-center -mb-40">
           <img
             src="/favicon-192x192.png"
             alt="لوگو"

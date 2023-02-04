@@ -41,7 +41,7 @@ const PageStars = () => {
           description=""
           url="stars"
         />
-        <h1 className="h5 my-6 leading-7 font-bold h1Page" dir="auto">
+        <h1 className="h5 my-6 leading-7 font-bold" dir="auto">
           {t('selected.list')}
         </h1>
         <div className="background-color bg-white">

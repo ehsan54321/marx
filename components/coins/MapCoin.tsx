@@ -45,8 +45,8 @@ const MapCoin = (props: Props) => {
             src="/static/images/no-data.svg"
             className="mb-2 mr-4 filter-invert-dark animation-img"
             alt="داده ای یافت نشد"
-            width={100}
-            height={100}
+            width={90}
+            height={90}
           />
           <p className="text-slate-500">{t('no.coin')}</p>
         </div>

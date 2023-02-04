@@ -24,12 +24,12 @@ const App = ({ Component, pageProps }: AppProps) => {
       if (themeLocal) {
         if (themeLocal === 'false') {
           setTheme(false)
-          document.body.classList.add('dark')
+          document.querySelector('html').classList.add('dark')
         }
       } else {
         if (matchMedia('(prefers-color-scheme: dark)').matches) {
           setTheme(false)
-          document.body.classList.add('dark')
+          document.querySelector('html').classList.add('dark')
         }
       }
       if (!localStorage.getItem('lang')) {

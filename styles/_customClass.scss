@@ -74,9 +74,6 @@
   display: table-row;
   vertical-align: middle;
   height: 79px;
-  &:last-child {
-    border-bottom: #ddd 1px solid;
-  }
 
   th {
     border-bottom: 1px solid #ecf1f9;

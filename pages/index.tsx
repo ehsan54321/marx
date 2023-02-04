@@ -123,19 +123,19 @@ const HomePage = () => {
         description="وب سایت مارکس کت یک سایت نمایش قیمت ارز های دجیتال است که بیش از ۴۴ ارز دجیتال دارد مانند بیت کوین اتریوم تتر دوج کوین و غیر ... صفحه اصلی"
         url=""
       />
-      <h1 className="h5 mb-6 leading-7 font-bold h1Page" dir="auto">
+      <h1 className="h5 mb-6 leading-7 font-bold" dir="auto">
         {t('page')}
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5 grid-rows-2 grid-fit">
         {slid.map(({ title, poster, date }) => (
-          <section
-            className="relative item overflow-hidden h-[195px] max-md:h-[300px]"
+          <div
             key={title}
+            className="relative item overflow-hidden h-[195px] max-md:h-[300px]"
           >
             <img
               className="img-bg absolute top-0 bottom-0 right-0 left-0 object-cover w-full filter-invert-dark animation-img"
+              src={`/static/images/blog/${poster}`}
               alt={title}
-              src={`/static/images/bolg/${poster}`}
             />
             <div className="intro-item-caption filter-invert-dark z-10 w-full h-full cursor-pointer absolute top-0 left-0">
               <p className="text-xl mr-4 absolute right-0 left-5 bottom-[50px]">
@@ -145,10 +145,10 @@ const HomePage = () => {
                 تاریخ ساخت : {numberToPersian(date, t('lang'))}
               </span>
             </div>
-          </section>
+          </div>
         ))}
       </div>
-      <h2 className="h5 mb-6 leading-7 font-bold h1Page mt-10" dir="auto">
+      <h2 className="h5 mb-6 leading-7 font-bold mt-10" dir="auto">
         {t('lang')
           ? `پیش نمایش ${numberToPersian(topCoin.length, t('lang'))} کوین`
           : `Preview ${numberToPersian(topCoin.length, t('lang'))} coins`}
@@ -157,8 +157,8 @@ const HomePage = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
           {topCoin.map(({ key, name, all_name, poster_path }) => (
             <div
-              className="w-full border border-solid border-gray-200 rounded p-5"
               key={key}
+              className="w-full border border-solid border-gray-200 rounded p-5"
             >
               <div className="flex">
                 <div className="flex mt-[3px] ml-4">

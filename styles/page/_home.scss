@@ -1,0 +1,16 @@
+.img-bg {
+  height: 100% !important;
+  transition: transform 0.38s linear;
+}
+
+.item:hover .img-bg {
+  transform: scale(1.25);
+}
+
+.intro-item-caption {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.dark .intro-item-caption {
+  background: rgba(0, 0, 0, 0.5);
+}

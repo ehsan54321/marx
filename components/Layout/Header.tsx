@@ -76,7 +76,7 @@ const Header = () => {
   )
   return (
     <nav
-      className="bg-white sticky layout_head z-30 top-0 h-14"
+      className="bg-white sticky head_ z-30 top-0 h-14"
       dir={t('lang') ? 'rtl' : 'ltr'}
     >
       <div className="container-xxl justify-between items-center flex h-full">
@@ -133,7 +133,7 @@ const Header = () => {
               <li
                 className={classNames(
                   'nav-item max-md:hidden h-6',
-                  t('lang') ? 'layout_divider' : 'layout_dividerEn'
+                  t('lang') ? 'head_divider' : 'head_dividerEn'
                 )}
               >
                 <div className="vr h-full lg:mx-2"></div>
@@ -142,8 +142,8 @@ const Header = () => {
           </div>
           <div
             className={classNames(
-              modal ? 'layout_active' : 'md:h-[auto!important]',
-              'layout_links items-center flex bg-white overflow-hidden'
+              modal ? 'head_active' : 'md:h-[auto!important]',
+              'head_links items-center flex bg-white overflow-hidden'
             )}
             style={{ height: height() }}
           >
@@ -417,8 +417,8 @@ const ChangeMode = () => {
         <div
           className={t('lang') ? 'ml-2' : 'mr-2'}
           onClick={() => {
-            if (theme) document.body.classList.add('dark')
-            else document.body.classList.remove('dark')
+            if (theme) document.querySelector('html').classList.add('dark')
+            else document.querySelector('html').classList.remove('dark')
             localStorage.setItem('theme', (!theme).toString())
             setTheme(!theme)
           }}

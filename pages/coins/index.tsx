@@ -15,7 +15,7 @@ const HomePage = ({ data }) => {
         description="وب سایت مارکس کت یک سایت نمایش قیمت ارز های دجیتال است که بیش از ۴۴ ارز دجیتال دارد مانند بیت کوین اتریوم تتر دوج کوین و غیر ...   صفحه کوین ها"
         url="coins"
       />
-      <h1 className="h5 mb-6 leading-7 font-bold h1Page" dir="auto">
+      <h1 className="h5 mb-6 leading-7 font-bold" dir="auto">
         {t('title.home')}
       </h1>
       <div className="background-color bg-white pt-6 px-0 pb-2">
@@ -42,7 +42,7 @@ const HomePage = ({ data }) => {
 
 HomePage.getInitialProps = async () => {
   return {
-    data: (await http.get('api/v2/coins?pi=20')).data,
+    data: (await http.get('api/v2/coins?pi=15')).data,
   }
 }
 

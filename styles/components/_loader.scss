@@ -13,17 +13,6 @@
     transform: translateX(-50%) translateY(-50%);
   }
 }
-// <span className="loader ml-1">
-//   <svg viewBox="22 22 44 44" width="20">
-//     <circle
-//       cx="44"
-//       cy="44"
-//       r="20.2"
-//       fill="none"
-//       strokeWidth="3.6"
-//     ></circle>
-//   </svg>
-// </span>
 
 @keyframes loader {
   0% {
@@ -59,3 +48,214 @@
     stroke: #000;
   }
 }
+
+// <span className="loader ml-1">
+//   <svg viewBox="22 22 44 44" width="20">
+//     <circle
+//       cx="44"
+//       cy="44"
+//       r="20.2"
+//       fill="none"
+//       strokeWidth="3.6"
+//     ></circle>
+//   </svg>
+// </span>
+
+:root {
+  --reset-link-text-decoration-none: none;
+  --reset-link-background-color-transparent: transparent;
+  --reset-link-border-zero: 0;
+  --reset-link-text-decoration-underline: underline;
+  --reset-link-color-blue8: var(--blue-70, #006097);
+  --reset-link-color-blue9: var(--blue-80, #004b7c);
+  --voyager-color-element-loading: rgba(0, 0, 0, 0.6);
+}
+.loader {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  overflow: visible;
+  margin: 8px;
+  display: inline-block;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.loader--xsmall {
+  height: 16px;
+  width: 16px;
+}
+.loader--xsmall .loader__bars:before {
+  border: 0.5px solid;
+  height: 4px;
+}
+.loader--small {
+  height: 30px;
+  width: 30px;
+}
+.loader--small .loader__bars:before {
+  height: 6px;
+}
+.loader--muted {
+  color: rgba(0, 0, 0, 0.6);
+}
+.loader--inverse {
+  color: hsla(0, 0%, 100%, 0.7);
+}
+.loader__bars {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.loader__bars:before {
+  content: '';
+  display: block;
+  width: 0;
+  margin: 0 auto;
+  height: 14px;
+  border: 1px solid;
+  border-radius: 1px;
+  animation: loaderfade 1s ease-in-out infinite both;
+}
+.loader__bars:nth-of-type(12) {
+  transform: rotate(-1turn);
+}
+[dir='rtl'] .loader__bars:nth-of-type(12) {
+  transform: rotate(1turn);
+}
+.loader__bars:nth-of-type(12):before {
+  animation-delay: -1s;
+}
+.loader__bars:nth-of-type(11) {
+  transform: rotate(-330deg);
+}
+[dir='rtl'] .loader__bars:nth-of-type(11) {
+  transform: rotate(330deg);
+}
+.loader__bars:nth-of-type(11):before {
+  animation-delay: -916.66667ms;
+}
+.loader__bars:nth-of-type(10) {
+  transform: rotate(-300deg);
+}
+[dir='rtl'] .loader__bars:nth-of-type(10) {
+  transform: rotate(300deg);
+}
+.loader__bars:nth-of-type(10):before {
+  animation-delay: -833.33333ms;
+}
+.loader__bars:nth-of-type(9) {
+  transform: rotate(-270deg);
+}
+[dir='rtl'] .loader__bars:nth-of-type(9) {
+  transform: rotate(270deg);
+}
+.loader__bars:nth-of-type(9):before {
+  animation-delay: -0.75s;
+}
+.loader__bars:nth-of-type(8) {
+  transform: rotate(-240deg);
+}
+[dir='rtl'] .loader__bars:nth-of-type(8) {
+  transform: rotate(240deg);
+}
+.loader__bars:nth-of-type(8):before {
+  animation-delay: -666.66667ms;
+}
+.loader__bars:nth-of-type(7) {
+  transform: rotate(-210deg);
+}
+[dir='rtl'] .loader__bars:nth-of-type(7) {
+  transform: rotate(210deg);
+}
+.loader__bars:nth-of-type(7):before {
+  animation-delay: -583.33333ms;
+}
+.loader__bars:nth-of-type(6) {
+  transform: rotate(-180deg);
+}
+[dir='rtl'] .loader__bars:nth-of-type(6) {
+  transform: rotate(180deg);
+}
+.loader__bars:nth-of-type(6):before {
+  animation-delay: -0.5s;
+}
+.loader__bars:nth-of-type(5) {
+  transform: rotate(-150deg);
+}
+[dir='rtl'] .loader__bars:nth-of-type(5) {
+  transform: rotate(150deg);
+}
+.loader__bars:nth-of-type(5):before {
+  animation-delay: -0.41666667s;
+}
+.loader__bars:nth-of-type(4) {
+  transform: rotate(-120deg);
+}
+[dir='rtl'] .loader__bars:nth-of-type(4) {
+  transform: rotate(120deg);
+}
+.loader__bars:nth-of-type(4):before {
+  animation-delay: -0.33333333s;
+}
+.loader__bars:nth-of-type(3) {
+  transform: rotate(-90deg);
+}
+[dir='rtl'] .loader__bars:nth-of-type(3) {
+  transform: rotate(90deg);
+}
+.loader__bars:nth-of-type(3):before {
+  animation-delay: -0.25s;
+}
+.loader__bars:nth-of-type(2) {
+  transform: rotate(-60deg);
+}
+[dir='rtl'] .loader__bars:nth-of-type(2) {
+  transform: rotate(60deg);
+}
+.loader__bars:nth-of-type(2):before {
+  animation-delay: -166.66667ms;
+}
+.loader__bars:first-of-type {
+  transform: rotate(-30deg);
+}
+[dir='rtl'] .loader__bars:first-of-type {
+  transform: rotate(30deg);
+}
+.loader__bars:first-of-type:before {
+  animation-delay: -83.33333ms;
+}
+@keyframes loaderfade {
+  0%,
+  5%,
+  to {
+    opacity: 0.8;
+  }
+  95% {
+    opacity: 0.05;
+  }
+}
+.loader,
+.loader--muted {
+  color: var(--voyager-color-element-loading) !important;
+}
+.loader--inverse {
+  color: var(--voyager-color-element-loading-on-dark) !important;
+}
+
+// <div className="loader loader--small" >
+//   <span className="loader__bars" ></span>
+//   <span className="loader__bars" ></span>
+//   <span className="loader__bars" ></span>
+//   <span className="loader__bars" ></span>
+//   <span className="loader__bars" ></span>
+//   <span className="loader__bars" ></span>
+//   <span className="loader__bars" ></span>
+//   <span className="loader__bars" ></span>
+//   <span className="loader__bars" ></span>
+//   <span className="loader__bars" ></span>
+//   <span className="loader__bars" ></span>
+//   <span className="loader__bars" ></span>
+// </div>

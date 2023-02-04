@@ -1,11 +1,3 @@
-:root {
-  --artdeco-reset-link-text-decoration-none: none;
-  --artdeco-reset-link-background-color-transparent: transparent;
-  --artdeco-reset-link-border-zero: 0;
-  --artdeco-reset-link-text-decoration-underline: underline;
-  --artdeco-reset-link-color-blue8: var(--blue-70, #006097);
-  --artdeco-reset-link-color-blue9: var(--blue-80, #004b7c);
-}
 ::-moz-selection {
   background: #7fb8ff;
   color: white;
@@ -64,9 +56,8 @@ body {
   background: #fafbfc;
 }
 
-.dark #__next {
-  filter: invert(0.88);
-  background: hsl(0, 0%, 90%);
+.dark {
+  filter: invert(0.84);
 }
 
 a {
@@ -114,6 +105,25 @@ svg {
   vertical-align: middle;
 }
 
+img {
+  position: relative;
+
+  &[alt]::after {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    color: transparent;
+    text-align: center;
+    content: attr(alt);
+    width: 100%;
+    height: 100%;
+    background: url('/static/images/image-placeholder.svg') 50% center / contain
+      no-repeat rgb(255, 255, 255);
+  }
+}
+
 p {
   margin-top: 0;
   margin-bottom: 1rem;
@@ -150,4 +160,31 @@ ol {
   text-decoration: none;
   list-style: none;
   outline: none;
+}
+
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.h4,
+h4 {
+  font-size: calc(1.275rem + 0.3vw);
+}
+.h5,
+h5 {
+  font-size: 1.25rem;
+}
+.h6,
+h6 {
+  font-size: 1rem;
 }

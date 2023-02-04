@@ -20,7 +20,7 @@ const Settings = (props) => {
     'block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2.5 pr-8 rounded-md shadow outline-0'
   return (
     <div className="grid grid-cols-2 gap-3">
-      <div className="inline-block relative w-60">
+      <div className="inline-block relative sm:w-60">
         <select
           className={styleSelect}
           onChange={ChangeLang}
@@ -31,7 +31,7 @@ const Settings = (props) => {
         </select>
         <Icon />
       </div>
-      <div className="inline-block relative w-60">
+      <div className="inline-block relative sm:w-60">
         <select
           className={styleSelect}
           onChange={() => setImg(!img)}
@@ -42,7 +42,7 @@ const Settings = (props) => {
         </select>
         <Icon />
       </div>
-      <div className="inline-block relative w-60">
+      <div className="inline-block relative sm:w-60">
         <select
           className={styleSelect}
           onChange={() => props.setTheme(!props.theme)}
@@ -57,12 +57,12 @@ const Settings = (props) => {
         </select>
         <Icon />
       </div>
-      <div className="inline-block relative w-60">
+      <div className="inline-block relative sm:w-60">
         <div
           className="flex items-center"
           onClick={() => {
-            if (theme) document.body.classList.add('dark')
-            else document.body.classList.remove('dark')
+            if (theme) document.querySelector('html').classList.add('dark')
+            else document.querySelector('html').classList.remove('dark')
             localStorage.setItem('theme', (!theme).toString())
             setTheme(!theme)
           }}
