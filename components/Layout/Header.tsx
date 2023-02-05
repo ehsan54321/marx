@@ -87,7 +87,7 @@ const Header = () => {
                 <button
                   className={classNames(
                     'block md:hidden bg-transparent',
-                    t('lang') ? 'ml-2' : 'mr-2'
+                    t('lang') ? 'ml-2.5' : 'mr-2.5'
                   )}
                   onClick={() => setModal(!modal)}
                 >

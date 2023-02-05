@@ -108,12 +108,14 @@
   background: url('/static/images/map.png') no-repeat center;
 }
 
-.footer {
+footer {
   background: #191919;
-
   & * {
     font-size: 14px;
   }
+}
+
+.footer {
   &-row {
     background: rgba(25, 25, 25, 0.9);
   }

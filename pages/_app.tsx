@@ -1,6 +1,6 @@
 import AuthProvider from '@store/auth'
 import Head from 'next/head'
-import HiThere from '@components/HiThere'
+import Welcome from '@components/Welcome'
 import Layout from '@components/Layout'
 import NProgress from 'nprogress'
 import Router from 'next/router'
@@ -15,7 +15,6 @@ import type { AppProps } from 'next/app'
 NProgress.configure({ showSpinner: false })
 const App = ({ Component, pageProps }: AppProps) => {
   const [theme, setTheme] = useState<boolean>(true)
-  const [hi, setHi] = useState<boolean>(false)
   const { t, i18n } = useTranslation()
   useEffect(() => {
     const getModes = () => {
@@ -32,10 +31,6 @@ const App = ({ Component, pageProps }: AppProps) => {
           document.querySelector('html').classList.add('dark')
         }
       }
-      if (!localStorage.getItem('lang')) {
-        setHi(true)
-        localStorage.setItem('lang', 'fa')
-      }
     }
     getModes()
   }, [])
@@ -44,7 +39,7 @@ const App = ({ Component, pageProps }: AppProps) => {
   Router.events.on('routeChangeError', () => NProgress.done())
   return (
     <>
-      {hi && <HiThere />}
+      <Welcome />
       <AuthProvider>
         <div className={t('lang') ? 'fa' : 'en'}>
           <ThemeProvider value={{ theme, setTheme }}>

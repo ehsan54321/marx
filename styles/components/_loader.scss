@@ -61,15 +61,6 @@
 //   </svg>
 // </span>
 
-:root {
-  --reset-link-text-decoration-none: none;
-  --reset-link-background-color-transparent: transparent;
-  --reset-link-border-zero: 0;
-  --reset-link-text-decoration-underline: underline;
-  --reset-link-color-blue8: var(--blue-70, #006097);
-  --reset-link-color-blue9: var(--blue-80, #004b7c);
-  --voyager-color-element-loading: rgba(0, 0, 0, 0.6);
-}
 .loader {
   width: 60px;
   height: 60px;

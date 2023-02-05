@@ -1,11 +1,4 @@
 .coinPage_ {
-  &btn {
-    border: 1px solid #eee;
-    button {
-      border-right: 1px solid #eee;
-      border-left: 1px solid #eee;
-    }
-  }
   &item {
     padding: 0.8rem;
   }
@@ -18,5 +11,16 @@
   }
   &star svg {
     margin: auto !important;
+  }
+  &group button {
+    &:first-child {
+      border-top-right-radius: 0.25rem;
+      border-bottom-right-radius: 0.25rem;
+    }
+    &:last-child {
+      border-left: none !important;
+      border-top-left-radius: 0.25rem;
+      border-bottom-left-radius: 0.25rem;
+    }
   }
 }

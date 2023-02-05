@@ -22,7 +22,7 @@ const Footer = () => {
       },
     ]
     return (
-      <footer className="footer mt-4 filter-invert-dark">
+      <footer className="mt-4 filter-invert-dark">
         <div className="app bg-map mx-auto">
           <div className="footer-row sm:mx-10">
             <div className="footer-col sm:float-left">

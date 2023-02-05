@@ -1,11 +1,10 @@
-import classNames from 'classnames'
-import Footer from './Footer'
-import Header from './Header'
-import Router from 'next/router'
-import { FaChevronUp } from 'react-icons/fa'
-import { ThemeContext } from '@store/theme'
-import { useContext, useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
+import classNames from 'classnames';
+import Footer from './Footer';
+import Header from './Header';
+import Router from 'next/router';
+import { FaChevronUp } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 const Layout = ({ children }: { children: JSX.Element }) => {
   const router = useRouter()
@@ -63,7 +62,6 @@ const Progress = () => {
 
 const ScrollTop = () => {
   const [show, setShow] = useState(false)
-  const { theme } = useContext(ThemeContext)
   const getShow = () => {
     addEventListener('scroll', () => {
       if (innerHeight / 2 <= pageYOffset) setShow(true)
@@ -78,8 +76,7 @@ const ScrollTop = () => {
     <button
       className={classNames(
         'fixed bg-white head_scrollTop py-2 px-[12px] rounded-full z-20 cursor-pointer',
-        show ? 'bottom-[15px] right-4' : 'bottom-[-40px] right-[-20px]',
-        theme ? '' : 'hidden'
+        show ? 'bottom-[15px] right-4' : 'bottom-[-40px] right-[-20px]'
       )}
       onClick={topPage}
     >

@@ -1,3 +1,12 @@
+:root {
+  --reset-link-text-decoration-none: none;
+  --reset-link-background-color-transparent: transparent;
+  --reset-link-border-zero: 0;
+  --reset-link-text-decoration-underline: underline;
+  --reset-link-color-blue8: var(--blue-70, #006097);
+  --reset-link-color-blue9: var(--blue-80, #004b7c);
+  // --voyager-color-element-loading: rgba(0, 0, 0, 0.6);
+}
 ::-moz-selection {
   background: #7fb8ff;
   color: white;
@@ -66,9 +75,9 @@ a {
   background: transparent;
   cursor: pointer;
   transition: color 0.4s ease-in-out;
-  text-decoration: var(--artdeco-reset-link-text-decoration-none);
-  background-color: var(--artdeco-reset-link-background-color-transparent);
-  border: var(--artdeco-reset-link-border-zero);
+  text-decoration: var(--reset-link-text-decoration-none);
+  background-color: var(--reset-link-background-color-transparent);
+  border: var(--reset-link-border-zero);
   &:hover,
   &:active {
     color: #096dd9d0;
@@ -77,11 +86,11 @@ a {
 
 a:focus,
 a:hover {
-  text-decoration: var(--artdeco-reset-link-text-decoration-underline);
-  color: var(--artdeco-reset-link-color-blue8);
+  text-decoration: var(--reset-link-text-decoration-underline);
+  color: var(--reset-link-color-blue8);
 }
 a:active {
-  color: var(--artdeco-reset-link-color-blue9);
+  color: var(--reset-link-color-blue9);
 }
 a,
 a:hover {
