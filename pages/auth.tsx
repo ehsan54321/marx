@@ -81,19 +81,19 @@ const AuthPage = () => {
             </ul>
           </div>
           {status === 'login' && (
-            <div className="auth_an">
+            <div className="slid opacity-[1!important]">
               <LoginForm />
               <LoginEasy />
             </div>
           )}
           {status === 'register' && (
-            <div className="auth_an">
+            <div className="slid opacity-[1!important]">
               <RegisterForm />
               <LoginEasy />
             </div>
           )}
           {status === 'settings' && (
-            <div className="auth_an">
+            <div className="slid opacity-[1!important]">
               <SettingsFrom
                 setImg={setImg}
                 img={img}

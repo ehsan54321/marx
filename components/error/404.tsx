@@ -23,7 +23,7 @@ const NotFound = () => {
       <div className="background-color bg-white">
         <div className="flex flex-col items-center">
           <Image
-            src="/static/images/page-not-found.svg"
+            src="/img/page-not-found.svg"
             alt="یافت نشد"
             className="errorImage filter-invert-dark animation-img"
             priority

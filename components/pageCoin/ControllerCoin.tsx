@@ -23,7 +23,7 @@ const ControllerPageCoin = (props: Props) => {
             <div className="mr-2 flex">
               <div className="flex items-center coinPage_imgCoin">
                 <Image
-                  src={`/static/images/coins/${props.coin.poster_path}.svg`}
+                  src={`/img/coins/${props.coin.poster_path}.svg`}
                   alt={props.coin.name}
                   className="filter-invert-dark"
                   width={40}

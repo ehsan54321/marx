@@ -16,7 +16,7 @@ const ErrorSite = () => {
       <div className="background-color bg-white">
         <div className="flex flex-col items-center">
           <Image
-            src="/static/images/server-down.svg"
+            src="/img/server-down.svg"
             alt="یافت نشد"
             className="errorImage filter-invert-dark animation-img"
             priority

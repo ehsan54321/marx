@@ -61,7 +61,7 @@ const PageStars = () => {
           {(!dataStar || (dataStar && dataStar.length === 0)) && (
             <div className="m-5 p-5 text-center">
               <Image
-                src="/static/images/no-data.svg"
+                src="/img/no-data.svg"
                 alt="داده ای یافت نشد"
                 className="mr-4 filter-invert-dark animation-img"
                 width={100}

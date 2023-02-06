@@ -26,7 +26,7 @@ const UserInfo = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         http
-          .post('api/v2/auth/update', {
+          .put('api/v2/auth/update', {
             username,
             email: authState.user.email,
             date: authState.user.date,
@@ -154,7 +154,7 @@ const UserInfo = () => {
             <div className="text-center mt-6">
               <button
                 type="submit"
-                className="px-3 text-white inline-block py-1.5 text-base cursor-pointer rounded-md bg-blue-600 hover:bg-blue-700 outline-0 transition-btn"
+                className="px-3 text-white inline-block py-1.5 text-base cursor-pointer rounded bg-blue-600 hover:bg-blue-700 outline-0 transition-btn"
               >
                 <span>{t('info.confirm')}</span>
               </button>
@@ -165,7 +165,7 @@ const UserInfo = () => {
           <div className="text-center mt-6">
             <button
               type="submit"
-              className="text-inherit px-3 text-blue-600 border border-solid border-blue-600 bg-white inline-block py-1.5 text-base cursor-pointer rounded-md hover:bg-blue-600 hover:text-white outline-0 transition-btn"
+              className="px-3 text-white inline-block py-1.5 text-base cursor-pointer rounded bg-blue-600 hover:bg-blue-700 outline-0 transition-btn"
               onClick={() => setDisabled(false)}
             >
               <span>{t('info.information')}</span>

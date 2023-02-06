@@ -134,7 +134,7 @@ const HomePage = () => {
           >
             <img
               className="img-bg absolute top-0 bottom-0 right-0 left-0 object-cover w-full filter-invert-dark animation-img"
-              src={`/static/images/blog/${poster}`}
+              src={`/img/blog/${poster}`}
               alt={title}
             />
             <div className="intro-item-caption filter-invert-dark z-10 w-full h-full cursor-pointer absolute top-0 left-0">
@@ -153,7 +153,7 @@ const HomePage = () => {
           ? `پیش نمایش ${numberToPersian(topCoin.length, t('lang'))} کوین`
           : `Preview ${numberToPersian(topCoin.length, t('lang'))} coins`}
       </h2>
-      <div className="background-color bg-white mt-7">
+      <div className="background-color bg-white mt-7 p-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
           {topCoin.map(({ key, name, all_name, poster_path }) => (
             <div
@@ -163,7 +163,7 @@ const HomePage = () => {
               <div className="flex">
                 <div className="flex mt-[3px] ml-4">
                   <Image
-                    src={`/static/images/coins/${poster_path}.svg`}
+                    src={`/img/coins/${poster_path}.svg`}
                     alt={t('lang') ? name : all_name}
                     className="filter-invert-dark"
                     width={48}

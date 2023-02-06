@@ -4,7 +4,7 @@ import { setCookie } from 'cookies-next'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 const Update = (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method === 'POST') {
+  if (req.method === 'PUT') {
     if (process.env.NODE_ENV === 'production') {
       res.status(200).json({
         message: 'شما اجازه تغییر نام کاربری را ندارید!',

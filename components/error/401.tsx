@@ -21,7 +21,7 @@ const Error401 = ({ children, btn = false, btnHome = false }: Props) => {
       />
       <div className="flex items-center flex-col">
         <Image
-          src="/static/images/safe.svg"
+          src="/img/safe.svg"
           alt="یافت نشد"
           className="errorImage filter-invert-dark animation-img"
           priority

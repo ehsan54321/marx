@@ -6,12 +6,12 @@ import { useTranslation } from 'react-i18next'
 const StarPage = (props) => {
   const { t } = useTranslation()
   return (
-    <div className="star_an">
+    <div className="slid">
       <div className="flex flex-col justify-around rounded-xl w-44 h-44 p-[10px] bg-gray-100">
         <div className="flex">
           <div className="flex items-center">
             <Image
-              src={`/static/images/coins/${props.poster_path}.svg`}
+              src={`/img/coins/${props.poster_path}.svg`}
               alt={props.name}
               className="filter-invert-dark"
               width={33}

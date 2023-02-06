@@ -58,7 +58,7 @@ const Coin = ({ props, nameCoin }) => {
             onClick={() => {
               const link = document.createElement('a')
               link.download = props.coin.all_name + '-' + nameCoin + '.svg'
-              link.href = `/static/images/coins/${props.coin.poster_path}.svg`
+              link.href = `/img/coins/${props.coin.poster_path}.svg`
               link.click()
             }}
           >

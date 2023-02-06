@@ -1,20 +1,22 @@
-import classNames from 'classnames';
-import Footer from './Footer';
-import Header from './Header';
-import Router from 'next/router';
-import { FaChevronUp } from 'react-icons/fa';
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import classNames from 'classnames'
+import Footer from './Footer'
+import Header from './Header'
+import Router from 'next/router'
+import { FaChevronUp } from 'react-icons/fa'
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 
 const Layout = ({ children }: { children: JSX.Element }) => {
   const router = useRouter()
   if (!(router.pathname === '/auth')) {
     return (
       <>
-        <Header />
-        <Progress />
-        <ScrollTop />
-        {children}
+        <div>
+          <Header />
+          <Progress />
+          <ScrollTop />
+          {children}
+        </div>
         <Footer />
       </>
     )

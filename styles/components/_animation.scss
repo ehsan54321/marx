@@ -1,29 +1,15 @@
-.star_an {
-  animation: starAn 0.9s both;
+.slid {
+  animation: slid 0.9s both;
   opacity: 1;
 }
 
-.auth_an {
-  animation: authAn 0.9s both;
-  opacity: 1;
-}
-
-@keyframes starAn {
+@keyframes slid {
   0% {
     opacity: 0;
     transform: translate3d(100%, 0px, 0px);
   }
   100% {
     opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes authAn {
-  0% {
-    transform: translate3d(100%, 0px, 0px);
-  }
-  100% {
     transform: none;
   }
 }

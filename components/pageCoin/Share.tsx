@@ -44,7 +44,7 @@ const Share = ({ nameCoin, name }) => {
         <a
           target="_blank"
           rel="nofollow noreferrer"
-          className="ml-2"
+          className="ml-2 hover:text-blue-500"
           href={`https://t.me/share/url?url=${baseURL}coins/${nameCoin}`}
         >
           <TbBrandTelegram />

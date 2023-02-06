@@ -5,12 +5,10 @@ import { baseURL } from '@baseUrl'
 axios.defaults.baseURL = baseURL
 // axios.defaults.headers.common['Accept-Encoding'] = 'application/json'
 
-const http: any = {
+const http: { get; post; put } = {
   get: axios.get,
   post: axios.post,
   put: axios.put,
-  delete: axios.delete,
-  create: axios.create,
 }
 
 export default http
