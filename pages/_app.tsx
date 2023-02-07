@@ -1,11 +1,12 @@
 import AuthProvider from '@store/auth'
 import Head from 'next/head'
-import Welcome from '@components/Welcome'
 import Layout from '@components/Layout'
 import NProgress from 'nprogress'
 import Router from 'next/router'
 import ThemeProvider from '@store/theme'
+import Welcome from '@components/Welcome'
 import { baseURL } from '@baseUrl'
+import { DefaultSeo } from 'next-seo'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import '@styles/globals.scss'
@@ -52,63 +53,94 @@ const App = ({ Component, pageProps }: AppProps) => {
         </div>
       </AuthProvider>
       <Head>
-        <meta charSet="UTF-8" />
+        <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         {/* <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
         /> */}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="enamad" content="" />
-        <meta name="robots" content="index, follow" />
-        <meta name="robots" content="notranslate" />
-        <meta name="googlebot" content="index, follow" />
-        <meta name="google" content="notranslate" />
-        <meta name="revisit-after" content="15 days" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="MobileOptimized" content="310" />
-        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-        <link rel="alternate" hrefLang="fa-IR" href={baseURL} />
-        <meta name="mobile-web-app-capable" content="yes" />
-        <link rel="apple-touch-icon" sizes="36x36" href="/favicon-36x36.png" />
-        <link rel="apple-touch-icon" sizes="96x96" href="/favicon-96x96.png" />
-        <link
-          rel="apple-touch-icon"
-          sizes="144x144"
-          href="/favicon-144x144.png"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="192x192"
-          href="/favicon-192x192.png"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="512x512"
-          href="/favicon-512x512.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="36x36"
-          href="/favicon-36x36.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="96x96"
-          href="/favicon-96x96.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="192x192"
-          href="/favicon-192x192.png"
-        />
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="shortcut icon" href="/favicon.ico" />
-        <link rel="manifest" href="/manifest.json" />
       </Head>
+      <DefaultSeo
+        title="صفحه جدید"
+        canonical={baseURL}
+        robotsProps={{ notranslate: true }}
+        languageAlternates={[{ hrefLang: 'fa-IR', href: baseURL }]}
+        additionalMetaTags={[
+          {
+            name: 'viewport',
+            content: 'width=device-width, initial-scale=1.0',
+          },
+          { name: 'application-name', content: t('full.app') },
+          { name: 'apple-mobile-web-app-capable', content: 'yes' },
+          { name: 'apple-mobile-web-app-status-bar-style', content: 'default' },
+          { name: 'format-detection', content: 'telephone=no' },
+          { name: 'MobileOptimized', content: '310' },
+          { name: 'mobile-web-app-capable', content: 'yes' },
+          {
+            name: 'google-site-verification',
+            content: 'xkDxKK16KVjSTQv4vP93Dx0xztiwUEWrlX3_VzrUYcA',
+          },
+        ]}
+        additionalLinkTags={[
+          {
+            rel: 'apple-touch-icon',
+            sizes: '36x36',
+            href: '/favicon-36x36.png',
+          },
+          {
+            rel: 'apple-touch-icon',
+            sizes: '96x96',
+            href: '/favicon-96x96.png',
+          },
+          {
+            rel: 'apple-touch-icon',
+            sizes: '144x144',
+            href: '/favicon-144x144.png',
+          },
+          {
+            rel: 'apple-touch-icon',
+            sizes: '192x192',
+            href: '/favicon-192x192.png',
+          },
+          {
+            rel: 'apple-touch-icon',
+            sizes: '512x512',
+            href: '/favicon-512x512.png',
+          },
+          {
+            rel: 'icon',
+            type: 'image/png',
+            sizes: '36x36',
+            href: '/favicon-36x36.png',
+          },
+          {
+            rel: 'icon',
+            type: 'image/png',
+            sizes: '96x96',
+            href: '/favicon-96x96.png',
+          },
+          {
+            rel: 'icon',
+            type: 'image/png',
+            sizes: '192x192',
+            href: '/favicon-192x192.png',
+          },
+          { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+          { rel: 'shortcut icon', href: '/favicon.ico' },
+          {
+            rel: 'manifest',
+            href: '/manifest.json',
+          },
+        ]}
+        openGraph={{
+          url: baseURL,
+          type: 'website',
+          locale: 'fa_IR',
+          images: [{ url: baseURL + 'favicon.ico', alt: 'صرافی مارکس کت' }],
+          siteName: t('full.app'),
+        }}
+      />
     </>
   )
 }

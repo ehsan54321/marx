@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import SEO from '@components/Seo'
+import { baseURL } from '@baseUrl'
+import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
 
@@ -9,16 +10,24 @@ const NotFound = () => {
   const { t } = useTranslation()
   return (
     <>
-      <SEO
+      <NextSeo
         title={
           t('lang')
             ? `این (url: ${router.asPath}) وجد ندارد`
             : `this (url: ${router.asPath}) there is no joy`
         }
-        keywords=""
-        description=""
-        url="404"
-        noText
+        titleTemplate={
+          t('lang')
+            ? `این (url: ${router.asPath}) وجد ندارد`
+            : `this (url: ${router.asPath}) there is no joy`
+        }
+        description={t('error.404')}
+        canonical={baseURL + '404'}
+        openGraph={{
+          url: baseURL + '404',
+          title: `این (url: ${router.asPath}) وجد ندارد`,
+          description: t('error.404'),
+        }}
       />
       <div className="background-color bg-white">
         <div className="flex flex-col items-center">

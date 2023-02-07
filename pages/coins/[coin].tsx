@@ -1,9 +1,10 @@
 import Accordion from '@components/Accordion'
 import http from '@services/httpServices'
 import Link from 'next/link'
-import SEO from '@components/Seo'
+import { baseURL } from '@baseUrl'
 import { ControllerCoin, Share } from '@components/pageCoin'
 import { HiCloudDownload } from 'react-icons/hi'
+import { NextSeo } from 'next-seo'
 import { useTranslation } from 'react-i18next'
 import type { GetServerSideProps } from 'next'
 
@@ -21,11 +22,23 @@ const Coin = ({ props, nameCoin }) => {
   const { t } = useTranslation()
   return (
     <>
-      <SEO
+      <NextSeo
         title={t('lang') ? props.coin.name : props.coin.all_name}
-        keywords={`${props.coin.name}, نمایش قیمت ارز های دجیتال, دجیتال بیت کوین , بیت کوین ,ارز دجیتال`}
+        titleTemplate={
+          t('lang') ? props.coin.name : props.coin.all_name + t('title')
+        }
         description={props.coin.aboutCoin.body}
-        url={'coins' + nameCoin}
+        // keywords={`${props.coin.name}, نمایش قیمت ارز های دجیتال, دجیتال بیت کوین , بیت کوین ,ارز دجیتال`}
+        additionalMetaTags={[
+          { name: 'expires', content: 'never' },
+          { name: 'revisit-after', content: '5 days' },
+        ]}
+        canonical={baseURL + 'start'}
+        openGraph={{
+          url: baseURL + 'account',
+          title: t('lang') ? props.coin.name : props.coin.all_name + t('title'),
+          description: props.coin.aboutCoin.body,
+        }}
       />
       <nav className="mt-6 mb-6">
         <ul className="breadcrumb">

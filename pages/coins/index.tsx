@@ -1,7 +1,8 @@
 import Accordion from '@components/Accordion'
 import ControllerCoin from '@components/coins/ControllerCoins'
 import http from '@services/httpServices'
-import SEO from '@components/Seo'
+import { baseURL } from '@baseUrl'
+import { NextSeo } from 'next-seo'
 import { useTranslation } from 'react-i18next'
 
 const HomePage = ({ data }) => {
@@ -9,11 +10,22 @@ const HomePage = ({ data }) => {
   // TODO api web socket update value coins
   return (
     <>
-      <SEO
+      <NextSeo
         title={t('title.home')}
-        keywords="قیمت ارزهای دجیتال, قیمت ارز دجیتال, قیمت ارزهای دجیتال در ایران, قیمت ارزهای دجیتال در سال ۱۴۰۱, ارزهای دجیتال در سال 1401,قیمت ارز, لیست قیمت ارزهای دجیتال, ارز دجیتال, صرافی مارکس کت, مارکس کت"
+        titleTemplate={t('title.home') + t('title')}
         description="وب سایت مارکس کت یک سایت نمایش قیمت ارز های دجیتال است که بیش از ۴۴ ارز دجیتال دارد مانند بیت کوین اتریوم تتر دوج کوین و غیر ...   صفحه کوین ها"
-        url="coins"
+        // keywords="قیمت ارزهای دجیتال, قیمت ارز دجیتال, قیمت ارزهای دجیتال در ایران, قیمت ارزهای دجیتال در سال ۱۴۰۱, ارزهای دجیتال در سال 1401,قیمت ارز, لیست قیمت ارزهای دجیتال, ارز دجیتال, صرافی مارکس کت, مارکس کت"
+        additionalMetaTags={[
+          { name: 'expires', content: 'never' },
+          { name: 'revisit-after', content: '5 days' },
+        ]}
+        canonical={baseURL + 'coins'}
+        openGraph={{
+          url: baseURL + 'coins',
+          title: t('title.home') + t('title'),
+          description:
+            'وب سایت مارکس کت یک سایت نمایش قیمت ارز های دجیتال است که بیش از ۴۴ ارز دجیتال دارد مانند بیت کوین اتریوم تتر دوج کوین و غیر ...   صفحه کوین ها',
+        }}
       />
       <h1 className="h5 mb-6 leading-7 font-bold" dir="auto">
         {t('title.home')}

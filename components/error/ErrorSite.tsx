@@ -1,17 +1,22 @@
 import Image from 'next/image'
-import SEO from '@components/Seo'
+import { baseURL } from '@baseUrl'
+import { NextSeo } from 'next-seo'
 import { useTranslation } from 'react-i18next'
 
 const ErrorSite = () => {
   const { t } = useTranslation()
   return (
     <>
-      <SEO
+      <NextSeo
         title={t('error.server')}
-        keywords=""
-        description=""
-        url="500"
-        noText
+        titleTemplate={t('error.server')}
+        description={t('error') + ' Network Error'}
+        canonical={baseURL + '500'}
+        openGraph={{
+          url: baseURL + '500',
+          title: t('error.server'),
+          description: t('error') + ' Network Error',
+        }}
       />
       <div className="background-color bg-white">
         <div className="flex flex-col items-center">

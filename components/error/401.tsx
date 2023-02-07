@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import SEO from '@components/Seo'
+import { baseURL } from '@baseUrl'
+import { NextSeo } from 'next-seo'
 import { useTranslation } from 'react-i18next'
 
 type Props = {
@@ -12,12 +13,16 @@ const Error401 = ({ children, btn = false, btnHome = false }: Props) => {
   const { t } = useTranslation()
   return (
     <div className="background-color bg-white">
-      <SEO
+      <NextSeo
         title={t('error') + ' 401'}
-        keywords=""
-        description=""
-        url="401"
-        noText
+        titleTemplate={t('error') + ' 401'}
+        description={children}
+        canonical={baseURL + '401'}
+        openGraph={{
+          url: baseURL + '401',
+          title: t('error') + ' 401',
+          description: children,
+        }}
       />
       <div className="flex items-center flex-col">
         <Image

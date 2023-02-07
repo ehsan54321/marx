@@ -1,9 +1,10 @@
 import Link from 'next/link'
-import SEO from '@components/Seo'
 import { AuthContext } from '@store/auth'
+import { baseURL } from '@baseUrl'
 import { Error401 } from '@components/error'
 import { FaGithub } from 'react-icons/fa'
 import { LoginForm, RegisterForm, SettingsFrom } from '@components/auth'
+import { NextSeo } from 'next-seo'
 import { useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -22,7 +23,17 @@ const AuthPage = () => {
     : 'Page Login & Register'
   return !isAuth ? (
     <>
-      <SEO title={text} keywords="" description="" url="auth" />
+      <NextSeo
+        title={text}
+        titleTemplate={text + t('title')}
+        description={text}
+        canonical={baseURL + 'auth'}
+        openGraph={{
+          url: baseURL + 'auth',
+          title: text + t('title'),
+          description: text,
+        }}
+      />
       <div className="mt-4 mr-2">
         <Link href="/">
           <button

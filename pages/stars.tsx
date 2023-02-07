@@ -1,8 +1,9 @@
 import Image from 'next/image'
-import SEO from '@components/Seo'
 import StarPage from '@components/stars/StarPage'
 import { AuthContext } from '@store/auth'
+import { baseURL } from '@baseUrl'
 import { Error401 } from '@components/error'
+import { NextSeo } from 'next-seo'
 import { useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -35,11 +36,16 @@ const PageStars = () => {
   if (isAuth) {
     return (
       <>
-        <SEO
+        <NextSeo
           title={t('title.selected')}
-          keywords=""
-          description=""
-          url="stars"
+          titleTemplate={t('title.selected') + t('title')}
+          description={t('title.selected')}
+          canonical={baseURL + 'start'}
+          openGraph={{
+            url: baseURL + 'account',
+            title: t('title.selected') + t('title'),
+            description: t('title.selected'),
+          }}
         />
         <h1 className="h5 my-6 leading-7 font-bold" dir="auto">
           {t('selected.list')}
