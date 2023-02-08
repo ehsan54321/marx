@@ -3,8 +3,6 @@
   --reset-link-background-color-transparent: transparent;
   --reset-link-border-zero: 0;
   --reset-link-text-decoration-underline: underline;
-  --reset-link-color-blue8: var(--blue-70, #006097);
-  --reset-link-color-blue9: var(--blue-80, #004b7c);
   // --voyager-color-element-loading: rgba(0, 0, 0, 0.6);
 }
 ::-moz-selection {
@@ -87,10 +85,8 @@ a {
 a:focus,
 a:hover {
   text-decoration: var(--reset-link-text-decoration-underline);
-  color: var(--reset-link-color-blue8);
 }
 a:active {
-  color: var(--reset-link-color-blue9);
 }
 a,
 a:hover {

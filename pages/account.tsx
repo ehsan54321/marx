@@ -17,6 +17,12 @@ const Account = () => {
           titleTemplate={`${t('profile')} ${authState.user.name}` + t('title')}
           description={`${t('profile')} ${authState.user.name}`}
           canonical={baseURL + 'account'}
+          additionalMetaTags={[
+            {
+              name: 'apple-mobile-web-app-title',
+              content: `${t('profile')} ${authState.user.name}` + t('title'),
+            },
+          ]}
           openGraph={{
             url: baseURL + 'account',
             title: `${t('profile')} ${authState.user.name}` + t('title'),

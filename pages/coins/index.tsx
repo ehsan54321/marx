@@ -18,6 +18,10 @@ const HomePage = ({ data }) => {
         additionalMetaTags={[
           { name: 'expires', content: 'never' },
           { name: 'revisit-after', content: '5 days' },
+          {
+            name: 'apple-mobile-web-app-title',
+            content: t('title.home') + t('title'),
+          },
         ]}
         canonical={baseURL + 'coins'}
         openGraph={{

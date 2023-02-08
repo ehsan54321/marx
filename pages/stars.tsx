@@ -41,6 +41,12 @@ const PageStars = () => {
           titleTemplate={t('title.selected') + t('title')}
           description={t('title.selected')}
           canonical={baseURL + 'start'}
+          additionalMetaTags={[
+            {
+              name: 'apple-mobile-web-app-title',
+              content: t('title.selected') + ' 401',
+            },
+          ]}
           openGraph={{
             url: baseURL + 'account',
             title: t('title.selected') + t('title'),

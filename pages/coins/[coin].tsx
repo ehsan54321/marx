@@ -32,6 +32,12 @@ const Coin = ({ props, nameCoin }) => {
         additionalMetaTags={[
           { name: 'expires', content: 'never' },
           { name: 'revisit-after', content: '5 days' },
+          {
+            name: 'apple-mobile-web-app-title',
+            content: t('lang')
+              ? props.coin.name
+              : props.coin.all_name + t('title'),
+          },
         ]}
         canonical={baseURL + 'start'}
         openGraph={{

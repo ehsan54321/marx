@@ -18,6 +18,9 @@ const Error401 = ({ children, btn = false, btnHome = false }: Props) => {
         titleTemplate={t('error') + ' 401'}
         description={children}
         canonical={baseURL + '401'}
+        additionalMetaTags={[
+          { name: 'apple-mobile-web-app-title', content: t('error') + ' 401' },
+        ]}
         openGraph={{
           url: baseURL + '401',
           title: t('error') + ' 401',

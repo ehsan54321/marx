@@ -28,6 +28,9 @@ const AuthPage = () => {
         titleTemplate={text + t('title')}
         description={text}
         canonical={baseURL + 'auth'}
+        additionalMetaTags={[
+          { name: 'apple-mobile-web-app-title', content: text + t('title') },
+        ]}
         openGraph={{
           url: baseURL + 'auth',
           title: text + t('title'),

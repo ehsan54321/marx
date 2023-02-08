@@ -1,16 +1,14 @@
-import AuthProvider from '@store/auth'
 import Head from 'next/head'
 import Layout from '@components/Layout'
 import NProgress from 'nprogress'
 import Router from 'next/router'
-import ThemeProvider from '@store/theme'
 import Welcome from '@components/Welcome'
+import { AuthProvider, ThemeProvider } from '@store/index'
 import { baseURL } from '@baseUrl'
 import { DefaultSeo } from 'next-seo'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import '@styles/globals.scss'
-import '@store/i18n'
 import type { AppProps } from 'next/app'
 
 NProgress.configure({ showSpinner: false })
@@ -53,7 +51,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         </div>
       </AuthProvider>
       <Head>
-        <meta charSet="utf-8" />
+        <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         {/* <meta
@@ -66,17 +64,28 @@ const App = ({ Component, pageProps }: AppProps) => {
         canonical={baseURL}
         robotsProps={{ notranslate: true }}
         languageAlternates={[{ hrefLang: 'fa-IR', href: baseURL }]}
+        openGraph={{
+          url: baseURL,
+          type: 'website',
+          locale: 'fa_IR',
+          images: [{ url: 'favicon.ico', alt: 'صرافی مارکس کت' }],
+          siteName: t('full.app'),
+        }}
         additionalMetaTags={[
           {
             name: 'viewport',
             content: 'width=device-width, initial-scale=1.0',
           },
+          { name: 'theme-color', content: '#ffffff' },
           { name: 'application-name', content: t('full.app') },
           { name: 'apple-mobile-web-app-capable', content: 'yes' },
           { name: 'apple-mobile-web-app-status-bar-style', content: 'default' },
+
           { name: 'format-detection', content: 'telephone=no' },
           { name: 'MobileOptimized', content: '310' },
           { name: 'mobile-web-app-capable', content: 'yes' },
+          { name: 'googlebot', content: 'index, follow' },
+          { name: 'google', content: 'notranslate' },
           {
             name: 'google-site-verification',
             content: 'xkDxKK16KVjSTQv4vP93Dx0xztiwUEWrlX3_VzrUYcA',
@@ -133,13 +142,6 @@ const App = ({ Component, pageProps }: AppProps) => {
             href: '/manifest.json',
           },
         ]}
-        openGraph={{
-          url: baseURL,
-          type: 'website',
-          locale: 'fa_IR',
-          images: [{ url: baseURL + 'favicon.ico', alt: 'صرافی مارکس کت' }],
-          siteName: t('full.app'),
-        }}
       />
     </>
   )

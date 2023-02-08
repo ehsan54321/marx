@@ -10,12 +10,15 @@ const ErrorSite = () => {
       <NextSeo
         title={t('error.server')}
         titleTemplate={t('error.server')}
-        description={t('error') + ' Network Error'}
+        description={t('error.server')}
         canonical={baseURL + '500'}
+        additionalMetaTags={[
+          { name: 'apple-mobile-web-app-title', content: t('error.server') },
+        ]}
         openGraph={{
           url: baseURL + '500',
           title: t('error.server'),
-          description: t('error') + ' Network Error',
+          description: t('error.server'),
         }}
       />
       <div className="background-color bg-white">

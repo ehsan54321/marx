@@ -23,6 +23,14 @@ const NotFound = () => {
         }
         description={t('error.404')}
         canonical={baseURL + '404'}
+        additionalMetaTags={[
+          {
+            name: 'apple-mobile-web-app-title',
+            content: t('lang')
+              ? `این (url: ${router.asPath}) وجد ندارد`
+              : `this (url: ${router.asPath}) there is no joy`,
+          },
+        ]}
         openGraph={{
           url: baseURL + '404',
           title: `این (url: ${router.asPath}) وجد ندارد`,
