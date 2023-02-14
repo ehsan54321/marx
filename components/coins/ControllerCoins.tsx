@@ -45,6 +45,7 @@ const ControllerCoins = ({ dataServer }) => {
   }
   const PageSizeHandler = (pageName) => {
     setPage(pageName)
+    scroll({ top: 0 })
     for (let i = 1; i <= pageSize; i++) {
       if (pageName === i) {
         //    PLC => PageLengthCoin
@@ -55,6 +56,7 @@ const ControllerCoins = ({ dataServer }) => {
   }
   const PageSizeHandlerSh = (pageName) => {
     setPageSh(pageName)
+    scroll({ top: 0 })
     for (let i = 1; i <= pageSizeSh; i++) {
       if (pageName === i) {
         //    PLC => PageLengthCoin

@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import Footer from './Footer'
 import Header from './Header'
 import Router from 'next/router'
-import { FaChevronUp } from 'react-icons/fa'
+import { FaArrowUp } from 'react-icons/fa'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
@@ -53,12 +53,12 @@ const Progress = () => {
           <div
             className="h-full w-0 bg-slate-500"
             style={{ width: width + '%' }}
-          ></div>
+          />
         </div>
       </div>
     )
   } else {
-    return <div className="mb-6 pb-1"></div>
+    return <div className="mb-6 pb-1" />
   }
 }
 
@@ -75,15 +75,17 @@ const ScrollTop = () => {
   }, [])
   const topPage = () => scroll({ top: 0 })
   return (
-    <button
+    <div
       className={classNames(
-        'fixed bg-white head_scrollTop py-2 px-[12px] rounded-full z-20 cursor-pointer',
-        show ? 'bottom-[15px] right-4' : 'bottom-[-40px] right-[-20px]'
+        'fixed bg-white py-2.5 px-[12.7px] rounded-full z-20 cursor-pointer shadow border border-solid border-zinc-100 transition-all duration-[.5s]',
+        show ? 'bottom-[15px] right-4' : '-bottom-16 -right-16'
       )}
       onClick={topPage}
     >
-      <FaChevronUp />
-    </button>
+      <button className="head_scrollTop bg-transparent cursor-pointer">
+        <FaArrowUp size={18} />
+      </button>
+    </div>
   )
 }
 

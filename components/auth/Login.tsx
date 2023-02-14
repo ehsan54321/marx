@@ -187,7 +187,7 @@ const Login = () => {
           disabled={loader}
         >
           {loader && (
-            <div className="spinner-grow align-middle mx-1 mt-[3.5px]"></div>
+            <div className="spinner-grow align-middle mx-1 mt-[3.5px]" />
           )}
           <span>{loader ? t('loading') : t('login')}</span>
         </button>

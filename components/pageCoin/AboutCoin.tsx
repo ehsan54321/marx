@@ -34,7 +34,7 @@ const AboutCoin = ({ aboutCoin, dayGrith }) => {
             {numberToPersian(formatCurrency('756345'), t('lang'))}
           </span>
         </div>
-        <div className="vr"></div>
+        <div className="vr" />
         <div className="mr-4 ml-4 flex flex-col">
           <span className="text-slate-500">{t('coin.display.size') + ':'}</span>
           <span className="text-[13px] mt-1">
@@ -43,9 +43,9 @@ const AboutCoin = ({ aboutCoin, dayGrith }) => {
         </div>
       </div>
 
-      <div className="sm:hidden opacity-25 border-t border-solid border-current"></div>
+      <div className="sm:hidden opacity-25 border-t border-solid border-current" />
 
-      <div className="vr max-sm:hidden"></div>
+      <div className="vr max-sm:hidden" />
       <div className="flex">
         <div
           className="mr-4 sm:mr-3 flex flex-col ml-4 max-sm:mt-4"
@@ -57,7 +57,7 @@ const AboutCoin = ({ aboutCoin, dayGrith }) => {
           </span>
         </div>
 
-        <div className="vr"></div>
+        <div className="vr" />
         <div className="mr-4 max-sm:mt-4">
           <span className="text-slate-500">{t('coin.date') + ':'}</span>
           <br />

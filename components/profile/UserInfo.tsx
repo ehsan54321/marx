@@ -148,7 +148,7 @@ const UserInfo = () => {
                 type="email"
               />
             </div>
-            <div className="mt-1 text-center"></div>
+            <div className="mt-1 text-center" />
           </div>
           {!disabled && (
             <div className="text-center mt-6">

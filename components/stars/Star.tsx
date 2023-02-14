@@ -75,7 +75,7 @@ const Star = ({ name, faName, id, poster_path }: starObj) => {
   }
 
   if (loaderStatus) {
-    return <div className="spinner-grow text-blue-600"></div>
+    return <div className="spinner-grow text-blue-600" />
   } else {
     return isAuth && status ? (
       <svg

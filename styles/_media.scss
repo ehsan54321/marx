@@ -119,6 +119,15 @@
 }
 
 @media screen and (max-width: 450px) {
+  .install {
+    flex-direction: column;
+    left: auto;
+
+    & button {
+      margin-top: 5px;
+      justify-content: center;
+    }
+  }
   .container-xl {
     padding-left: calc(1.5rem * 0.2);
     padding-right: calc(1.5rem * 0.2);

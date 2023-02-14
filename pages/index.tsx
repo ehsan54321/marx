@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Install from '@components/Install'
 import Link from 'next/link'
 import { baseURL } from '@baseUrl'
 import { FaArrowLeft } from 'react-icons/fa'
@@ -139,6 +140,7 @@ const HomePage = () => {
             'وب سایت مارکس کت یک سایت نمایش قیمت ارز های دجیتال است که بیش از ۴۴ ارز دجیتال دارد مانند بیت کوین اتریوم تتر دوج کوین و غیر ... صفحه اصلی',
         }}
       />
+      <Install />
       <h1 className="h5 mb-6 leading-7 font-bold" dir="auto">
         {t('page')}
       </h1>

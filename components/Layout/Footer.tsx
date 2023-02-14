@@ -29,9 +29,9 @@ const Footer = () => {
               <h2 className="footer-section-title uppercase">
                 {t('full.app')}
               </h2>
-              <div className="clear-both"></div>
+              <div className="clear-both" />
               <p className="footer-p text-[13px]" dir="rtl">
-                ۱۴۰۱ © طبق ماده 12 فصل سوم قانون جرائم رایانه‌ای هرگونه کپی
+                ۱۴۰۱ © طبق ماده ۱۲ فصل سوم قانون جرائم رایانه‌ای هرگونه کپی
                 برداری از طرح قالب، مطالب و فایل‌های تارنمای مارکس به هر نحو،
                 پیگرد قانونی دارد.
               </p>
@@ -55,7 +55,7 @@ const Footer = () => {
                   </React.Fragment>
                 ))}
               </div>
-              <div className="footer-line h-px"></div>
+              <div className="footer-line h-px" />
               <div className="footer-section-link-item">
                 <span className="footer-p">آمار های در سال</span>
                 <p>Jan 25, 2023</p>
@@ -70,17 +70,17 @@ const Footer = () => {
                 <br />
                 <Link href="/auth">{t('btn-login')}</Link>
               </div>
-              <div className="footer-line h-px"></div>
+              <div className="footer-line h-px" />
               <div className="footer-section-link-item">
                 <Link href="/stars">{t('stars')}</Link>
                 <br />
                 <Link href="/account">{t('profile')}</Link>
               </div>
             </div>
-            <div className="clear-both"></div>
+            <div className="clear-both" />
           </div>
         </div>
-        <div className="clear-both"></div>
+        <div className="clear-both" />
       </footer>
     )
   }

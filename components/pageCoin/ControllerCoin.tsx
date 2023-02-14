@@ -91,7 +91,7 @@ const ControllerPageCoin = (props: Props) => {
             </span>
           </div>
         </div>
-        <div></div>
+        <div />
         <div className="mt-4 mb-4 col pl-0">
           <div className="flex flex-col" title={t('mane-usd')}>
             <span className="text-slate-500">{t('mane-usd') + ' :'}</span>

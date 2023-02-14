@@ -97,20 +97,20 @@ const Header = () => {
                       modal ? 'active' : ''
                     )}
                     id="one"
-                  ></div>
+                  />
                   <div
                     className={classNames(
                       'block w-6 h-1 bg-black my-1 rounded',
                       modal ? 'opacity-0' : ''
                     )}
-                  ></div>
+                  />
                   <div
                     className={classNames(
                       'block w-6 h-1 bg-black transition-all ease-in-out duration-500 my-1 rounded',
                       modal ? 'active' : ''
                     )}
                     id="three"
-                  ></div>
+                  />
                 </button>
               </li>
               <li className="nav-item">
@@ -136,7 +136,7 @@ const Header = () => {
                   t('lang') ? 'head_divider' : 'head_dividerEn'
                 )}
               >
-                <div className="vr h-full lg:mx-2"></div>
+                <div className="vr h-full lg:mx-2" />
               </li>
             </ul>
           </div>
