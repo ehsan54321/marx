@@ -26,24 +26,22 @@ const Footer = () => {
         <div className="app bg-map mx-auto">
           <div className="footer-row sm:mx-10">
             <div className="footer-col sm:float-left">
-              <h2 className="footer-section-title uppercase">
-                {t('full.app')}
-              </h2>
+              <h2 className="footer-title uppercase">{t('full.app')}</h2>
               <div className="clear-both" />
-              <p className="footer-p text-[13px]" dir="rtl">
-                ۱۴۰۱ © طبق ماده ۱۲ فصل سوم قانون جرائم رایانه‌ای هرگونه کپی
-                برداری از طرح قالب، مطالب و فایل‌های تارنمای مارکس به هر نحو،
-                پیگرد قانونی دارد.
+              <p className="footer text-[13px]" dir="rtl">
+                ۱۴۰۱ - ۱۴۰۲ © طبق ماده ۱۲ فصل سوم قانون جرائم رایانه‌ای هرگونه
+                کپی برداری از طرح قالب، مطالب و فایل‌های تارنمای مارکس به هر
+                نحو، پیگرد قانونی دارد.
               </p>
-              <p className="footer-p py-5 text-[13px]">
-                1401 © According to article 12 of the third chapter of the
-                Computer Crimes Law, any copying of the MarxKet website template
-                design, contents and files in any way is prosecuted
+              <p className="footer py-5 text-[13px]">
+                1401 - 1402 © According to article 12 of the third chapter of
+                the Computer Crimes Law, any copying of the MarxKet website
+                template design, contents and files in any way is prosecuted
               </p>
             </div>
             <div className="footer-col sm:float-left">
-              <h3 className="footer-section-title">{t('most.popular')}</h3>
-              <div className="footer-section-link-item">
+              <h3 className="footer-title">{t('most.popular')}</h3>
+              <div className="footer">
                 {most_popular.map(({ key, name }) => (
                   <React.Fragment key={key}>
                     <Link
@@ -56,14 +54,14 @@ const Footer = () => {
                 ))}
               </div>
               <div className="footer-line h-px" />
-              <div className="footer-section-link-item">
-                <span className="footer-p">آمار های در سال</span>
-                <p>Jan 25, 2023</p>
+              <div className="footer pt-1">
+                <span className="footer">آمار های در سال</span>
+                <p className="pt-4">Jan 25, 2023</p>
               </div>
             </div>
             <div className="footer-col sm:float-left">
-              <h3 className="footer-section-title">{t('user.manual')}</h3>
-              <div className="footer-section-link-item">
+              <h3 className="footer-title">{t('user.manual')}</h3>
+              <div className="footer">
                 <Link href="/">{t('home')}</Link>
                 <br />
                 <Link href="/coins">{t('coins')}</Link>
@@ -71,7 +69,7 @@ const Footer = () => {
                 <Link href="/auth">{t('btn-login')}</Link>
               </div>
               <div className="footer-line h-px" />
-              <div className="footer-section-link-item">
+              <div className="footer">
                 <Link href="/stars">{t('stars')}</Link>
                 <br />
                 <Link href="/account">{t('profile')}</Link>

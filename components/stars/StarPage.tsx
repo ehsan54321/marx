@@ -11,7 +11,7 @@ const StarPage = (props) => {
         <div className="flex">
           <div className="flex items-center">
             <Image
-              src={`/img/coins/${props.poster_path}.svg`}
+              src={`/static/assets/img/coins/${props.poster_path}.svg`}
               alt={props.name}
               className="filter-invert-dark"
               width={33}

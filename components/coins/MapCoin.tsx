@@ -42,7 +42,7 @@ const MapCoin = (props: Props) => {
       {lanData && (
         <div className="m-5 p-5 text-center">
           <Image
-            src="/img/no-data.svg"
+            src="/static/assets/img/no-data.svg"
             className="mb-2 mr-4 filter-invert-dark animation-img"
             alt="داده ای یافت نشد"
             width={90}

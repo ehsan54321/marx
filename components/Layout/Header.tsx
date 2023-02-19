@@ -336,7 +336,7 @@ const Auth = () => {
         <Link href="/auth#login">
           <button
             type="button"
-            className="inline-block px-3.5 py-1.5 bg-white text-black text-base rounded-md border border-solid border-black hover:bg-black hover:text-white hover:shadow-md outline-0 transition-btn cursor-pointer"
+            className="head_login inline-block px-3.5 py-1.5 bg-white text-black text-base rounded-md border border-solid border-black hover:bg-black hover:text-white hover:shadow-md outline-0 transition-all cursor-pointer"
           >
             <span>{t('btn-login')}</span>
           </button>

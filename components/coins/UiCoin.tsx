@@ -46,9 +46,9 @@ const UiCoin = (props: Props) => {
             />
           </div>
           <div className="flex">
-            <div className="flex items-center">
+            <div className="flex items-center filter-invert-dark">
               <Image
-                src={`/img/coins/${poster_path}.svg`}
+                src={`/static/assets/img/coins/${poster_path}.svg`}
                 alt={t('lang') ? name : all_name}
                 className="filter-invert-dark"
                 width={26.5}

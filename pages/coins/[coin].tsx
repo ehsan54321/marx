@@ -50,6 +50,11 @@ const Coin = ({ props, nameCoin }) => {
         <ul className="breadcrumb">
           <li className="breadcrumb-item">
             <Link className="hover:text-blue-500" href="/">
+              {t('home')}
+            </Link>
+          </li>
+          <li className="breadcrumb-item">
+            <Link className="hover:text-blue-500" href="/coins">
               {t('title.home')}
             </Link>
           </li>
@@ -77,7 +82,7 @@ const Coin = ({ props, nameCoin }) => {
             onClick={() => {
               const link = document.createElement('a')
               link.download = props.coin.all_name + '-' + nameCoin + '.svg'
-              link.href = `/img/coins/${props.coin.poster_path}.svg`
+              link.href = `/static/assets/img/coins/${props.coin.poster_path}.svg`
               link.click()
             }}
           >

@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { AuthContext } from '@store/auth'
 import { baseURL } from '@baseUrl'
 import { Error401 } from '@components/error'
@@ -31,6 +32,11 @@ const Account = () => {
         />
         <nav className="my-6">
           <ul className="breadcrumb">
+            <li className="breadcrumb-item">
+              <Link className="hover:text-blue-500" href="/">
+                {t('home')}
+              </Link>
+            </li>
             <li className="breadcrumb-item">{t('profile')}</li>
             <li className="breadcrumb-item active">{authState.user.name}</li>
           </ul>

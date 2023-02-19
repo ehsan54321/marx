@@ -152,7 +152,7 @@ const HomePage = () => {
           >
             <img
               className="img-bg absolute top-0 bottom-0 right-0 left-0 object-cover w-full filter-invert-dark animation-img"
-              src={`/img/blog/${poster}`}
+              src={`/static/assets/img/blog/${poster}`}
               alt={title}
             />
             <div className="intro-item-caption filter-invert-dark z-10 w-full h-full cursor-pointer absolute top-0 left-0">
@@ -181,7 +181,7 @@ const HomePage = () => {
               <div className="flex">
                 <div className="flex mt-[3px] ml-4">
                   <Image
-                    src={`/img/coins/${poster_path}.svg`}
+                    src={`/static/assets/img/coins/${poster_path}.svg`}
                     alt={t('lang') ? name : all_name}
                     className="filter-invert-dark"
                     width={48}

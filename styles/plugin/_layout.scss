@@ -19,6 +19,9 @@
   &dividerEn {
     margin: 1px 6.8px 0 12px;
   }
+  &login:hover {
+    transform: scale(1.1);
+  }
 }
 
 #one.active {
@@ -106,13 +109,31 @@
 }
 
 .bg-map {
-  background: url('/img/map.png') no-repeat center;
+  background: url('/static/assets/img/map.png') no-repeat center;
 }
 
 footer {
   background: #191919;
   & * {
     font-size: 14px;
+  }
+}
+
+p.footer {
+  color: #ccc;
+  line-height: 28px;
+}
+
+div.footer {
+  margin-bottom: 20px;
+  & a,
+  p,
+  span {
+    color: #ccc;
+    font-size: 14px;
+  }
+  & a:hover {
+    color: #f9b500;
   }
 }
 
@@ -124,33 +145,13 @@ footer {
     margin-right: 30px;
     width: calc(calc(100% / 3) - 30px);
   }
-  &-p {
-    color: #ccc;
-    line-height: 28px;
-  }
-  &-section-title {
+  &-title {
     color: #f9b500;
     padding: 30px 0;
-  }
-  &-section-link-item {
-    margin-bottom: 20px;
   }
   &-line {
     background: rgba(170, 170, 170, 0.2);
     margin-bottom: 20px;
-  }
-  &-section-link-item a {
-    color: #ccc;
-    font-size: 14px;
-
-    &:hover {
-      color: #f9b500;
-    }
-  }
-  &-section-link-item p {
-    color: #ccc;
-    font-size: 14px;
-    padding-top: 15px;
   }
 }
 
