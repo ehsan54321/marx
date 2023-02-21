@@ -20,3 +20,30 @@
   transition-duration: 150ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.btn-404 {
+  color: #fff !important;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 10px rgba(101, 123, 225, 0.2);
+  &:hover {
+    text-decoration: none;
+  }
+  &:hover::after {
+    transform: scaleY(1);
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #5569c6;
+    transform: scaleY(0);
+    transform-origin: 50% 100%;
+    transition-property: transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+  }
+}

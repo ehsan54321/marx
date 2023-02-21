@@ -10,7 +10,7 @@ export const resErr = (t) => {
     toast: true,
     position: 'top-end',
     timer: 7000,
-    title: t ? t('error.res') : 'مشکلی در شبکه به وجود آمد.',
+    title: t ? t('error.res') : 'درخواست با خطا مواجه شد.',
     showConfirmButton: false,
     showCloseButton: true,
     timerProgressBar: true,

@@ -59,7 +59,7 @@ body {
   background: #fafbfc; // #f3f2ef
 }
 .dark {
-  filter: invert(0.84);
+  filter: invert(0.88);
 }
 a {
   color: inherit;
@@ -79,16 +79,9 @@ a:focus,
 a:hover {
   text-decoration: var(--reset-link-text-decoration-underline);
 }
-a:active {
-}
 a,
 a:hover {
   color: var(--color-action);
-}
-a:active,
-a:focus,
-a:visited:focus {
-  color: var(--color-action-active);
 }
 img,
 svg {

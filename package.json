@@ -1,6 +1,6 @@
 {
   "name": "marxket",
-  "version": "3.0.1",
+  "version": "1401.12.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,7 +9,6 @@
     "lint": "next lint",
     "format": "prettier --write --list-different --ignore-path .gitignore .",
     "package-update": "yarn upgrade --latest",
-    "install:clean": "rm -rf node_modules && rm yarn.lock && yarn",
     "check-lint": "eslint . --ignore-path .gitignore",
     "check-format": "prettier --list-different --ignore-path .gitignore ."
   },

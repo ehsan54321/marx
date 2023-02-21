@@ -93,16 +93,10 @@
 
 // footer
 .app {
-  width: 1200px;
+  width: 1235px;
 }
 
 @media screen and (max-width: 1250px) {
-  .app {
-    width: calc(100% - 50px);
-  }
-}
-
-@media screen and (max-width: 992px) {
   .app {
     width: calc(100% - 30px);
   }
@@ -137,19 +131,19 @@ div.footer {
   }
 }
 
-.footer {
-  &-row {
+.footer- {
+  &row {
     background: rgba(25, 25, 25, 0.9);
   }
-  &-col {
+  &col {
     margin-right: 30px;
-    width: calc(calc(100% / 3) - 30px);
+    width: calc(calc(100% / 4) - 30px);
   }
-  &-title {
+  &title {
     color: #f9b500;
     padding: 30px 0;
   }
-  &-line {
+  &line {
     background: rgba(170, 170, 170, 0.2);
     margin-bottom: 20px;
   }

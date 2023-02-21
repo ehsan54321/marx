@@ -38,27 +38,24 @@ const NotFound = () => {
         }}
       />
       <div className="background-color bg-white">
-        <div className="flex flex-col items-center">
-          <Image
-            src="/static/assets/img/page-not-found.svg"
-            alt="یافت نشد"
-            className="errorImage filter-invert-dark animation-img"
-            priority
-            width={330}
-            height={330}
-          />
-          <h1 className="h4">{t('error') + ' 404'}</h1>
-          <div className="text-gray-500 mb-6 overflow-auto font-medium">
-            <span>{t('error.404')}</span>
+        <div className="flex items-center h-full p-16">
+          <div className="container flex flex-col items-center justify-center px-5 mx-auto my-8">
+            <div className="max-w-md text-center">
+              <h1 className="mb-8 font-extrabold text-[100px] text-gray-600">
+                <span className="max-[620px]:hidden">{t('error')}</span> 404
+              </h1>
+              {/* <p className="text-2xl font-semibold md:text-3xl">
+                title
+              </p> */}
+              <p className="mt-4 mb-8 text-gray-400">{t('error.404')}</p>
+              <Link
+                href="/"
+                className="px-8 py-3 font-semibold rounded bg-violet-400 btn-404 relative flex justify-center items-center overflow-hidden"
+              >
+                {t('go.to.the.main.page')}
+              </Link>
+            </div>
           </div>
-          <Link href="/">
-            <button
-              className="my_btn cursor-pointer text-white text-[14px]"
-              type="button"
-            >
-              <span>{t('go.to.the.main.page')}</span>
-            </button>
-          </Link>
         </div>
       </div>
     </>
