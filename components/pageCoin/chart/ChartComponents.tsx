@@ -1,15 +1,27 @@
 import classNames from 'classnames'
 import http from '@services/httpServices'
 import { CategoryScale, LinearScale, PointElement } from 'chart.js'
-import { Chart as ChartJS, LineElement, Title, Tooltip } from 'chart.js'
-import { defaults } from 'chart.js'
+import { Chart as ChartJS, defaults, LineElement, Tooltip } from 'chart.js'
 import { Line } from 'react-chartjs-2'
-import { numberToPersian, resErr } from '@lib/helper'
+import { formatThousands, numberToPersian, resErr } from '@lib/helper'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip)
 defaults.font.family = 'vazir'
+defaults.color = '#999'
+defaults.scale.grid.color = 'rgb(241, 245, 249)'
+defaults.plugins.tooltip.titleColor = 'rgb(30, 41, 59)'
+defaults.plugins.tooltip.bodyColor = 'rgb(30, 41, 59)'
+defaults.plugins.tooltip.backgroundColor = '#fff'
+defaults.plugins.tooltip.borderWidth = 1
+defaults.plugins.tooltip.borderColor = '#ddd'
+defaults.plugins.tooltip.displayColors = false
+defaults.plugins.tooltip.mode = 'nearest'
+defaults.plugins.tooltip.intersect = false
+defaults.plugins.tooltip.caretPadding = 8
+defaults.plugins.tooltip.cornerRadius = 4
+defaults.plugins.tooltip.padding = 8
 const ChartComponents = ({ coinName, chart }) => {
   const { t } = useTranslation()
   const [active, setActive] = useState<string>('24')
@@ -36,7 +48,14 @@ const ChartComponents = ({ coinName, chart }) => {
       {
         id: 1,
         data,
+        fill: true,
+        backgroundColor: '#f43f5e',
         borderColor: '#f43f5e',
+        borderWidth: 2.6,
+        tension: 0,
+        pointRadius: 0,
+        pointHoverRadius: 3,
+        pointBackgroundColor: '#f43f5e',
       },
     ],
   }
@@ -53,9 +72,7 @@ const ChartComponents = ({ coinName, chart }) => {
           setLabels(result.data.labels)
           setActive(key)
         })
-        .catch((err) => {
-          resErr(t)
-        })
+        .catch((err) => resErr(t))
     }
   }
   return (
@@ -80,7 +97,28 @@ const ChartComponents = ({ coinName, chart }) => {
         ))}
       </div>
       <div className="bg-white mt-4">
-        <Line options={{ responsive: true }} data={dataChart} />
+        <Line
+          options={{
+            responsive: true,
+            scales: {
+              y: {
+                ticks: {
+                  callback: (value) => formatThousands(value),
+                },
+              },
+              x: {
+                grid: {
+                  display: false,
+                },
+              },
+            },
+            interaction: {
+              intersect: false,
+              mode: 'nearest',
+            },
+          }}
+          data={dataChart}
+        />
       </div>
     </div>
   )

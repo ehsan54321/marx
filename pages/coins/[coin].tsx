@@ -25,7 +25,7 @@ const Coin = ({ props, nameCoin }) => {
       <NextSeo
         title={t('lang') ? props.coin.name : props.coin.all_name}
         titleTemplate={
-          t('lang') ? props.coin.name : props.coin.all_name + t('title')
+          (t('lang') ? props.coin.name : props.coin.all_name) + t('title')
         }
         description={props.coin.aboutCoin.body}
         // keywords={`${props.coin.name}, نمایش قیمت ارز های دجیتال, دجیتال بیت کوین , بیت کوین ,ارز دجیتال`}
@@ -42,7 +42,8 @@ const Coin = ({ props, nameCoin }) => {
         canonical={baseURL + 'start'}
         openGraph={{
           url: baseURL + 'account',
-          title: t('lang') ? props.coin.name : props.coin.all_name + t('title'),
+          title:
+            (t('lang') ? props.coin.name : props.coin.all_name) + t('title'),
           description: props.coin.aboutCoin.body,
         }}
       />

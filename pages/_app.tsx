@@ -76,7 +76,7 @@ const App = ({ Component, pageProps }: AppProps) => {
             name: 'viewport',
             content: 'width=device-width, initial-scale=1.0',
           },
-          { name: 'theme-color', content: '#ffffff' },
+          { name: 'theme-color', content: '#000000' },
           { name: 'application-name', content: t('full.app') },
           { name: 'apple-mobile-web-app-capable', content: 'yes' },
           { name: 'apple-mobile-web-app-status-bar-style', content: 'default' },

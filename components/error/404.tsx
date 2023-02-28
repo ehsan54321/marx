@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { baseURL } from '@baseUrl'
 import { NextSeo } from 'next-seo'
