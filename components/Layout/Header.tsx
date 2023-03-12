@@ -2,15 +2,17 @@ import * as Avatar from '@radix-ui/react-avatar'
 import classNames from 'classnames'
 import http from '@services/httpServices'
 import Link from 'next/link'
+import Router, { useRouter } from 'next/router'
 import Swal from 'sweetalert2'
 import { AuthContext } from '@store/auth'
 import { BsFillCaretDownFill, BsFillPersonFill } from 'react-icons/bs'
 import { FcFaq } from 'react-icons/fc'
 import { HiLogout } from 'react-icons/hi'
+import { Link as LinkScroll } from 'react-scroll/modules'
 import { resErr } from '@lib/helper'
-import Router, { useRouter } from 'next/router'
-import { ThemeContext } from '@store/theme'
+import { RiMoonFill, RiSunLine } from 'react-icons/ri'
 import { useContext, useState } from 'react'
+import { useTheme } from 'next-themes'
 import { useTranslation } from 'react-i18next'
 
 const Header = () => {
@@ -263,15 +265,16 @@ const Header = () => {
                 </span>
               </Link>
               {activePathName === 'coins' && (
-                <a
-                  href="#FAQ"
+                <LinkScroll
+                  to="FAQ"
+                  offset={-99}
                   className="font-medium px-4 py-1 rounded-lg md:hover:bg-slate-100 text-lg md:inline block md:leading-1 leading-10"
                 >
                   <FcFaq
                     className={classNames('filter-invert-dark mt-0', marg)}
                   />
                   <span className="text-slate-500">{t('faq')}</span>
-                </a>
+                </LinkScroll>
               )}
 
               {modal && (
@@ -401,7 +404,7 @@ const Auth = () => {
 
 const ChangeMode = () => {
   const { t, i18n } = useTranslation()
-  const { theme, setTheme } = useContext(ThemeContext)
+  const { theme, setTheme } = useTheme()
   const ChangeLang = () => {
     if (t('lang')) {
       i18n.changeLanguage('en')
@@ -414,35 +417,21 @@ const ChangeMode = () => {
   return (
     <>
       <div className="flex items-center mode mx-1">
-        <div
-          className={t('lang') ? 'ml-2' : 'mr-2'}
-          onClick={() => {
-            if (theme) document.querySelector('html').classList.add('dark')
-            else document.querySelector('html').classList.remove('dark')
-            localStorage.setItem('theme', (!theme).toString())
-            setTheme(!theme)
-          }}
+        <button
+          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+          className="bg-slate-100 p-2 rounded-xl filter-invert-dark dark:bg-slate-700 dark:text-white"
         >
-          <div className="flex items-center cursor-pointer">
-            <label htmlFor="airplane-mode" className="mt-2">
-              <span className="mx-1 text-[22px] filter-invert-dark">
-                {theme ? '☀️' : '🌒'}
-              </span>
-            </label>
-            <div
-              className="SwitchRoot rounded-full relative"
-              id="airplane-mode"
-              data-state={theme ? '' : 'checked'}
-            >
-              <button
-                className="SwitchThumb bg-white rounded-full block mr-1"
-                data-state={theme ? '' : 'checked'}
-              />
-            </div>
-          </div>
-        </div>
+          {theme === 'dark' ? (
+            <RiSunLine size={25} />
+          ) : (
+            <RiMoonFill size={25} />
+          )}
+        </button>
         <span
-          className="cursor-pointer filter-invert-dark bg-tar w-5"
+          className={classNames(
+            'cursor-pointer filter-invert-dark bg-tar w-5',
+            t('lang') ? 'mr-1' : 'ml-1'
+          )}
           onClick={ChangeLang}
         />
       </div>

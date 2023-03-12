@@ -1,12 +1,11 @@
 import { numberToPersian } from '@lib/helper'
-import { ThemeContext } from '@store/theme'
-import { useContext } from 'react'
+import { useTheme } from 'next-themes'
 import { useTranslation } from 'react-i18next'
 
 const Settings = (props) => {
   const { setImg, img } = props
   const { t, i18n } = useTranslation()
-  const { theme, setTheme } = useContext(ThemeContext)
+  const { theme, setTheme } = useTheme()
   const ChangeLang = () => {
     if (t('lang')) {
       i18n.changeLanguage('en')
@@ -60,26 +59,21 @@ const Settings = (props) => {
       <div className="inline-block relative sm:w-60">
         <div
           className="flex items-center"
-          onClick={() => {
-            if (theme) document.querySelector('html').classList.add('dark')
-            else document.querySelector('html').classList.remove('dark')
-            localStorage.setItem('theme', (!theme).toString())
-            setTheme(!theme)
-          }}
+          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
         >
           <label htmlFor="airplane-mode" className="mt-2 cursor-pointer">
             <span className="cursor-pointer mx-1 text-[22px] filter-invert-dark">
-              {theme ? '☀️' : '🌒'}
+              {theme === 'light' ? '🌒' : '☀️'}
             </span>
           </label>
           <div
             className="SwitchRoot rounded-full relative cursor-pointer"
             id="airplane-mode"
-            data-state={theme ? '' : 'checked'}
+            data-state={theme === 'light' ? '' : 'checked'}
           >
             <button
               className="SwitchThumb bg-white rounded-full block mr-1"
-              data-state={theme ? '' : 'checked'}
+              data-state={theme === 'light' ? '' : 'checked'}
             />
           </div>
         </div>

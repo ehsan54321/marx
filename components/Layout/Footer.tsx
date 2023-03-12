@@ -43,8 +43,8 @@ const Footer = () => {
             <div className="footer-col sm:float-left">
               <h2 className="footer-title uppercase">{t('call')}</h2>
               <p className="footer text-[13px]" dir="rtl">
-                <span>{t('number')}:</span>
-                <span> 0994027155</span>
+                <span>{t('number')}: </span>
+                <a href="tel:91006555">0994027155</a>
               </p>
               <p className="footer text-[13px] mb-[12.5px]">
                 <span>{t('email')}:</span>

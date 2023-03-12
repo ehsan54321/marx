@@ -3,35 +3,20 @@ import Layout from '@components/Layout'
 import NProgress from 'nprogress'
 import Router from 'next/router'
 import Welcome from '@components/Welcome'
-import { AuthProvider, ThemeProvider } from '@store/index'
+import { AuthProvider } from '@store/index'
 import { baseURL } from '@baseUrl'
 import { DefaultSeo } from 'next-seo'
-import { useEffect, useState } from 'react'
+import { ThemeProvider } from 'next-themes'
+import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import '@styles/globals.scss'
 import type { AppProps } from 'next/app'
 
 NProgress.configure({ showSpinner: false })
 const App = ({ Component, pageProps }: AppProps) => {
-  const [theme, setTheme] = useState<boolean>(true)
   const { t, i18n } = useTranslation()
   useEffect(() => {
-    const getModes = () => {
-      if (localStorage.getItem('lang') === 'en') i18n.changeLanguage('en')
-      const themeLocal = localStorage.getItem('theme')
-      if (themeLocal) {
-        if (themeLocal === 'false') {
-          setTheme(false)
-          document.querySelector('html').classList.add('dark')
-        }
-      } else {
-        if (matchMedia('(prefers-color-scheme: dark)').matches) {
-          setTheme(false)
-          document.querySelector('html').classList.add('dark')
-        }
-      }
-    }
-    getModes()
+    if (localStorage.getItem('lang') === 'en') i18n.changeLanguage('en')
   }, [])
   Router.events.on('routeChangeStart', () => NProgress.start())
   Router.events.on('routeChangeComplete', () => NProgress.done())
@@ -41,7 +26,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       <Welcome />
       <AuthProvider>
         <div className={t('lang') ? 'fa' : 'en'}>
-          <ThemeProvider value={{ theme, setTheme }}>
+          <ThemeProvider enableSystem={true} attribute="class">
             <Layout>
               <div className="container-xl">
                 <Component {...pageProps} />

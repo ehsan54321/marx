@@ -220,7 +220,7 @@ const HomePage = () => {
         </div>
         <div className="mt-3">
           <Link href="/coins">
-            <button className="inline-block py-1.5 text-base border border-solid bg-black text-white cursor-pointer rounded-md shadow-md hover:bg-[#424649] border-[#212529] hover:border-[#424649] outline-0 transition-btn w-full">
+            <button className="inline-block py-1.5 text-base border border-solid bg-black text-white cursor-pointer rounded-md shadow-md hover:bg-[#424649] border-[#212529] hover:border-[#424649] outline-0 transition-btn w-full filter-invert-dark">
               {t('view.all.coins')}
             </button>
           </Link>

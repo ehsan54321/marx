@@ -97,13 +97,12 @@ const AuthPage = () => {
           {status === 'login' && (
             <div className="slid opacity-[1!important]">
               <LoginForm />
-              <LoginEasy />
+              {/* <LoginEasy /> */}
             </div>
           )}
           {status === 'register' && (
             <div className="slid opacity-[1!important]">
               <RegisterForm />
-              <LoginEasy />
             </div>
           )}
           {status === 'settings' && (
@@ -126,19 +125,19 @@ const AuthPage = () => {
   )
 }
 
-const LoginEasy = () => {
-  return (
-    <div className="mt-4">
-      <button className="inline-block py-1.5 text-base border border-solid bg-black text-white cursor-pointer rounded-md shadow-md hover:bg-[#424649] border-[#212529] outline-0 transition-btn w-full">
-        <FaGithub className="ml-1 mt-[3.5px]" size={20} />
-        ورود از طریق گیت هاب
-      </button>
-      {/* <button className="btn btn-danger mt-1 w-full">
-        <FaGoogle className="ml-1 mt-[3.5px]" size={20} />
-        ورود از طریق گوگل
-      </button> */}
-    </div>
-  )
-}
+// const LoginEasy = () => {
+//   return (
+//     <div className="mt-4">
+//       <button className="inline-block py-1.5 text-base border border-solid bg-black text-white cursor-pointer rounded-md shadow-md hover:bg-[#424649] border-[#212529] outline-0 transition-btn w-full filter-invert-dark">
+//         <FaGithub className="ml-1 mt-[3.5px]" size={20} />
+//         ورود از طریق گیت هاب
+//       </button>
+//       {/* <button className="btn btn-danger mt-1 w-full">
+//         <FaGoogle className="ml-1 mt-[3.5px]" size={20} />
+//         ورود از طریق گوگل
+//       </button> */}
+//     </div>
+//   )
+// }
 
 export default AuthPage
