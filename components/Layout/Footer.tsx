@@ -27,7 +27,7 @@ const Footer = () => {
       <footer className="mt-4 filter-invert-dark">
         <div className="app bg-map mx-auto max-sm:h-screen max-sm:overflow-auto">
           <div className="footer-row sm:mx-10">
-            <div className="footer-col sm:float-left">
+            <article className="footer-col sm:float-left">
               <h2 className="footer-title uppercase">{t('full.app')}</h2>
               <p className="footer text-[13px]" dir="rtl">
                 ۱۴۰۱ - ۱۴۰۲ © طبق ماده ۱۲ فصل سوم قانون جرائم رایانه‌ای هرگونه
@@ -39,16 +39,28 @@ const Footer = () => {
                 the Computer Crimes Law, any copying of the MarxKet website
                 template design, contents and files in any way is prosecuted
               </p>
-            </div>
-            <div className="footer-col sm:float-left">
+            </article>
+            <article className="footer-col sm:float-left">
               <h2 className="footer-title uppercase">{t('call')}</h2>
               <p className="footer text-[13px]" dir="rtl">
                 <span>{t('number')}: </span>
-                <a href="tel:91006555">0994027155</a>
+                <a
+                  href="tel:09940270155"
+                  rel="noreferrer nofollow"
+                  target="_blank"
+                >
+                  0994027155
+                </a>
               </p>
               <p className="footer text-[13px] mb-[12.5px]">
-                <span>{t('email')}:</span>
-                <span> ehsan.2009.12@gmail.com</span>
+                <span>{t('email')}: </span>
+                <a
+                  href="mailto:ehsan.2009.12@gmail.com"
+                  rel="noreferrer nofollow"
+                  target="_blank"
+                >
+                  ehsan.2009.12@gmail.com
+                </a>
               </p>
               <div className="footer-line h-px" />
               <div className="footer flex gap-3">
@@ -74,7 +86,7 @@ const Footer = () => {
                   <MdWebAsset size={25} />
                 </a>
               </div>
-            </div>
+            </article>
             <div className="footer-col sm:float-left">
               <h3 className="footer-title">{t('most.popular')}</h3>
               <div className="footer">

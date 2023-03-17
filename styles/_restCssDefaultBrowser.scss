@@ -73,6 +73,7 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  color-scheme: normal !important;
 }
 
 *,
@@ -92,7 +93,7 @@ body {
 }
 
 .dark {
-  filter: invert(0.88);
+  filter: invert(0.86);
 }
 
 a {

@@ -37,9 +37,9 @@ const Accordion = (props) => {
           className="accordion-collapse overflow-hidden h-0 accordion_transition"
           style={{ height: `calc(${hItemOne()}px - 1rem)` }}
         >
-          <div className="accordion-body" ref={oneAccordion}>
+          <article className="accordion-body" ref={oneAccordion}>
             <p dir="auto">{props.di.one}</p>
-          </div>
+          </article>
         </div>
       </div>
       <div className="accordion-item">
@@ -62,9 +62,9 @@ const Accordion = (props) => {
           className="accordion-collapse overflow-hidden h-0 accordion_transition"
           style={{ height: `calc(${hItemTow()}px - 1rem)` }}
         >
-          <div className="accordion-body" ref={towAccordion}>
+          <article className="accordion-body" ref={towAccordion}>
             <p dir="auto">{props.di.tow}</p>
-          </div>
+          </article>
         </div>
       </div>
     </div>
