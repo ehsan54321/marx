@@ -4,7 +4,10 @@ const withPWA = require('next-pwa')({
   // scope: '/coins',
 })
 
-module.exports = withPWA({
+const settings = {
   reactStrictMode: true,
   swcMinify: true,
-})
+}
+
+module.exports =
+  process.env.NODE_ENV === 'development' ? settings : withPWA(settings)

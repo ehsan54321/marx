@@ -1,4 +1,4 @@
-const a1: string = 'https://marx.iran.liara.run/'
-const a2: string = 'https://marx.onfing.ir/'
+//    PU => production url
+const PU: string = 'https://marx.iran.liara.run/'
 export const baseURL: string =
-  process.env.NODE_ENV === 'production' ? a1 : 'http://localhost:3000/'
+  process.env.NODE_ENV === 'production' ? PU : 'http://localhost:3000/'

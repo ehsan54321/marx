@@ -79,7 +79,7 @@ const Item = (props) => {
           {numberToPersian('365 ', t('lang')) + t('day')}
         </span>
         <span className={`text-${props.day.colorDay365}`}>
-          {numberToPersian(props.day.day365, t('lang')) + '٪'}{' '}
+          {numberToPersian(props.day.day365, t('lang')) + '٪'}
           {(props.day.colorDay365 === 'red' && '-') ||
             (props.day.colorDay365 === 'green' && '+')}
         </span>

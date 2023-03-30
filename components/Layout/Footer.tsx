@@ -8,6 +8,8 @@ import { MdWebAsset } from 'react-icons/md'
 const Footer = () => {
   const router = useRouter()
   const { t } = useTranslation()
+  const numPhone: string = '09000000000'
+  const email: string = 'example@gmail.com'
   if (!(router.pathname === '/account')) {
     const most_popular = [
       {
@@ -45,44 +47,32 @@ const Footer = () => {
               <p className="footer text-[13px]" dir="rtl">
                 <span>{t('number')}: </span>
                 <a
-                  href="tel:09940270155"
+                  href={'tel:' + numPhone}
                   rel="noreferrer nofollow"
                   target="_blank"
                 >
-                  0994027155
+                  {numPhone}
                 </a>
               </p>
               <p className="footer text-[13px] mb-[12.5px]">
                 <span>{t('email')}: </span>
                 <a
-                  href="mailto:ehsan.2009.12@gmail.com"
+                  href={'mailto:' + email}
                   rel="noreferrer nofollow"
                   target="_blank"
                 >
-                  ehsan.2009.12@gmail.com
+                  {email}
                 </a>
               </p>
               <div className="footer-line h-px" />
               <div className="footer flex gap-3">
-                <a
-                  href="https://github.com/ehsan54321"
-                  rel="nofollow noreferrer"
-                  target="_blank"
-                >
+                <a href="#" rel="nofollow noreferrer" target="_blank">
                   <AiFillGithub size={25} />
                 </a>
-                <a
-                  href="https://www.linkedin.com/in/ehsan-kazemi-b3b353237"
-                  rel="nofollow noreferrer"
-                  target="_blank"
-                >
+                <a href="#" rel="nofollow noreferrer" target="_blank">
                   <AiFillLinkedin size={25} />
                 </a>
-                <a
-                  href="https://ehsan54321.github.io/ehsan54321"
-                  rel="nofollow noreferrer"
-                  target="_blank"
-                >
+                <a href="#" rel="nofollow noreferrer" target="_blank">
                   <MdWebAsset size={25} />
                 </a>
               </div>

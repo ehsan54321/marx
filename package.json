@@ -1,6 +1,6 @@
 {
   "name": "marxket",
-  "version": "1402.1.5",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -24,13 +24,13 @@
   },
   "devDependencies": {
     "@radix-ui/react-avatar": "1.0.2",
-    "@types/node": "18.15.5",
-    "@types/react": "18.0.28",
+    "@types/node": "18.15.11",
+    "@types/react": "18.0.31",
     "autoprefixer": "10.4.14",
     "chart.js": "4.2.1",
     "classnames": "2.3.2",
     "cookies-next": "2.1.1",
-    "eslint": "8.36.0",
+    "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
     "eslint-config-prettier": "8.8.0",
     "i18next": "22.4.13",
@@ -38,13 +38,13 @@
     "nprogress": "0.2.0",
     "persian-date": "1.1.0",
     "postcss": "8.4.21",
-    "prettier": "2.8.6",
+    "prettier": "2.8.7",
     "react-chartjs-2": "5.2.0",
     "react-i18next": "12.2.0",
     "react-icons": "4.8.0",
-    "sass": "1.59.3",
+    "sass": "1.60.0",
     "sweetalert2": "11.7.3",
-    "tailwindcss": "3.2.7",
+    "tailwindcss": "3.3.0",
     "typescript": "5.0.2"
   }
 }
