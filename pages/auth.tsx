@@ -1,10 +1,9 @@
 import Link from 'next/link'
+import Meta from '@components/Meta'
 import { AuthContext } from '@store/auth'
-import { baseURL } from '@baseUrl'
 import { Error401 } from '@components/error'
 import { FaGithub } from 'react-icons/fa'
 import { LoginForm, RegisterForm, SettingsFrom } from '@components/auth'
-import { NextSeo } from 'next-seo'
 import { useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -23,19 +22,11 @@ const AuthPage = () => {
     : 'Page Login & Register'
   return !isAuth ? (
     <>
-      <NextSeo
+      <Meta
         title={text}
-        titleTemplate={text + t('title')}
         description={text}
-        canonical={baseURL + 'auth'}
-        additionalMetaTags={[
-          { name: 'apple-mobile-web-app-title', content: text + t('title') },
-        ]}
-        openGraph={{
-          url: baseURL + 'auth',
-          title: text + t('title'),
-          description: text,
-        }}
+        keywords="صفحه ثبت نام, صفحه ورود"
+        canonical="auth"
       />
       <div className="mt-4 mr-2">
         <Link href="/">

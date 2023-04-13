@@ -1,25 +1,17 @@
 import Image from 'next/image'
-import { baseURL } from '@baseUrl'
-import { NextSeo } from 'next-seo'
+import Meta from '@components/Meta'
 import { useTranslation } from 'react-i18next'
 
 const ErrorSite = () => {
   const { t } = useTranslation()
   return (
     <>
-      <NextSeo
+      <Meta
         title={t('error.server')}
-        titleTemplate={t('error.server')}
         description={t('error.server')}
-        canonical={baseURL + '500'}
-        additionalMetaTags={[
-          { name: 'apple-mobile-web-app-title', content: t('error.server') },
-        ]}
-        openGraph={{
-          url: baseURL + '500',
-          title: t('error.server'),
-          description: t('error.server'),
-        }}
+        keywords="500"
+        canonical="500"
+        noFeastTitle
       />
       <div className="background-color bg-white">
         <div className="flex flex-col items-center">

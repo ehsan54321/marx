@@ -8,7 +8,7 @@ import { MdWebAsset } from 'react-icons/md'
 const Footer = () => {
   const router = useRouter()
   const { t } = useTranslation()
-  const numPhone: string = '09000000000'
+  const numPhone: string = '********0912'
   const email: string = 'example@gmail.com'
   if (!(router.pathname === '/account')) {
     const most_popular = [

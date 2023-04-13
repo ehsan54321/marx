@@ -1,9 +1,8 @@
 import Image from 'next/image'
 import Install from '@components/Install'
 import Link from 'next/link'
-import { baseURL } from '@baseUrl'
+import Meta from '@components/Meta'
 import { FaArrowLeft } from 'react-icons/fa'
-import { NextSeo } from 'next-seo'
 import { numberToPersian } from '@lib/helper'
 import { useTranslation } from 'react-i18next'
 
@@ -119,26 +118,10 @@ const HomePage = () => {
   ]
   return (
     <>
-      <NextSeo
+      <Meta
         title={t('page')}
-        titleTemplate={t('page') + t('title')}
         description="وب سایت مارکس کت یک سایت نمایش قیمت ارز های دجیتال است که بیش از ۴۴ ارز دجیتال دارد مانند بیت کوین اتریوم تتر دوج کوین و غیر ... صفحه اصلی"
-        // keywords="صفحه اصلی صرافی مارکس کت, ارز دجیتال, صرافی مارکس کت, مارکس کت"
-        additionalMetaTags={[
-          { name: 'expires', content: 'never' },
-          { name: 'revisit-after', content: '5 days' },
-          {
-            name: 'apple-mobile-web-app-title',
-            content: t('page') + t('title'),
-          },
-        ]}
-        canonical={baseURL}
-        openGraph={{
-          url: baseURL,
-          title: t('page') + t('title'),
-          description:
-            'وب سایت مارکس کت یک سایت نمایش قیمت ارز های دجیتال است که بیش از ۴۴ ارز دجیتال دارد مانند بیت کوین اتریوم تتر دوج کوین و غیر ... صفحه اصلی',
-        }}
+        keywords="صفحه اصلی صرافی مارکس کت, ارز دجیتال, صرافی مارکس کت, مارکس کت"
       />
       <Install />
       <h1 className="h5 mb-6 leading-7 font-bold" dir="auto">

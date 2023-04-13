@@ -1,6 +1,5 @@
 import Link from 'next/link'
-import { baseURL } from '@baseUrl'
-import { NextSeo } from 'next-seo'
+import Meta from '@components/Meta'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
 
@@ -9,32 +8,16 @@ const NotFound = () => {
   const { t } = useTranslation()
   return (
     <>
-      <NextSeo
+      <Meta
         title={
           t('lang')
             ? `این (url: ${router.asPath}) وجد ندارد`
             : `this (url: ${router.asPath}) there is no joy`
         }
-        titleTemplate={
-          t('lang')
-            ? `این (url: ${router.asPath}) وجد ندارد`
-            : `this (url: ${router.asPath}) there is no joy`
-        }
         description={t('error.404')}
-        canonical={baseURL + '404'}
-        additionalMetaTags={[
-          {
-            name: 'apple-mobile-web-app-title',
-            content: t('lang')
-              ? `این (url: ${router.asPath}) وجد ندارد`
-              : `this (url: ${router.asPath}) there is no joy`,
-          },
-        ]}
-        openGraph={{
-          url: baseURL + '404',
-          title: `این (url: ${router.asPath}) وجد ندارد`,
-          description: t('error.404'),
-        }}
+        keywords="404"
+        canonical="404"
+        noFeastTitle
       />
       <div className="background-color bg-white">
         <div className="flex items-center h-full p-16">

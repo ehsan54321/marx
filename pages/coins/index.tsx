@@ -1,8 +1,7 @@
 import Accordion from '@components/Accordion'
 import ControllerCoin from '@components/coins/ControllerCoins'
 import http from '@services/httpServices'
-import { baseURL } from '@baseUrl'
-import { NextSeo } from 'next-seo'
+import Meta from '@components/Meta'
 import { useTranslation } from 'react-i18next'
 
 const HomePage = ({ data }) => {
@@ -10,26 +9,11 @@ const HomePage = ({ data }) => {
   // TODO api web socket update value coins
   return (
     <>
-      <NextSeo
+      <Meta
         title={t('title.home')}
-        titleTemplate={t('title.home') + t('title')}
-        description="وب سایت مارکس کت یک سایت نمایش قیمت ارز های دجیتال است که بیش از ۴۴ ارز دجیتال دارد مانند بیت کوین اتریوم تتر دوج کوین و غیر ...   صفحه کوین ها"
-        // keywords="قیمت ارزهای دجیتال, قیمت ارز دجیتال, قیمت ارزهای دجیتال در ایران, قیمت ارزهای دجیتال در سال ۱۴۰۱, ارزهای دجیتال در سال 1401,قیمت ارز, لیست قیمت ارزهای دجیتال, ارز دجیتال, صرافی مارکس کت, مارکس کت"
-        additionalMetaTags={[
-          { name: 'expires', content: 'never' },
-          { name: 'revisit-after', content: '5 days' },
-          {
-            name: 'apple-mobile-web-app-title',
-            content: t('title.home') + t('title'),
-          },
-        ]}
-        canonical={baseURL + 'coins'}
-        openGraph={{
-          url: baseURL + 'coins',
-          title: t('title.home') + t('title'),
-          description:
-            'وب سایت مارکس کت یک سایت نمایش قیمت ارز های دجیتال است که بیش از ۴۴ ارز دجیتال دارد مانند بیت کوین اتریوم تتر دوج کوین و غیر ...   صفحه کوین ها',
-        }}
+        description="وب سایت مارکس کت یک سایت نمایش قیمت ارز های دجیتال است که بیش از ۴۴ ارز دجیتال دارد مانند بیت کوین اتریوم تتر دوج کوین و غیر ... صفحه کوین ها"
+        keywords="قیمت ارزهای دجیتال, قیمت ارز دجیتال, قیمت ارزهای دجیتال در ایران, قیمت ارزهای دجیتال در سال ۱۴۰۱, ارزهای دجیتال در سال 1401,قیمت ارز, لیست قیمت ارزهای دجیتال, ارز دجیتال, صرافی مارکس کت, مارکس کت"
+        canonical="coins"
       />
       <h1 className="h5 mb-6 leading-7 font-bold" dir="auto">
         {t('title.home')}

@@ -1,9 +1,8 @@
 import Image from 'next/image'
+import Meta from '@components/Meta'
 import StarPage from '@components/stars/StarPage'
 import { AuthContext } from '@store/auth'
-import { baseURL } from '@baseUrl'
 import { Error401 } from '@components/error'
-import { NextSeo } from 'next-seo'
 import { useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -36,22 +35,10 @@ const PageStars = () => {
   if (isAuth) {
     return (
       <>
-        <NextSeo
+        <Meta
           title={t('title.selected')}
-          titleTemplate={t('title.selected') + t('title')}
           description={t('title.selected')}
-          canonical={baseURL + 'start'}
-          additionalMetaTags={[
-            {
-              name: 'apple-mobile-web-app-title',
-              content: t('title.selected') + ' 401',
-            },
-          ]}
-          openGraph={{
-            url: baseURL + 'account',
-            title: t('title.selected') + t('title'),
-            description: t('title.selected'),
-          }}
+          canonical="start"
         />
         <h1 className="h5 my-6 leading-7 font-bold" dir="auto">
           {t('selected.list')}

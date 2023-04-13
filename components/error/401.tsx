@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { baseURL } from '@baseUrl'
-import { NextSeo } from 'next-seo'
+import Meta from '@components/Meta'
 import { useTranslation } from 'react-i18next'
 
 type Props = {
@@ -13,19 +12,12 @@ const Error401 = ({ children, btn = false, btnHome = false }: Props) => {
   const { t } = useTranslation()
   return (
     <div className="background-color bg-white">
-      <NextSeo
+      <Meta
         title={t('error') + ' 401'}
-        titleTemplate={t('error') + ' 401'}
         description={children}
-        canonical={baseURL + '401'}
-        additionalMetaTags={[
-          { name: 'apple-mobile-web-app-title', content: t('error') + ' 401' },
-        ]}
-        openGraph={{
-          url: baseURL + '401',
-          title: t('error') + ' 401',
-          description: children,
-        }}
+        keywords="401"
+        canonical="401"
+        noFeastTitle
       />
       <div className="flex items-center flex-col">
         <Image

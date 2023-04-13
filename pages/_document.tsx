@@ -9,9 +9,9 @@ class Document extends NextDocument {
   }
   render(): React.ReactElement {
     return (
-      <Html dir="rtl" lang="fa">
+      <Html lang="fa">
         <Head />
-        <body>
+        <body dir="rtl">
           <Main />
           <NextScript />
         </body>
