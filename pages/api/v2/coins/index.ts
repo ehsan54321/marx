@@ -600,7 +600,7 @@ const coins = [
     id: 43,
     key: 'paxg',
     name: 'پکس گلد',
-    all_name: 'Ethereum Name Service',
+    all_name: 'Ethereum Service',
     poster_path: 'paxg',
     usd: 13.66,
     day: {
