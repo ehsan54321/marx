@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns=”http://www.sitemaps.org/schemas/sitemap/0.9″>
+<url>
+  <loc>https://marx.iran.liara.run/</loc>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://marx.iran.liara.run/coins</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://marx.iran.liara.run/coins/cake</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://marx.iran.liara.run/coins/gala</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://marx.iran.liara.run/coins/atom</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://marx.iran.liara.run/coins/enj</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://marx.iran.liara.run/coins/paxg</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://marx.iran.liara.run/coins/chz</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://marx.iran.liara.run/coins/btc</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://marx.iran.liara.run/lgoin</loc>
+  <priority>0.60</priority>
+</url>
+</urlset>

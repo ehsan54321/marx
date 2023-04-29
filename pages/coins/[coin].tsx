@@ -55,7 +55,11 @@ const Coin = ({ props, nameCoin }) => {
             <div className="ml-1">
               <HiCloudDownload size={15} />
             </div>
-            <span className="text-[14px]">دانلود ایکون {props.coin.name}</span>
+            <span className="text-[14px]">
+              {t('download.icon') +
+                ' ' +
+                (t('lang') ? props.coin.name : props.coin.all_name)}
+            </span>
           </div>
           <button
             type="submit"
@@ -67,7 +71,7 @@ const Coin = ({ props, nameCoin }) => {
               link.click()
             }}
           >
-            دانلود
+            {t('download')}
           </button>
         </div>
       </div>

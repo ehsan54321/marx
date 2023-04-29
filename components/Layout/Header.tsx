@@ -10,10 +10,10 @@ import { FcFaq } from 'react-icons/fc'
 import { HiLogout } from 'react-icons/hi'
 import { Link as LinkScroll } from 'react-scroll/modules'
 import { resErr } from '@lib/helper'
-import { RiMoonFill, RiSunLine } from 'react-icons/ri'
 import { useContext, useState } from 'react'
 import { useTheme } from 'next-themes'
 import { useTranslation } from 'react-i18next'
+import { RiMoonFill, RiSunLine } from 'react-icons/ri'
 
 const Header = () => {
   const [modal, setModal] = useState<boolean>(false)
@@ -404,7 +404,8 @@ const Auth = () => {
 
 const ChangeMode = () => {
   const { t, i18n } = useTranslation()
-  const { theme, setTheme } = useTheme()
+  const { systemTheme, theme, setTheme } = useTheme()
+  const currentTheme = theme === 'system' ? systemTheme : theme
   const ChangeLang = () => {
     if (t('lang')) {
       i18n.changeLanguage('en')
@@ -417,16 +418,21 @@ const ChangeMode = () => {
   return (
     <>
       <div className="flex items-center mode mx-1">
-        <button
-          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-          className="bg-slate-100 p-2 rounded-xl filter-invert-dark dark:bg-slate-700 dark:text-white"
-        >
-          {theme === 'dark' ? (
-            <RiSunLine size={25} />
-          ) : (
+        {currentTheme === 'dark' ? (
+          <button
+            onClick={() => setTheme('light')}
+            className="bg-slate-100 p-2 rounded-xl"
+          >
+            <RiSunLine size={25} color="black" />
+          </button>
+        ) : (
+          <button
+            onClick={() => setTheme('dark')}
+            className="bg-slate-100 p-2 rounded-xl"
+          >
             <RiMoonFill size={25} />
-          )}
-        </button>
+          </button>
+        )}
         <span
           className={classNames(
             'cursor-pointer filter-invert-dark bg-tar w-5',

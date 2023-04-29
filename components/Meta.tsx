@@ -22,7 +22,7 @@ const Meta = (props: Props) => {
         <meta name="keywords" content={keywords} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        {/* <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" /> */}
         <meta name="theme-color" content="#000000" />
         <meta name="application-name" content={t('full.app')} />
         <meta name="apple-mobile-web-app-title" content={title} />

@@ -217,7 +217,7 @@ const HomePage = () => {
                     pathname: '/coins/[coin]',
                     query: { coin: key },
                   }}
-                  className="flex items-center hover:text-[#1e4dd8] cursor-pointer mt-2"
+                  className="flex items-center hover:text-[#1e4dd8] cursor-pointer mt-2 home_"
                 >
                   <span className="ml-1 opacity-70">
                     {t('more.information')}
@@ -268,7 +268,7 @@ const HomePage = () => {
                         pathname: '/coins/[coin]',
                         query: { coin: key },
                       }}
-                      className="flex items-center hover:text-[#1e4dd8] cursor-pointer mt-1.5"
+                      className="flex items-center hover:text-[#1e4dd8] cursor-pointer mt-1.5 home_"
                     >
                       <span className="ml-1 opacity-70">
                         {t('more.information')}
