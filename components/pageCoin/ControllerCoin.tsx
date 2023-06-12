@@ -1,11 +1,11 @@
-import AboutCoin from '@components/pageCoin/AboutCoin'
-import Chart from '@components/pageCoin/chart'
+import AboutCoin from '@/components/pageCoin/AboutCoin'
+import Chart from '@/components/pageCoin/chart'
 import classNames from 'classnames'
 import Image from 'next/image'
-import Star from '@components/stars/Star'
+import Star from '@/components/stars/Star'
+import useTranslation from '@/hooks/translation'
 import { BsFillCaretDownFill, BsFillCaretUpFill } from 'react-icons/bs'
-import { formatCurrency, numberToPersian } from '@lib/helper'
-import { useTranslation } from 'react-i18next'
+import { formatCurrency, numberToPersian } from '@/lib/helper'
 
 type Props = {
   coin: any
@@ -14,7 +14,7 @@ type Props = {
 }
 const ControllerPageCoin = (props: Props) => {
   const { nameCoin } = props
-  const { t } = useTranslation()
+  const t = useTranslation()
   return (
     <>
       <div className="row w-full mr-0">
@@ -33,7 +33,7 @@ const ControllerPageCoin = (props: Props) => {
               <div className="flex pt-4">
                 <div className="leading-[0]">
                   <h1 className="mr-1 h5" title={t('coin')}>
-                    {t('lang') ? props.coin.name : props.coin.all_name}
+                    {t('dir') === 'rtl' ? props.coin.name : props.coin.all_name}
                   </h1>
                   <br />
                   <h2 className="flex mb-0 coinPage_nameEN text-slate-500">
@@ -42,7 +42,9 @@ const ControllerPageCoin = (props: Props) => {
                     </span>
                     <i className="text-white">_</i>
                     <span className="text-capitalize text-[15px]">
-                      {t('lang') ? props.coin.all_name : props.coin.name}
+                      {t('dir') === 'rtl'
+                        ? props.coin.all_name
+                        : props.coin.name}
                     </span>
                   </h2>
                 </div>
@@ -59,7 +61,7 @@ const ControllerPageCoin = (props: Props) => {
           </div>
           <div className="flex items-center mr-1">
             <span className="rounded-[10px] text-blue-900 py-[6px] px-[8.5px] bg-[#f2f6f9]">
-              {'#' + numberToPersian(props.coin.id, t('lang'))}
+              {'#' + numberToPersian(props.coin.id, t('dir') === 'rtl')}
             </span>
           </div>
         </div>
@@ -85,7 +87,7 @@ const ControllerPageCoin = (props: Props) => {
               )}
             </div>
             <span className="font-bold">
-              {numberToPersian(props.coin.day.dayIn, t('lang')) +
+              {numberToPersian(props.coin.day.dayIn, t('dir') === 'rtl') +
                 '٪' +
                 (props.coin.day.colorDayIn === 'red' ? '-' : '+')}
             </span>
@@ -96,11 +98,14 @@ const ControllerPageCoin = (props: Props) => {
           <div className="flex flex-col" title={t('mane-usd')}>
             <span className="text-slate-500">{t('mane-usd') + ' :'}</span>
             <span className="text-[18px] mt-1">
-              {numberToPersian(formatCurrency(props.coin.usd), t('lang'))}
+              {numberToPersian(
+                formatCurrency(props.coin.usd),
+                t('dir') === 'rtl'
+              )}
               <span
                 className={classNames(
                   'uiCoin_toman',
-                  t('lang') ? 'mr-1' : 'mr-1'
+                  t('dir') === 'rtl' ? 'mr-1' : 'mr-1'
                 )}
               >
                 {t('usd')}
@@ -114,12 +119,12 @@ const ControllerPageCoin = (props: Props) => {
             <span className="text-[18px] mt-1">
               {numberToPersian(
                 formatCurrency(~~(props.coin.usd * props.rials)),
-                t('lang')
+                t('dir') === 'rtl'
               )}
               <span
                 className={classNames(
                   'uiCoin_toman',
-                  t('lang') ? 'mr-1' : 'mr-1'
+                  t('dir') === 'rtl' ? 'mr-1' : 'mr-1'
                 )}
               >
                 {t('toman')}

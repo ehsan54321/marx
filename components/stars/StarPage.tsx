@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { useTranslation } from 'react-i18next'
+import useTranslation from '@/hooks/translation'
 
 const StarPage = (props) => {
-  const { t } = useTranslation()
+  const t = useTranslation()
   return (
     <div className="slid">
       <div className="flex flex-col justify-around rounded-xl w-44 h-44 p-[10px] bg-gray-100">
@@ -23,6 +23,7 @@ const StarPage = (props) => {
               pathname: '/coins/[coin]',
               query: { coin: props.nameEN },
             }}
+            locale={t('lang')}
             className="uiCoin_nameCoin mr-1"
           >
             <span

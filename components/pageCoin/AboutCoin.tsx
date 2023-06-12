@@ -1,9 +1,9 @@
-import { formatCurrency, numberToPersian } from '@lib/helper'
+import useTranslation from '@/hooks/translation'
+import { formatCurrency, numberToPersian } from '@/lib/helper'
 import { useEffect, useRef, useState } from 'react'
-import { useTranslation } from 'react-i18next'
 
 const AboutCoin = ({ aboutCoin, dayGrith }) => {
-  const { t } = useTranslation()
+  const t = useTranslation()
   const tradingVolume = useRef(null)
   const [width, setWidth] = useState<string>('auto')
   useEffect(() => {
@@ -15,7 +15,7 @@ const AboutCoin = ({ aboutCoin, dayGrith }) => {
       <div className="flex">
         <div className="ml-4 max-sm:mb-4" ref={tradingVolume}>
           <span className="text-slate-500">
-            {t('lang') ? (
+            {t('dir') === 'rtl' ? (
               <>
                 {'ارزش معاملات ۲۴'}
                 <br />
@@ -31,14 +31,14 @@ const AboutCoin = ({ aboutCoin, dayGrith }) => {
           </span>
           <br />
           <span className="text-[13px] mt-1 max-sm:mb-4">
-            {numberToPersian(formatCurrency('756345'), t('lang'))}
+            {numberToPersian(formatCurrency('756345'), t('dir') === 'rtl')}
           </span>
         </div>
         <div className="vr" />
         <div className="mr-4 ml-4 flex flex-col">
           <span className="text-slate-500">{t('coin.display.size') + ':'}</span>
           <span className="text-[13px] mt-1">
-            {numberToPersian(dayGrith, t('lang'))}
+            {numberToPersian(dayGrith, t('dir') === 'rtl')}
           </span>
         </div>
       </div>
@@ -53,7 +53,7 @@ const AboutCoin = ({ aboutCoin, dayGrith }) => {
         >
           <span className="text-slate-500">{t('coin.total.market') + ':'}</span>
           <span className="text-[13px] mt-1">
-            {numberToPersian('448.127M', t('lang'))}
+            {numberToPersian('448.127M', t('dir') === 'rtl')}
           </span>
         </div>
 
@@ -62,7 +62,7 @@ const AboutCoin = ({ aboutCoin, dayGrith }) => {
           <span className="text-slate-500">{t('coin.date') + ':'}</span>
           <br />
           <div className="text-center">
-            <span>{numberToPersian(aboutCoin.arz, t('lang'))}</span>
+            <span>{numberToPersian(aboutCoin.arz, t('dir') === 'rtl')}</span>
           </div>
           <div className="h-auto">
             <div className="bg-slate-300 rounded-lg">
@@ -70,7 +70,9 @@ const AboutCoin = ({ aboutCoin, dayGrith }) => {
                 className="text-white text-center rounded-lg bg-green-700"
                 style={{ width: aboutCoin.now + '%' }}
               >
-                <span>{numberToPersian(aboutCoin.now, t('lang')) + '٪'}</span>
+                <span>
+                  {numberToPersian(aboutCoin.now, t('dir') === 'rtl') + '٪'}
+                </span>
               </div>
             </div>
           </div>
@@ -78,7 +80,7 @@ const AboutCoin = ({ aboutCoin, dayGrith }) => {
             <span className="text-slate-500 mr-1">
               {t('coin.display.size') + ':'}
             </span>
-            <span>{numberToPersian(aboutCoin.maxArz, t('lang'))}</span>
+            <span>{numberToPersian(aboutCoin.maxArz, t('dir') === 'rtl')}</span>
           </div>
         </div>
       </div>

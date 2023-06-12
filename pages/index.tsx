@@ -1,18 +1,27 @@
 import Image from 'next/image'
-import Install from '@components/Install'
+import Install from '@/components/Install'
 import Link from 'next/link'
-import Meta from '@components/Meta'
-import { AuthContext } from '@store/auth'
+import Meta from '@/components/Meta'
+import { AuthContext } from '@/store/auth'
 import { FaArrowLeft } from 'react-icons/fa'
-import { numberToPersian } from '@lib/helper'
+import { numberToPersian } from '@/lib/helper'
 import { useContext } from 'react'
 import { useRouter } from 'next/router'
-import { useTranslation } from 'react-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import useTranslation from '@/hooks/translation'
 
-const HomePage = () => {
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  }
+}
+
+const Home = () => {
   const { isAuth } = useContext(AuthContext)
-  const { t } = useTranslation()
   const router = useRouter()
+  const t = useTranslation()
   const newCoin = [
     {
       key: 'cake',
@@ -130,7 +139,7 @@ const HomePage = () => {
       <Meta
         title={t('page')}
         description="وب سایت مارکس کت یک سایت نمایش قیمت ارز های دجیتال است که بیش از ۴۴ ارز دجیتال دارد مانند بیت کوین اتریوم تتر دوج کوین و غیر ... صفحه اصلی"
-        keywords="صفحه اصلی صرافی مارکس کت, ارز دجیتال, صرافی مارکس کت, مارکس کت"
+        keywords={['ارز دجیتال', 'صفحه اصلی صرافی مارکس کت']}
       />
       <Install />
       <h2 className="h5 mb-6 leading-7 font-bold" dir="auto">
@@ -138,7 +147,7 @@ const HomePage = () => {
       </h2>
       <div
         className="flex justify-between max-lg:flex-col max-lg:items-center"
-        dir={t('lang') ? 'rtl' : 'ltr'}
+        dir={t('dir') === 'rtl' ? 'rtl' : 'ltr'}
       >
         <div className="flex justify-center flex-col w-full max-lg:items-center">
           <h1 className="text-[47px]">{t('h1page')}</h1>
@@ -149,16 +158,21 @@ const HomePage = () => {
             <input
               type="email"
               id="email"
-              dir={t('lang') ? 'rtl' : 'ltr'}
+              dir={t('dir') === 'rtl' ? 'rtl' : 'ltr'}
               className="bg-gray-50 text-base w-80 border border-solid focus:outline-0 border-gray-300 text-gray-900 rounded-lg block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:ring-blue-500 focus:border-blue-500 filter-invert-dark"
               placeholder={t('your.email')}
             />
             <button
               className="mx-2 rounded-md text-sm cursor-pointer bg-gray-50 border border-solid border-gray-300 px-2 max-sm:py-1.5 max-sm:mt-1"
-              onClick={() => router.push(isAuth ? '/account' : '/auth#login')}
+              onClick={() => {
+                const url = isAuth ? '/account' : '/auth#login'
+                router.push(url, url, {
+                  locale: t('lang'),
+                })
+              }}
             >
               {t('start')}
-              <span className={t('lang') ? 'mr-1' : 'ml-1'}>
+              <span className={t('dir') === 'rtl' ? 'mr-1' : 'ml-1'}>
                 <svg
                   width="24"
                   height="24"
@@ -175,11 +189,13 @@ const HomePage = () => {
           </div>
         </div>
         <div className="lg:w-3/4">
-          <img
+          <Image
             src="/static/assets/img/bitcoin-iphone.svg"
             alt="bitcoin"
-            className="filter-invert-dark animation-img max-sm:w-full"
+            className="filter-invert-dark animation-img max-sm:w-full max-sm:h-auto"
+            priority
             width={560}
+            height={560}
           />
         </div>
       </div>
@@ -197,7 +213,7 @@ const HomePage = () => {
               <div className="flex flex-col justify-center items-center">
                 <Image
                   src={`/static/assets/img/coins/${poster_path}.svg`}
-                  alt={t('lang') ? name : all_name}
+                  alt={t('dir') === 'rtl' ? name : all_name}
                   className="filter-invert-dark mt-[3px]"
                   width={48}
                   height={48}
@@ -205,7 +221,7 @@ const HomePage = () => {
                 <div className="flex flex-col justify-center items-center mt-2">
                   <div className="flex flex-col sm:mt-0 mt-[.8px] max-sm:pb-1">
                     <span className="text-right transition duration-[.35s] ease-in-out leading-6">
-                      {t('lang') ? name : all_name}
+                      {t('dir') === 'rtl' ? name : all_name}
                     </span>
                   </div>
                   <span className="uppercase flex text-sm text-slate-500 leading-6 mt-1">
@@ -217,6 +233,7 @@ const HomePage = () => {
                     pathname: '/coins/[coin]',
                     query: { coin: key },
                   }}
+                  locale={t('lang')}
                   className="flex items-center hover:text-[#1e4dd8] cursor-pointer mt-2 home_"
                 >
                   <span className="ml-1 opacity-70">
@@ -232,9 +249,15 @@ const HomePage = () => {
         </div>
       </div>
       <h2 className="h5 mb-6 leading-7 font-bold mt-10" dir="auto">
-        {t('lang')
-          ? `پیش نمایش ${numberToPersian(topCoin.length, t('lang'))} کوین`
-          : `Preview ${numberToPersian(topCoin.length, t('lang'))} coins`}
+        {t('dir') === 'rtl'
+          ? `پیش نمایش ${numberToPersian(
+              topCoin.length,
+              t('dir') === 'rtl'
+            )} کوین`
+          : `Preview ${numberToPersian(
+              topCoin.length,
+              t('dir') === 'rtl'
+            )} coins`}
       </h2>
       <div className="background-color bg-white mt-7 p-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
@@ -247,7 +270,7 @@ const HomePage = () => {
                 <div className="flex mt-[3px] ml-4">
                   <Image
                     src={`/static/assets/img/coins/${poster_path}.svg`}
-                    alt={t('lang') ? name : all_name}
+                    alt={t('dir') === 'rtl' ? name : all_name}
                     className="filter-invert-dark"
                     width={48}
                     height={48}
@@ -256,7 +279,7 @@ const HomePage = () => {
                 <div>
                   <div className="flex flex-col sm:mt-0 mt-[.8px] max-sm:pb-1">
                     <span className="text-right transition duration-[.35s] ease-in-out leading-6">
-                      {t('lang') ? name : all_name}
+                      {t('dir') === 'rtl' ? name : all_name}
                     </span>
                   </div>
                   <span className="uppercase flex text-sm text-slate-500 leading-6 mt-1">
@@ -268,6 +291,7 @@ const HomePage = () => {
                         pathname: '/coins/[coin]',
                         query: { coin: key },
                       }}
+                      locale={t('lang')}
                       className="flex items-center hover:text-[#1e4dd8] cursor-pointer mt-1.5 home_"
                     >
                       <span className="ml-1 opacity-70">
@@ -284,7 +308,7 @@ const HomePage = () => {
           ))}
         </div>
         <div className="mt-3">
-          <Link href="/coins">
+          <Link href="/coins" locale={t('lang')}>
             <button className="inline-block py-1.5 text-base border border-solid bg-black text-white cursor-pointer rounded-md shadow-md hover:bg-[#424649] border-[#212529] hover:border-[#424649] outline-0 transition-btn w-full filter-invert-dark">
               {t('view.all.coins')}
             </button>
@@ -295,4 +319,4 @@ const HomePage = () => {
   )
 }
 
-export default HomePage
+export default Home

@@ -1,17 +1,17 @@
 import classNames from 'classnames'
-import http from '@services/httpServices'
+import http from '@/services/httpServices'
 import Swal from 'sweetalert2'
-import { AuthContext } from '@store/auth'
+import useTranslation from '@/hooks/translation'
+import { AuthContext } from '@/store/auth'
 import { BsEnvelopeFill, BsEye, BsEyeSlash } from 'react-icons/bs'
-import { removeSpas, resErr } from '@lib/helper'
+import { removeSpas, resErr } from '@/lib/helper'
 import { RiLockPasswordFill } from 'react-icons/ri'
 import { useContext, useState } from 'react'
 import { useRouter } from 'next/router'
-import { useTranslation } from 'react-i18next'
 
 type filedInput = { stt: boolean; mas: string }
 type onFinishType = { email: string; password: string }
-const Login = () => {
+const Login = ({ setShow }) => {
   const [loader, setLoader] = useState<boolean>(false)
   const [passLook, setPassLook] = useState<boolean>(true)
   const [errorEmail, setErrorEmail] = useState<filedInput>({
@@ -23,7 +23,7 @@ const Login = () => {
     mas: '',
   })
   const router = useRouter()
-  const { t } = useTranslation()
+  const t = useTranslation()
   const { setAuthState } = useContext(AuthContext)
   const noFind = 'لطفا این فیلد را پر کنید.'
   const onFinish = (value: onFinishType) => {
@@ -31,13 +31,14 @@ const Login = () => {
       .post('api/v2/auth/login', {
         password: value.password,
         email: value.email,
-        lang: t('lang'),
+        lang: t('dir') === 'rtl',
       })
       .then((res) => {
         if (res.data.status === 'SUCCESS') {
           http.get('api/v2/user').then(async ({ data }) => {
             await setAuthState(data)
-            router.push('/account')
+            await setShow()
+            router.push('/account', '/account', { locale: t('lang') })
             Swal.fire({
               icon: 'success',
               toast: true,

@@ -1,9 +1,9 @@
 import ChartComponents from './ChartComponents'
-import { numberToPersian } from '@lib/helper'
-import { useTranslation } from 'react-i18next'
+import useTranslation from '@/hooks/translation'
+import { numberToPersian } from '@/lib/helper'
 
 const Chart = ({ props, nameCoin, chart }) => {
-  const { t } = useTranslation()
+  const t = useTranslation()
   return (
     <div className="flex justify-between flex-col sm:flex-row">
       <ChartComponents coinName={nameCoin} chart={chart} />
@@ -20,55 +20,58 @@ const Chart = ({ props, nameCoin, chart }) => {
 }
 
 const Item = (props) => {
-  const { t } = useTranslation()
+  const t = useTranslation()
   return (
     <>
       <div className="flex justify-between p-[.8rem] list-group-item">
         <span className="text-gray-500">
-          {numberToPersian('24H', t('lang'))}
+          {numberToPersian('24H', t('dir') === 'rtl')}
         </span>
         <span className={`text-${props.day.colorDayIn}`}>
-          {numberToPersian(props.day.dayIn, t('lang')) + '٪'}
+          {numberToPersian(props.day.dayIn, t('dir') === 'rtl') + '٪'}
           {(props.day.colorDayIn === 'red' && '-') ||
             (props.day.colorDayIn === 'green' && '+')}
         </span>
       </div>
       <div className="flex justify-between p-[.8rem] list-group-item">
         <span className="text-gray-500">
-          {numberToPersian('7 ', t('lang')) + t('day') + ' ' + t('lately')}
+          {numberToPersian('7 ', t('dir') === 'rtl') +
+            t('day') +
+            ' ' +
+            t('lately')}
         </span>
         <span className={`text-${props.day.colorDay7}`}>
-          {numberToPersian(props.day.day7, t('lang')) + '٪'}
+          {numberToPersian(props.day.day7, t('dir') === 'rtl') + '٪'}
           {(props.day.colorDay7 === 'red' && '-') ||
             (props.day.colorDay7 === 'green' && '+')}
         </span>
       </div>
       <div className="flex justify-between p-[.8rem] list-group-item">
         <span className="text-gray-500">
-          {numberToPersian('30 ', t('lang')) + t('day')}
+          {numberToPersian('30 ', t('dir') === 'rtl') + t('day')}
         </span>
         <span className={`text-${props.day.colorDay30}`}>
-          {numberToPersian(props.day.day30, t('lang')) + '٪'}
+          {numberToPersian(props.day.day30, t('dir') === 'rtl') + '٪'}
           {(props.day.colorDay30 === 'red' && '-') ||
             (props.day.colorDay30 === 'green' && '+')}
         </span>
       </div>
       <div className="flex justify-between p-[.8rem] list-group-item">
         <span className="text-gray-500">
-          {numberToPersian('90 ', t('lang')) + t('day')}
+          {numberToPersian('90 ', t('dir') === 'rtl') + t('day')}
         </span>
         <span className={'text-' + props.day.colorDay90}>
-          {numberToPersian(props.day.day90 + '٪', t('lang'))}
+          {numberToPersian(props.day.day90 + '٪', t('dir') === 'rtl')}
           {(props.day.colorDay90 === 'red' && '-') ||
             (props.day.colorDay90 === 'green' && '+')}
         </span>
       </div>
       <div className="flex justify-between p-[.8rem] list-group-item">
         <span className="text-gray-500">
-          {numberToPersian('180 ', t('lang')) + t('day')}
+          {numberToPersian('180 ', t('dir') === 'rtl') + t('day')}
         </span>
         <span className={`text-${props.day.colorDay180}`}>
-          {numberToPersian(props.day.day180, t('lang')) + '٪'}
+          {numberToPersian(props.day.day180, t('dir') === 'rtl') + '٪'}
           {(props.day.colorDay180 === 'red' && '-') ||
             (props.day.colorDay180 === 'green' && '+')}
         </span>
@@ -76,10 +79,10 @@ const Item = (props) => {
 
       <div className="flex justify-between p-[.8rem] list-group-item">
         <span className="text-gray-500">
-          {numberToPersian('365 ', t('lang')) + t('day')}
+          {numberToPersian('365 ', t('dir') === 'rtl') + t('day')}
         </span>
         <span className={`text-${props.day.colorDay365}`}>
-          {numberToPersian(props.day.day365, t('lang')) + '٪'}
+          {numberToPersian(props.day.day365, t('dir') === 'rtl') + '٪'}
           {(props.day.colorDay365 === 'red' && '-') ||
             (props.day.colorDay365 === 'green' && '+')}
         </span>
@@ -87,7 +90,7 @@ const Item = (props) => {
       <div className="flex justify-between p-[.8rem] list-group-item">
         <span className="text-gray-500">{t('all')}</span>
         <span className={`text-${props.day.colorDayAll}`}>
-          {numberToPersian(props.day.dayAll, t('lang')) + '٪'}
+          {numberToPersian(props.day.dayAll, t('dir') === 'rtl') + '٪'}
           {(props.day.colorDayAll === 'red' && '-') ||
             (props.day.colorDayAll === 'green' && '+')}
         </span>

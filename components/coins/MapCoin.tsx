@@ -1,12 +1,12 @@
 import classNames from 'classnames'
 import Image from 'next/image'
 import UiCoin from './UiCoin'
-import { useTranslation } from 'react-i18next'
+import useTranslation from '@/hooks/translation'
 
 type Props = { data; rials: number; lanData: boolean; them: string }
 const MapCoin = (props: Props) => {
   const { data, rials, lanData, them } = props
-  const { t } = useTranslation()
+  const t = useTranslation()
   return (
     <>
       <table

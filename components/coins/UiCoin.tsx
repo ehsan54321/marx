@@ -2,9 +2,9 @@ import classNames from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import Star from '@components/stars/Star'
-import { formatCurrency, numberToPersian } from '@lib/helper'
-import { useTranslation } from 'react-i18next'
+import Star from '@/components/stars/Star'
+import useTranslation from '@/hooks/translation'
+import { formatCurrency, numberToPersian } from '@/lib/helper'
 
 type Props = {
   my_key: string
@@ -24,14 +24,14 @@ type Props = {
 }
 const UiCoin = (props: Props) => {
   const { my_key, name, poster_path, id, all_name, dayAll, usd }: Props = props
-  const { t } = useTranslation()
+  const t = useTranslation()
   return (
     <tr className="tr">
       <td className="max-sm:hidden">
         <div>
           <Star name={my_key} faName={name} id={id} poster_path={poster_path} />
           <span className="text-slate-400 max-sm:hidden text-[12px] mr-[10px]">
-            {numberToPersian(id, t('lang'))}
+            {numberToPersian(id, t('dir') === 'rtl')}
           </span>
         </div>
       </td>
@@ -49,7 +49,7 @@ const UiCoin = (props: Props) => {
             <div className="flex items-center filter-invert-dark">
               <Image
                 src={`/static/assets/img/coins/${poster_path}.svg`}
-                alt={t('lang') ? name : all_name}
+                alt={t('dir') === 'rtl' ? name : all_name}
                 className="filter-invert-dark"
                 width={26.5}
                 height={26.5}
@@ -60,11 +60,12 @@ const UiCoin = (props: Props) => {
                 pathname: '/coins/[coin]',
                 query: { coin: my_key },
               }}
+              locale={t('lang')}
               className="flex flex-col sm:mt-0 mt-[.8px] max-sm:pb-1 mr-1 uiCoin_nameCoin"
               title={t('coin')}
             >
               <span className="hidden sm:inline text-right transition duration-[.35s] ease-in-out name leading-6">
-                {t('lang') ? name : all_name}
+                {t('dir') === 'rtl' ? name : all_name}
               </span>
               <span className="flex uiCoin_nameEN text-slate-500 mr-1 leading-6 text-[12px] mt-1">
                 {'(' + my_key.toLocaleUpperCase() + ')'}
@@ -74,37 +75,34 @@ const UiCoin = (props: Props) => {
         </div>
       </td>
       <td>
-        <p
-          className={classNames(
-            'uiCoin_numbers mb-0 uiCoin_mane',
-            !t('lang') ? 'uiCoin_numEnMode' : ''
-          )}
-          title={t('mane-rials')}
-        >
+        <p className="uiCoin_numbers mb-0 uiCoin_mane" title={t('mane-rials')}>
           <span className="leading-8 font-bold">
             {numberToPersian(
               formatCurrency(~~(usd * props.rialsOne)),
-              t('lang')
+              t('dir') === 'rtl'
             )}
           </span>
           <span
-            className={classNames('uiCoin_toman', t('lang') ? 'mr-1' : 'ml-1')}
+            className={classNames(
+              'uiCoin_toman',
+              t('dir') === 'rtl' ? 'mr-1' : 'ml-1'
+            )}
           >
             {t('toman')}
           </span>
         </p>
         <p
-          className={classNames(
-            'uiCoin_numbers uiCoin_mane mb-0 sm:hidden',
-            !t('lang') ? 'uiCoin_numEnMode' : ''
-          )}
+          className="uiCoin_numbers uiCoin_mane mb-0 sm:hidden"
           title={t('mane-usd')}
         >
           <span className="leading-8 font-bold">
-            {numberToPersian(formatCurrency(usd), t('lang'))}
+            {numberToPersian(formatCurrency(usd), t('dir') === 'rtl')}
           </span>
           <span
-            className={classNames('uiCoin_toman', t('lang') ? 'mr-1' : 'ml-1')}
+            className={classNames(
+              'uiCoin_toman',
+              t('dir') === 'rtl' ? 'mr-1' : 'ml-1'
+            )}
           >
             {t('usd')}
           </span>
@@ -118,13 +116,12 @@ const UiCoin = (props: Props) => {
               dayAll.color_day_in === 'info'
                 ? ' filter-invert-lite'
                 : dayAll.color_day_in
-            }`,
-            !t('lang') ? 'uiCoin_numEnMode' : ''
+            }`
           )}
           title={t('change-24h')}
         >
           <span className="leading-8 font-bold">
-            {numberToPersian(dayAll.day_in, t('lang')) +
+            {numberToPersian(dayAll.day_in, t('dir') === 'rtl') +
               '٪' +
               ((dayAll.color_day_in === 'red' && '-') ||
                 (dayAll.color_day_in === 'green' && '+') ||
@@ -133,18 +130,15 @@ const UiCoin = (props: Props) => {
         </div>
       </td>
       <td className="max-sm:hidden">
-        <p
-          className={classNames(
-            !t('lang') ? 'uiCoin_numEnMode' : '',
-            'uiCoin_numbers mb-0'
-          )}
-          title={t('mane-usd')}
-        >
+        <p className="uiCoin_numbers mb-0" title={t('mane-usd')}>
           <span className="leading-8 font-bold">
-            {numberToPersian(formatCurrency(usd), t('lang'))}
+            {numberToPersian(formatCurrency(usd), t('dir') === 'rtl')}
           </span>
           <span
-            className={classNames('uiCoin_toman', t('lang') ? 'mr-1' : 'ml-1')}
+            className={classNames(
+              'uiCoin_toman',
+              t('dir') === 'rtl' ? 'mr-1' : 'ml-1'
+            )}
           >
             {t('usd')}
           </span>
@@ -158,13 +152,12 @@ const UiCoin = (props: Props) => {
               dayAll.color_day7 === 'info'
                 ? ' filter-invert-lite'
                 : dayAll.color_day7
-            }`,
-            !t('lang') ? 'uiCoin_numEnMode' : ''
+            }`
           )}
           title={t('change-7d')}
         >
           <span className="leading-8 font-bold">
-            {numberToPersian(dayAll.day7, t('lang')) +
+            {numberToPersian(dayAll.day7, t('dir') === 'rtl') +
               '٪' +
               ((dayAll.color_day7 === 'red' && '-') ||
                 (dayAll.color_day7 === 'green' && '+') ||

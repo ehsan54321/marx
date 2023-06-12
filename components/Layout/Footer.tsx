@@ -1,13 +1,13 @@
 import Link from 'next/link'
 import React from 'react'
-import { useRouter } from 'next/router'
-import { useTranslation } from 'react-i18next'
+import useTranslation from '@/hooks/translation'
 import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai'
 import { MdWebAsset } from 'react-icons/md'
+import { useRouter } from 'next/router'
 
 const Footer = () => {
   const router = useRouter()
-  const { t } = useTranslation()
+  const t = useTranslation()
   const numPhone: string = '********0912'
   const email: string = 'example@gmail.com'
   if (!(router.pathname === '/account')) {
@@ -27,7 +27,7 @@ const Footer = () => {
     ]
     return (
       <footer className="mt-4 filter-invert-dark">
-        <div className="app bg-map mx-auto max-sm:h-screen max-sm:overflow-auto">
+        <div className="app bg-map mx-auto">
           <div className="footer-row sm:mx-10">
             <article className="footer-col sm:float-left">
               <h2 className="footer-title uppercase">{t('full.app')}</h2>
@@ -84,6 +84,7 @@ const Footer = () => {
                   <React.Fragment key={key}>
                     <Link
                       href={{ pathname: '/coins/[coin]', query: { coin: key } }}
+                      locale={t('lang')}
                     >
                       {name}
                     </Link>
@@ -100,17 +101,27 @@ const Footer = () => {
             <div className="footer-col sm:float-left">
               <h3 className="footer-title">{t('user.manual')}</h3>
               <div className="footer">
-                <Link href="/">{t('home')}</Link>
+                <Link href="/" locale={t('lang')}>
+                  {t('home')}
+                </Link>
                 <br />
-                <Link href="/coins">{t('coins')}</Link>
+                <Link href="/coins" locale={t('lang')}>
+                  {t('coins')}
+                </Link>
                 <br />
-                <Link href="/auth">{t('btn-login')}</Link>
+                <Link href="/auth" locale={t('lang')}>
+                  {t('btn-login')}
+                </Link>
               </div>
               <div className="footer-line h-px" />
               <div className="footer">
-                <Link href="/stars">{t('stars')}</Link>
+                <Link href="/stars" locale={t('lang')}>
+                  {t('stars')}
+                </Link>
                 <br />
-                <Link href="/account">{t('profile')}</Link>
+                <Link href="/account" locale={t('lang')}>
+                  {t('profile')}
+                </Link>
               </div>
             </div>
             <div className="clear-both" />

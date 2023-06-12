@@ -56,7 +56,7 @@ const ApiPageCoin = (req: NextApiRequest, res: NextApiResponse) => {
   const { chart, item } = req.query
   if (!chart) {
     try {
-      const data = require(`@util/coins/${req.query.coin}.json`)
+      const data = require(`@/util/coins/${req.query.coin}.json`)
       const dataFinish = {
         ...data,
         day: {
@@ -78,7 +78,7 @@ const ApiPageCoin = (req: NextApiRequest, res: NextApiResponse) => {
         chart: { data: chartData, labels },
       }
       res.status(200).json({
-        rials: 39494,
+        rials: 54500,
         coin: dataFinish,
       })
     } catch {

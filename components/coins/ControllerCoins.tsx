@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import MapCoin from './MapCoin'
+import useTranslation from '@/hooks/translation'
 import { BsSearch } from 'react-icons/bs'
-import { numberToPersian, removeSpas } from '@lib/helper'
+import { numberToPersian, removeSpas } from '@/lib/helper'
 import { startTransition, useRef, useState } from 'react'
-import { useTranslation } from 'react-i18next'
 
 type coinType = {
   id: number
@@ -22,7 +22,7 @@ type coinType = {
 }
 const ControllerCoins = ({ dataServer }) => {
   const pageItem: number = 15
-  const { t } = useTranslation()
+  const t = useTranslation()
   const { pageSize } = dataServer
   const inputSearch = useRef(null)
   const [pageSh, setPageSh] = useState(1)
@@ -127,7 +127,7 @@ const ControllerCoins = ({ dataServer }) => {
                   focus ? 'mr-7' : 'mr-2'
                 )}
               >
-                {t('lang')
+                {t('dir') === 'rtl'
                   ? `جستجو بین ${numberToPersian(
                       dataServer.coins.length,
                       1
@@ -206,7 +206,7 @@ const ControllerCoins = ({ dataServer }) => {
                 key={item}
                 onClick={() => PageSizeHandler(item)}
               >
-                <span>{numberToPersian(item, t('lang'))}</span>
+                <span>{numberToPersian(item, t('dir') === 'rtl')}</span>
               </li>
             ))}
           </ul>
@@ -226,7 +226,7 @@ const ControllerCoins = ({ dataServer }) => {
                 key={item}
                 onClick={() => PageSizeHandlerSh(item)}
               >
-                <span>{numberToPersian(item, t('lang'))}</span>
+                <span>{numberToPersian(item, t('dir') === 'rtl')}</span>
               </li>
             ))}
           </ul>

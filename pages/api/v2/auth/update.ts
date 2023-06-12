@@ -1,4 +1,4 @@
-import http from '@services/httpServices'
+import http from '@/services/httpServices'
 import jwt from 'jsonwebtoken'
 import { setCookie } from 'cookies-next'
 import type { NextApiRequest, NextApiResponse } from 'next'

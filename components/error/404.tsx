@@ -1,22 +1,21 @@
 import Link from 'next/link'
-import Meta from '@components/Meta'
+import Meta from '@/components/Meta'
+import useTranslation from '@/hooks/translation'
 import { useRouter } from 'next/router'
-import { useTranslation } from 'react-i18next'
 
 const NotFound = () => {
   const router = useRouter()
-  const { t } = useTranslation()
+  const t = useTranslation()
   return (
     <>
       <Meta
         title={
-          t('lang')
+          t('dir') === 'rtl'
             ? `این (url: ${router.asPath}) وجد ندارد`
             : `this (url: ${router.asPath}) there is no joy`
         }
         description={t('error.404')}
-        keywords="404"
-        canonical="404"
+        keywords={['404', t('error') + ' 404']}
         noFeastTitle
       />
       <div className="background-color bg-white">
@@ -32,6 +31,7 @@ const NotFound = () => {
               <p className="mt-4 mb-8 text-gray-400">{t('error.404')}</p>
               <Link
                 href="/"
+                locale={t('lang')}
                 className="px-8 py-3 font-semibold rounded bg-violet-400 btn-404 relative flex justify-center items-center overflow-hidden"
               >
                 {t('go.to.the.main.page')}

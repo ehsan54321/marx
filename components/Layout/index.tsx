@@ -1,23 +1,28 @@
 import classNames from 'classnames'
 import Footer from './Footer'
 import Header from './Header'
-import Router from 'next/router'
+import Loader from '../Loader'
+import Router, { useRouter } from 'next/router'
 import { FaArrowUp } from 'react-icons/fa'
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
 
 const Layout = ({ children }: { children: JSX.Element }) => {
   const router = useRouter()
+  const [show, setShow] = useState<boolean>(true)
   if (!(router.pathname === '/auth')) {
     return (
       <>
-        <div>
-          <Header />
-          <Progress />
-          <ScrollTop />
-          {children}
+        <div className={show ? '' : 'hidden'}>
+          <div>
+            <Header setShow={setShow} />
+            <Progress />
+            <ScrollTop />
+            {children}
+          </div>
+          <Footer />
         </div>
-        <Footer />
+
+        {!show && <Loader />}
       </>
     )
   } else return children

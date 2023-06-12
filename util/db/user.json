@@ -3,8 +3,8 @@
     "user@gmail.com": {
       "username": "احسان",
       "email": "user@gmail.com",
-      "password": "user-user",
-      "date": "1401/10/02"
+      "date": "1401/10/02",
+      "password": "user-user"
     },
     "user-test@gmail.com": {
       "email": "user-test@gmail.com",

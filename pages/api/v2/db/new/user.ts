@@ -1,4 +1,4 @@
-import AllUser from '@util/db/user.json'
+import AllUser from '@/util/db/user.json'
 import fs from 'fs'
 import type { NextApiRequest, NextApiResponse } from 'next'
 

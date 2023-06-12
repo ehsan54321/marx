@@ -1,22 +1,23 @@
 import * as Avatar from '@radix-ui/react-avatar'
-import http from '@services/httpServices'
+import http from '@/services/httpServices'
 import Swal from 'sweetalert2'
-import { AuthContext } from '@store/auth'
-import { numberToPersian, resErr } from '@lib/helper'
+import useTranslation from '@/hooks/translation'
+import { AuthContext } from '@/store/auth'
+import { numberToPersian, resErr } from '@/lib/helper'
 import { useContext } from 'react'
 import { useRouter } from 'next/router'
-import { useTranslation } from 'react-i18next'
 
-const UserCard = () => {
+const UserCard = ({ setShow }) => {
   const { setAuthState, authState } = useContext(AuthContext)
   const router = useRouter()
-  const { t } = useTranslation()
+  const t = useTranslation()
   const Logout = () => {
     http
       .get('api/v2/auth/logout')
-      .then(() => {
-        setAuthState(null)
-        router.push('/auth#login')
+      .then(async () => {
+        await setAuthState(null)
+        await setShow(false)
+        router.push('/auth#login', '/auth#login', { locale: t('lang') })
         Swal.fire({
           icon: 'error',
           toast: true,
@@ -50,15 +51,15 @@ const UserCard = () => {
           </p>
           <p className="mb-[2.5px]">
             <span className="text-slate-500">{t('info.create.account')}</span>
-            {numberToPersian(authState.user.date, t('lang'))}
+            {numberToPersian(authState.user.date, t('dir') === 'rtl')}
           </p>
           <p className="mb-[2.5px]">
             <span className="text-slate-500">{t('info.iat.account')}</span>
-            {numberToPersian(authState.iat, t('lang'))}
+            {numberToPersian(authState.iat, t('dir') === 'rtl')}
           </p>
           <p>
             <span className="text-slate-500">{t('info.exp.account')}</span>
-            {numberToPersian(authState.expires, t('lang'))}
+            {numberToPersian(authState.expires, t('dir') === 'rtl')}
           </p>
         </div>
         <button

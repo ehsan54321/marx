@@ -1,27 +1,27 @@
 import * as Avatar from '@radix-ui/react-avatar'
 import classNames from 'classnames'
-import http from '@services/httpServices'
+import http from '@/services/httpServices'
 import Link from 'next/link'
 import Router, { useRouter } from 'next/router'
 import Swal from 'sweetalert2'
-import { AuthContext } from '@store/auth'
+import useTranslation from '@/hooks/translation'
+import { AuthContext } from '@/store/auth'
 import { BsFillCaretDownFill, BsFillPersonFill } from 'react-icons/bs'
 import { FcFaq } from 'react-icons/fc'
 import { HiLogout } from 'react-icons/hi'
 import { Link as LinkScroll } from 'react-scroll/modules'
-import { resErr } from '@lib/helper'
+import { resErr } from '@/lib/helper'
+import { RiMoonFill, RiSunLine } from 'react-icons/ri'
 import { useContext, useState } from 'react'
 import { useTheme } from 'next-themes'
-import { useTranslation } from 'react-i18next'
-import { RiMoonFill, RiSunLine } from 'react-icons/ri'
 
-const Header = () => {
+const Header = ({ setShow }) => {
   const [modal, setModal] = useState<boolean>(false)
   const router = useRouter()
-  const { t } = useTranslation()
+  const t = useTranslation()
   const activePathName = router.pathname.split('/')[1]
   Router.events.on('routeChangeStart', () => setModal(false))
-  const marg = t('lang') ? 'ml-1' : 'mr-1'
+  const marg = t('dir') === 'rtl' ? 'ml-1' : 'mr-1'
   const height = () => {
     if (!modal) return 0
     if (activePathName !== 'coins') return 222
@@ -79,7 +79,7 @@ const Header = () => {
   return (
     <nav
       className="bg-white sticky head_ z-30 top-0 h-14"
-      dir={t('lang') ? 'rtl' : 'ltr'}
+      dir={t('dir') === 'rtl' ? 'rtl' : 'ltr'}
     >
       <div className="container-xxl justify-between items-center flex h-full">
         <div className="flex">
@@ -89,7 +89,7 @@ const Header = () => {
                 <button
                   className={classNames(
                     'block md:hidden bg-transparent',
-                    t('lang') ? 'ml-2.5' : 'mr-2.5'
+                    t('dir') === 'rtl' ? 'ml-2.5' : 'mr-2.5'
                   )}
                   onClick={() => setModal(!modal)}
                 >
@@ -116,7 +116,7 @@ const Header = () => {
                 </button>
               </li>
               <li className="nav-item">
-                <Link href="/" className="flex">
+                <Link href="/" locale={t('lang')} className="flex">
                   <img
                     src="/favicon-96x96.png"
                     alt="لوگو"
@@ -125,7 +125,7 @@ const Header = () => {
                   <span
                     className={classNames(
                       'font-bold text-[15px] mt-[6px] md:hidden text-black',
-                      t('lang') ? 'mr-2' : 'ml-2'
+                      t('dir') === 'rtl' ? 'mr-2' : 'ml-2'
                     )}
                   >
                     MAR<span className="text-red-500">X</span>
@@ -135,7 +135,7 @@ const Header = () => {
               <li
                 className={classNames(
                   'nav-item max-md:hidden h-6',
-                  t('lang') ? 'head_divider' : 'head_dividerEn'
+                  t('dir') === 'rtl' ? 'head_divider' : 'head_dividerEn'
                 )}
               >
                 <div className="vr h-full lg:mx-2" />
@@ -152,6 +152,7 @@ const Header = () => {
             <ul className="block md:flex md:m-auto mt-4 items-center">
               <Link
                 href="/"
+                locale={t('lang')}
                 className="font-medium px-4 py-1 rounded-lg md:hover:bg-slate-100 text-lg md:inline block md:leading-1 leading-10"
               >
                 <HomeIcon />
@@ -167,6 +168,7 @@ const Header = () => {
               </Link>
               <Link
                 href="/coins"
+                locale={t('lang')}
                 className="font-medium px-4 py-1 rounded-lg md:hover:bg-slate-100 text-lg md:inline block md:leading-1 leading-10"
               >
                 <svg
@@ -251,6 +253,7 @@ const Header = () => {
               </Link>
               <Link
                 href="/stars"
+                locale={t('lang')}
                 className="font-medium px-4 py-1 rounded-lg md:hover:bg-slate-100 text-lg md:inline block md:leading-1 leading-10"
               >
                 <StarIcon />
@@ -268,7 +271,7 @@ const Header = () => {
                 <LinkScroll
                   to="FAQ"
                   offset={-99}
-                  className="font-medium px-4 py-1 rounded-lg md:hover:bg-slate-100 text-lg md:inline block md:leading-1 leading-10"
+                  className="font-medium px-4 py-1 rounded-lg md:hover:bg-slate-100 text-lg md:inline block md:leading-1 leading-10 head_lastItem"
                 >
                   <FcFaq
                     className={classNames('filter-invert-dark mt-0', marg)}
@@ -280,7 +283,7 @@ const Header = () => {
               {modal && (
                 <div className="w-screen text-center">
                   <div className="flex justify-center pt-0">
-                    <Auth />
+                    <Auth setShow={setShow} />
                   </div>
                 </div>
               )}
@@ -288,23 +291,26 @@ const Header = () => {
           </div>
         </div>
         <div className="hidden md:flex items-center">
-          <Auth />
+          <Auth setShow={setShow} />
         </div>
       </div>
     </nav>
   )
 }
 
-const Auth = () => {
+const Auth = ({ setShow }) => {
   const { isFind, setAuthState, authState, isAuth } = useContext(AuthContext)
-  const { t } = useTranslation()
+  const t = useTranslation()
   const router = useRouter()
   const Logout = () => {
     http
       .get('api/v2/auth/logout')
       .then(() => {
         setAuthState(null)
-        router.push('/auth#login')
+        setShow(false)
+        router
+          .push('/auth#login', '/auth#login', { locale: t('lang') })
+          .then(() => setShow(true))
         Swal.fire({
           icon: 'error',
           toast: true,
@@ -336,7 +342,7 @@ const Auth = () => {
           ></path>
         </svg>
       ) : !isAuth ? (
-        <Link href="/auth#login">
+        <Link href="/auth#login" locale={t('lang')}>
           <button
             type="button"
             className="head_login inline-block px-3.5 py-1.5 bg-white text-black text-base rounded-md border border-solid border-black hover:bg-black hover:text-white hover:shadow-md outline-0 transition-all cursor-pointer"
@@ -347,7 +353,7 @@ const Auth = () => {
       ) : (
         <div className="relative flex items-center">
           <div className="md:hidden">
-            <Link href="/account">
+            <Link href="/account" locale={t('lang')}>
               <Avatar.Root className="items-center justify-center align-middle select-none overflow-hidden inline-flex bg-slate-100 mr-2 w-12 h-12 rounded-full">
                 <Avatar.Fallback className="leading-4 text-[15px] font-medium text-purple-800 w-full h-full flex items-center justify-center bg-slate-100">
                   {authState.user.name.toLocaleUpperCase()}
@@ -363,7 +369,7 @@ const Auth = () => {
               <Avatar.Root
                 className={classNames(
                   'items-center justify-center align-middle select-none overflow-hidden inline-flex bg-slate-100 w-11 h-11 rounded-full',
-                  t('lang') ? 'ml-1' : 'mr-1'
+                  t('dir') === 'rtl' ? 'ml-1' : 'mr-1'
                 )}
               >
                 <Avatar.Fallback className="leading-4 text-[15px] font-medium text-purple-800 flex items-center justify-center w-full h-full bg-slate-100 filter-invert-dark">
@@ -375,13 +381,13 @@ const Auth = () => {
             <ul
               className={classNames(
                 'menu p-2 rounded-lg absolute bg-white max-md:hidden',
-                t('lang') ? 'right-[-60px]' : 'left-[-60px]'
+                t('dir') === 'rtl' ? 'right-[-60px]' : 'left-[-60px]'
               )}
             >
-              <Link href="/account">
+              <Link href="/account" locale={t('lang')}>
                 <li className="leading-7 hover:bg-slate-100 rounded-md p-2 text-black">
                   <BsFillPersonFill />
-                  <span className={t('lang') ? 'mr-1' : 'ml-1'}>
+                  <span className={t('dir') === 'rtl' ? 'mr-1' : 'ml-1'}>
                     {t('profile')}
                   </span>
                 </li>
@@ -389,7 +395,7 @@ const Auth = () => {
               <div onClick={Logout}>
                 <li className="leading-7 hover:bg-red-100 text-red-500 rounded-md p-2 cursor-pointer filter-invert-dark">
                   <HiLogout />
-                  <span className={t('lang') ? 'mr-2' : 'ml-2'}>
+                  <span className={t('dir') === 'rtl' ? 'mr-2' : 'ml-2'}>
                     {t('logout')}
                   </span>
                 </li>
@@ -403,17 +409,15 @@ const Auth = () => {
 }
 
 const ChangeMode = () => {
-  const { t, i18n } = useTranslation()
+  const t = useTranslation()
+  const router = useRouter()
   const { systemTheme, theme, setTheme } = useTheme()
   const currentTheme = theme === 'system' ? systemTheme : theme
+  const { pathname, asPath, query } = router
   const ChangeLang = () => {
-    if (t('lang')) {
-      i18n.changeLanguage('en')
-      localStorage.setItem('lang', 'en')
-    } else {
-      i18n.changeLanguage('fa')
-      localStorage.setItem('lang', 'fa')
-    }
+    router.push({ pathname, query }, asPath, {
+      locale: t('dir') === 'rtl' ? 'en' : 'fa',
+    })
   }
   return (
     <>
@@ -421,25 +425,31 @@ const ChangeMode = () => {
         {currentTheme === 'dark' ? (
           <button
             onClick={() => setTheme('light')}
-            className="bg-slate-100 p-2 rounded-xl"
+            className="bg-slate-100 p-2 rounded-xl cursor-pointer"
           >
             <RiSunLine size={25} color="black" />
           </button>
         ) : (
           <button
             onClick={() => setTheme('dark')}
-            className="bg-slate-100 p-2 rounded-xl"
+            className="bg-slate-100 p-2 rounded-xl cursor-pointer"
           >
             <RiMoonFill size={25} />
           </button>
         )}
-        <span
-          className={classNames(
-            'cursor-pointer filter-invert-dark bg-tar w-5',
-            t('lang') ? 'mr-1' : 'ml-1'
-          )}
-          onClick={ChangeLang}
-        />
+
+        <div>
+          <img
+            src={'/static/assets/img/flags/' + t('lang') + '.svg'}
+            onClick={ChangeLang}
+            className={classNames(
+              'cursor-pointer filter-invert-dark w-6',
+              t('dir') === 'rtl' ? 'mr-1' : 'ml-1'
+            )}
+            title={t('changeLang')}
+            alt={t('lang')}
+          />
+        </div>
       </div>
     </>
   )

@@ -1,3 +1,4 @@
+const { i18n } = require('./next-i18next.config')
 const withPWA = require('next-pwa')({
   dest: 'public',
   register: true,
@@ -7,7 +8,11 @@ const withPWA = require('next-pwa')({
 const settings = {
   reactStrictMode: true,
   swcMinify: true,
+  i18n,
+  experimental: {
+    // for liara services in production
+    outputStandalone: true,
+  },
 }
 
-module.exports =
-  process.env.NODE_ENV === 'development' ? settings : withPWA(settings)
+module.exports = withPWA(settings)

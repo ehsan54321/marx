@@ -1,18 +1,18 @@
 import classNames from 'classnames'
-import http from '@services/httpServices'
+import http from '@/services/httpServices'
 import Swal from 'sweetalert2'
-import { AuthContext } from '@store/auth'
+import useTranslation from '@/hooks/translation'
+import { AuthContext } from '@/store/auth'
+import { removeSpas, resErr } from '@/lib/helper'
+import { RiLockPasswordFill } from 'react-icons/ri'
+import { useContext, useState } from 'react'
+import { useRouter } from 'next/router'
 import {
   BsEnvelopeFill,
   BsEye,
   BsEyeSlash,
   BsFillPersonFill,
 } from 'react-icons/bs'
-import { resErr, removeSpas } from '@lib/helper'
-import { RiLockPasswordFill } from 'react-icons/ri'
-import { useContext, useState } from 'react'
-import { useRouter } from 'next/router'
-import { useTranslation } from 'react-i18next'
 
 type filedInput = { stt: boolean; mas: string }
 type onFinishType = {
@@ -20,9 +20,9 @@ type onFinishType = {
   email: string
   password: string
 }
-const Register = () => {
+const Register = ({ setShow }) => {
   const router = useRouter()
-  const { t } = useTranslation()
+  const t = useTranslation()
   const { setAuthState } = useContext(AuthContext)
   const [loader, setLoader] = useState<boolean>(false)
   const [passLook, setPassLook] = useState<boolean>(true)
@@ -50,7 +50,8 @@ const Register = () => {
         if (res.data.status === 'SUCCESS') {
           http.get('api/v2/user').then(async ({ data }) => {
             await setAuthState(data)
-            router.push('/account')
+            await setShow()
+            router.push('/account', '/account', { locale: t('lang') })
             Swal.fire({
               icon: 'success',
               toast: true,

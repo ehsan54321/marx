@@ -2,12 +2,6 @@
   "short_name": "مارکس",
   "description": "صرافی مارکس کت",
   "name": "مارکس کت",
-  "start_url": "/",
-  "scope": "/",
-  "display": "standalone",
-  "orientation": "portrait",
-  "theme_color": "#000000",
-  "background_color": "#ffffff",
   "icons": [
     {
       "src": "/favicon-36x36.png",
@@ -34,5 +28,9 @@
       "type": "image/png",
       "sizes": "512x512"
     }
-  ]
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
 }

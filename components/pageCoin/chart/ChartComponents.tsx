@@ -1,14 +1,14 @@
 import classNames from 'classnames'
-import http from '@services/httpServices'
+import http from '@/services/httpServices'
+import useTranslation from '@/hooks/translation'
 import { CategoryScale, LinearScale, PointElement } from 'chart.js'
 import { Chart as ChartJS, defaults, LineElement, Tooltip } from 'chart.js'
+import { formatThousands, numberToPersian, resErr } from '@/lib/helper'
 import { Line } from 'react-chartjs-2'
-import { formatThousands, numberToPersian, resErr } from '@lib/helper'
 import { useState } from 'react'
-import { useTranslation } from 'react-i18next'
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip)
-defaults.font.family = 'vazir'
+defaults.font.family = 'shabnam'
 defaults.color = '#999'
 defaults.scale.grid.color = 'rgb(241, 245, 249)'
 defaults.plugins.tooltip.titleColor = 'rgb(30, 41, 59)'
@@ -23,23 +23,39 @@ defaults.plugins.tooltip.caretPadding = 8
 defaults.plugins.tooltip.cornerRadius = 4
 defaults.plugins.tooltip.padding = 8
 const ChartComponents = ({ coinName, chart }) => {
-  const { t } = useTranslation()
+  const t = useTranslation()
   const [active, setActive] = useState<string>('24')
   const [data, setData] = useState(chart.data)
   const [labels, setLabels] = useState(chart.labels)
   const btn = [
     {
       name: '24',
-      label: numberToPersian('24', t('lang')) + ' ' + t('lately'),
+      label: numberToPersian('24', t('dir') === 'rtl') + ' ' + t('lately'),
     },
     {
       name: '7',
-      label: numberToPersian('7 ', t('lang')) + t('day') + ' ' + t('lately'),
+      label:
+        numberToPersian('7 ', t('dir') === 'rtl') +
+        t('day') +
+        ' ' +
+        t('lately'),
     },
-    { name: '30', label: numberToPersian('30 ', t('lang')) + t('day') },
-    { name: '90', label: numberToPersian('90 ', t('lang')) + t('day') },
-    { name: '180', label: numberToPersian('180 ', t('lang')) + t('day') },
-    { name: '360', label: numberToPersian('365 ', t('lang')) + t('day') },
+    {
+      name: '30',
+      label: numberToPersian('30 ', t('dir') === 'rtl') + t('day'),
+    },
+    {
+      name: '90',
+      label: numberToPersian('90 ', t('dir') === 'rtl') + t('day'),
+    },
+    {
+      name: '180',
+      label: numberToPersian('180 ', t('dir') === 'rtl') + t('day'),
+    },
+    {
+      name: '360',
+      label: numberToPersian('365 ', t('dir') === 'rtl') + t('day'),
+    },
     { name: 'all', label: t('all') },
   ]
   const dataChart = {

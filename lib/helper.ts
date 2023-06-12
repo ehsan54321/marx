@@ -12,7 +12,7 @@ export const resErr = (t) => {
     toast: true,
     position: 'top-end',
     timer: 7000,
-    title: t ? (t('lang') ? textFA : textEN) : textFA,
+    title: t ? (t('dir') === 'rtl' ? textFA : textEN) : textFA,
     showConfirmButton: false,
     showCloseButton: true,
     timerProgressBar: true,

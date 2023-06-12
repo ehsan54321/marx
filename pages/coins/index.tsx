@@ -1,19 +1,35 @@
-import Accordion from '@components/Accordion'
-import ControllerCoin from '@components/coins/ControllerCoins'
-import http from '@services/httpServices'
-import Meta from '@components/Meta'
-import { useTranslation } from 'react-i18next'
+import Accordion from '@/components/Accordion'
+import ControllerCoin from '@/components/coins/ControllerCoins'
+import http from '@/services/httpServices'
+import Meta from '@/components/Meta'
+import useTranslation from '@/hooks/translation'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+      data: (await http.get('api/v2/coins?pi=15')).data,
+    },
+  }
+}
 
 const HomePage = ({ data }) => {
-  const { t } = useTranslation()
+  const t = useTranslation()
   // TODO api web socket update value coins
   return (
     <>
       <Meta
         title={t('title.home')}
         description="وب سایت مارکس کت یک سایت نمایش قیمت ارز های دجیتال است که بیش از ۴۴ ارز دجیتال دارد مانند بیت کوین اتریوم تتر دوج کوین و غیر ... صفحه کوین ها"
-        keywords="قیمت ارزهای دجیتال, قیمت ارز دجیتال, قیمت ارزهای دجیتال در ایران, قیمت ارزهای دجیتال در سال ۱۴۰۱, ارزهای دجیتال در سال 1401,قیمت ارز, لیست قیمت ارزهای دجیتال, ارز دجیتال, صرافی مارکس کت, مارکس کت"
-        canonical="coins"
+        keywords={[
+          'قیمت ارزهای دجیتال',
+          'قیمت ارز دجیتال',
+          'قیمت ارزهای دجیتال در ایران',
+          'قیمت ارزهای دجیتال در سال ۱۴۰۲',
+          'ارزهای دجیتال در سال 1402,قیمت ارز',
+          'لیست قیمت ارزهای دجیتال',
+        ]}
       />
       <h1 className="h5 mb-6 leading-7 font-bold" dir="auto">
         {t('title.home')}
@@ -38,12 +54,6 @@ const HomePage = ({ data }) => {
       </div>
     </>
   )
-}
-
-HomePage.getInitialProps = async () => {
-  return {
-    data: (await http.get('api/v2/coins?pi=15')).data,
-  }
 }
 
 export default HomePage

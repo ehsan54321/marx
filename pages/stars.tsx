@@ -1,10 +1,19 @@
 import Image from 'next/image'
-import Meta from '@components/Meta'
-import StarPage from '@components/stars/StarPage'
-import { AuthContext } from '@store/auth'
-import { Error401 } from '@components/error'
+import Meta from '@/components/Meta'
+import StarPage from '@/components/stars/StarPage'
+import useTranslation from '@/hooks/translation'
+import { AuthContext } from '@/store/auth'
+import { Error401 } from '@/components/error'
 import { useContext, useEffect, useState } from 'react'
-import { useTranslation } from 'react-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  }
+}
 
 type starType = {
   id: number
@@ -15,7 +24,7 @@ type starType = {
 const PageStars = () => {
   const { isAuth } = useContext(AuthContext)
   const [dataStar, setDataStar] = useState<starType[] | null>(null)
-  const { t } = useTranslation()
+  const t = useTranslation()
   useEffect(() => {
     const data: starType[] = JSON.parse(localStorage.getItem('star'))
     if (data || (data && data.length <= 1))
@@ -37,8 +46,8 @@ const PageStars = () => {
       <>
         <Meta
           title={t('title.selected')}
+          keywords={[t('selected.list'), t('title.selected')]}
           description={t('title.selected')}
-          canonical="start"
         />
         <h1 className="h5 my-6 leading-7 font-bold" dir="auto">
           {t('selected.list')}

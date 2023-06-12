@@ -1,9 +1,8 @@
-import classNames from 'classnames'
 import Swal from 'sweetalert2'
-import { AuthContext } from '@store/auth'
+import useTranslation from '@/hooks/translation'
+import { AuthContext } from '@/store/auth'
 import { memo, useContext, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import { useTranslation } from 'react-i18next'
 
 type starObj = {
   id: number
@@ -12,7 +11,7 @@ type starObj = {
   poster_path: string
 }
 const Star = ({ name, faName, id, poster_path }: starObj) => {
-  const { t } = useTranslation()
+  const t = useTranslation()
   const { isAuth } = useContext(AuthContext)
   const [loaderStatus, setLoaderStatus] = useState<boolean>(false)
   const [status, setStatus] = useState<boolean>(false)
@@ -67,7 +66,9 @@ const Star = ({ name, faName, id, poster_path }: starObj) => {
         showCloseButton: true,
       }).then((e) => {
         setLoaderStatus(false)
-        if (e.isConfirmed) router.push('/auth#login')
+        if (e.isConfirmed) {
+          router.push('/auth#login', '/auth#login', { locale: t('lang') })
+        }
       })
     }
   }

@@ -1,4 +1,4 @@
-import AllUser from '@util/db/user.json'
+import AllUser from '@/util/db/user.json'
 import jwt from 'jsonwebtoken'
 import { setCookie } from 'cookies-next'
 import type { NextApiRequest, NextApiResponse } from 'next'

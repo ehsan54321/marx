@@ -5,7 +5,7 @@
   "h1page": "Marks Ket Exchange",
   "page": "Main Page of Marks Ket Exchange",
   "digital.market": "Digital currency buying and selling market",
-  "home": "Home Page",
+  "home": "Home",
   "stars": "Stars",
   "start": "Start",
   "logout": "Logout",
@@ -22,7 +22,6 @@
   "open": "Open",
   "close": "Close",
   "hiding": "Hiding",
-  "footer.text": "1401 © According to article 12 of the third chapter of the Computer Crimes Law, any copying of the MarxKet website template design, contents and files in any way is prosecuted",
   "welcome": "!Welcome",
   "call": "Contact us",
   "number": "Phone number",
@@ -100,5 +99,9 @@
   "error.server": ".Unfortunately, there has been a temporary problem connecting to the service. Please try again in a few minutes",
   "error.404": ".The page you are looking for may have been deleted or the address You have not entered it correctly",
   "error.401": "!You are not allowed to access this page",
-  "error.no.login": ".You must enter the site first and then use this service"
+  "error.no.login": ".You must enter the site first and then use this service",
+
+  "changeLang": "Change Lang",
+  "lang": "en",
+  "dir": "ltr"
 }

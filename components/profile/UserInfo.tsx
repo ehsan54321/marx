@@ -1,10 +1,10 @@
-import http from '@services/httpServices'
+import http from '@/services/httpServices'
 import Swal from 'sweetalert2'
-import { AuthContext } from '@store/auth'
+import useTranslation from '@/hooks/translation'
+import { AuthContext } from '@/store/auth'
 import { BsEnvelopeFill, BsFillPersonFill } from 'react-icons/bs'
-import { resErr, removeSpas } from '@lib/helper'
+import { removeSpas, resErr } from '@/lib/helper'
 import { useContext, useState } from 'react'
-import { useTranslation } from 'react-i18next'
 
 type filedInput = { stt: boolean; mas: string }
 const UserInfo = () => {
@@ -14,7 +14,7 @@ const UserInfo = () => {
     mas: '',
   })
   const { authState, setAuthState } = useContext(AuthContext)
-  const { t } = useTranslation()
+  const t = useTranslation()
   const finish = (username: string) => {
     Swal.fire({
       icon: 'warning',

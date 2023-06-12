@@ -1,13 +1,13 @@
+import useTranslation from '@/hooks/translation'
 import { useEffect, useState } from 'react'
-import { useTranslation } from 'react-i18next'
 
 const Welcome = () => {
-  const { t } = useTranslation()
+  const t = useTranslation()
   const [show, setShow] = useState(false)
   useEffect(() => {
-    if (!localStorage.getItem('lang')) {
+    if (!localStorage.getItem('welcome')) {
       setShow(true)
-      localStorage.setItem('lang', 'fa')
+      localStorage.setItem('welcome', 'true')
     }
   }, [])
   if (show)

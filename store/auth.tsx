@@ -1,7 +1,7 @@
-import http from '@services/httpServices'
+import http from '@/services/httpServices'
+import useTranslation from '@/hooks/translation'
 import { createContext, useEffect, useState } from 'react'
-import { resErr } from '@lib/helper'
-import { useTranslation } from 'react-i18next'
+import { resErr } from '@/lib/helper'
 
 type context = {
   isAuth: boolean
@@ -13,7 +13,7 @@ export const AuthContext = createContext<context | null>(null)
 const { Provider } = AuthContext
 
 const AuthProvider = ({ children }): JSX.Element => {
-  const { t } = useTranslation()
+  const t = useTranslation()
   const [authState, setAuthState] = useState(false)
   useEffect(() => {
     const getUser = () => {

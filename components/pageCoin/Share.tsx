@@ -1,13 +1,13 @@
 import Swal from 'sweetalert2'
 import { AiOutlineMail, AiOutlineWhatsApp } from 'react-icons/ai'
-import { baseURL } from '@baseUrl'
+import { baseURL } from '@/config'
 import { HiOutlineShare } from 'react-icons/hi'
 import { RiFileCopyLine } from 'react-icons/ri'
 import { TbBrandTelegram } from 'react-icons/tb'
-import { useTranslation } from 'react-i18next'
+import useTranslation from '@/hooks/translation'
 
 const Share = ({ nameCoin, name }) => {
-  const { t } = useTranslation()
+  const t = useTranslation()
   const copyHandler = () => {
     navigator.clipboard.writeText(`${baseURL}coins/${nameCoin}`)
     Swal.fire({

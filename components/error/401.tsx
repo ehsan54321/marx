@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import Meta from '@components/Meta'
-import { useTranslation } from 'react-i18next'
+import Meta from '@/components/Meta'
+import useTranslation from '@/hooks/translation'
 
 type Props = {
   children: string
@@ -9,14 +9,13 @@ type Props = {
   btnHome?: boolean
 }
 const Error401 = ({ children, btn = false, btnHome = false }: Props) => {
-  const { t } = useTranslation()
+  const t = useTranslation()
   return (
     <div className="background-color bg-white">
       <Meta
         title={t('error') + ' 401'}
         description={children}
-        keywords="401"
-        canonical="401"
+        keywords={['401', t('error') + ' 401']}
         noFeastTitle
       />
       <div className="flex items-center flex-col">
@@ -33,7 +32,7 @@ const Error401 = ({ children, btn = false, btnHome = false }: Props) => {
           <span>{children}</span>
         </div>
         {btn && (
-          <Link href="/auth#login">
+          <Link href="/auth#login" locale={t('lang')}>
             <button
               className="my_btn cursor-pointer text-white text-[14px]"
               type="button"
@@ -43,7 +42,7 @@ const Error401 = ({ children, btn = false, btnHome = false }: Props) => {
           </Link>
         )}
         {btnHome && (
-          <Link href="/">
+          <Link href="/" locale={t('lang')}>
             <button
               className="my_btn cursor-pointer text-white text-[14px]"
               type="button"
