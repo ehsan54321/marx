@@ -11,8 +11,12 @@
   border: 0;
   border-radius: 0;
   overflow-anchor: none;
-  transition: color ease-in-out, background ease-in-out,
-    border-color ease-in-out, box-shadow ease-in-out, border-radius ease;
+  transition:
+    color ease-in-out,
+    background ease-in-out,
+    border-color ease-in-out,
+    box-shadow ease-in-out,
+    border-radius ease;
   transition-duration: 0.15s;
 
   &:not(.collapsed) {

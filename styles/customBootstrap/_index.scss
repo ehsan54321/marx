@@ -39,7 +39,9 @@
   -moz-appearance: none;
   appearance: none;
   border-radius: 0.375rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition:
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
 }
 .form-control:focus {
   color: #212529;
@@ -76,8 +78,11 @@
   border-width: 0;
   border-inline-end-width: 1px;
   border-radius: 0;
-  transition: color 0.15s ease-in-out, background 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition:
+    color 0.15s ease-in-out,
+    background 0.15s ease-in-out,
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
 }
 .form-control::file-selector-button {
   padding: 0.375rem 0.75rem;
@@ -92,8 +97,11 @@
   border-width: 0;
   border-inline-end-width: 1px;
   border-radius: 0;
-  transition: color 0.15s ease-in-out, background 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition:
+    color 0.15s ease-in-out,
+    background 0.15s ease-in-out,
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
 }
 .form-control:hover:not(:disabled):not([readonly])::-webkit-file-upload-button {
   background: #dde0e3;
@@ -198,7 +206,9 @@
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
-  transition: color 0.15s ease-in-out, background 0.15s ease-in-out,
+  transition:
+    color 0.15s ease-in-out,
+    background 0.15s ease-in-out,
     border-color 0.15s ease-in-out;
 }
 .nav-tabs {

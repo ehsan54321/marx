@@ -11,6 +11,12 @@
       "username": "کاربرتستی",
       "date": "1401/10/02",
       "password": "user-test"
+    },
+    "ehsan@gmail.com": {
+      "email": "ehsan@gmail.com",
+      "password": "123456",
+      "username": "ehsan",
+      "date": "1402/04/17"
     }
   }
 }
