@@ -13,8 +13,9 @@ const UserCard = ({ setShow }) => {
   const t = useTranslation()
   const Logout = () => {
     http
-      .get('api/v2/auth/logout')
+      .get('api/v3/auth/logout')
       .then(async () => {
+        localStorage.removeItem('star')
         await setAuthState(null)
         await setShow(false)
         router.push('/auth#login', '/auth#login', { locale: t('lang') })
@@ -51,7 +52,7 @@ const UserCard = ({ setShow }) => {
           </p>
           <p className="mb-[2.5px]">
             <span className="text-slate-500">{t('info.create.account')}</span>
-            {numberToPersian(authState.user.date, t('dir') === 'rtl')}
+            {numberToPersian(authState.user.created, t('dir') === 'rtl')}
           </p>
           <p className="mb-[2.5px]">
             <span className="text-slate-500">{t('info.iat.account')}</span>

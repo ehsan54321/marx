@@ -79,6 +79,8 @@
   "email": "ایمیل",
   "password": "رمز عبور",
   "re.password": "تکرار رمز عبور",
+  "new.password": "رمز عبور جدید",
+  "old.password": "رمز عبور قدمی",
   "login": "ورود",
   "username": "نام کاربری",
   "login.success": "ورود با موفقیت انجام شد!",

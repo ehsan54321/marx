@@ -18,10 +18,17 @@ const AuthProvider = ({ children }): JSX.Element => {
   useEffect(() => {
     const getUser = () => {
       http
-        .get('api/v2/user')
+        .get('api/v3/auth/user')
         .then(({ data }) => {
           if (data === 'شما وارد نشدید') setAuthState(null)
-          else setAuthState(data)
+          else {
+            if (data !== 'شما وارد نشدید' && !localStorage.getItem('star')) {
+              http.get(`/api/v3/star/user/${data.user.id}`).then((response) => {
+                localStorage.setItem('star', JSON.stringify(response.data))
+              })
+            }
+            setAuthState(data)
+          }
         })
         .catch(() => {
           setAuthState(null)

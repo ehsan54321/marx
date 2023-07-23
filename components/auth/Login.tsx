@@ -28,14 +28,14 @@ const Login = ({ setShow }) => {
   const noFind = 'لطفا این فیلد را پر کنید.'
   const onFinish = (value: onFinishType) => {
     http
-      .post('api/v2/auth/login', {
+      .post('api/v3/auth/login', {
         password: value.password,
         email: value.email,
         lang: t('dir') === 'rtl',
       })
       .then((res) => {
         if (res.data.status === 'SUCCESS') {
-          http.get('api/v2/user').then(async ({ data }) => {
+          http.get('api/v3/auth/user').then(async ({ data }) => {
             await setAuthState(data)
             await setShow()
             router.push('/account', '/account', { locale: t('lang') })

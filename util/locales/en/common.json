@@ -29,7 +29,6 @@
   "new.coin": "New Coins",
   "download": "Download",
   "download.icon": "Download Icon",
-
   "title.home": "The price of digital currencies in iran",
   "chart": "Market Chart",
   "price.change": "Price Change",
@@ -52,12 +51,10 @@
   "faq": "Faq",
   "view.all.coins": "View all coins",
   "more.information": "more information",
-
   "telegram": "Telegram",
   "whatsapp": "Whatsapp",
   "copy.link": "Copy Link",
   "copy.ok": "Copied",
-
   "profile": "Profile",
   "info.user": "User account information",
   "info.account": "account name : ",
@@ -67,7 +64,6 @@
   "info.confirm": "Confirm the change of user information",
   "info.logout": "User account exit",
   "info.information": "Change user information",
-
   "filter-none": "No mode",
   "filter-invert": "Dark mode",
   "filter-grayscale": "Black and white mode",
@@ -75,10 +71,11 @@
   "filter-hue-rotate": "Low color mode",
   "filter-hue-rotate-lg": "Medium color mode",
   "filter-hue-rotate-xl": "Bold color mode",
-
   "email": "Email",
   "password": "Password",
   "re.password": "RePassword",
+  "new.password": "New Password",
+  "old.password": "Old Password",
   "username": "UserName",
   "login": "Login",
   "login.success": "!Login successfully",
@@ -89,10 +86,8 @@
   "img": "image",
   "no.img": "no image",
   "tem": "Theme",
-
   "user.manual": "USER MANUAL",
   "most.popular": "MOST POPULARS",
-
   "text.no.login": ".You must log in first",
   "text.no.login.button": "Come in",
   "error": "Error",
@@ -100,7 +95,6 @@
   "error.404": ".The page you are looking for may have been deleted or the address You have not entered it correctly",
   "error.401": "!You are not allowed to access this page",
   "error.no.login": ".You must enter the site first and then use this service",
-
   "changeLang": "Change Lang",
   "lang": "en",
   "dir": "ltr"

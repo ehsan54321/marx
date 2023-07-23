@@ -3,6 +3,8 @@ import useTranslation from '@/hooks/translation'
 import { AuthContext } from '@/store/auth'
 import { memo, useContext, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import http from '@/services/httpServices'
+import { resErr } from '@/lib/helper'
 
 type starObj = {
   id: number
@@ -12,7 +14,7 @@ type starObj = {
 }
 const Star = ({ name, faName, id, poster_path }: starObj) => {
   const t = useTranslation()
-  const { isAuth } = useContext(AuthContext)
+  const { isAuth, authState } = useContext(AuthContext)
   const [loaderStatus, setLoaderStatus] = useState<boolean>(false)
   const [status, setStatus] = useState<boolean>(false)
   const router = useRouter()
@@ -25,39 +27,67 @@ const Star = ({ name, faName, id, poster_path }: starObj) => {
   const starHandler = () => {
     const setFalse = (status: boolean) => {
       setStatus(status)
-      setTimeout(() => setLoaderStatus(false), 400)
+      setTimeout(() => setLoaderStatus(false), 200)
     }
     setLoaderStatus(true)
     if (isAuth) {
-      const dataLocalStorage: starObj[] = [{ name, faName, id, poster_path }]
       if (status) {
-        // localStorage پاک کردن کوین از
-        const funLocalStorage = () => {
-          return JSON.parse(localStorage.getItem('star')).filter(
-            (coin: starObj) => coin.name !== name
-          )
-        }
-        localStorage.setItem('star', JSON.stringify(funLocalStorage()))
-        setFalse(false)
+        http
+          .put('api/v3/star/del', {
+            user_id: authState.user.id,
+            name,
+          })
+          .then((res) => {
+            const funLocalStorage = () => {
+              return JSON.parse(localStorage.getItem('star')).filter(
+                (coin: starObj) => coin.name !== name
+              )
+            }
+            localStorage.setItem('star', JSON.stringify(funLocalStorage()))
+            setFalse(false)
+          })
+          .catch(() => resErr(t))
       } else {
-        if (!localStorage.getItem('star')) {
-          // اولین ستاره
-          localStorage.setItem('star', JSON.stringify(dataLocalStorage))
-          setFalse(true)
-        } else {
-          // دو به بالا ستاره
-          localStorage.setItem(
-            'star',
-            JSON.stringify([
-              ...JSON.parse(localStorage.getItem('star')),
-              ...dataLocalStorage,
-            ])
-          )
-          setFalse(true)
-        }
+        http
+          .put('api/v3/star/add', {
+            user_id: authState.user.id,
+            name,
+            faName,
+            id,
+            poster_path,
+          })
+          .then((res) => {
+            if (res.data.status === 'SUCCESS') {
+              const dataLocalStorage = { name, faName, id, poster_path }
+              const local = localStorage.getItem('star')
+              localStorage.setItem(
+                'star',
+                JSON.stringify(
+                  local
+                    ? [dataLocalStorage, ...JSON.parse(local)]
+                    : [dataLocalStorage]
+                )
+              )
+              setFalse(true)
+            } else if (res.data.status === 'WARNING') {
+              localStorage.removeItem('star')
+              http
+                .get(`/api/v3/star/user/${authState.user.id}`)
+                .then(async (response) => {
+                  await localStorage.setItem(
+                    'star',
+                    JSON.stringify(response.data)
+                  )
+                  location.reload()
+                })
+            } else {
+              setFalse(false)
+              resErr(t)
+            }
+          })
+          .catch(() => resErr(t))
       }
     } else {
-      // زمانی که کاربر وارد نشد باشد
       Swal.fire({
         icon: 'warning',
         title: t('text.no.login'),

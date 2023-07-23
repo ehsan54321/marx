@@ -2,9 +2,16 @@ import http from '@/services/httpServices'
 import Swal from 'sweetalert2'
 import useTranslation from '@/hooks/translation'
 import { AuthContext } from '@/store/auth'
-import { BsEnvelopeFill, BsFillPersonFill } from 'react-icons/bs'
+import {
+  BsEnvelopeFill,
+  BsEye,
+  BsEyeSlash,
+  BsFillPersonFill,
+} from 'react-icons/bs'
 import { removeSpas, resErr } from '@/lib/helper'
 import { useContext, useState } from 'react'
+import { RiLockPasswordFill } from 'react-icons/ri'
+import classNames from 'classnames'
 
 type filedInput = { stt: boolean; mas: string }
 const UserInfo = () => {
@@ -13,9 +20,24 @@ const UserInfo = () => {
     stt: false,
     mas: '',
   })
+  const [passLook, setPassLook] = useState<boolean>(true)
+  const [newPassLook, setNewPassLook] = useState<boolean>(true)
+  const [rePassLook, setRePassLook] = useState<boolean>(true)
+  const [errorPass, setErrorPass] = useState<filedInput>({
+    stt: false,
+    mas: '',
+  })
+  const [errorNewPass, setErrorNewPass] = useState<filedInput>({
+    stt: false,
+    mas: '',
+  })
+  const [errorRePass, setErrorRePass] = useState<filedInput>({
+    stt: false,
+    mas: '',
+  })
   const { authState, setAuthState } = useContext(AuthContext)
   const t = useTranslation()
-  const finish = (username: string) => {
+  const finish = ({ username, password, newPassword }) => {
     Swal.fire({
       icon: 'warning',
       title:
@@ -26,14 +48,23 @@ const UserInfo = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         http
-          .put('api/v2/auth/update', {
+          .put('api/v3/auth/update', {
             username,
+            password,
+            newPassword,
             email: authState.user.email,
-            date: authState.user.date,
+            created: authState.user.created,
           })
           .then((res) => {
             if (res.data.status === 'SUCCESS') {
-              setAuthState({ ...authState, username })
+              const newData = {
+                ...authState,
+                user: {
+                  ...authState.user,
+                  name: username,
+                },
+              }
+              setAuthState(newData)
               Swal.fire({
                 icon: 'success',
                 title:
@@ -60,12 +91,24 @@ const UserInfo = () => {
   }
   const onSubmit = (e) => {
     const username: string = removeSpas(e.target['0'].value)
+    const password: string = removeSpas(e.target['2'].value.toLowerCase())
+    const newPassword: string = removeSpas(e.target['3'].value.toLowerCase())
+    const rePassword: string = removeSpas(e.target['4'].value.toLowerCase())
     const usernameRegExp = new RegExp(
       /^[A-Za-zآابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیئ\s][A-Za-z0-9آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیئ\s]*$/
+    )
+    const passwordRegExp = new RegExp(
+      /^[a-zA-Z0-9_$*@+#!%&{}\.()-\s]{1,999999}$/
     )
     const emailRegExp = new RegExp(/^[a-zA-Z\s][a-zA-Z0-9_\.-\s]*@gmail.com$/)
     const noFind = 'لطفا این فیلد را پر کنید.'
     let isUsername: boolean = false
+    let isPassword: boolean = false
+    let isRePassword: boolean = false
+    let isNewPassword: boolean = false
+    setErrorPass({ stt: false, mas: '' })
+    setErrorRePass({ stt: false, mas: '' })
+    setErrorNewPass({ stt: false, mas: '' })
     setErrorUsername({ stt: false, mas: '' })
     if (
       username &&
@@ -96,7 +139,85 @@ const UserInfo = () => {
         })
       }
     }
-    if (isUsername) finish(username)
+    if (password === '' && rePassword === '') {
+      isRePassword = true
+      isNewPassword = true
+      isPassword = true
+    } else {
+      if (
+        password &&
+        password.length >= 6 &&
+        password.length <= 32 &&
+        passwordRegExp.exec(password)
+      ) {
+        setErrorPass({ stt: false, mas: '' })
+        isPassword = true
+      } else {
+        if (!password) setErrorPass({ stt: true, mas: noFind })
+        else if (!(password.length >= 6 && password.length <= 32)) {
+          if (password.length <= 6) {
+            setErrorPass({
+              stt: true,
+              mas: 'رمز عبور قدمی شما می بایست بیش از ۶ حرف باشد!',
+            })
+          } else {
+            setErrorPass({
+              stt: true,
+              mas: 'رمز عبور قدمی شما می بایست کمتر از ۳۲ حرف باشد!',
+            })
+          }
+        } else if (!!!passwordRegExp.exec(password)) {
+          setErrorPass({
+            stt: true,
+            mas: 'رمز عبور قدمی از حروف انگلیسی تشگیل شد باشد!',
+          })
+        }
+      }
+      if (
+        newPassword &&
+        newPassword.length >= 6 &&
+        newPassword.length <= 32 &&
+        passwordRegExp.exec(newPassword)
+      ) {
+        setErrorNewPass({ stt: false, mas: '' })
+        isNewPassword = true
+      } else {
+        if (!newPassword) setErrorNewPass({ stt: true, mas: noFind })
+        else if (!(newPassword.length >= 6 && newPassword.length <= 32)) {
+          if (newPassword.length <= 6) {
+            setErrorNewPass({
+              stt: true,
+              mas: 'رمز عبور جدید شما می بایست بیش از ۶ حرف باشد!',
+            })
+          } else {
+            setErrorNewPass({
+              stt: true,
+              mas: 'رمز عبور جدید شما می بایست کمتر از ۳۲ حرف باشد!',
+            })
+          }
+        } else if (!!!passwordRegExp.exec(newPassword)) {
+          setErrorNewPass({
+            stt: true,
+            mas: 'رمز عبور جدید از حروف انگلیسی تشگیل شد باشد!',
+          })
+        }
+      }
+      if (rePassword) {
+        if (newPassword === rePassword) {
+          setErrorRePass({ stt: false, mas: '' })
+          isRePassword = true
+        } else {
+          setErrorRePass({
+            stt: true,
+            mas: 'تکرار رمز عبور اشتباه است!',
+          })
+        }
+      } else setErrorRePass({ stt: true, mas: noFind })
+    }
+
+    if (isUsername && isPassword && isRePassword && isNewPassword) {
+      finish({ password, username, newPassword })
+    }
     e.preventDefault()
   }
   return (
@@ -149,6 +270,95 @@ const UserInfo = () => {
               />
             </div>
             <div className="mt-1 text-center" />
+          </div>
+          <div className="mb-4">
+            <div className="text-right mb-2">
+              <label htmlFor="register_password">{t('old.password')}</label>
+            </div>
+            <div className="input-group">
+              <div className="input-group-text bg-white">
+                <RiLockPasswordFill />
+              </div>
+              <input
+                className={classNames(
+                  'form-control',
+                  errorPass.stt ? 'is-invalid' : 'border-l-0'
+                )}
+                disabled={disabled}
+                name="password"
+                type={passLook ? 'password' : 'text'}
+              />
+              <div
+                className="input-group-text bg-white"
+                onClick={() => setPassLook(!passLook)}
+              >
+                {!passLook ? <BsEye /> : <BsEyeSlash />}
+              </div>
+            </div>
+            <div className="mt-1">
+              <span className="text-red-600">{errorPass.mas}</span>
+              {errorPass.stt && <br />}
+              <span className="text-slate-500">
+                شما می توانید نام کاربری فقط تغیر دهید و یا فقط رمز عبور تغیر
+                دهید.
+              </span>
+            </div>
+          </div>
+          <div>
+            <div className="text-right mb-2">
+              <label htmlFor="register_password">{t('new.password')}</label>
+            </div>
+            <div className="input-group">
+              <div className="input-group-text bg-white">
+                <RiLockPasswordFill />
+              </div>
+              <input
+                className={classNames(
+                  'form-control',
+                  errorNewPass.stt ? 'is-invalid' : 'border-l-0'
+                )}
+                name="newPassword"
+                disabled={disabled}
+                type={newPassLook ? 'password' : 'text'}
+              />
+              <div
+                className="input-group-text bg-white"
+                onClick={() => setNewPassLook(!newPassLook)}
+              >
+                {!newPassLook ? <BsEye /> : <BsEyeSlash />}
+              </div>
+            </div>
+            <div className="mt-1">
+              <span className="text-red-600">{errorNewPass.mas}</span>
+            </div>
+          </div>
+          <div>
+            <div className="text-right mb-2">
+              <label htmlFor="register_password">{t('re.password')}</label>
+            </div>
+            <div className="input-group">
+              <div className="input-group-text bg-white">
+                <RiLockPasswordFill />
+              </div>
+              <input
+                className={classNames(
+                  'form-control',
+                  errorRePass.stt ? 'is-invalid' : 'border-l-0'
+                )}
+                name="rePassword"
+                disabled={disabled}
+                type={rePassLook ? 'password' : 'text'}
+              />
+              <div
+                className="input-group-text bg-white"
+                onClick={() => setRePassLook(!rePassLook)}
+              >
+                {!rePassLook ? <BsEye /> : <BsEyeSlash />}
+              </div>
+            </div>
+            <div className="mt-1">
+              <span className="text-red-600">{errorRePass.mas}</span>
+            </div>
           </div>
           {!disabled && (
             <div className="text-center mt-6">

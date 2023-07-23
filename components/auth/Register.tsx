@@ -45,10 +45,10 @@ const Register = ({ setShow }) => {
   })
   const onFinish = (value: onFinishType) => {
     http
-      .post('api/v2/auth/register', value)
+      .post('api/v3/auth/register', value)
       .then((res) => {
         if (res.data.status === 'SUCCESS') {
-          http.get('api/v2/user').then(async ({ data }) => {
+          http.get('api/v3/auth/user').then(async ({ data }) => {
             await setAuthState(data)
             await setShow()
             router.push('/account', '/account', { locale: t('lang') })
@@ -227,7 +227,7 @@ const Register = ({ setShow }) => {
         </div>
         <div className="mt-1">
           <span className="text-red-600">{errorUsername.mas}</span>
-          {errorUsername.mas && <br />}
+          {errorUsername.stt && <br />}
           <span className="text-slate-500">
             به شما پیشنهاد می کنیم از نام های فارسی استفاده کنید.
           </span>
