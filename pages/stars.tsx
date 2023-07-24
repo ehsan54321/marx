@@ -6,6 +6,8 @@ import { AuthContext } from '@/store/auth'
 import { Error401 } from '@/components/error'
 import { useContext, useEffect, useState } from 'react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import http from '@/services/httpServices'
+import { resErr } from '@/lib/helper'
 
 export async function getStaticProps({ locale }) {
   return {
@@ -22,24 +24,31 @@ type starType = {
   poster_path: string
 }
 const PageStars = () => {
-  const { isAuth } = useContext(AuthContext)
+  const { isAuth, authState } = useContext(AuthContext)
   const [dataStar, setDataStar] = useState<starType[] | null>(null)
   const t = useTranslation()
   useEffect(() => {
     const data: starType[] = JSON.parse(localStorage.getItem('star'))
-    if (data || (data && data.length <= 1))
+    if (data || data.length <= 1) {
       data.sort((a: starType, b: starType) => a.id - b.id)
+    }
     setDataStar(data)
   }, [])
 
   const DeleteStarInLocalStorage = (key) => {
-    setDataStar((prevDataStar) =>
-      prevDataStar.filter((coin: starType) => coin.name !== key)
-    )
-
-    const funLocalStorage = () =>
-      dataStar.filter((coin: starType) => coin.name !== key)
-    localStorage.setItem('star', JSON.stringify(funLocalStorage()))
+    http
+      .put('api/v3/star/del', {
+        user_id: authState.user.id,
+        name: key,
+      })
+      .then((res) => {
+        const funLocalStorage = () =>
+          dataStar.filter((coin: starType) => coin.name !== key)
+        const new_data = funLocalStorage()
+        localStorage.setItem('star', JSON.stringify(new_data))
+        setDataStar(new_data)
+      })
+      .catch(() => resErr(t))
   }
   if (isAuth) {
     return (
