@@ -1,13 +1,14 @@
 import classNames from 'classnames'
-import { useRef, useState } from 'react'
+import {useRef, useState} from 'react'
 
 const Accordion = (props) => {
   const [showItem, setShowItem] = useState<null | number>(null)
-  const oneAccordion = useRef(null)
-  const towAccordion = useRef(null)
+  const oneAccordion = useRef<any>(null)
+  const towAccordion = useRef<any>(null)
   const hItemOne = () => {
-    if (showItem === 1)
+    if (showItem === 1) {
       return oneAccordion.current.getBoundingClientRect().height
+    }
     return 0
   }
   const hItemTow = () => {
@@ -35,7 +36,7 @@ const Accordion = (props) => {
         </h2>
         <div
           className="accordion-collapse overflow-hidden h-0 accordion_transition"
-          style={{ height: `calc(${hItemOne()}px - 1rem)` }}
+          style={{height: `calc(${hItemOne()}px - 1rem)`}}
         >
           <article className="accordion-body" ref={oneAccordion}>
             <p dir="auto">{props.di.one}</p>
@@ -60,7 +61,7 @@ const Accordion = (props) => {
         </h2>
         <div
           className="accordion-collapse overflow-hidden h-0 accordion_transition"
-          style={{ height: `calc(${hItemTow()}px - 1rem)` }}
+          style={{height: `calc(${hItemTow()}px - 1rem)`}}
         >
           <article className="accordion-body" ref={towAccordion}>
             <p dir="auto">{props.di.tow}</p>

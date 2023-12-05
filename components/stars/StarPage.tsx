@@ -23,6 +23,7 @@ const StarPage = (props) => {
               pathname: '/coins/[coin]',
               query: { coin: props.nameEN },
             }}
+            prefetch={false}
             locale={t('lang')}
             className="uiCoin_nameCoin mr-1"
           >

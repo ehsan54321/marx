@@ -61,6 +61,7 @@ const UiCoin = (props: Props) => {
                 query: { coin: my_key },
               }}
               locale={t('lang')}
+              prefetch={false}
               className="flex flex-col sm:mt-0 mt-[.8px] max-sm:pb-1 mr-1 uiCoin_nameCoin"
               title={t('coin')}
             >

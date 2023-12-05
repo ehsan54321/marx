@@ -193,7 +193,7 @@ const Home = () => {
             src="/static/assets/img/bitcoin-iphone.svg"
             alt="bitcoin"
             className="filter-invert-dark animation-img max-sm:w-full max-sm:h-auto"
-            priority
+            // priority={true}
             width={560}
             height={560}
           />
@@ -233,6 +233,7 @@ const Home = () => {
                     pathname: '/coins/[coin]',
                     query: { coin: key },
                   }}
+                  prefetch={false}
                   locale={t('lang')}
                   className="flex items-center hover:text-[#1e4dd8] cursor-pointer mt-2 home_"
                 >
@@ -291,6 +292,7 @@ const Home = () => {
                         pathname: '/coins/[coin]',
                         query: { coin: key },
                       }}
+                      prefetch={false}
                       locale={t('lang')}
                       className="flex items-center hover:text-[#1e4dd8] cursor-pointer mt-1.5 home_"
                     >

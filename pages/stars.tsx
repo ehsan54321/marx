@@ -28,11 +28,14 @@ const PageStars = () => {
   const [dataStar, setDataStar] = useState<starType[] | null>(null)
   const t = useTranslation()
   useEffect(() => {
-    const data: starType[] = JSON.parse(localStorage.getItem('star'))
-    if (data || data.length <= 1) {
-      data.sort((a: starType, b: starType) => a.id - b.id)
+    const localdata: string | null = localStorage.getItem('star')
+    if (localdata != null) {
+      const data = JSON.parse(localdata)
+      if (data.length <= 1) {
+        data.sort((a: starType, b: starType) => a.id - b.id)
+      }
+      setDataStar(data)
     }
-    setDataStar(data)
   }, [])
 
   const DeleteStarInLocalStorage = (key) => {

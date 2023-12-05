@@ -32,7 +32,7 @@ const Error401 = ({ children, btn = false, btnHome = false }: Props) => {
           <span>{children}</span>
         </div>
         {btn && (
-          <Link href="/auth#login" locale={t('lang')}>
+          <Link href="/auth#login" locale={t('lang')} >
             <button
               className="my_btn cursor-pointer text-white text-[14px]"
               type="button"

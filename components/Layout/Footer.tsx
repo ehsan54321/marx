@@ -85,6 +85,7 @@ const Footer = () => {
                     <Link
                       href={{ pathname: '/coins/[coin]', query: { coin: key } }}
                       locale={t('lang')}
+                      prefetch={false}
                     >
                       {name}
                     </Link>
@@ -101,25 +102,25 @@ const Footer = () => {
             <div className="footer-col sm:float-left">
               <h3 className="footer-title">{t('user.manual')}</h3>
               <div className="footer">
-                <Link href="/" locale={t('lang')}>
+                <Link href="/" locale={t('lang')} prefetch={false}>
                   {t('home')}
                 </Link>
                 <br />
-                <Link href="/coins" locale={t('lang')}>
+                <Link href="/coins" locale={t('lang')} prefetch={false}>
                   {t('coins')}
                 </Link>
                 <br />
-                <Link href="/auth" locale={t('lang')}>
+                <Link href="/auth" locale={t('lang')} prefetch={false}>
                   {t('btn-login')}
                 </Link>
               </div>
               <div className="footer-line h-px" />
               <div className="footer">
-                <Link href="/stars" locale={t('lang')}>
+                <Link href="/stars" locale={t('lang')} prefetch={false}>
                   {t('stars')}
                 </Link>
                 <br />
-                <Link href="/account" locale={t('lang')}>
+                <Link href="/account" locale={t('lang')} prefetch={false}>
                   {t('profile')}
                 </Link>
               </div>

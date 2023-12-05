@@ -58,7 +58,7 @@ const Auth = ({ setShow }) => {
           ></path>
         </svg>
       ) : !isAuth ? (
-        <Link href="/auth#login" locale={t('lang')}>
+        <Link href="/auth#login" locale={t('lang')} prefetch={false}>
           <button
             type="button"
             className="head_login inline-block px-3.5 py-1.5 bg-white text-black text-base rounded-md border border-solid border-black hover:bg-black hover:text-white hover:shadow-md outline-0 transition-all cursor-pointer"
@@ -69,7 +69,7 @@ const Auth = ({ setShow }) => {
       ) : (
         <div className="relative flex items-center">
           <div className="md:hidden">
-            <Link href="/account" locale={t('lang')}>
+            <Link href="/account" locale={t('lang')} prefetch={false}>
               <Avatar.Root className="items-center justify-center align-middle select-none overflow-hidden inline-flex bg-slate-100 mr-2 w-12 h-12 rounded-full">
                 <Avatar.Fallback className="leading-4 text-[15px] font-medium text-purple-800 w-full h-full flex items-center justify-center bg-slate-100">
                   {authState.user.name.toLocaleUpperCase()}
@@ -100,7 +100,7 @@ const Auth = ({ setShow }) => {
                 t('dir') === 'rtl' ? 'right-[-60px]' : 'left-[-60px]'
               )}
             >
-              <Link href="/account" locale={t('lang')}>
+              <Link href="/account" locale={t('lang')} prefetch={false}>
                 <li className="leading-7 hover:bg-slate-100 rounded-md p-2 text-black">
                   <BsFillPersonFill />
                   <span className={t('dir') === 'rtl' ? 'mr-1' : 'ml-1'}>

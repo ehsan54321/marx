@@ -108,7 +108,12 @@ const Header = ({ setShow }) => {
                 </button>
               </li>
               <li className="nav-item">
-                <Link href="/" locale={t('lang')} className="flex">
+                <Link
+                  href="/"
+                  locale={t('lang')}
+                  className="flex"
+                  prefetch={false}
+                >
                   <img
                     src="/favicon-96x96.png"
                     alt="لوگو"
@@ -144,6 +149,7 @@ const Header = ({ setShow }) => {
             <ul className="block md:flex md:m-auto mt-4 items-center">
               <Link
                 href="/"
+                prefetch={false}
                 locale={t('lang')}
                 className="font-medium px-4 py-1 rounded-lg md:hover:bg-slate-100 text-lg md:inline block md:leading-1 leading-10"
               >
@@ -160,6 +166,7 @@ const Header = ({ setShow }) => {
               </Link>
               <Link
                 href="/coins"
+                prefetch={false}
                 locale={t('lang')}
                 className="font-medium px-4 py-1 rounded-lg md:hover:bg-slate-100 text-lg md:inline block md:leading-1 leading-10"
               >
@@ -245,6 +252,7 @@ const Header = ({ setShow }) => {
               </Link>
               <Link
                 href="/stars"
+                prefetch={false}
                 locale={t('lang')}
                 className="font-medium px-4 py-1 rounded-lg md:hover:bg-slate-100 text-lg md:inline block md:leading-1 leading-10"
               >

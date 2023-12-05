@@ -1,3 +1,4 @@
+/** @type {import('next').NextConfig} */
 const { i18n } = require('./next-i18next.config')
 const prod = process.env.NODE_ENV === 'production'
 const withPWA = require('next-pwa')({
@@ -7,14 +8,13 @@ const withPWA = require('next-pwa')({
   skipWaiting: true,
 })
 
-/**
- * @type {import('next').NextConfig}
- */
-
 const settings = {
   reactStrictMode: true,
   swcMinify: true,
   i18n,
+  // typescript: {
+  //   ignoreBuildErrors: true,
+  // },
   experimental: {
     // for liara services in production
     outputStandalone: true,

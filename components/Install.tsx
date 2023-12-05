@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 const Install = () => {
   const [supportsPWA, setSupportsPWA] = useState<boolean>(false)
-  const [promptInstall, setPromptInstall] = useState(null)
+  const [promptInstall, setPromptInstall] = useState<any>(null)
   useEffect(() => {
     const handler = (e) => {
       setSupportsPWA(true)

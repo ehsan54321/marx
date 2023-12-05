@@ -1,4 +1,9 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+# Host
+Host: https://marx.iran.liara.run
+
+# Sitemaps
 Sitemap: https://marx.iran.liara.run/sitemap.xml
