@@ -14,11 +14,7 @@ const settings = {
     i18n,
     // typescript: {
     //   ignoreBuildErrors: true,
-    // },
-    experimental: {
-        // for liara services in production
-        outputStandalone: true,
-    },
+    // }
 }
 
 module.exports = withPWA(settings)

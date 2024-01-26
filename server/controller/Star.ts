@@ -59,6 +59,7 @@ const DelStar = async ({ user_id, name }) => {
 
 const GetStar = async ({ id }) => {
   const starList = await Star.findOne({ user_id: id })
+
   if (starList.coins) {
     return starList.coins
   } else return {}

@@ -13,7 +13,7 @@ NProgress.configure({ showSpinner: false })
 const App = ({ Component, pageProps }) => {
   const t = useTranslation()
   const router= useRouter()
-  
+
   useEffect(() => {
     const handleStart = () => {
       NProgress.start()
