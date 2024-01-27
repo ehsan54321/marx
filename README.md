@@ -1,6 +1,6 @@
-[page home](https://github.com/ehsan54321/marx/templates/1page_home.png)
+[page home](https://github.com/ehsan54321/marx/blob/main/templates/1page_home.png)
 
-[page coins](https://github.com/ehsan54321/marx/templates/2page_coins.png)
+[page coins](https://github.com/ehsan54321/marx/blob/main/templates/2page_coins.png)
 
 1.How to run the project
 ```
