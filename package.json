@@ -17,55 +17,20 @@
     "check-all": "yarn check-all-lint && yarn check-type"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "axios": "1.6.2",
-    "bcryptjs": "2.4.3",
-    "mongoose": "8.0.2",
-    "next": "14.0.3",
-    "next-i18next": "15.0.0",
-=======
     "axios": "1.6.7",
     "bcryptjs": "2.4.3",
     "mongoose": "8.1.1",
     "next": "14.1.0",
     "next-i18next": "15.2.0",
->>>>>>> 1bd3d58 (start git)
     "next-pwa": "5.6.0",
     "next-themes": "0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-<<<<<<< HEAD
-    "react-i18next": "13.5.0",
-=======
     "react-i18next": "14.0.1",
->>>>>>> 1bd3d58 (start git)
     "react-scroll": "1.9.0"
   },
   "devDependencies": {
     "@radix-ui/react-avatar": "1.0.4",
-<<<<<<< HEAD
-    "@types/react": "18.2.42",
-    "@types/react-dom": "18.2.17",
-    "autoprefixer": "10.4.16",
-    "chart.js": "4.4.1",
-    "classnames": "2.3.2",
-    "cookies-next": "4.1.0",
-    "eslint": "8.55.0",
-    "eslint-config-next": "14.0.3",
-    "eslint-config-prettier": "9.1.0",
-    "i18next": "23.7.7",
-    "jsonwebtoken": "9.0.2",
-    "nprogress": "0.2.0",
-    "persian-date": "1.1.0",
-    "postcss": "8.4.32",
-    "prettier": "3.1.0",
-    "react-chartjs-2": "5.2.0",
-    "react-icons": "4.12.0",
-    "sass": "1.69.5",
-    "sweetalert2": "11.10.1",
-    "tailwindcss": "3.3.6",
-    "typescript": "5.3.2"
-=======
     "@types/react": "18.2.48",
     "@types/react-dom": "18.2.18",
     "autoprefixer": "10.4.17",
@@ -87,6 +52,5 @@
     "sweetalert2": "11.10.4",
     "tailwindcss": "3.4.1",
     "typescript": "5.3.3"
->>>>>>> 1bd3d58 (start git)
   }
 }

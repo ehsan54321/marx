@@ -96,7 +96,7 @@ const Footer = () => {
               <div className="footer-line h-px" />
               <div className="footer pt-1">
                 <span className="footer">آمار های در سال</span>
-                <p className="pt-4">Jan 25, 2023</p>
+                <p className="pt-4">Jan 25, 2024</p>
               </div>
             </div>
             <div className="footer-col sm:float-left">
