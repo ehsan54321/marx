@@ -237,4 +237,3 @@ const ControllerCoins = ({ dataServer }) => {
 }
 
 export default ControllerCoins
-

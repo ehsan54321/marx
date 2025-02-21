@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import {useRef, useState} from 'react'
+import { useRef, useState } from 'react'
 
 const Accordion = (props) => {
   const [showItem, setShowItem] = useState<null | number>(null)
@@ -36,7 +36,7 @@ const Accordion = (props) => {
         </h2>
         <div
           className="accordion-collapse overflow-hidden h-0 accordion_transition"
-          style={{height: `calc(${hItemOne()}px - 1rem)`}}
+          style={{ height: `calc(${hItemOne()}px - 1rem)` }}
         >
           <article className="accordion-body" ref={oneAccordion}>
             <p dir="auto">{props.di.one}</p>
@@ -61,7 +61,7 @@ const Accordion = (props) => {
         </h2>
         <div
           className="accordion-collapse overflow-hidden h-0 accordion_transition"
-          style={{height: `calc(${hItemTow()}px - 1rem)`}}
+          style={{ height: `calc(${hItemTow()}px - 1rem)` }}
         >
           <article className="accordion-body" ref={towAccordion}>
             <p dir="auto">{props.di.tow}</p>

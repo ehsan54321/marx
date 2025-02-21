@@ -3,6 +3,7 @@
 ![page coins](./templates/2page_coins.png)
 
 1.How to run the project
+
 ```
 yarn install
 yarn dev

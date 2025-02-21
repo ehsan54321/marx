@@ -35,4 +35,3 @@ const User = (req: NextApiRequest, res: NextApiResponse) => {
 }
 
 export default User
-

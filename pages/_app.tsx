@@ -1,7 +1,7 @@
 import AuthProvider from '@/store/auth'
 import Layout from '@/components/Layout'
 import NProgress from 'nprogress'
-import  { useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import useTranslation from '@/hooks/translation'
 import Welcome from '@/components/Welcome'
 import { appWithTranslation } from 'next-i18next'
@@ -12,8 +12,8 @@ import { useEffect } from 'react'
 NProgress.configure({ showSpinner: false })
 const App = ({ Component, pageProps }) => {
   const t = useTranslation()
-  const router= useRouter()
-  
+  const router = useRouter()
+
   useEffect(() => {
     const handleStart = () => {
       NProgress.start()
