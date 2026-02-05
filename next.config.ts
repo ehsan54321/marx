@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+import type { NextConfig } from 'next'
 const { i18n } = require('./next-i18next.config')
 const prod = process.env.NODE_ENV === 'production'
 const withPWA = require('next-pwa')({
@@ -8,7 +9,8 @@ const withPWA = require('next-pwa')({
   skipWaiting: true,
 })
 
-const settings = {
+const nextConfig: NextConfig = {
+    turbopack: {},
   reactStrictMode: true,
   swcMinify: true,
   i18n,
@@ -21,4 +23,4 @@ const settings = {
   },
 }
 
-module.exports = withPWA(settings)
+export default  withPWA(nextConfig)
